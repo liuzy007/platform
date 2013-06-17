@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.alibaba.platform.shared</groupId>
+        <artifactId>napoli.parent</artifactId>
+        <version>1.5.9</version>
+    </parent>
+
+    <artifactId>napoli</artifactId>
+    <version>${project.parent.version}</version>
+    <packaging>libd</packaging>
+    <name>the all objects of napoli client project</name>
+    <url>http://b2b-doc.alibaba-inc.com/display/opentech/Napoli</url>
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.client</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.alibaba.maven.plugins</groupId>
+                <artifactId>maven-libd-plugin</artifactId>
+                <version>1.0</version>
+                <extensions>true</extensions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

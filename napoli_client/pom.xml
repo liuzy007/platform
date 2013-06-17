@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress MavenModelInspection -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.alibaba</groupId>
+        <artifactId>pampas</artifactId>
+        <version>4</version>
+    </parent>
+
+    <groupId>com.alibaba.platform.shared</groupId>
+    <artifactId>napoli.parent</artifactId>
+    <name>napoli parent pom</name>
+    <version>1.5.9</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>napoli.common</module>
+        <module>napoli.core</module>
+        <module>napoli.dragoon</module>
+        <module>napoli.activemq</module>
+        <module>napoli.hornetQ</module>
+        <module>napoli.metaq</module>
+        <module>napoli.normandy</module>
+        <module>napoli.client</module>
+        <module>napoli.all</module>
+    </modules>
+
+    <profiles>
+        <!-- mvn -Pall -->
+        <profile>
+            <id>all</id>
+            <modules>
+                <module>napoli.all</module>
+            </modules>
+        </profile>
+    </profiles>
+
+    <properties>
+        <java_source_version>1.6</java_source_version>
+        <java_target_version>1.6</java_target_version>
+
+        <project.build.sourceEncoding>GBK</project.build.sourceEncoding>
+
+        <sonar.jdbc.url>jdbc:mysql://10.20.153.18:3306/sonarpt?useUnicode=true&amp;characterEncoding=utf8
+        </sonar.jdbc.url>
+        <sonar.jdbc.driver>com.mysql.jdbc.Driver</sonar.jdbc.driver>
+        <sonar.jdbc.username>sonar</sonar.jdbc.username>
+        <sonar.jdbc.password>sonar</sonar.jdbc.password>
+        <sonar.host.url>http://10.20.153.18:9000/sonar/</sonar.host.url>
+    </properties>
+
+    <dependencies>
+        <!--log lib-->
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>org.slf4j.slf4j-log4j12</artifactId>
+            <version>1.5.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>jakarta.log4j</artifactId>
+            <version>1.2.15</version>
+        </dependency>
+        <!--test lib-->
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>sourceforge.spring</artifactId>
+            <version>2.5.6.SEC02</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>jakarta.commons.beanutils</artifactId>
+            <version>1.8.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>xml.xstream</artifactId>
+            <version>1.2.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>sourceforge.cglib</artifactId>
+            <version>nodep-2.1_3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>test.mockito-all</artifactId>
+            <version>1.8.2</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>test.junit</artifactId>
+            <version>4.4</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>sourceforge.spring.modules.test</artifactId>
+            <version>2.5.6.SEC02</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>test.easymock</artifactId>
+            <version>3.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>2.3.2</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>UTF-8</encoding>
+                    <showDeprecation>true</showDeprecation>
+                    <showWarnings>true</showWarnings>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>true</addMavenDescriptor>
+                        <index>true</index>
+                        <manifest>
+                            <addDefaultSpecificationEntries>true</addDefaultSpecificationEntries>
+                            <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                        </manifest>
+                        <manifestEntries>
+                            <Implementation-Build>${timestamp}</Implementation-Build>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <configuration>
+                    <skip>${skip_maven_deploy}</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <scm>
+        <connection>scm:svn:http://svn.alibaba-inc.com/repos/ali_platform/napoli/shared/client/trunk</connection>
+        <developerConnection>scm:svn:http://svn.alibaba-inc.com/repos/ali_platform/napoli/shared/client/trunk
+        </developerConnection>
+        <url>http://svn.alibaba-inc.com/repos/ali_platform/napoli/shared/client/trunk</url>
+    </scm>
+</project>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="GB2312"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd"
+	default-autowire="byName">
+
+	<bean id="napoliConnector" class="NapoliConnector"
+		init-method="init" destroy-method="close">
+		<property name="address" value="10.20.132.18:8080" />
+        <property name="storePath" value="./target/napoli_failover_data" />
+		<property name="interval" value="60000" />
+        <property name="jmsUserName" value="napoli" />
+        <property name="jmsPassword" value="napoli" />
+	</bean>
+    <bean id="topicFilter" class="com.alibaba.napoli.client.async.NapoliTextFilter">
+
+	</bean>
+
+	<!-- 发送示波器-->
+	<util:list id="senderFilterList">
+		<bean id="xmlEncoder"
+			class="com.alibaba.napoli.client.filter.mock.XStreamEncodeFilter" />
+	</util:list>
+
+	<!-- 接收示波器-->
+	<util:list id="receiverFilterList">
+		<bean id="xmlDecoder"
+			class="com.alibaba.napoli.client.filter.mock.XStreamDecodeFilter" />
+	</util:list>
+
+	<!-- 3个发送者 -->
+	<bean id="vSender" class="com.alibaba.napoli.client.async.impl.DefaultAsyncSender"
+		init-method="init" destroy-method="close">
+		<property name="connector" ref="napoliConnector" />
+		<property name="name" value="client" />
+		<property name="instances" value="10" />
+        <property name="storeEnable" value="false" />
+		<property name="contentType" value="MESSAGE_OBJECT" />
+	</bean>
+	<bean id="vFilterSender" class="com.alibaba.napoli.client.async.impl.DefaultAsyncSender"
+		init-method="init" destroy-method="close">
+		<property name="connector" ref="napoliConnector" />
+		<property name="name" value="testForFilter" />
+		<property name="instances" value="10" />
+        <property name="storeEnable" value="false" />
+		<property name="contentType" value="MESSAGE_OBJECT" />
+		<property name="destinationFilter" ref="topicFilter" />
+	</bean>
+	<bean id="qSender" class="com.alibaba.napoli.client.async.impl.DefaultAsyncSender"
+		init-method="init" destroy-method="close">
+		<property name="connector" ref="napoliConnector" />
+		<property name="name" value="queue0" />
+		<property name="instances" value="10" />
+        <property name="storeEnable" value="false" />
+		<property name="contentType" value="MESSAGE_OBJECT" />
+	</bean>
+
+	<!-- 3个接收者 -->
+	<bean id="receiver0"
+		class="com.alibaba.napoli.client.async.impl.DefaultAsyncReceiver"
+		init-method="init" destroy-method="close">
+		<property name="connector" ref="napoliConnector" />
+		<property name="name" value="a00001" />
+        <property name="storeEnable" value="false" />
+		<property name="instances" value="10" />
+	</bean>
+	<bean id="receiver1"
+		class="com.alibaba.napoli.client.async.impl.DefaultAsyncReceiver"
+		init-method="init" destroy-method="close">
+		<property name="connector" ref="napoliConnector" />
+		<property name="name" value="a00001" />
+        <property name="storeEnable" value="false" />
+		<property name="instances" value="10" />
+	</bean>
+	<bean id="receiver2"
+		class="com.alibaba.napoli.client.async.impl.DefaultAsyncReceiver"
+		init-method="init" destroy-method="close">
+		<property name="connector" ref="napoliConnector" />
+		<property name="name" value="queue2" />
+		<property name="instances" value="10" />
+        <property name="storeEnable" value="false" />
+	</bean>
+</beans>

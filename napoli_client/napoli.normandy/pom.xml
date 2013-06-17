@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.alibaba.platform.shared</groupId>
+        <artifactId>napoli.parent</artifactId>
+        <version>1.5.9</version>
+    </parent>
+
+    <groupId>com.alibaba.platform.shared</groupId>
+    <artifactId>napoli.normandy</artifactId>
+    <packaging>jar</packaging>
+    <name>napoli normandy module</name>
+    <version>${project.parent.version}</version>
+    
+    <!--<properties>
+        <skip_maven_deploy>false</skip_maven_deploy>
+        <svn.commit.skip>true</svn.commit.skip>
+    </properties>-->
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>normandy.client</artifactId>
+            <!--<type>pom</type>-->
+            <version>1.0.0</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+    </dependencies>
+</project>

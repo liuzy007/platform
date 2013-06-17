@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="GB2312"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd">
+
+	<bean id="embeded_mq" class="com.alibaba.napoli.domain.Machine">
+		<property name="id" value="100" />
+		<property name="name" value="embeded" />
+		<property name="ip" value="127.0.0.1" />
+		<property name="port" value="3333" />
+		<property name="jmxPort" value="1999" />
+		<property name="state" value="1" />
+	</bean>
+
+	<bean id="queue0" class="com.alibaba.napoli.domain.QueueEntity">
+		<property name="id" value="200" />
+		<property name="name" value="queue0" />
+		<property name="strategy" value="round_robin" />
+		<property name="pqMap" ref="queue_pqMap"/>
+		<property name="sendable" value="true" />
+		<property name="receivable" value="true" />
+	</bean>
+
+    <bean id="queue1" class="com.alibaba.napoli.domain.QueueEntity">
+		<property name="id" value="200" />
+		<property name="name" value="queue1" />
+		<property name="strategy" value="round_robin" />
+		<property name="pqMap" ref="queue_pqMap"/>
+		<property name="sendable" value="false" />
+		<property name="receivable" value="true" />
+	</bean>
+
+	<bean id="queue0_pq" class="com.alibaba.napoli.domain.PhysicalQueue">
+		<property name="id" value="300" />
+		<property name="queue" ref="queue0"/>
+		<property name="machine" ref="embeded_mq" /> 
+		<property name="sendable" value="true" />
+		<property name="receivable" value="true" />
+	</bean>
+
+    <bean id="queue1_pq" class="com.alibaba.napoli.domain.PhysicalQueue">
+		<property name="id" value="400" />
+		<property name="queue" ref="queue1"/>
+		<property name="machine" ref="embeded_mq" />
+		<property name="sendable" value="false" />
+		<property name="receivable" value="true" />
+	</bean>
+	
+	<util:map id="queue_pqMap" map-class="java.util.HashMap">
+		<entry key="300"><ref bean="queue0_pq"/></entry>
+		<entry key="400"><ref bean="queue1_pq"/></entry>
+	</util:map>
+	<util:map id="queues" map-class="java.util.HashMap">
+		<entry key="queue0"><ref bean="queue0"/></entry>
+		<entry key="queue1"><ref bean="queue1"/></entry>
+	</util:map>
+	<util:map id="topics" map-class="java.util.HashMap">
+	</util:map>
+</beans>

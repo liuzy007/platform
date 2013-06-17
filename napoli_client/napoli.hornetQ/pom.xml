@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.alibaba.platform.shared</groupId>
+        <artifactId>napoli.parent</artifactId>
+        <version>1.5.9</version>
+    </parent>
+
+    <groupId>com.alibaba.platform.shared</groupId>
+    <artifactId>napoli.hornetQ</artifactId>
+    <packaging>jar</packaging>
+    <name>napoli hornetQ</name>
+    <version>${project.parent.version}</version>
+
+    <properties>
+        <skip_maven_deploy>true</skip_maven_deploy>
+        <svn.commit.skip>true</svn.commit.skip>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>jboss.hornetq-core-client</artifactId>
+            <version>2.2.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>jboss.jboss-netty</artifactId>
+            <version>3.2.5.Final</version>
+        </dependency>
+    </dependencies>
+</project>

@@ -1,0 +1,156 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.alibaba.platform.shared</groupId>
+        <artifactId>napoli.parent</artifactId>
+        <version>1.5.9</version>
+    </parent>
+    <groupId>com.alibaba.platform.shared</groupId>
+    <artifactId>napoli.client</artifactId>
+    <packaging>jar</packaging>
+    <name>napoli all in one client</name>
+    <version>${project.parent.version}</version>
+    <description>The napoli client</description>
+
+    <properties>
+        <skip_maven_deploy>false</skip_maven_deploy>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.core</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.activemq</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.hornetQ</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.metaq</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+        
+        <!--二方库依赖-->
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.dragoon</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.normandy</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <!--三方库依赖-->
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>apache.activemq</artifactId>
+            <version>5.3.0-patch</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>jboss.hornetq-core-client</artifactId>
+            <version>2.2.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>jboss.jboss-netty</artifactId>
+            <version>3.2.5.Final</version>
+        </dependency>
+
+    </dependencies>
+
+
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <phase>none</phase>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-javadoc</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <show>public</show>
+                    <charset>UTF-8</charset>
+                    <encoding>UTF-8</encoding>
+                    <docencoding>UTF-8</docencoding>
+                    <excludePackageNames>com.alibaba.com.*</excludePackageNames>
+                    <links>
+                        <link>http://docs.oracle.com/javase/6/docs/api</link>
+                    </links>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>1.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <createSourcesJar>true</createSourcesJar>
+                            <promoteTransitiveDependencies>false</promoteTransitiveDependencies>
+                            <artifactSet>
+                                <includes>
+                                    <!--<include>com.alibaba.platform.shared:napoli.common</include>-->
+                                    <include>com.alibaba.platform.shared:napoli.core</include>
+                                    <include>com.alibaba.platform.shared:napoli.activemq</include>
+                                    <include>com.alibaba.platform.shared:napoli.hornetQ</include>
+                                    <include>com.alibaba.platform.shared:napoli.metaq</include>
+                                    <!--<include>com.alibaba.platform.shared:napoli.dragoon</include>
+                                    <include>com.alibaba.platform.shared:napoli.normandy</include>-->
+                                </includes>
+                            </artifactSet>
+                            <transformers>
+                                <transformer
+                                        implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>com.alibaba.platform.shared</groupId>
+        <artifactId>napoli.parent</artifactId>
+        <version>1.5.9</version>
+    </parent>
+
+    <groupId>com.alibaba.platform.shared</groupId>
+    <artifactId>napoli.common</artifactId>
+    <name>napoli common</name>
+    <version>${project.parent.version}</version>
+    <packaging>jar</packaging>
+
+    <!--<properties>
+        <skip_maven_deploy>true</skip_maven_deploy>
+        <svn.commit.skip>true</svn.commit.skip>
+    </properties>-->
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <!--<argLine>${maven.test.jvmargs}</argLine>-->
+                    <excludes>
+                        <exclude>**/verify/**/*.java</exclude>
+                    </excludes>
+                    <junitArtifactName>com.alibaba.external:test.junit</junitArtifactName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <dependencies>
+        <!--third party lib-->
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>oracle.berkeleydb</artifactId>
+            <version>3.2.76-patch</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>apache.geronimo.jms</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>apache.geronimo.j2ee-management</artifactId>
+            <version>1.0.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>dubbo.hessian.lite</artifactId>
+            <version>3.2.1.osgi_03</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.1.22</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>zk.zkclient</artifactId>
+            <version>0.1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>apache.hadoop.zookeeper</artifactId>
+            <version>3.3.3</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>jakarta.commons.lang</artifactId>
+            <version>2.5</version>
+        </dependency>
+
+    </dependencies>
+</project>

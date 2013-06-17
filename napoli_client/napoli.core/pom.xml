@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.alibaba.platform.shared</groupId>
+        <artifactId>napoli.parent</artifactId>
+        <version>1.5.9</version>
+    </parent>
+    <groupId>com.alibaba.platform.shared</groupId>
+    <artifactId>napoli.core</artifactId>
+    <packaging>jar</packaging>
+    <name>napoli core</name>
+    <version>${project.parent.version}</version>
+    <description>The napoli core</description>
+
+    <properties>
+        <skip_maven_deploy>true</skip_maven_deploy>
+        <svn.commit.skip>true</svn.commit.skip>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.common</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.metaq</artifactId>
+            <version>${project.parent.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.dragoon</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.activemq</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+		<dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.hornetQ</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.normandy</artifactId>
+            <version>${project.parent.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <argLine>-Xms512m -Xmx1024m</argLine>
+                    <forkMode>always</forkMode>
+                    <excludes>
+                        <exclude>**/verify/**/*.java</exclude>
+						<exclude>**/demo/**/*.java</exclude>
+						<exclude>**/base/**/*.java</exclude>
+                        <exclude>**/HornetqTest.java</exclude> 
+						<exclude>**/AmqTest.java</exclude> 
+						<exclude>**/MetaqTest.java</exclude> 
+						<exclude>**/DeadLetterTest.java</exclude>
+						<exclude>**/SlowTest.java</exclude>
+                    </excludes>
+                    <junitArtifactName>com.alibaba.external:test.junit</junitArtifactName>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
