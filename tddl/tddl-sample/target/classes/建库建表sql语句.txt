@@ -1,9 +1,9 @@
-/*建库qatest_normal_0*/
+/*寤哄簱qatest_normal_0*/
 drop database if exists qatest_normal_0;
 CREATE DATABASE `qatest_normal_0` /*!40100 DEFAULT CHARACTER SET gbk */;
 
 
-/*在库qatest_normal_0中建表normaltbl_0001*/
+/*鍦ㄥ簱qatest_normal_0涓缓琛╪ormaltbl_0001*/
 USE qatest_normal_0;
 CREATE TABLE `normaltbl_0001` (
   `pk` int(11) NOT NULL,
@@ -14,11 +14,11 @@ CREATE TABLE `normaltbl_0001` (
   PRIMARY KEY (`pk`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-/*建库qatest_normal_0_bac*/
+/*寤哄簱qatest_normal_0_bac*/
 drop database if exists qatest_normal_0_bac;
 CREATE DATABASE `qatest_normal_0_bac` /*!40100 DEFAULT CHARACTER SET gbk */;
 
-/*在库qatest_normal_0_bac中建表normaltbl_0001*/
+/*鍦ㄥ簱qatest_normal_0_bac涓缓琛╪ormaltbl_0001*/
 USE qatest_normal_0_bac;
 CREATE TABLE `normaltbl_0001` (
   `pk` int(11) NOT NULL,
