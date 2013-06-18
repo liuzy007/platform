@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.mockdatasource;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.mockdatasource;
 
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -7,8 +15,8 @@ import java.util.Map;
 
 public class MockResultSetMetaData implements ResultSetMetaData{
 	private String tableName;
-	public final Map<String/*ÁÐÃû*/,Integer/*ÁÐÐòºÅ*/> columnName2Index;
-	public final Map<Integer/*ÁÐÐòºÅ*/,String/*ÁÐÃû*/> columnIndex2Name;
+	public final Map<String/*åˆ—å*/,Integer/*åˆ—åºå·*/> columnName2Index;
+	public final Map<Integer/*åˆ—åºå·*/,String/*åˆ—å*/> columnIndex2Name;
 
 	public MockResultSetMetaData(Map<String,Integer> columns){
 		this.columnName2Index = columns;
@@ -43,7 +51,7 @@ public class MockResultSetMetaData implements ResultSetMetaData{
 
 	public String getColumnName(int column) throws SQLException {
 		// TODO Auto-generated method stub
-		return columnIndex2Name.get(column-1);//column´Ó1¿ªÊ¼
+		return columnIndex2Name.get(column-1);//columnä»Ž1å¼€å§‹
 	}
 
 	public int getColumnType(int column) throws SQLException {

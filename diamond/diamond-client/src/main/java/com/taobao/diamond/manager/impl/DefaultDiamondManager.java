@@ -30,7 +30,7 @@ import com.taobao.diamond.manager.DiamondManager;
 import com.taobao.diamond.manager.ManagerListener;
 
 /**
- * ĞèÒª×¢ÒâµÄÊÇ£ºÒ»¸öJVMÖĞÒ»¸öDataIDÖ»ÄÜ¶ÔÓ¦Ò»¸öDiamondManager
+ * éœ€è¦æ³¨æ„çš„æ˜¯ï¼šä¸€ä¸ªJVMä¸­ä¸€ä¸ªDataIDåªèƒ½å¯¹åº”ä¸€ä¸ªDiamondManager
  * 
  * @author aoqiong
  * 
@@ -100,7 +100,7 @@ public class DefaultDiamondManager implements DiamondManager {
 	}
 
 	/**
-	 * ĞèÒª×¢ÒâµÄÊÇ£ºÒ»¸öJVMÖĞÒ»¸öDataIDÖ»ÄÜ¶ÔÓ¦Ò»¸öDiamondManager Ê¹ÓÃÄ¬ÈÏµÄ¼¯ÈºÀàĞÍdiamond
+	 * éœ€è¦æ³¨æ„çš„æ˜¯ï¼šä¸€ä¸ªJVMä¸­ä¸€ä¸ªDataIDåªèƒ½å¯¹åº”ä¸€ä¸ªDiamondManager ä½¿ç”¨é»˜è®¤çš„é›†ç¾¤ç±»å‹diamond
 	 * 
 	 * @param dataId
 	 * @param managerListener
@@ -110,7 +110,7 @@ public class DefaultDiamondManager implements DiamondManager {
 	}
 
 	/**
-	 * ĞèÒª×¢ÒâµÄÊÇ£ºÒ»¸öJVMÖĞÒ»¸öDataIDÖ»ÄÜ¶ÔÓ¦Ò»¸öDiamondManager Ê¹ÓÃÄ¬ÈÏµÄ¼¯ÈºÀàĞÍdiamond
+	 * éœ€è¦æ³¨æ„çš„æ˜¯ï¼šä¸€ä¸ªJVMä¸­ä¸€ä¸ªDataIDåªèƒ½å¯¹åº”ä¸€ä¸ªDiamondManager ä½¿ç”¨é»˜è®¤çš„é›†ç¾¤ç±»å‹diamond
 	 * 
 	 * @param group
 	 * @param dataId
@@ -123,7 +123,7 @@ public class DefaultDiamondManager implements DiamondManager {
 	}
 
 	/**
-	 * Ê¹ÓÃÖ¸¶¨µÄ¼¯ÈºÀàĞÍclusterType
+	 * ä½¿ç”¨æŒ‡å®šçš„é›†ç¾¤ç±»å‹clusterType
 	 * 
 	 * @param group
 	 * @param dataId
@@ -147,13 +147,13 @@ public class DefaultDiamondManager implements DiamondManager {
 	}
 
 	/**
-	 * ¿ÉÒÔÑ¡ÔñÊÇ·ñÆôÓÃÊµÊ±Í¨Öª¹¦ÄÜµÄ¹¹Ôì·½·¨£¬Ä¬ÈÏÊµÊ±Í¨Öª¹¦ÄÜ¿ªÆô Ê¹ÓÃÄ¬ÈÏµÄ¼¯ÈºÀàĞÍdiamond
+	 * å¯ä»¥é€‰æ‹©æ˜¯å¦å¯ç”¨å®æ—¶é€šçŸ¥åŠŸèƒ½çš„æ„é€ æ–¹æ³•ï¼Œé»˜è®¤å®æ—¶é€šçŸ¥åŠŸèƒ½å¼€å¯ ä½¿ç”¨é»˜è®¤çš„é›†ç¾¤ç±»å‹diamond
 	 * 
 	 * @param group
 	 * @param dataId
 	 * @param managerListener
 	 * @param useRealTimeNotification
-	 *            ÊÇ·ñÆôÓÃÊµÊ±Í¨Öª¹¦ÄÜ
+	 *            æ˜¯å¦å¯ç”¨å®æ—¶é€šçŸ¥åŠŸèƒ½
 	 */
 	public DefaultDiamondManager(String group, String dataId,
 			ManagerListener managerListener, boolean useRealTimeNotification) {
@@ -162,7 +162,7 @@ public class DefaultDiamondManager implements DiamondManager {
 	}
 
 	/**
-	 * ¿ÉÒÔÑ¡ÔñÊÇ·ñÆôÓÃÊµÊ±Í¨Öª¹¦ÄÜµÄ¹¹Ôì·½·¨£¬Ä¬ÈÏÊµÊ±Í¨Öª¹¦ÄÜ¿ªÆô Ê¹ÓÃÖ¸¶¨µÄ¼¯ÈºÀàĞÍclusterType
+	 * å¯ä»¥é€‰æ‹©æ˜¯å¦å¯ç”¨å®æ—¶é€šçŸ¥åŠŸèƒ½çš„æ„é€ æ–¹æ³•ï¼Œé»˜è®¤å®æ—¶é€šçŸ¥åŠŸèƒ½å¼€å¯ ä½¿ç”¨æŒ‡å®šçš„é›†ç¾¤ç±»å‹clusterType
 	 * 
 	 * @param group
 	 * @param dataId
@@ -189,7 +189,7 @@ public class DefaultDiamondManager implements DiamondManager {
 	}
 
 	/**
-	 * ĞèÒª×¢ÒâµÄÊÇ£ºÒ»¸öJVMÖĞÒ»¸öDataIDÖ»ÄÜ¶ÔÓ¦Ò»¸öDiamondManager Ê¹ÓÃÄ¬ÈÏµÄ¼¯ÈºÀàĞÍdiamond
+	 * éœ€è¦æ³¨æ„çš„æ˜¯ï¼šä¸€ä¸ªJVMä¸­ä¸€ä¸ªDataIDåªèƒ½å¯¹åº”ä¸€ä¸ªDiamondManager ä½¿ç”¨é»˜è®¤çš„é›†ç¾¤ç±»å‹diamond
 	 * 
 	 * @param dataId
 	 * @param managerListener
@@ -200,7 +200,7 @@ public class DefaultDiamondManager implements DiamondManager {
 	}
 
 	/**
-	 * ĞèÒª×¢ÒâµÄÊÇ£ºÒ»¸öJVMÖĞÒ»¸öDataIDÖ»ÄÜ¶ÔÓ¦Ò»¸öDiamondManager Ê¹ÓÃÄ¬ÈÏµÄ¼¯ÈºÀàĞÍdiamond
+	 * éœ€è¦æ³¨æ„çš„æ˜¯ï¼šä¸€ä¸ªJVMä¸­ä¸€ä¸ªDataIDåªèƒ½å¯¹åº”ä¸€ä¸ªDiamondManager ä½¿ç”¨é»˜è®¤çš„é›†ç¾¤ç±»å‹diamond
 	 * 
 	 * @param group
 	 * @param dataId
@@ -213,7 +213,7 @@ public class DefaultDiamondManager implements DiamondManager {
 	}
 
 	/**
-	 * Ê¹ÓÃÖ¸¶¨µÄ¼¯ÈºÀàĞÍclusterType
+	 * ä½¿ç”¨æŒ‡å®šçš„é›†ç¾¤ç±»å‹clusterType
 	 * 
 	 * @param group
 	 * @param dataId
@@ -238,7 +238,7 @@ public class DefaultDiamondManager implements DiamondManager {
 	}
 
 	/**
-	 * ¿ÉÒÔÑ¡ÔñÊÇ·ñÆôÓÃÊµÊ±Í¨Öª¹¦ÄÜµÄ¹¹Ôì·½·¨£¬Ä¬ÈÏÊµÊ±Í¨Öª¹¦ÄÜ¿ªÆô Ê¹ÓÃÄ¬ÈÏµÄ¼¯ÈºÀàĞÍdiamond
+	 * å¯ä»¥é€‰æ‹©æ˜¯å¦å¯ç”¨å®æ—¶é€šçŸ¥åŠŸèƒ½çš„æ„é€ æ–¹æ³•ï¼Œé»˜è®¤å®æ—¶é€šçŸ¥åŠŸèƒ½å¼€å¯ ä½¿ç”¨é»˜è®¤çš„é›†ç¾¤ç±»å‹diamond
 	 * 
 	 * @param group
 	 * @param dataId
@@ -253,7 +253,7 @@ public class DefaultDiamondManager implements DiamondManager {
 	}
 
 	/**
-	 * ¿ÉÒÔÑ¡ÔñÊÇ·ñÆôÓÃÊµÊ±Í¨Öª¹¦ÄÜµÄ¹¹Ôì·½·¨£¬Ä¬ÈÏÊµÊ±Í¨Öª¹¦ÄÜ¿ªÆô Ê¹ÓÃÖ¸¶¨µÄ¼¯ÈºÀàĞÍclusterType
+	 * å¯ä»¥é€‰æ‹©æ˜¯å¦å¯ç”¨å®æ—¶é€šçŸ¥åŠŸèƒ½çš„æ„é€ æ–¹æ³•ï¼Œé»˜è®¤å®æ—¶é€šçŸ¥åŠŸèƒ½å¼€å¯ ä½¿ç”¨æŒ‡å®šçš„é›†ç¾¤ç±»å‹clusterType
 	 * 
 	 * @param group
 	 * @param dataId
@@ -299,7 +299,7 @@ public class DefaultDiamondManager implements DiamondManager {
 
 	public void close() {
 		/**
-		 * ÒòÎªÍ¬Ò»¸öDataIDÖ»ÄÜ¶ÔÓ¦Ò»¸öMnanagerListener£¬ËùÒÔ£¬¹Ø±ÕÊ±Ò»´ÎĞÔ¹Ø±ÕËùÓĞManagerListener¼´¿É
+		 * å› ä¸ºåŒä¸€ä¸ªDataIDåªèƒ½å¯¹åº”ä¸€ä¸ªMnanagerListenerï¼Œæ‰€ä»¥ï¼Œå…³é—­æ—¶ä¸€æ¬¡æ€§å…³é—­æ‰€æœ‰ManagerListenerå³å¯
 		 */
 		((DefaultSubscriberListener) diamondSubscriber.getSubscriberListener())
 				.removeManagerListeners(this.dataId, this.group,
@@ -334,8 +334,8 @@ public class DefaultDiamondManager implements DiamondManager {
 			properties.load(new StringReader(configInfo));
 			return properties;
 		} catch (IOException e) {
-			log.warn("×°ÔØpropertiesÊ§°Ü£º" + configInfo, e);
-			throw new RuntimeException("×°ÔØpropertiesÊ§°Ü£º" + configInfo, e);
+			log.warn("è£…è½½propertieså¤±è´¥ï¼š" + configInfo, e);
+			throw new RuntimeException("è£…è½½propertieså¤±è´¥ï¼š" + configInfo, e);
 		}
 	}
 
@@ -348,8 +348,8 @@ public class DefaultDiamondManager implements DiamondManager {
 			properties.load(new StringReader(configInfo));
 			return properties;
 		} catch (IOException e) {
-			log.warn("×°ÔØpropertiesÊ§°Ü£º" + configInfo, e);
-			throw new RuntimeException("×°ÔØpropertiesÊ§°Ü£º" + configInfo, e);
+			log.warn("è£…è½½propertieså¤±è´¥ï¼š" + configInfo, e);
+			throw new RuntimeException("è£…è½½propertieså¤±è´¥ï¼š" + configInfo, e);
 		}
 	}
 
@@ -380,8 +380,8 @@ public class DefaultDiamondManager implements DiamondManager {
 			properties.load(new StringReader(configInfo));
 			return properties;
 		} catch (IOException e) {
-			log.warn("×°ÔØpropertiesÊ§°Ü£º" + configInfo, e);
-			throw new RuntimeException("×°ÔØpropertiesÊ§°Ü£º" + configInfo, e);
+			log.warn("è£…è½½propertieså¤±è´¥ï¼š" + configInfo, e);
+			throw new RuntimeException("è£…è½½propertieså¤±è´¥ï¼š" + configInfo, e);
 		}
 	}
 
@@ -395,7 +395,7 @@ public class DefaultDiamondManager implements DiamondManager {
 
 	public boolean exists(String dataId, String group) {
 		if (StringUtils.isBlank(dataId) || StringUtils.isBlank(group)) {
-			throw new IllegalArgumentException("dataId, group²»ÄÜÎªnull»òÕß¿Õ×Ö·û´®");
+			throw new IllegalArgumentException("dataId, groupä¸èƒ½ä¸ºnullæˆ–è€…ç©ºå­—ç¬¦ä¸²");
 		}
 		return this.diamondSubscriber.exists(dataId, group);
 	}

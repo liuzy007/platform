@@ -15,7 +15,7 @@ import com.taobao.diamond.domain.ConfigInfo;
 import com.taobao.diamond.domain.Page;
 
 /**
- * Êı¾İ¿â·şÎñ£¬Ìá¹©ConfigInfoÔÚÊı¾İ¿âµÄ´æÈ¡·şÎñ
+ * æ•°æ®åº“æœåŠ¡ï¼Œæä¾›ConfigInfoåœ¨æ•°æ®åº“çš„å­˜å–æœåŠ¡
  * 
  * @author boyan
  * @since 1.0
@@ -24,7 +24,7 @@ import com.taobao.diamond.domain.Page;
 public interface PersistService {
 
 	/**
-	 * ĞÂÔöÅäÖÃĞÅÏ¢
+	 * æ–°å¢é…ç½®ä¿¡æ¯
 	 * 
 	 * @param time
 	 * @param configInfo
@@ -32,7 +32,7 @@ public interface PersistService {
 	public void addConfigInfo(final Timestamp time, final ConfigInfo configInfo);
 
 	/**
-	 * ¸ù¾İdataIdºÍgroupÉ¾³ıÅäÖÃĞÅÏ¢
+	 * æ ¹æ®dataIdå’Œgroupåˆ é™¤é…ç½®ä¿¡æ¯
 	 * 
 	 * @param dataId
 	 * @param group
@@ -40,14 +40,14 @@ public interface PersistService {
 	public void removeConfigInfo(final String dataId, final String group);
 
 	/**
-	 * ¸ù¾İÖ÷¼üIDÉ¾³ıÅäÖÃĞÅÏ¢
+	 * æ ¹æ®ä¸»é”®IDåˆ é™¤é…ç½®ä¿¡æ¯
 	 * 
 	 * @param id
 	 */
 	public void removeConfigInfoByID(final long id);
 
 	/**
-	 * ¸üĞÂÅäÖÃÊı¾İ
+	 * æ›´æ–°é…ç½®æ•°æ®
 	 * 
 	 * @param time
 	 * @param configInfo
@@ -56,7 +56,7 @@ public interface PersistService {
 			final ConfigInfo configInfo);
 
 	/**
-	 * ¸ù¾İdataIdºÍgroup²éÑ¯ÅäÖÃĞÅÏ¢
+	 * æ ¹æ®dataIdå’ŒgroupæŸ¥è¯¢é…ç½®ä¿¡æ¯
 	 * 
 	 * @param dataId
 	 * @param group
@@ -65,7 +65,7 @@ public interface PersistService {
 	public ConfigInfo findConfigInfo(final String dataId, final String group);
 
 	/**
-	 * ¸ù¾İÖ÷¼üID²éÑ¯ÅäÖÃĞÅÏ¢
+	 * æ ¹æ®ä¸»é”®IDæŸ¥è¯¢é…ç½®ä¿¡æ¯
 	 * 
 	 * @param id
 	 * @return
@@ -73,24 +73,24 @@ public interface PersistService {
 	public ConfigInfo findConfigInfoByID(long id);
 
 	/**
-	 * ·ÖÒ³²éÑ¯ËùÓĞµÄÅäÖÃĞÅÏ¢
+	 * åˆ†é¡µæŸ¥è¯¢æ‰€æœ‰çš„é…ç½®ä¿¡æ¯
 	 * 
 	 * @param pageNo
-	 *            Ò³Âë
+	 *            é¡µç 
 	 * @param pageSize
-	 *            Ã¿Ò³´óĞ¡
+	 *            æ¯é¡µå¤§å°
 	 * @return
 	 */
 	public Page<ConfigInfo> findAllConfigInfo(final int pageNo,
 			final int pageSize);
 
 	/**
-	 * ¸ù¾İdataId²éÑ¯ÅäÖÃĞÅÏ¢
+	 * æ ¹æ®dataIdæŸ¥è¯¢é…ç½®ä¿¡æ¯
 	 * 
 	 * @param pageNo
-	 *            Ò³Êı
+	 *            é¡µæ•°
 	 * @param pageSize
-	 *            Ã¿Ò³´óĞ¡
+	 *            æ¯é¡µå¤§å°
 	 * @param dataId
 	 *            dataId
 	 * @return
@@ -99,12 +99,12 @@ public interface PersistService {
 			final int pageSize, final String dataId);
 
 	/**
-	 * ¸ù¾İdataIdºÍgroupÄ£ºı²éÑ¯ÅäÖÃĞÅÏ¢
+	 * æ ¹æ®dataIdå’Œgroupæ¨¡ç³ŠæŸ¥è¯¢é…ç½®ä¿¡æ¯
 	 * 
 	 * @param pageNo
-	 *            Ò³Âë
+	 *            é¡µç 
 	 * @param pageSize
-	 *            Ã¿Ò³´óĞ¡
+	 *            æ¯é¡µå¤§å°
 	 * @param dataId
 	 * @param group
 	 * @return

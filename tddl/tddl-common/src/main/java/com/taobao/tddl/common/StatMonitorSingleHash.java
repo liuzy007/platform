@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	//package com.taobao.tddl.common;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+//package com.taobao.tddl.common;
 //
 //import java.util.Comparator;
 //import java.util.HashSet;
@@ -17,13 +25,13 @@
 //
 ///*
 // * @author guangxia
-// * @since 1.0, 2010-2-8 œ¬ŒÁ04:18:39
+// * @since 1.0, 2010-2-8 ‰∏ãÂçà04:18:39
 // */
 //public class StatMonitorSingleHash implements StatMonitorMBean {
 //	
 //	private static final Log logger = LogFactory.getLog(StatMonitorSingleHash.class);
 //	
-//	//µ•Œª «∫¡√Î
+//	//Âçï‰ΩçÊòØÊØ´Áßí
 //    private volatile long statInterval = 5 * 60 * 1000;
 //    private Set<String> blackList = new HashSet<String>(0);
 //    private int limit = 1000;

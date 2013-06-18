@@ -136,11 +136,11 @@ public class DBPersistService implements PersistService {
 							CONFIG_INFO_ROW_MAPPER);
 		} catch (DataAccessException e) {
 			if (!(e instanceof EmptyResultDataAccessException)) {
-				log.error("²éÑ¯ConfigInfoÊ§°Ü, Êı¾İ¿âÒì³£", e);
-				// ½«Òì³£ÖØĞÂÅ×³ö
+				log.error("æŸ¥è¯¢ConfigInfoå¤±è´¥, æ•°æ®åº“å¼‚å¸¸", e);
+				// å°†å¼‚å¸¸é‡æ–°æŠ›å‡º
 				throw e;
 			}
-			// ÊÇEmptyResultDataAccessException, ±íÃ÷Êı¾İ²»´æÔÚ, ·µ»Ønull
+			// æ˜¯EmptyResultDataAccessException, è¡¨æ˜æ•°æ®ä¸å­˜åœ¨, è¿”å›null
 			return null;
 		}
 	}
@@ -155,7 +155,7 @@ public class DBPersistService implements PersistService {
 							new Object[] { id }, CONFIG_INFO_ROW_MAPPER);
 		} catch (DataAccessException e) {
 			if (!(e instanceof EmptyResultDataAccessException)) {
-				log.error("²éÑ¯ConfigInfoÊ§°Ü, Êı¾İ¿âÒì³£", e);
+				log.error("æŸ¥è¯¢ConfigInfoå¤±è´¥, æ•°æ®åº“å¼‚å¸¸", e);
 				throw e;
 			}
 			return null;

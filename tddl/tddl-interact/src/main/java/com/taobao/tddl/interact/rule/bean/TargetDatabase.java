@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	//Copyright(c) Taobao.com
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+//Copyright(c) Taobao.com
 package com.taobao.tddl.interact.rule.bean;
 
 import java.util.List;
@@ -8,12 +16,12 @@ import java.util.List;
  * @author <a href="junyu@taobao.com">junyu</a> 
  * @version 1.0
  * @since 1.6
- * @date 2011-3-29ÏÂÎç02:22:04
+ * @date 2011-3-29ä¸‹åˆ02:22:04
  */
 public class TargetDatabase {
-	//Ä¿±êdbKey
+	//ç›®æ ‡dbKey
 	private String dbIndex;
-	//ËùÒªÖ´ĞĞµÄÊµ¼Ê±í
+	//æ‰€è¦æ‰§è¡Œçš„å®é™…è¡¨
 	private List<String> tableNames;
 	public String getDbIndex() {
 		return dbIndex;

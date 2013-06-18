@@ -16,14 +16,14 @@ public class DefaultDiamondSubscriber_diamondserverUnitTest {
 
 
     @Test
-    public void test_Ö÷¶¯ÇëÇó_diamondserver·¢²¼Êı¾İ»ò¸üĞÂÊı¾İ() throws Exception {
+    public void test_ä¸»åŠ¨è¯·æ±‚_diamondserverå‘å¸ƒæ•°æ®æˆ–æ›´æ–°æ•°æ®() throws Exception {
         subscriber = new DefaultDiamondSubscriber(listener);
 
         final java.util.concurrent.atomic.AtomicBoolean invoked = new AtomicBoolean(false);
         this.subscriber.setSubscriberListener(new SubscriberListener() {
 
             public void receiveConfigInfo(ConfigureInfomation configureInfomation) {
-                System.out.println("½ÓÊÕµ½ÅäÖÃĞÅÏ¢" + configureInfomation);
+                System.out.println("æ¥æ”¶åˆ°é…ç½®ä¿¡æ¯" + configureInfomation);
                 invoked.set(true);
             }
 
@@ -38,7 +38,7 @@ public class DefaultDiamondSubscriber_diamondserverUnitTest {
         int i = 0;
         while (!invoked.get()) {
             Thread.sleep(2000);
-            System.out.println("µÈ´ıÍ¨Öª " + i + " ´Î");
+            System.out.println("ç­‰å¾…é€šçŸ¥ " + i + " æ¬¡");
             i++;
         }
     }

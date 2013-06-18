@@ -23,7 +23,7 @@ import org.springframework.stereotype.Component;
 import com.taobao.diamond.server.utils.SessionHolder;
 
 /**
- * 利用AOP记录用户操作日志
+ * 鍒╃敤AOP璁板綍鐢ㄦ埛鎿嶄綔鏃ュ織
  * 
  * @author boyan
  * @date 2010-6-8
@@ -93,10 +93,10 @@ public class OperationLogAspect {
 		if (session != null) {
 			String user = (String) session.getAttribute("user");
 			if (user != null) {
-				StringBuilder sb = new StringBuilder("用户:");
-				sb.append(user).append(",执行:")
+				StringBuilder sb = new StringBuilder("鐢ㄦ埛:");
+				sb.append(user).append(",鎵ц:")
 						.append(joinPoint.getSignature().getName())
-						.append("，参数为：[");
+						.append("锛屽弬鏁颁负锛歔");
 				boolean wasFrist = true;
 				String userIp = null;
 				if (joinPoint.getArgs() != null) {
@@ -127,10 +127,10 @@ public class OperationLogAspect {
 		if (session != null) {
 			String user = (String) session.getAttribute("user");
 			if (user != null) {
-				StringBuilder sb = new StringBuilder("用户:");
-				sb.append(user).append(",执行:")
+				StringBuilder sb = new StringBuilder("鐢ㄦ埛:");
+				sb.append(user).append(",鎵ц:")
 						.append(joinPoint.getSignature().getName())
-						.append("，参数为：[");
+						.append("锛屽弬鏁颁负锛歔");
 				boolean wasFrist = true;
 				String userIp = null;
 				if (joinPoint.getArgs() != null) {
@@ -161,10 +161,10 @@ public class OperationLogAspect {
 		if (session != null) {
 			String user = (String) session.getAttribute("user");
 			if (user != null) {
-				StringBuilder sb = new StringBuilder("用户:");
-				sb.append(user).append(",执行:")
+				StringBuilder sb = new StringBuilder("鐢ㄦ埛:");
+				sb.append(user).append(",鎵ц:")
 						.append(joinPoint.getSignature().getName())
-						.append("，参数为：[");
+						.append("锛屽弬鏁颁负锛歔");
 				boolean wasFrist = true;
 				String userIp = null;
 				if (joinPoint.getArgs() != null) {

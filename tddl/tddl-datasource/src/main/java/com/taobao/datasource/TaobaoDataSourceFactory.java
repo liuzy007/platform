@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.datasource;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.datasource;
 
 import org.apache.commons.lang.StringUtils;
 
@@ -7,7 +15,7 @@ import com.taobao.datasource.resource.connectionmanager.CachedConnectionManager;
 import com.taobao.datasource.resource.security.SecureIdentityLoginModule;
 import com.taobao.datasource.tm.TxManager;
 
-/**Êı¾İÔ´´´½¨¹¤³§Àà£¬Ìá¹©Êı¾İÔ´µÄ´´½¨ºÍÏú»Ù
+/**æ•°æ®æºåˆ›å»ºå·¥å‚ç±»ï¼Œæä¾›æ•°æ®æºçš„åˆ›å»ºå’Œé”€æ¯
  * @author qihao
  *
  */
@@ -28,13 +36,13 @@ public class TaobaoDataSourceFactory {
 			throw new Exception("dataSource config is Empty!");
 		}
 		LocalTxDataSource localTxDataSource = new LocalTxDataSource();
-		//ÉèÖÃÁ¬½Ó»º´æ¹ÜÀíÆ÷£¬Èç¹û¸ø¶¨ÁËÊ¹ÓÃ¸ø¶¨µÄ£¬Èç¹ûÃ»Ö¸¶¨ÔòÄ¬ÈÏ¸øÒ»¸ö
+		//è®¾ç½®è¿æ¥ç¼“å­˜ç®¡ç†å™¨ï¼Œå¦‚æœç»™å®šäº†ä½¿ç”¨ç»™å®šçš„ï¼Œå¦‚æœæ²¡æŒ‡å®šåˆ™é»˜è®¤ç»™ä¸€ä¸ª
 		if(null!=cachedConnectionManager){
 			localTxDataSource.setCachedConnectionManager(cachedConnectionManager);
 		}else{
 			localTxDataSource.setCachedConnectionManager(defaultCachedConnectionManager);
 		}
-		//ÉèÖÃÊÂÎï¹ÜÀíÆ÷£¬Èç¹û¸ø¶¨µÄÊ¹ÓÃ¸ø¶¨µÄ£¬Èç¹ûÃ»ÓĞÔòÄ¬ÈÏ¸øÒÔ¸ö
+		//è®¾ç½®äº‹ç‰©ç®¡ç†å™¨ï¼Œå¦‚æœç»™å®šçš„ä½¿ç”¨ç»™å®šçš„ï¼Œå¦‚æœæ²¡æœ‰åˆ™é»˜è®¤ç»™ä»¥ä¸ª
 		if(null!=transactionManager){
 			localTxDataSource.setTransactionManager(transactionManager);
 		}else{
@@ -67,7 +75,7 @@ public class TaobaoDataSourceFactory {
 		localTxDataSource.setUserName(dataSourceDO.getUserName());
 		localTxDataSource.setValidateOnMatch(dataSourceDO.isValidateOnMatch());
 		localTxDataSource.setValidConnectionCheckerClassName(dataSourceDO.getValidConnectionCheckerClassName());
-		//ÉèÖÃ°²È«Óò
+		//è®¾ç½®å®‰å…¨åŸŸ
 		String securityDomainName = dataSourceDO.getSecurityDomain();
 		if (StringUtils.isNotBlank(securityDomainName)) {
 			SecureIdentityLoginModule securityDomain = loginConfigFinder
@@ -77,7 +85,7 @@ public class TaobaoDataSourceFactory {
 			}
 		}
 		localTxDataSource.setCriteria(dataSourceDO.getCriteria());
-		//³õÊ¼»¯Êı¾İÔ´
+		//åˆå§‹åŒ–æ•°æ®æº
 		localTxDataSource.init();
 		return localTxDataSource;
 	}

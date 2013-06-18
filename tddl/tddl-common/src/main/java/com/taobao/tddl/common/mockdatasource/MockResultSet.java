@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.mockdatasource;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.mockdatasource;
 
 import java.io.InputStream;
 import java.io.Reader;
@@ -32,7 +40,7 @@ import com.taobao.tddl.common.mockdatasource.MockDataSource.QueryResult;
 public class MockResultSet implements ResultSet{
 	private final MockDataSource mds; 
 	private ResultSetMetaData resultSetMetaData;
-	public final Map<String/*ÁÐÃû*/,Integer/*ÁÐÐòºÅ*/> columns; 
+	public final Map<String/*åˆ—å*/,Integer/*åˆ—åºå·*/> columns; 
 	public final List<Object[]> rows;
 	private int cursor = -1;
 	public MockResultSet(MockDataSource mockDataSource, Map<String,Integer> columns, List<Object[]> values){
@@ -352,7 +360,7 @@ public class MockResultSet implements ResultSet{
 	}
 
 	/**
-	 * iBatis»áÓÃµ½Õâ¸ö·½·¨
+	 * iBatisä¼šç”¨åˆ°è¿™ä¸ªæ–¹æ³•
 	 */
 	public int getType() throws SQLException {
 		return ResultSet.TYPE_FORWARD_ONLY;

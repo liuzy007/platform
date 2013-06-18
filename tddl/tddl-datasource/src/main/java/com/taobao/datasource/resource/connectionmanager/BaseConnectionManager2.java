@@ -400,7 +400,7 @@ public abstract class BaseConnectionManager2 implements ConnectionCacheListener,
     }
 
     private Subject getSubject() {
-        // TODO: 当前不支持Subject
+        // TODO: 褰撳墠涓嶆敮鎸丼ubject
         Subject subject = null;
         // if (securityDomain != null)
         // {

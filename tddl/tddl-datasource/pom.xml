@@ -1,14 +1,14 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
 	<parent>
 		<artifactId>tddl-all</artifactId>
 		<groupId>com.taobao.tddl</groupId>
 		<version>3.0.1.5.taobaocode-SNAPSHOT</version>
 	</parent>
-	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.taobao.tbdatasource</groupId>
-	<artifactId>tbdatasource</artifactId>
-	<name>tbdatasource v${project.version}</name>
+	
+	<modelVersion>4.0.0</modelVersion>	
+	<artifactId>tddl-datasource</artifactId>
+	<name>tddl-datasource v${project.version}</name>
 
 	<dependencies>
 		<dependency>

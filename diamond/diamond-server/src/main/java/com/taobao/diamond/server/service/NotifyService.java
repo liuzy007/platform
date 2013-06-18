@@ -27,7 +27,7 @@ import com.taobao.diamond.utils.ResourceUtils;
 
 
 /**
- * Í¨Öª·şÎñ£¬ÓÃÓÚÍ¨ÖªÆäËû½Úµã
+ * é€šçŸ¥æœåŠ¡ï¼Œç”¨äºé€šçŸ¥å…¶ä»–èŠ‚ç‚¹
  * 
  * @author boyan
  * @date 2010-5-6
@@ -58,7 +58,7 @@ public class NotifyService {
             nodeProperties.load(in);
         }
         catch (IOException e) {
-            log.error("¼ÓÔØ½ÚµãÅäÖÃÎÄ¼şÊ§°Ü");
+            log.error("åŠ è½½èŠ‚ç‚¹é…ç½®æ–‡ä»¶å¤±è´¥");
         }
         finally {
 
@@ -67,16 +67,16 @@ public class NotifyService {
                     in.close();
             }
             catch (IOException e) {
-                log.error("¹Ø±Õnode.propertiesÊ§°Ü", e);
+                log.error("å…³é—­node.propertieså¤±è´¥", e);
             }
         }
-        log.info("½ÚµãÁĞ±í:" + nodeProperties);
+        log.info("èŠ‚ç‚¹åˆ—è¡¨:" + nodeProperties);
 
     }
 
 
     /**
-     * Í¨Öª·Ö×éĞÅÏ¢¸Ä±ä
+     * é€šçŸ¥åˆ†ç»„ä¿¡æ¯æ”¹å˜
      */
     public void notifyGroupChanged() {
         Enumeration<?> enu = nodeProperties.propertyNames();
@@ -84,7 +84,7 @@ public class NotifyService {
             String address = (String) enu.nextElement();
             String urlString = generateNotifyGroupChangedPath(address);
             final String result = invokeURL(urlString);
-            log.info("Í¨Öª½Úµã" + address + "·Ö×éĞÅÏ¢¸Ä±ä£º" + result);
+            log.info("é€šçŸ¥èŠ‚ç‚¹" + address + "åˆ†ç»„ä¿¡æ¯æ”¹å˜ï¼š" + result);
         }
     }
 
@@ -92,7 +92,7 @@ public class NotifyService {
     String generateNotifyGroupChangedPath(String address) {
         String specialUrl = this.nodeProperties.getProperty(address);
         String urlString = PROTOCOL + address + URL_PREFIX;
-        // Èç¹ûÓĞÖ¸¶¨url£¬Ê¹ÓÃÖ¸¶¨µÄurl
+        // å¦‚æœæœ‰æŒ‡å®šurlï¼Œä½¿ç”¨æŒ‡å®šçš„url
         if (specialUrl!=null&&StringUtils.hasLength(specialUrl.trim())) {
             urlString = specialUrl;
         }
@@ -101,7 +101,7 @@ public class NotifyService {
 
 
     /**
-     * Í¨ÖªÅäÖÃĞÅÏ¢¸Ä±ä
+     * é€šçŸ¥é…ç½®ä¿¡æ¯æ”¹å˜
      * 
      * @param id
      */
@@ -114,7 +114,7 @@ public class NotifyService {
             }
             String urlString = generateNotifyConfigInfoPath(dataId, group, address);
             final String result = invokeURL(urlString);
-            log.info("Í¨Öª½Úµã" + address + "·Ö×éĞÅÏ¢¸Ä±ä£º" + result);
+            log.info("é€šçŸ¥èŠ‚ç‚¹" + address + "åˆ†ç»„ä¿¡æ¯æ”¹å˜ï¼š" + result);
         }
     }
 
@@ -122,7 +122,7 @@ public class NotifyService {
     String generateNotifyConfigInfoPath(String dataId, String group, String address) {
         String specialUrl = this.nodeProperties.getProperty(address);
         String urlString = PROTOCOL + address + URL_PREFIX;
-        // Èç¹ûÓĞÖ¸¶¨url£¬Ê¹ÓÃÖ¸¶¨µÄurl
+        // å¦‚æœæœ‰æŒ‡å®šurlï¼Œä½¿ç”¨æŒ‡å®šçš„url
         if (specialUrl!=null&&StringUtils.hasLength(specialUrl.trim())) {
             urlString = specialUrl;
         }
@@ -132,7 +132,7 @@ public class NotifyService {
     
     
     /**
-     * Í¨Öª·¢²¼Õß»º´æ¸Ä±ä
+     * é€šçŸ¥å‘å¸ƒè€…ç¼“å­˜æ”¹å˜
      * @param dataId
      * @param group
      * @param identity
@@ -146,7 +146,7 @@ public class NotifyService {
             }
             String urlString = generateNotifyPubCachePath(dataId, group, identity, address);
             final String result = invokeURL(urlString);
-            log.info("Í¨Öª½Úµã" + address + "·¢²¼Õß»º´æ¸Ä±ä£º" + result);
+            log.info("é€šçŸ¥èŠ‚ç‚¹" + address + "å‘å¸ƒè€…ç¼“å­˜æ”¹å˜ï¼š" + result);
         }
     }
     
@@ -164,7 +164,7 @@ public class NotifyService {
 
 
     /**
-     * http getµ÷ÓÃ
+     * http getè°ƒç”¨
      * 
      * @param urlString
      * @return
@@ -197,8 +197,8 @@ public class NotifyService {
 
         }
         catch (Exception e) {
-            // TODO Ê§°ÜÀàĞÍ
-            log.error("httpµ÷ÓÃÊ§°Ü,url=" + urlString, e);
+            // TODO å¤±è´¥ç±»å‹
+            log.error("httpè°ƒç”¨å¤±è´¥,url=" + urlString, e);
         }
         finally {
             if (conn != null) {

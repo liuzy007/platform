@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	/*
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+/*
  * JBoss, Home of Professional Open Source.
  * Copyright 2006, Red Hat Middleware LLC, and individual contributors
  * as indicated by the @author tags. See the copyright.txt file in the
@@ -44,7 +52,7 @@ public class OracleExceptionSorter implements ExceptionSorter, Serializable {
 	}
 
 	public boolean isExceptionFatal(SQLException e) {
-		int loopCount = 20; //·ÀÖ¹ÈËÎªÊ§Îó£¬µ±Á½¸öThrowable»¥Îª¶Ô·½µÄinitCause()Ê±£¬Ôì³ÉËÀÑ­»·
+		int loopCount = 20; //é˜²æ­¢äººä¸ºå¤±è¯¯ï¼Œå½“ä¸¤ä¸ªThrowableäº’ä¸ºå¯¹æ–¹çš„initCause()æ—¶ï¼Œé€ æˆæ­»å¾ªç¯
 
 		Throwable cause = e;
 		while (cause != null) {
@@ -100,7 +108,7 @@ public class OracleExceptionSorter implements ExceptionSorter, Serializable {
 
 		if ((error_code < 20000 || error_code >= 21000)
 				&& ("NO DATASOURCE!".equals(error_text)
-						|| "NO ALIVE DATASOURCE".equals(error_text) //¼æÈİrjdbcÅ×³öµÄ´íÎó
+						|| "NO ALIVE DATASOURCE".equals(error_text) //å…¼å®¹rjdbcæŠ›å‡ºçš„é”™è¯¯
 						|| (error_text.indexOf("SOCKET") > -1) //for control socket error
 						|| (error_text.indexOf("CONNECTION HAS ALREADY BEEN CLOSED") > -1)
 						|| (error_text.indexOf("BROKEN PIPE") > -1) || (error_text.indexOf("TNS") > -1 && error_text
@@ -121,7 +129,7 @@ public class OracleExceptionSorter implements ExceptionSorter, Serializable {
 	private static List<ExceptionSorter> externalExceptionSorters;
 
 	/**
-	 * @param sorter Íâ²¿µÄExceptionSorterÖ»ĞèÅĞ¶ÏSQLException±¾Éí¼´¿É£¬²»ĞèÒªÅĞ¶ÏÆäcauseÁ´
+	 * @param sorter å¤–éƒ¨çš„ExceptionSorteråªéœ€åˆ¤æ–­SQLExceptionæœ¬èº«å³å¯ï¼Œä¸éœ€è¦åˆ¤æ–­å…¶causeé“¾
 	 */
 	public static void addExceptionSorter(ExceptionSorter sorter) {
 		if (externalExceptionSorters == null) {

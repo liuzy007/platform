@@ -45,7 +45,7 @@ public class DiamondClient implements DiamondClientMBean {
             mbs.registerMBean(this, objectName);
         }
         catch (Throwable t) {
-            log.error("×¢²áMBean³ö´í", t);
+            log.error("æ³¨å†ŒMBeanå‡ºé”™", t);
         }
 
     }
@@ -117,11 +117,11 @@ public class DiamondClient implements DiamondClientMBean {
         }
         Integer count = map.get(key);
         if (count == null) {
-            log.info("Ì½²âµ½DataId:" + dataId + ",group:" + groupId + ";µÚ1´Î±ä»¯¡£");
+            log.info("æ¢æµ‹åˆ°DataId:" + dataId + ",group:" + groupId + ";ç¬¬1æ¬¡å˜åŒ–ã€‚");
             map.put(key, 1);
         }
         else {
-            log.info("Ì½²âµ½DataId:" + dataId + ",group:" + groupId + ";µÚ" + count+1 + "´Î±ä»¯¡£");
+            log.info("æ¢æµ‹åˆ°DataId:" + dataId + ",group:" + groupId + ";ç¬¬" + count+1 + "æ¬¡å˜åŒ–ã€‚");
             map.put(key, count + 1);
         }
     }

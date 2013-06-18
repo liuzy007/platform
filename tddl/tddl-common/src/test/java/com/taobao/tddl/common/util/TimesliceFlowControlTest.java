@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.util;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.util;
 
 import junit.framework.Assert;
 
@@ -15,7 +23,7 @@ public class TimesliceFlowControlTest {
 
 	@Test
 	public void test1s() {
-		TimesliceFlowControl tsfc = new TimesliceFlowControl("¡˜øÿ", 1000, 20); //1√Î≤ª≥¨π˝20¥Œ
+		TimesliceFlowControl tsfc = new TimesliceFlowControl("ÊµÅÊéß", 1000, 20); //1Áßí‰∏çË∂ÖËøá20Ê¨°
 		try {
 			for (int i = 0; i < 20; i++) {
 				tsfc.check();
@@ -43,7 +51,7 @@ public class TimesliceFlowControlTest {
 
 	@Test
 	public void test2s() {
-		TimesliceFlowControl tsfc = new TimesliceFlowControl("¡˜øÿ", 2000, 20); //1√Î≤ª≥¨π˝20¥Œ
+		TimesliceFlowControl tsfc = new TimesliceFlowControl("ÊµÅÊéß", 2000, 20); //1Áßí‰∏çË∂ÖËøá20Ê¨°
 		try {
 			for (int i = 0; i < 5; i++) {
 				tsfc.check();
@@ -63,7 +71,7 @@ public class TimesliceFlowControlTest {
 		} catch (Exception e) {
 			Assert.fail(e.getMessage());
 		}
-	    Assert.assertFalse(tsfc.allow()); //◊Ó∫Û“ª∏ˆslot∑≈µ⁄6∏ˆ«Î«Û£¨∑µªÿfalse
+	    Assert.assertFalse(tsfc.allow()); //ÊúÄÂêé‰∏Ä‰∏™slotÊîæÁ¨¨6‰∏™ËØ∑Ê±ÇÔºåËøîÂõûfalse
 	    sleep(1510);
 		try {
 			for (int i = 0; i < 14; i++) {

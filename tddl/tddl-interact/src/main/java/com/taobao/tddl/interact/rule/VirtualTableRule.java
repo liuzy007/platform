@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.rule;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.rule;
 
 import java.util.List;
 import java.util.Map;
@@ -9,9 +17,9 @@ import com.taobao.tddl.interact.rule.virtualnode.DBTableMap;
 import com.taobao.tddl.interact.rule.virtualnode.TableSlotMap;
 
 /**
- * TDataSource³ÖÓĞËùÓĞĞéÄâ±íÃûµ½¸Ã¶ÔÏóµÄÒıÓÃ
- * tddl-client¸ù¾İ½âÎö/Ô¤½âÎö½á¹ûÈ¡µÃĞéÄâ±íÃû
- * ¸ù¾İĞéÄâ±íÃûÈ¡µÃ¶ÔÓ¦µÄVirtualTableRule¶ÔÏó
+ * TDataSourceæŒæœ‰æ‰€æœ‰è™šæ‹Ÿè¡¨ååˆ°è¯¥å¯¹è±¡çš„å¼•ç”¨
+ * tddl-clientæ ¹æ®è§£æ/é¢„è§£æç»“æœå–å¾—è™šæ‹Ÿè¡¨å
+ * æ ¹æ®è™šæ‹Ÿè¡¨åå–å¾—å¯¹åº”çš„VirtualTableRuleå¯¹è±¡
  * 
  * @author linxuan
  *
@@ -19,24 +27,24 @@ import com.taobao.tddl.interact.rule.virtualnode.TableSlotMap;
 public interface VirtualTableRule<D, T> {
 
 	/**
-	 * ¿â¹æÔòÁ´
+	 * åº“è§„åˆ™é“¾
 	 */
 	List<Rule<String>> getDbShardRules();
 
 	/**
-	 * ±í¹æÔòÁ´
+	 * è¡¨è§„åˆ™é“¾
 	 */
 	List<Rule<String>> getTbShardRules();
 
 	/**
-	 * ½«¿â¹æÔòÁ´¼ÆËãºóµÄ½á¹û£¬×ª»¯Îª×îÖÕ½á¹û
+	 * å°†åº“è§„åˆ™é“¾è®¡ç®—åçš„ç»“æœï¼Œè½¬åŒ–ä¸ºæœ€ç»ˆç»“æœ
 	 * @param value
 	 * @param dynamicExtraContext
 	 */
 	//String mapDbKey(D value);
 
 	/**
-	 * ½«±í¹æÔòÁ´¼ÆËãºóµÄ½á¹û£¬×ª»¯Îª×îÖÕ½á¹û
+	 * å°†è¡¨è§„åˆ™é“¾è®¡ç®—åçš„ç»“æœï¼Œè½¬åŒ–ä¸ºæœ€ç»ˆç»“æœ
 	 * @param value
 	 * @param dynamicExtraContext
 	 * @return
@@ -44,18 +52,18 @@ public interface VirtualTableRule<D, T> {
 	//String mapTbKey(T value);
 
 	/**
-	 * @return ĞéÄâ±íÃûºÍÃ»ÓĞ±í¹æÔòÊ±µÄÄ¬ÈÏ±íÃû
+	 * @return è™šæ‹Ÿè¡¨åå’Œæ²¡æœ‰è¡¨è§„åˆ™æ—¶çš„é»˜è®¤è¡¨å
 	 */
 	//String getVirtualTbName();
 	
 	/**
-	 * @return ĞéÄâ±íËùÔÚµÄĞéÄâ¿âÃû£¬Ã»ÓĞ¿â¹æÔòÊ±µÄÄ¬ÈÏ¿âÃû
+	 * @return è™šæ‹Ÿè¡¨æ‰€åœ¨çš„è™šæ‹Ÿåº“åï¼Œæ²¡æœ‰åº“è§„åˆ™æ—¶çš„é»˜è®¤åº“å
 	 */
 	//String getVirtualDbName();
 
 	/**
-	 * ·µ»Ø±¾¹æÔòÊµ¼Ê¶ÔÓ¦µÄÈ«²¿¿â±íÍØÆË½á¹¹
-	 * @return key:dbIndex; value:Êµ¼ÊÎïÀí±íÃûµÄ¼¯ºÏ
+	 * è¿”å›æœ¬è§„åˆ™å®é™…å¯¹åº”çš„å…¨éƒ¨åº“è¡¨æ‹“æ‰‘ç»“æ„
+	 * @return key:dbIndex; value:å®é™…ç‰©ç†è¡¨åçš„é›†åˆ
 	 */
 	Map<String, Set<String>> getActualTopology();
 
@@ -66,7 +74,7 @@ public interface VirtualTableRule<D, T> {
 	public DBTableMap getDbTableMap();
 
 	//=========================================================================
-	// ¹æÔòºÍÆäËûÊôĞÔµÄ·Ö¸îÏß
+	// è§„åˆ™å’Œå…¶ä»–å±æ€§çš„åˆ†å‰²çº¿
 	//=========================================================================
 
 	DBType getDbType();

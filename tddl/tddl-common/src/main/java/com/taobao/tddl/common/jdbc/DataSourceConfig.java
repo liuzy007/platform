@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.jdbc;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.jdbc;
 
 import javax.sql.DataSource;
 
@@ -8,17 +16,17 @@ import com.taobao.datasource.resource.adapter.jdbc.local.LocalTxDataSource;
 public class DataSourceConfig implements Cloneable {
 
 	/**
-	 * Êı¾İÔ´µÄĞÅÏ¢DO
+	 * æ•°æ®æºçš„ä¿¡æ¯DO
 	 */
 	private LocalTxDataSourceDO dsConfig;
 
 	/**
-	 * Êı¾İÔ´¶ÔÏó£¬¿ÉÄÜÊÇÖ±½ÓÊµÏÖDataSourceµÄ¶ÔÏó£¬Ò²¿ÉÄÜÊÇ°şÀëJBOOSÊı¾İÔ´µÄLocalTxDataSource¶ÔÏó
+	 * æ•°æ®æºå¯¹è±¡ï¼Œå¯èƒ½æ˜¯ç›´æ¥å®ç°DataSourceçš„å¯¹è±¡ï¼Œä¹Ÿå¯èƒ½æ˜¯å‰¥ç¦»JBOOSæ•°æ®æºçš„LocalTxDataSourceå¯¹è±¡
 	 */
 	private Object dsObject;
 	
 	/**
-	 * ÀàĞÍ jndi»òÕßÆäËû
+	 * ç±»å‹ jndiæˆ–è€…å…¶ä»–
 	 */
 	private String type;
 	

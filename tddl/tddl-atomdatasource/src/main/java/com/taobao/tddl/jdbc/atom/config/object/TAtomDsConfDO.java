@@ -1,8 +1,20 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.atom.config.object;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.atom.config.object;
 
-import java.util.HashMap;import java.util.Map;import com.taobao.tddl.jdbc.atom.common.TAtomConstants;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.taobao.tddl.jdbc.atom.common.TAtomConstants;
+
 /**
- * TAtomÊı¾İÔ´È«¾ÖºÍÓ¦ÓÃÅäÖÃµÄDO
+ * TAtomæ•°æ®æºå…¨å±€å’Œåº”ç”¨é…ç½®çš„DO
  * 
  * @author qihao
  * @author shenxun
@@ -45,32 +57,32 @@ public class TAtomDsConfDO implements Cloneable {
 	private Map<String, String> connectionProperties = new HashMap<String, String>();
 
 	/**
-	 * Ğ´ ´ÎÊıÏŞÖÆ
+	 * å†™ æ¬¡æ•°é™åˆ¶
 	 */
 	private int writeRestrictTimes;
 
 	/**
-	 * ¶Á ´ÎÊıÏŞÖÆ
+	 * è¯» æ¬¡æ•°é™åˆ¶
 	 */
 	private int readRestrictTimes;
 
 	/**
-	 * Í³¼ÆÊ±¼äÆ¬ 
+	 * ç»Ÿè®¡æ—¶é—´ç‰‡ 
 	 */
 	private int timeSliceInMillis;
 
 	/**
-	 * Ïß³Ì¼¼ÊõcountÏŞÖÆ
+	 * çº¿ç¨‹æŠ€æœ¯counté™åˆ¶
 	 */
 	private int threadCountRestrict;
 
 	/**
-	 * ÔÊĞí²¢·¢¶ÁµÄ×î´ó¸öÊı£¬0Îª²»ÏŞÖÆ
+	 * å…è®¸å¹¶å‘è¯»çš„æœ€å¤§ä¸ªæ•°ï¼Œ0ä¸ºä¸é™åˆ¶
 	 */
 	private int maxConcurrentReadRestrict;
 
 	/**
-	 * ÔÊĞí²¢·¢Ğ´µÄ×î´ó¸öÊı£¬0Îª²»ÏŞÖÆ
+	 * å…è®¸å¹¶å‘å†™çš„æœ€å¤§ä¸ªæ•°ï¼Œ0ä¸ºä¸é™åˆ¶
 	 */
 	private int maxConcurrentWriteRestrict;
 	

@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.integration;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.integration;
 
 import static org.junit.Assert.*;
 
@@ -28,7 +36,7 @@ public class MasterSlaveSwitchingTest {
 	@Test
 	public void switching() throws Exception {
 		if (true)
-			return; //ÒªÊÖ¹¤²âÊÔ×¢ÊÍµôÕâÒ»ĞĞ
+			return; //è¦æ‰‹å·¥æµ‹è¯•æ³¨é‡Šæ‰è¿™ä¸€è¡Œ
 
 		TGroupDataSource ds = new TGroupDataSource(dbGroupKey, appName);
 		ds.setAutoSelectWriteDataSource(true);
@@ -37,34 +45,34 @@ public class MasterSlaveSwitchingTest {
 		Connection conn = ds.getConnection();
 		Statement stmt = conn.createStatement();
 
-		//ÏÈÍùÖ÷¿â²åÈëÒ»Ìõ¼ÇÂ¼
+		//å…ˆå¾€ä¸»åº“æ’å…¥ä¸€æ¡è®°å½•
 		assertEquals(stmt.executeUpdate("insert into crud(f1,f2) values(10,'str')"), 1);
 
-		System.out.println("ÒÑÍùÖ÷¿â²åÈëÒ»Ìõ¼ÇÂ¼...");
+		System.out.println("å·²å¾€ä¸»åº“æ’å…¥ä¸€æ¡è®°å½•...");
 
-		System.out.println("°ÑÖ÷¿âµÄ×´Ì¬¸Ä³ÉNA£¬ĞİÏ¢Ò»·Ö°ëÖÓ..."); //Í¬Ê±Çë¹Ø±ÕMySQLÊı¾İ¿â·şÎñÆ÷
+		System.out.println("æŠŠä¸»åº“çš„çŠ¶æ€æ”¹æˆNAï¼Œä¼‘æ¯ä¸€åˆ†åŠé’Ÿ..."); //åŒæ—¶è¯·å…³é—­MySQLæ•°æ®åº“æœåŠ¡å™¨
 		Thread.sleep(90 * 1000);
 		try {
 			stmt.executeUpdate("update crud set f2='str2'");
-			fail("Ö÷¿â´¦ÓÚNA×´Ì¬²»ÄÜ½øĞĞ¸üĞÂ²Ù×÷");
+			fail("ä¸»åº“å¤„äºNAçŠ¶æ€ä¸èƒ½è¿›è¡Œæ›´æ–°æ“ä½œ");
 		} catch (Exception e) {
-			System.out.println("Ö÷¿âµ±Ç°´¦ÓÚNA×´Ì¬£¬ÎŞ·¨½øĞĞ¸üĞÂ²Ù×÷£¬Exception: " + e);
+			System.out.println("ä¸»åº“å½“å‰å¤„äºNAçŠ¶æ€ï¼Œæ— æ³•è¿›è¡Œæ›´æ–°æ“ä½œï¼ŒException: " + e);
 
-			System.out.println("ÖØ½¨Connection"); //²»ÄÜ»ùÓÚÔ­ÓĞConnectionÖØ½¨Statement
+			System.out.println("é‡å»ºConnection"); //ä¸èƒ½åŸºäºåŸæœ‰Connectioné‡å»ºStatement
 			conn = ds.getConnection();
-			System.out.println("ÖØ½¨Statement");
+			System.out.println("é‡å»ºStatement");
 			stmt = conn.createStatement();
 		}
 
-		System.out.println("°Ñ±¸1µÄ×´Ì¬¸Ä³ÉRW£¬ĞİÏ¢°ë·ÖÖÓ...");
+		System.out.println("æŠŠå¤‡1çš„çŠ¶æ€æ”¹æˆRWï¼Œä¼‘æ¯åŠåˆ†é’Ÿ...");
 		Thread.sleep(30 * 1000);
 
 		try {
 			assertEquals(stmt.executeUpdate("insert into crud(f1,f2) values(10,'str')"), 1);
-			System.out.println("ÒÑÍù±¸1¿âÖĞ²åÈëÒ»Ìõ¼ÇÂ¼...");
+			System.out.println("å·²å¾€å¤‡1åº“ä¸­æ’å…¥ä¸€æ¡è®°å½•...");
 		} catch (Exception e) {
 			e.printStackTrace();
-			fail("±¸1µÄ×´Ì¬ÒÑ¸Ä³ÉRW£¬µ«ÊÇ²»ÄÜ½øĞĞ¸üĞÂ²Ù×÷");
+			fail("å¤‡1çš„çŠ¶æ€å·²æ”¹æˆRWï¼Œä½†æ˜¯ä¸èƒ½è¿›è¡Œæ›´æ–°æ“ä½œ");
 		}
 
 		stmt.close();

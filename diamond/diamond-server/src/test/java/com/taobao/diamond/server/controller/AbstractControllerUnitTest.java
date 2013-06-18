@@ -46,7 +46,7 @@ public class AbstractControllerUnitTest {
 		this.configService.setNotifyService(notifyService);
 		mocksControl = EasyMock.createControl();
 		servletContext = mocksControl.createMock(ServletContext.class);
-		// ±ØĞëÉèÖÃ¸Ãmock´úÀíÊÇÏß³Ì°²È«µÄ, ·ñÔò²»Í¬µÄÏß³Ìµ÷ÓÃÍ¬Ò»¸ömock»á±¨´í by leiwen
+		// å¿…é¡»è®¾ç½®è¯¥mockä»£ç†æ˜¯çº¿ç¨‹å®‰å…¨çš„, å¦åˆ™ä¸åŒçš„çº¿ç¨‹è°ƒç”¨åŒä¸€ä¸ªmockä¼šæŠ¥é”™ by leiwen
 		EasyMock.makeThreadSafe(servletContext, true);
 		this.diskService.setServletContext(servletContext);
 		tempFile = File.createTempFile("ConfigServiceUnitTest", "tmp");

@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.util;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.util;
 
 import java.sql.SQLException;
 import java.util.regex.Pattern;
@@ -7,28 +15,28 @@ import com.taobao.tddl.interact.rule.bean.SqlType;
 
 /**
  *
- * ½âÎöSQLÓï¾ä£¬µÃµ½ÕâÌõÓï¾äµÄÀàĞÍ
+ * è§£æSQLè¯­å¥ï¼Œå¾—åˆ°è¿™æ¡è¯­å¥çš„ç±»å‹
  *
  * @author yangzhu
  */
 public class SQLParser {
 //	private static final ParserCache globalCache = ParserCache.instance();
 	/**
-	 * ÓÃÓÚÅĞ¶ÏÊÇ·ñÊÇÒ»¸öselect ... for updateµÄsql
+	 * ç”¨äºåˆ¤æ–­æ˜¯å¦æ˜¯ä¸€ä¸ªselect ... for updateçš„sql
 	 */
 	private static final Pattern SELECT_FOR_UPDATE_PATTERN = Pattern.compile("^select\\s+.*\\s+for\\s+update.*$",
 			Pattern.CASE_INSENSITIVE);
 
 	/**
-	 * »ñµÃSQLÓï¾äÖÖÀà
+	 * è·å¾—SQLè¯­å¥ç§ç±»
 	 *
 	 * @param sql
-	 *            SQLÓï¾ä
+	 *            SQLè¯­å¥
 	 * @throws SQLException
-	 *             µ±SQLÓï¾ä²»ÊÇSELECT¡¢INSERT¡¢UPDATE¡¢DELETEÓï¾äÊ±£¬Å×³öÒì³£¡£
+	 *             å½“SQLè¯­å¥ä¸æ˜¯SELECTã€INSERTã€UPDATEã€DELETEè¯­å¥æ—¶ï¼ŒæŠ›å‡ºå¼‚å¸¸ã€‚
 	 */
 	public static SqlType getSqlType(String sql) throws SQLException {
-		//#bug 2011-11-24,modify by junyu,ÏÈ²»×ß»º´æ£¬·ñÔòsql±ä»¯¾Ş´ó£¬»º´æ»»Èë»»³öÌ«¶à£¬gcÌ«Ã÷ÏÔ
+		//#bug 2011-11-24,modify by junyu,å…ˆä¸èµ°ç¼“å­˜ï¼Œå¦åˆ™sqlå˜åŒ–å·¨å¤§ï¼Œç¼“å­˜æ¢å…¥æ¢å‡ºå¤ªå¤šï¼Œgcå¤ªæ˜æ˜¾
 //		SqlType sqlType = globalCache.getSqlType(sql);
 //		if (sqlType == null) {
 		SqlType sqlType=null;

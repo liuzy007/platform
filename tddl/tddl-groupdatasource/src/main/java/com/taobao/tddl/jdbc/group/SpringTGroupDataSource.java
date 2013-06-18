@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group;
 
 import static com.taobao.tddl.jdbc.group.util.StringUtils.split;
 
@@ -13,7 +21,7 @@ import org.springframework.context.ApplicationContextAware;
 
 import com.taobao.tddl.interact.rule.bean.DBType;
 
-@Deprecated //TGroupDataSourceÖĞÒÑ¾­°üº¬ÁËÏàÍ¬µÄ¹¦ÄÜ
+@Deprecated //TGroupDataSourceä¸­å·²ç»åŒ…å«äº†ç›¸åŒçš„åŠŸèƒ½
 public class SpringTGroupDataSource extends TGroupDataSource implements ApplicationContextAware {
 	private ApplicationContext springContext;
 
@@ -51,7 +59,7 @@ public class SpringTGroupDataSource extends TGroupDataSource implements Applicat
 		else if ("mysql".equalsIgnoreCase(type))
 			dbType = DBType.MYSQL;
 		else
-			throw new IllegalArgumentException(type + " ²»ÊÇÓĞĞ§µÄÊı¾İ¿âÀàĞÍ£¬Ö»ÄÜÊÇmysql»òoracle(²»Çø·Ö´óĞ¡Ğ´)");
+			throw new IllegalArgumentException(type + " ä¸æ˜¯æœ‰æ•ˆçš„æ•°æ®åº“ç±»å‹ï¼Œåªèƒ½æ˜¯mysqlæˆ–oracle(ä¸åŒºåˆ†å¤§å°å†™)");
 	}
 
 	private String dataSources;

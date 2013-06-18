@@ -62,7 +62,7 @@ public class SnapshotConfigInfoProcessorUnitTest {
 
 
     @Test
-    public void testSaveSnapshotGetDelete_中文_LargeData() throws Exception {
+    public void testSaveSnapshotGetDelete_涓枃_LargeData() throws Exception {
         final String dataId = "test-dataId";
         final String group = "test";
         assertNull(this.processor.getConfigInfomation(dataId, group));
@@ -77,7 +77,7 @@ public class SnapshotConfigInfoProcessorUnitTest {
     public String getBigString() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 8 * 1024; i++) {
-            sb.append("中文");
+            sb.append("涓枃");
             if (i % 1000 == 0)
                 sb.append("\r\n");
         }

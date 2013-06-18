@@ -1,7 +1,19 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.jdbc.conurl;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.jdbc.conurl;
 
-import java.text.MessageFormat;import com.taobao.tddl.common.util.TStringUtil;import com.taobao.tddl.interact.rule.bean.DBType;
-/**MYSQL数据源连接地址类，只要设置要IP,PORT,DBNAME后调用renderURL即可生成连接的字符串
+import java.text.MessageFormat;
+
+import com.taobao.tddl.common.util.TStringUtil;
+import com.taobao.tddl.interact.rule.bean.DBType;
+
+/**MYSQL鏁版嵁婧愯繛鎺ュ湴鍧�绫伙紝鍙璁剧疆瑕両P,PORT,DBNAME鍚庤皟鐢╮enderURL鍗冲彲鐢熸垚杩炴帴鐨勫瓧绗︿覆
  * @author qihao
  *
  */

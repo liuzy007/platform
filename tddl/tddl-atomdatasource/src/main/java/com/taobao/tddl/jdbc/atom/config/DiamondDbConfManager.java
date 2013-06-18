@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.atom.config;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.atom.config;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,7 +25,7 @@ import com.taobao.tddl.common.config.impl.DefaultConfigDataHandlerFactory;
 import com.taobao.tddl.jdbc.atom.common.TAtomConstants;
 
 /**
- * 全局和应用的配置管理Diamond实现
+ * 鍏ㄥ眬鍜屽簲鐢ㄧ殑閰嶇疆绠＄悊Diamond瀹炵幇
  * 
  * @author qihao
  * 

@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	/*
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+/*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
@@ -10,7 +18,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * 
- * һЩ��ֵ̬�Ĵ�������ֵ̬�������ۼ�ģ�ͣ�����������ʱ��ص�����ӿڼ��뵽old�������
+ * 一些静态值的处理，静态值不符合累加模型，因此在输出的时候回调这个接口加入到old里面输出
  * 
  * @author shenxun
  * @author junyu
@@ -44,7 +52,7 @@ public interface SnapshotValuesOutputCallBack {
 	}
 
 	/**
-	 * ��ǰ��ͳ�����ݻ��ܣ�
+	 * 当前的统计内容汇总：
 	 * 
 	 * @see TDataSourceState TDataSourceWrapper
 	 */

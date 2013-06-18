@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.integration;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.integration;
 
 import org.junit.Test;
 
@@ -40,7 +48,7 @@ public class DiamondMultiThreadTest {
 	}
 
 	@Test
-	public void 并发执行多个线程_不涉及TAtomDataSource() throws Exception {
+	public void 骞跺彂鎵ц澶氫釜绾跨▼_涓嶆秹鍙奣AtomDataSource() throws Exception {
 		int size = 6;
 		MyThread[] myThreads = new MyThread[size];
 		for (int i = 1; i <= size; i++) {
@@ -56,7 +64,7 @@ public class DiamondMultiThreadTest {
 	}
 	
 	@Test
-	public void 串行执行多个线程_不涉及TAtomDataSource() throws Exception {
+	public void 涓茶鎵ц澶氫釜绾跨▼_涓嶆秹鍙奣AtomDataSource() throws Exception {
 		int size = 6;
 		for (int i = 1; i <= size; i++) {
 			MyThread t = new MyThread("DiamondMultiThreadTest" + i, i);
@@ -66,7 +74,7 @@ public class DiamondMultiThreadTest {
 	}
 	
 	@Test
-	public void 并发执行多个线程_涉及TAtomDataSource() throws Exception {
+	public void 骞跺彂鎵ц澶氫釜绾跨▼_娑夊強TAtomDataSource() throws Exception {
 		int size = 3;
 		MyThread[] myThreads = new MyThread[size];
 		for (int i = 1; i <= size; i++) {
@@ -82,7 +90,7 @@ public class DiamondMultiThreadTest {
 	}
 	
 	@Test
-	public void 串行执行多个线程_涉及TAtomDataSource() throws Exception {
+	public void 涓茶鎵ц澶氫釜绾跨▼_娑夊強TAtomDataSource() throws Exception {
 		int size = 3;
 		for (int i = 1; i <= size; i++) {
 			MyThread t = new MyThread(new TGroupDataSource("myDbGroupKey" + i, appName));

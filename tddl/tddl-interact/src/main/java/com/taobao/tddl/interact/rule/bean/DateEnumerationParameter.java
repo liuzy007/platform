@@ -1,17 +1,25 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.rule.bean;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.rule.bean;
 
 import java.util.Calendar;
 
 /**
- * ÓÃÓÚ´«µİ×ÔÔöÊı×ÖºÍ×ÔÔöÊı×Ö¶ÔÓ¦ÔÚCalendarÀïµÄÀàĞÍ
- * ¼Ì³ĞComparableÊÇÒòÎª¿ªÊ¼Ô¤ÁôµÄ½Ó¿ÚÊÇComparable...
+ * ç”¨äºä¼ é€’è‡ªå¢æ•°å­—å’Œè‡ªå¢æ•°å­—å¯¹åº”åœ¨Calendaré‡Œçš„ç±»å‹
+ * ç»§æ‰¿Comparableæ˜¯å› ä¸ºå¼€å§‹é¢„ç•™çš„æ¥å£æ˜¯Comparable...
  * @author shenxun
  *
  */
 @SuppressWarnings("rawtypes")
 public class DateEnumerationParameter implements Comparable{
 	/**
-	 * Ä¬ÈÏÊ¹ÓÃDate×÷ÎªÈÕÆÚÀàĞÍµÄ»ù±¾×ÔÔöµ¥Î»
+	 * é»˜è®¤ä½¿ç”¨Dateä½œä¸ºæ—¥æœŸç±»å‹çš„åŸºæœ¬è‡ªå¢å•ä½
 	 * @param atomicIncreateNumber
 	 */
 	public DateEnumerationParameter(int atomicIncreateNumber) {

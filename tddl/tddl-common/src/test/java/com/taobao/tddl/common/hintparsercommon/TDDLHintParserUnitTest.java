@@ -1,6 +1,23 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.hintparsercommon;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.hintparsercommon;
 
-import java.util.Map;import junit.framework.Assert;import org.junit.After;import org.junit.AfterClass;import org.junit.Before;import org.junit.BeforeClass;import org.junit.Test;
+import java.util.Map;
+
+import junit.framework.Assert;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
 public class TDDLHintParserUnitTest {
 
 	@BeforeClass
@@ -27,7 +44,7 @@ public class TDDLHintParserUnitTest {
 			hintMap = TDDLHintParser.parseHint(sqlHint);
 			Assert.fail();
 		} catch (IllegalArgumentException e) {
-			Assert.assertEquals("参数个数错误，键值对不为2;: a ", e.getMessage());
+			Assert.assertEquals("鍙傛暟涓暟閿欒锛岄敭鍊煎涓嶄负2;: a ", e.getMessage());
 		}
 		sqlHint = "/*+ hint: a */";
 		hintMap = TDDLHintParser.parseHint(sqlHint);

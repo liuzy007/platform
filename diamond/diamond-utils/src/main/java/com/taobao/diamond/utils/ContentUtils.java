@@ -19,15 +19,15 @@ public class ContentUtils {
     public static void verifyIncrementPubContent(String content) {
 
         if (content == null || content.length() == 0) {
-            throw new IllegalArgumentException("·¢²¼/É¾³ıÄÚÈİ²»ÄÜÎª¿Õ");
+            throw new IllegalArgumentException("å‘å¸ƒ/åˆ é™¤å†…å®¹ä¸èƒ½ä¸ºç©º");
         }
         for (int i = 0; i < content.length(); i++) {
             char c = content.charAt(i);
             if (c == '\r' || c == '\n') {
-                throw new IllegalArgumentException("·¢²¼/É¾³ıÄÚÈİ²»ÄÜ°üº¬»Ø³µºÍ»»ĞĞ");
+                throw new IllegalArgumentException("å‘å¸ƒ/åˆ é™¤å†…å®¹ä¸èƒ½åŒ…å«å›è½¦å’Œæ¢è¡Œ");
             }
             if (c == Constants.WORD_SEPARATOR.charAt(0)) {
-                throw new IllegalArgumentException("·¢²¼/É¾³ıÄÚÈİ²»ÄÜ°üº¬(char)2");
+                throw new IllegalArgumentException("å‘å¸ƒ/åˆ é™¤å†…å®¹ä¸èƒ½åŒ…å«(char)2");
             }
         }
     }
@@ -36,7 +36,7 @@ public class ContentUtils {
     public static String getContentIdentity(String content) {
         int index = content.indexOf(WORD_SEPARATOR);
         if (index == -1) {
-            throw new IllegalArgumentException("ÄÚÈİÃ»ÓĞ°üº¬·Ö¸ô·û");
+            throw new IllegalArgumentException("å†…å®¹æ²¡æœ‰åŒ…å«åˆ†éš”ç¬¦");
         }
         return content.substring(0, index);
     }
@@ -45,7 +45,7 @@ public class ContentUtils {
     public static String getContent(String content) {
         int index = content.indexOf(WORD_SEPARATOR);
         if (index == -1) {
-            throw new IllegalArgumentException("ÄÚÈİÃ»ÓĞ°üº¬·Ö¸ô·û");
+            throw new IllegalArgumentException("å†…å®¹æ²¡æœ‰åŒ…å«åˆ†éš”ç¬¦");
         }
         return content.substring(index + 1);
     }

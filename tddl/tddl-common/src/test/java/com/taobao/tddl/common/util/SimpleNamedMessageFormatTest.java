@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.util;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.util;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,98 +23,98 @@ public class SimpleNamedMessageFormatTest {
 
 	@Test
 	public void testFormat() {
-		SimpleNamedMessageFormat mf0 = new SimpleNamedMessageFormat("Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		SimpleNamedMessageFormat mf1 = new SimpleNamedMessageFormat("{one}¶ş34ÎåÁù78¾Å{ten}");
-		SimpleNamedMessageFormat mf2 = new SimpleNamedMessageFormat("Ò»{two}34ÎåÁù78{nine}Ê®");
-		SimpleNamedMessageFormat mf3 = new SimpleNamedMessageFormat("Ò»¶ş{three}4ÎåÁù78¾ÅÊ®");
-		SimpleNamedMessageFormat mf4 = new SimpleNamedMessageFormat("{one}¶ş{three}{three}4ÎåÁù78¾Å{ten}");
-		SimpleNamedMessageFormat mf5 = new SimpleNamedMessageFormat("Ò»¶ş34ÎåÁù78¾Å{ten}");
-		SimpleNamedMessageFormat mf6 = new SimpleNamedMessageFormat("{one}¶ş34ÎåÁù78¾ÅÊ®");
-		SimpleNamedMessageFormat mf7 = new SimpleNamedMessageFormat("{one}{one}¶ş34ÎåÁù78¾Å{ten}{ten}");
-		SimpleNamedMessageFormat mf8 = new SimpleNamedMessageFormat("{one}{two}3{four}{five}Áù78{nine}{ten}");
-		SimpleNamedMessageFormat mf9 = new SimpleNamedMessageFormat("Ò»{nine}2{nine}3{nine}");
-		SimpleNamedMessageFormat mfa = new SimpleNamedMessageFormat("{one}¶ş{thr{one}ee}4ÎåÁù78¾Å{ten}");
-		SimpleNamedMessageFormat mfb = new SimpleNamedMessageFormat("{one}¶ş{hasnoargs}4ÎåÁù78¾Å{ten}");
+		SimpleNamedMessageFormat mf0 = new SimpleNamedMessageFormat("ä¸€äºŒ34äº”å…­78ä¹å");
+		SimpleNamedMessageFormat mf1 = new SimpleNamedMessageFormat("{one}äºŒ34äº”å…­78ä¹{ten}");
+		SimpleNamedMessageFormat mf2 = new SimpleNamedMessageFormat("ä¸€{two}34äº”å…­78{nine}å");
+		SimpleNamedMessageFormat mf3 = new SimpleNamedMessageFormat("ä¸€äºŒ{three}4äº”å…­78ä¹å");
+		SimpleNamedMessageFormat mf4 = new SimpleNamedMessageFormat("{one}äºŒ{three}{three}4äº”å…­78ä¹{ten}");
+		SimpleNamedMessageFormat mf5 = new SimpleNamedMessageFormat("ä¸€äºŒ34äº”å…­78ä¹{ten}");
+		SimpleNamedMessageFormat mf6 = new SimpleNamedMessageFormat("{one}äºŒ34äº”å…­78ä¹å");
+		SimpleNamedMessageFormat mf7 = new SimpleNamedMessageFormat("{one}{one}äºŒ34äº”å…­78ä¹{ten}{ten}");
+		SimpleNamedMessageFormat mf8 = new SimpleNamedMessageFormat("{one}{two}3{four}{five}å…­78{nine}{ten}");
+		SimpleNamedMessageFormat mf9 = new SimpleNamedMessageFormat("ä¸€{nine}2{nine}3{nine}");
+		SimpleNamedMessageFormat mfa = new SimpleNamedMessageFormat("{one}äºŒ{thr{one}ee}4äº”å…­78ä¹{ten}");
+		SimpleNamedMessageFormat mfb = new SimpleNamedMessageFormat("{one}äºŒ{hasnoargs}4äº”å…­78ä¹{ten}");
 		
 		Map<String,Object> params = new HashMap<String,Object>();
-		params.put("one", "Ò»");
-		params.put("two", "¶ş");
+		params.put("one", "ä¸€");
+		params.put("two", "äºŒ");
 		params.put("three", 3);
 		params.put("four", 4);
-		params.put("five", "Îå");
-		params.put("nine", "¾Å");
-		params.put("ten", "Ê®");
+		params.put("five", "äº”");
+		params.put("nine", "ä¹");
+		params.put("ten", "å");
 		
-		Assert.assertEquals(mf0.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf1.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf2.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf3.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf4.format(params),"Ò»¶ş334ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf5.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf6.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf7.format(params),"Ò»Ò»¶ş34ÎåÁù78¾ÅÊ®Ê®");
-		Assert.assertEquals(mf8.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf9.format(params),"Ò»¾Å2¾Å3¾Å");
-		Assert.assertEquals(mfa.format(params),"Ò»¶ş{thr{one}ee}4ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mfb.format(params),"Ò»¶ş{hasnoargs}4ÎåÁù78¾ÅÊ®");
+		Assert.assertEquals(mf0.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf1.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf2.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf3.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf4.format(params),"ä¸€äºŒ334äº”å…­78ä¹å");
+		Assert.assertEquals(mf5.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf6.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf7.format(params),"ä¸€ä¸€äºŒ34äº”å…­78ä¹åå");
+		Assert.assertEquals(mf8.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf9.format(params),"ä¸€ä¹2ä¹3ä¹");
+		Assert.assertEquals(mfa.format(params),"ä¸€äºŒ{thr{one}ee}4äº”å…­78ä¹å");
+		Assert.assertEquals(mfb.format(params),"ä¸€äºŒ{hasnoargs}4äº”å…­78ä¹å");
 	}
 	@Test
 	public void testFormat2() {
-		SimpleNamedMessageFormat mf0 = new SimpleNamedMessageFormat("Ò»¶ş34ÎåÁù78¾ÅÊ®", "${", "}");
-		SimpleNamedMessageFormat mf1 = new SimpleNamedMessageFormat("${one}¶ş34ÎåÁù78¾Å${ten}", "${", "}");
-		SimpleNamedMessageFormat mf2 = new SimpleNamedMessageFormat("Ò»${two}34ÎåÁù78${nine}Ê®", "${", "}");
-		SimpleNamedMessageFormat mf3 = new SimpleNamedMessageFormat("Ò»¶ş${three}4ÎåÁù78¾ÅÊ®", "${", "}");
-		SimpleNamedMessageFormat mf4 = new SimpleNamedMessageFormat("${one}¶ş${three}${three}4ÎåÁù78¾Å${ten}", "${", "}");
-		SimpleNamedMessageFormat mf5 = new SimpleNamedMessageFormat("Ò»¶ş34ÎåÁù78¾Å${ten}", "${", "}");
-		SimpleNamedMessageFormat mf6 = new SimpleNamedMessageFormat("${one}¶ş34ÎåÁù78¾ÅÊ®", "${", "}");
-		SimpleNamedMessageFormat mf7 = new SimpleNamedMessageFormat("${one}${one}¶ş34ÎåÁù78¾Å${ten}${ten}", "${", "}");
-		SimpleNamedMessageFormat mf8 = new SimpleNamedMessageFormat("${one}${two}3${four}${five}Áù78${nine}${ten}", "${", "}");
-		SimpleNamedMessageFormat mf9 = new SimpleNamedMessageFormat("Ò»${nine}2${nine}3${nine}", "${", "}");
-		SimpleNamedMessageFormat mfa = new SimpleNamedMessageFormat("Ò»${nine}2{nine}3${nine}", "${", "}");
+		SimpleNamedMessageFormat mf0 = new SimpleNamedMessageFormat("ä¸€äºŒ34äº”å…­78ä¹å", "${", "}");
+		SimpleNamedMessageFormat mf1 = new SimpleNamedMessageFormat("${one}äºŒ34äº”å…­78ä¹${ten}", "${", "}");
+		SimpleNamedMessageFormat mf2 = new SimpleNamedMessageFormat("ä¸€${two}34äº”å…­78${nine}å", "${", "}");
+		SimpleNamedMessageFormat mf3 = new SimpleNamedMessageFormat("ä¸€äºŒ${three}4äº”å…­78ä¹å", "${", "}");
+		SimpleNamedMessageFormat mf4 = new SimpleNamedMessageFormat("${one}äºŒ${three}${three}4äº”å…­78ä¹${ten}", "${", "}");
+		SimpleNamedMessageFormat mf5 = new SimpleNamedMessageFormat("ä¸€äºŒ34äº”å…­78ä¹${ten}", "${", "}");
+		SimpleNamedMessageFormat mf6 = new SimpleNamedMessageFormat("${one}äºŒ34äº”å…­78ä¹å", "${", "}");
+		SimpleNamedMessageFormat mf7 = new SimpleNamedMessageFormat("${one}${one}äºŒ34äº”å…­78ä¹${ten}${ten}", "${", "}");
+		SimpleNamedMessageFormat mf8 = new SimpleNamedMessageFormat("${one}${two}3${four}${five}å…­78${nine}${ten}", "${", "}");
+		SimpleNamedMessageFormat mf9 = new SimpleNamedMessageFormat("ä¸€${nine}2${nine}3${nine}", "${", "}");
+		SimpleNamedMessageFormat mfa = new SimpleNamedMessageFormat("ä¸€${nine}2{nine}3${nine}", "${", "}");
 		
 		Map<String,Object> params = new HashMap<String,Object>();
-		params.put("one", "Ò»");
-		params.put("two", "¶ş");
+		params.put("one", "ä¸€");
+		params.put("two", "äºŒ");
 		params.put("three", 3);
 		params.put("four", 4);
-		params.put("five", "Îå");
-		params.put("nine", "¾Å");
-		params.put("ten", "Ê®");
+		params.put("five", "äº”");
+		params.put("nine", "ä¹");
+		params.put("ten", "å");
 		
-		Assert.assertEquals(mf0.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf1.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf2.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf3.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf4.format(params),"Ò»¶ş334ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf5.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf6.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf7.format(params),"Ò»Ò»¶ş34ÎåÁù78¾ÅÊ®Ê®");
-		Assert.assertEquals(mf8.format(params),"Ò»¶ş34ÎåÁù78¾ÅÊ®");
-		Assert.assertEquals(mf9.format(params),"Ò»¾Å2¾Å3¾Å");
-		Assert.assertEquals(mfa.format(params),"Ò»¾Å2{nine}3¾Å");
+		Assert.assertEquals(mf0.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf1.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf2.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf3.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf4.format(params),"ä¸€äºŒ334äº”å…­78ä¹å");
+		Assert.assertEquals(mf5.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf6.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf7.format(params),"ä¸€ä¸€äºŒ34äº”å…­78ä¹åå");
+		Assert.assertEquals(mf8.format(params),"ä¸€äºŒ34äº”å…­78ä¹å");
+		Assert.assertEquals(mf9.format(params),"ä¸€ä¹2ä¹3ä¹");
+		Assert.assertEquals(mfa.format(params),"ä¸€ä¹2{nine}3ä¹");
 	}
 
 	@Test
 	public void testFormatReuse() {
-		SimpleNamedMessageFormat mf = new SimpleNamedMessageFormat("{one}¶ş3{four}Îå6{seven}8¾Å{ten}");
+		SimpleNamedMessageFormat mf = new SimpleNamedMessageFormat("{one}äºŒ3{four}äº”6{seven}8ä¹{ten}");
 		
 		Map<String,Object> params = new HashMap<String,Object>();
-		params.put("one", "Ò»");
-		params.put("four", "ËÄ");
-		params.put("seven", "Æß");
-		params.put("ten", "Ê®");
-		Assert.assertEquals(mf.format(params),"Ò»¶ş3ËÄÎå6Æß8¾ÅÊ®");
+		params.put("one", "ä¸€");
+		params.put("four", "å››");
+		params.put("seven", "ä¸ƒ");
+		params.put("ten", "å");
+		Assert.assertEquals(mf.format(params),"ä¸€äºŒ3å››äº”6ä¸ƒ8ä¹å");
 		
 		params.put("one", "1");
 		params.put("four", "4");
 		params.put("seven", "7");
 		params.put("ten", "a");
-		Assert.assertEquals(mf.format(params),"1¶ş34Îå678¾Åa");
+		Assert.assertEquals(mf.format(params),"1äºŒ34äº”678ä¹a");
 
-		params.put("one", "ĞÄ");
-		params.put("four", "ĞÄ");
-		params.put("seven", "ĞÄ");
-		params.put("ten", "ĞÄ");
-		Assert.assertEquals(mf.format(params),"ĞÄ¶ş3ĞÄÎå6ĞÄ8¾ÅĞÄ");
+		params.put("one", "å¿ƒ");
+		params.put("four", "å¿ƒ");
+		params.put("seven", "å¿ƒ");
+		params.put("ten", "å¿ƒ");
+		Assert.assertEquals(mf.format(params),"å¿ƒäºŒ3å¿ƒäº”6å¿ƒ8ä¹å¿ƒ");
 	}
 }

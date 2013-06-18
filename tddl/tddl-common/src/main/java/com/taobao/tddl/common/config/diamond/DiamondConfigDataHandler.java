@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.config.diamond;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.config.diamond;
 
 import java.util.List;
 import java.util.Map;
@@ -20,8 +28,8 @@ import com.taobao.tddl.common.util.mbean.TDDLMBean;
  * @author <a href="zylicfc@gmail.com">junyu</a>
  * @version 1.0
  * @since 1.6
- * @date 2011-1-11上午11:22:29
- * @desc 持久配置中心diamond实现
+ * @date 2011-1-11涓婂崍11:22:29
+ * @desc 鎸佷箙閰嶇疆涓績diamond瀹炵幇
  */
 public class DiamondConfigDataHandler implements ConfigDataHandler {
 	private static final Log logger = LogFactory

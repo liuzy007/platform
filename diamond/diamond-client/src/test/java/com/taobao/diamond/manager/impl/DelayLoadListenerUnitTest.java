@@ -38,7 +38,7 @@ public class DelayLoadListenerUnitTest {
         String timeStr = format.format(new Date());
         Date expected = format.parse(timeStr);
 
-        // Õı³£Çé¿ö
+        // æ­£å¸¸æƒ…å†µ
         String config =
                 "<!--diamond-config-effective-time =\"" + timeStr + "\"   -->"
                         + "<bean class=\"com.taobao.session.config.SpringConfigFactory\">"
@@ -50,7 +50,7 @@ public class DelayLoadListenerUnitTest {
         long time = (Long) method.invoke(listener, config);
         Assert.assertEquals(expected.getTime(), time);
 
-        // Õı³£Çé¿ö
+        // æ­£å¸¸æƒ…å†µ
         config =
                 "#diamond-config-effective-time   = \"   " + timeStr + "  \"   -->"
                         + "<bean class=\"com.taobao.session.config.SpringConfigFactory\">"
@@ -62,7 +62,7 @@ public class DelayLoadListenerUnitTest {
         time = (Long) method.invoke(listener, config);
         Assert.assertEquals(expected.getTime(), time);
 
-        // ²»´æÔÚeffective time
+        // ä¸å­˜åœ¨effective time
         config =
                 "#diamond-config-effective-time_e   = \"   " + timeStr + "  \"   "
                         + "<bean class=\"com.taobao.session.config.SpringConfigFactory\">"
@@ -74,7 +74,7 @@ public class DelayLoadListenerUnitTest {
         time = (Long) method.invoke(listener, config);
         Assert.assertEquals(0, time);
 
-        // effective time¸ñÊ½²»¶Ô
+        // effective timeæ ¼å¼ä¸å¯¹
         config =
                 "#diamond-config-effective-time   = \"xxx \"   "
                         + "<bean class=\"com.taobao.session.config.SpringConfigFactory\">"
@@ -97,7 +97,7 @@ public class DelayLoadListenerUnitTest {
         SimpleDateFormat format = new SimpleDateFormat(DelayLoadListener.DATE_FORMAT);
         String timeStr = format.format(new Date(System.currentTimeMillis() + 10000000L));
 
-        // Õı³£Çé¿ö
+        // æ­£å¸¸æƒ…å†µ
         String config =
                 "<!--diamond-config-effective-time =\"" + timeStr + "\"   -->"
                         + "<bean class=\"com.taobao.session.config.SpringConfigFactory\">"
@@ -109,7 +109,7 @@ public class DelayLoadListenerUnitTest {
         long time = (Long) method.invoke(listener, config);
         Assert.assertTrue(time > 0);
 
-        // ¹ıÆÚÊ±¼ä
+        // è¿‡æœŸæ—¶é—´
         timeStr = format.format(new Date(System.currentTimeMillis() - 10000000L));
         config =
                 "<!--diamond-config-effective-time =\"" + timeStr + "\"   -->"
@@ -122,7 +122,7 @@ public class DelayLoadListenerUnitTest {
         time = (Long) method.invoke(listener, config);
         Assert.assertEquals(0, time);
 
-        // effective time ²»´æÔÚ
+        // effective time ä¸å­˜åœ¨
         config =
                 "<!--diamond-config-effective-time =\"xxx\"   -->"
                         + "<bean class=\"com.taobao.session.config.SpringConfigFactory\">"
@@ -140,7 +140,7 @@ public class DelayLoadListenerUnitTest {
     @Test
     public void testDelayReceive() throws Exception {
         
-        // Ã»ÓĞÑÓ³Ù
+        // æ²¡æœ‰å»¶è¿Ÿ
         DelayLoadListenerTest listener = new DelayLoadListenerTest();
         Method method = DelayLoadListener.class.getDeclaredMethod("delayReceive", String.class, long.class);
         method.setAccessible(true);
@@ -148,14 +148,14 @@ public class DelayLoadListenerUnitTest {
         method.invoke(listener, config, 0);        
         Assert.assertEquals(config, listener.getConfigInfo());
 
-        // ÑÓ³Ù 2 Ãë
+        // å»¶è¿Ÿ 2 ç§’
         listener = new DelayLoadListenerTest();
         config = "test" + System.currentTimeMillis();
         method.invoke(listener, config, 2000L);
         Thread.sleep(3000L);
         Assert.assertEquals(config, listener.getConfigInfo());
         
-        // È¡ÏûÇ°Ò»¸öÈÎÎñ
+        // å–æ¶ˆå‰ä¸€ä¸ªä»»åŠ¡
         listener = new DelayLoadListenerTest();
         String config1 = "test" + System.currentTimeMillis();
         method.invoke(listener, config1, 2000L);

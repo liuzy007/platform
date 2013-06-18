@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	//package com.taobao.tddl.common.dbroute;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+//package com.taobao.tddl.common.dbroute;
 //
 //import java.io.IOException;
 //import java.io.InputStream;
@@ -78,7 +86,7 @@
 //		for (int i = 0; i < children.getLength(); i++) {
 //			Node cNode = children.item(i);
 //
-//			// 如果为SQL节点
+//			// 濡傛灉涓篠QL鑺傜偣
 //			if (NODE_SQL.equalsIgnoreCase(cNode.getNodeName())) {
 //				Properties attributes = parseAttributes(cNode);
 //
@@ -115,7 +123,7 @@
 //	}
 //
 //	/**
-//	 * 解析路由配置的XML配置文件
+//	 * 瑙ｆ瀽璺敱閰嶇疆鐨刋ML閰嶇疆鏂囦欢
 //	 * 
 //	 * @param reader
 //	 * 
@@ -148,7 +156,7 @@
 //	}
 //
 //	/**
-//	 * 解析参数
+//	 * 瑙ｆ瀽鍙傛暟
 //	 * 
 //	 * @param n
 //	 * 

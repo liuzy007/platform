@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.sample.util;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.sample.util;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -17,7 +25,7 @@ import org.apache.commons.logging.LogFactory;
  * Comment for DateUtil
  * <p/>
  * Author By: zhuoxue.yll
- * Created Date: 2012-2-29 下午02:26:02 
+ * Created Date: 2012-2-29 涓嬪崍02:26:02 
  */
 public class DateUtil {
 
@@ -25,7 +33,7 @@ public class DateUtil {
 	public static final String DATE_FULLHYPHEN = "yyyy-MM-dd";
 
 	/**
-	 * 将日期转换成指定格式的字符串
+	 * 灏嗘棩鏈熻浆鎹㈡垚鎸囧畾鏍煎紡鐨勫瓧绗︿覆
 	 *
 	 * @param date
 	 * @param pattern
@@ -44,7 +52,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * 日期相减/相加
+	 * 鏃ユ湡鐩稿噺/鐩稿姞
 	 *
 	 * @param intervals
 	 * @param format

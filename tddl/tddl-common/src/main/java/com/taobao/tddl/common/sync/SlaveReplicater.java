@@ -1,9 +1,17 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.sync;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.sync;
 
 import java.util.Map;
 
 /**
- * Íâ¹ÒÊı¾İ¸´ÖÆ£¨Í¬²½£©½Ó¿Ú¡£»Øµ÷½Ó¿Ú
+ * å¤–æŒ‚æ•°æ®å¤åˆ¶ï¼ˆåŒæ­¥ï¼‰æ¥å£ã€‚å›è°ƒæ¥å£
  * 
  * @author linxuan
  * 
@@ -11,16 +19,16 @@ import java.util.Map;
 public interface SlaveReplicater {
 	
 	/**
-	 * ÔÚÖ÷¿â²åÈë³É¹¦ºóµ÷ÓÃ
-	 * @param masterRow ´ú±íÖ÷¿âµÄÒ»ĞĞÊı¾İ¡£key£ºÀàÃû£»value£ºÁĞÖµ
-	 * @param slave ¶ÔÓ¦TDataSource.replicationConfigFileÖ¸ÏòµÄ¸´ÖÆÅäÖÃÎÄ¼ş(ÀıÈçtddl-replication.xml)ÖĞµÄslaveInfoÅäÖÃĞÅÏ¢
+	 * åœ¨ä¸»åº“æ’å…¥æˆåŠŸåè°ƒç”¨
+	 * @param masterRow ä»£è¡¨ä¸»åº“çš„ä¸€è¡Œæ•°æ®ã€‚keyï¼šç±»åï¼›valueï¼šåˆ—å€¼
+	 * @param slave å¯¹åº”TDataSource.replicationConfigFileæŒ‡å‘çš„å¤åˆ¶é…ç½®æ–‡ä»¶(ä¾‹å¦‚tddl-replication.xml)ä¸­çš„slaveInfoé…ç½®ä¿¡æ¯
 	 */
 	void insertSlaveRow(Map<String, Object> masterRow, SlaveInfo slave);
 
 	/**
-	 * ÔÚÖ÷¿â¸üĞÂ³É¹¦ºóµ÷ÓÃ
-	 * @param masterRow ´ú±íÖ÷¿âµÄÒ»ĞĞÊı¾İ¡£key£ºÀàÃû£»value£ºÁĞÖµ
-	 * @param slave ¶ÔÓ¦TDataSource.replicationConfigFileÖ¸ÏòµÄ¸´ÖÆÅäÖÃÎÄ¼ş(ÀıÈçtddl-replication.xml)ÖĞµÄslaveInfoÅäÖÃĞÅÏ¢
+	 * åœ¨ä¸»åº“æ›´æ–°æˆåŠŸåè°ƒç”¨
+	 * @param masterRow ä»£è¡¨ä¸»åº“çš„ä¸€è¡Œæ•°æ®ã€‚keyï¼šç±»åï¼›valueï¼šåˆ—å€¼
+	 * @param slave å¯¹åº”TDataSource.replicationConfigFileæŒ‡å‘çš„å¤åˆ¶é…ç½®æ–‡ä»¶(ä¾‹å¦‚tddl-replication.xml)ä¸­çš„slaveInfoé…ç½®ä¿¡æ¯
 	 */
 	void updateSlaveRow(Map<String, Object> masterRow, SlaveInfo slave);
 }

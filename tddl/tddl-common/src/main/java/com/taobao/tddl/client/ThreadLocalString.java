@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.client;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.client;
 
 public class ThreadLocalString {
 	public static final String ROUTE_CONDITION = "ROUTE_CONDITION";
@@ -8,12 +16,12 @@ public class ThreadLocalString {
 	public static final String DB_SELECTOR="DB_SELECTOR";
 	
 	/**
-	 * Ö¸¶¨ÔÚÄÄ¸ö¹æÔòÉÏÖ´ĞĞ
+	 * æŒ‡å®šåœ¨å“ªä¸ªè§„åˆ™ä¸Šæ‰§è¡Œ
 	 */
 	public static final String RULE_SELECTOR="RULE_SELECTOR";
 	
 	/**
-	 * ÈÃGroupDataSourceÔÚÖ¸¶¨ĞòºÅµÄDATASOURCEÉÏÖ´ĞĞ²Ù×÷
+	 * è®©GroupDataSourceåœ¨æŒ‡å®šåºå·çš„DATASOURCEä¸Šæ‰§è¡Œæ“ä½œ
 	 */
 	public static final String DATASOURCE_INDEX = "DATASOURCE_INDEX";
 	
@@ -24,7 +32,7 @@ public class ThreadLocalString {
 	public static final String TABLE_MERGE_SORT_VIRTUAL_TABLE_NAME="TABLE_MERGE_SORT_VIRTUAL_TABLE_NAME";
 	
 	/**
-	 * Ö¸¶¨ÊÇ·ñÊ¹ÓÃ²¢ĞĞÖ´ĞĞ
+	 * æŒ‡å®šæ˜¯å¦ä½¿ç”¨å¹¶è¡Œæ‰§è¡Œ
 	 */
 	public static final String PARALLEL_EXECUTE="PARALLEL_EXECUTE";
 }

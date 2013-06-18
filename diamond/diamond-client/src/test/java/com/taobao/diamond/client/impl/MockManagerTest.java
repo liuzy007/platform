@@ -68,7 +68,7 @@ public class MockManagerTest {
 
 
     /**
-     * 测试两个DiamondManager公用一个DataID，但是Group不同
+     * 娴嬭瘯涓や釜DiamondManager鍏敤涓�涓狣ataID锛屼絾鏄疓roup涓嶅悓
      * 
      * @throws Exception
      */
@@ -95,7 +95,7 @@ public class MockManagerTest {
 
 
     /**
-     * 测试两个DiamondManager公用一个DataID和Group
+     * 娴嬭瘯涓や釜DiamondManager鍏敤涓�涓狣ataID鍜孏roup
      * 
      * @throws Exception
      */

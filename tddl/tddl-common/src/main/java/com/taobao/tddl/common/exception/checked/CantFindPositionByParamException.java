@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.exception.checked;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.exception.checked;
 
 public class CantFindPositionByParamException extends TDLCheckedExcption {
 	/**
@@ -7,6 +15,6 @@ public class CantFindPositionByParamException extends TDLCheckedExcption {
 	private static final long serialVersionUID = 3682437768303903330L;
 
 	public CantFindPositionByParamException(String param) {
-		super("²»ÄÜ¸ù¾İ"+param+"ÊôĞÔÕÒµ½Æä¶ÔÓ¦µÄÎ»ÖÃ£¬Çë×¢Òâ·Ö±í¹æÔò²»Ö§³Ö×éºÏ¹æÔò£¬Çë²»ÒªÊ¹ÓÃ×éºÏ¹æÔòÀ´½øĞĞ·Ö±í²éÑ¯");
+		super("ä¸èƒ½æ ¹æ®"+param+"å±æ€§æ‰¾åˆ°å…¶å¯¹åº”çš„ä½ç½®ï¼Œè¯·æ³¨æ„åˆ†è¡¨è§„åˆ™ä¸æ”¯æŒç»„åˆè§„åˆ™ï¼Œè¯·ä¸è¦ä½¿ç”¨ç»„åˆè§„åˆ™æ¥è¿›è¡Œåˆ†è¡¨æŸ¥è¯¢");
 	}
 }

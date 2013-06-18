@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.sync;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.sync;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -7,10 +15,10 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * BucketSwitcherÊµÏÖ
+ * BucketSwitcherå®ç°
  * 
- * ¾«È·ÊµÏÖ£º
- * ÓÉÓÚÓÃArrayBlockingQueueÊµÏÖ£¬¸ß²¢·¢ÏÂpourin²»»á¶ªÊ§Êı¾İ
+ * ç²¾ç¡®å®ç°ï¼š
+ * ç”±äºç”¨ArrayBlockingQueueå®ç°ï¼Œé«˜å¹¶å‘ä¸‹pourinä¸ä¼šä¸¢å¤±æ•°æ®
  *   
  * @author guangxia
  *
@@ -87,7 +95,7 @@ public class StrictBucketSwitcher<T> implements BucketSwitcher<T> {
 		}
 	}
 	
-	/**Èç¹ûµ±Ç°¶ÓÁĞÀïÓĞÈÎÎñ£¬ÔòÇÀÕ¼²¢·Åµ½×Ô¼º¶ÓÁĞÀï
+	/**å¦‚æœå½“å‰é˜Ÿåˆ—é‡Œæœ‰ä»»åŠ¡ï¼Œåˆ™æŠ¢å å¹¶æ”¾åˆ°è‡ªå·±é˜Ÿåˆ—é‡Œ
 	 * 
 	 * @return
 	 */
@@ -106,7 +114,7 @@ public class StrictBucketSwitcher<T> implements BucketSwitcher<T> {
 	}
 
 	/**
-	 * Ö§³Ö¶¯Ì¬¼à¿ØºÍµ÷ÕûbucketSize
+	 * æ”¯æŒåŠ¨æ€ç›‘æ§å’Œè°ƒæ•´bucketSize
 	 */
 	public int getBucketSize() {
 		return bucketSize;

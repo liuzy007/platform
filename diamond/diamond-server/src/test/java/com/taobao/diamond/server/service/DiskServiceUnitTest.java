@@ -64,7 +64,7 @@ public class DiskServiceUnitTest {
         mocksControl.replay();
 
         this.diskService.saveToDisk(info);
-        // ¼ìÑéÎÄ¼şÄÚÈİÊÇ·ñÕıÈ·
+        // æ£€éªŒæ–‡ä»¶å†…å®¹æ˜¯å¦æ­£ç¡®
         BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(dataPath)));
         String line = reader.readLine();
         assertNotNull(line);
@@ -72,7 +72,7 @@ public class DiskServiceUnitTest {
         reader.close();
         mocksControl.verify();
 
-        // ×îºóÉ¾³ı
+        // æœ€ååˆ é™¤
         this.diskService.removeConfigInfo(dataId, group);
     }
 
@@ -118,9 +118,9 @@ public class DiskServiceUnitTest {
         this.diskService.saveToDisk(info);
         File file = new File(dataPath);
         assertTrue(file.exists());
-        // É¾³ı
+        // åˆ é™¤
         this.diskService.removeConfigInfo(dataId, group);
-        // È·ÈÏÎÄ¼şÒÑ¾­±»É¾³ı
+        // ç¡®è®¤æ–‡ä»¶å·²ç»è¢«åˆ é™¤
         file = new File(dataPath);
         assertFalse(file.exists());
 
@@ -145,9 +145,9 @@ public class DiskServiceUnitTest {
         this.diskService.saveToDisk(info);
         File file = new File(dataPath);
         assertTrue(file.exists());
-        // É¾³ı
+        // åˆ é™¤
         this.diskService.removeConfigInfo(info);
-        // È·ÈÏÎÄ¼şÒÑ¾­±»É¾³ı
+        // ç¡®è®¤æ–‡ä»¶å·²ç»è¢«åˆ é™¤
         file = new File(dataPath);
         assertFalse(file.exists());
 

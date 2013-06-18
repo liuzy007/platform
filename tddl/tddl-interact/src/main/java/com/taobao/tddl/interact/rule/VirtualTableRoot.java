@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.rule;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.rule;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -16,7 +24,7 @@ import com.taobao.tddl.interact.rule.bean.DBType;
 public class VirtualTableRoot {
 	final Log log = LogFactory.getLog(VirtualTableRoot.class);
 	protected String dbType = "MYSQL";
-	protected Map<String/* 小写key */, VirtualTable> virtualTableMap;
+	protected Map<String/* 灏忓啓key */, VirtualTable> virtualTableMap;
 	protected String defaultDbIndex;
 	protected boolean needIdInGroup=false;
 	protected boolean completeDistinct=false;
@@ -38,7 +46,7 @@ public class VirtualTableRoot {
 	    	log.warn("virtual table start to init :" + entry.getKey());
 	    	VirtualTable vtab = entry.getValue();
 			if (vtab.getDbType() == null) {
-		    	//如果虚拟表中dbType为null,那指定全局dbType
+		    	//濡傛灉铏氭嫙琛ㄤ腑dbType涓簄ull,閭ｆ寚瀹氬叏灞�dbType
 				vtab.setDbType(this.getDbTypeEnumObj());
 			}
 			if (vtab.getVirtualTbName() == null) {
@@ -50,7 +58,7 @@ public class VirtualTableRoot {
 	}
 	
 	/**
-	 * 此处有个问题是Map中key对应的VirtualTableRule为null;
+	 * 姝ゅ鏈変釜闂鏄疢ap涓璳ey瀵瑰簲鐨刅irtualTableRule涓簄ull;
 	 * 
 	 * @param virtualTableName
 	 * @return

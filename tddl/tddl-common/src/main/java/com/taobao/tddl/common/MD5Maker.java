@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
@@ -27,7 +35,7 @@ public class MD5Maker {
 		return md5Maker;
 	}
 	/**
-	 * 将一个字节数组转化为可见的字符串
+	 * 灏嗕竴涓瓧鑺傛暟缁勮浆鍖栦负鍙鐨勫瓧绗︿覆
 	 * 
 	 * @param bt
 	 * @return
@@ -46,7 +54,7 @@ public class MD5Maker {
 	}
 
 	/**
-	 * 对字符串进行md5
+	 * 瀵瑰瓧绗︿覆杩涜md5
 	 * 
 	 * @param str
 	 * @return md5 byte[16]

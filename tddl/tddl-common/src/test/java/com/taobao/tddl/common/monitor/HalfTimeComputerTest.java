@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.monitor;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.monitor;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -11,7 +19,7 @@ import org.junit.Test;
 
 public class HalfTimeComputerTest {
 	@Test
-	public void test_getMostNearTime_29·Ö(){
+	public void test_getMostNearTime_29åˆ†(){
 		HalfTimeComputer halfTimeComputer = new HalfTimeComputer();
 		Calendar cal = Calendar.getInstance();
 		cal.set(2010, 1, 2,12,29,0);
@@ -22,7 +30,7 @@ public class HalfTimeComputerTest {
 		Assert.assertEquals(12, cal1.get(Calendar.HOUR_OF_DAY));
 	}
 	@Test
-	public void test_getMostNearTime_31·Ö(){
+	public void test_getMostNearTime_31åˆ†(){
 		HalfTimeComputer halfTimeComputer = new HalfTimeComputer();
 		Calendar cal = Calendar.getInstance();
 		cal.set(2010, 1, 2,12,31,0);
@@ -34,7 +42,7 @@ public class HalfTimeComputerTest {
 		Assert.assertEquals(0, cal1.get(Calendar.MINUTE));
 	}
 	@Test
-	public void test_getMostNearTimeInterval_29·Ö(){
+	public void test_getMostNearTimeInterval_29åˆ†(){
 		HalfTimeComputer halfTimeComputer = new HalfTimeComputer();
 		Calendar cal = Calendar.getInstance();
 		cal.set(2010, 1, 2,12,59,0);
@@ -42,7 +50,7 @@ public class HalfTimeComputerTest {
 		Assert.assertEquals(60000,date);
 	}
 	@Test
-	public void test_getMostNearTimeInterval_31·Ö(){
+	public void test_getMostNearTimeInterval_31åˆ†(){
 		HalfTimeComputer halfTimeComputer = new HalfTimeComputer();
 		Calendar cal = Calendar.getInstance();
 		cal.set(2010, 1, 2,23,31,0);
@@ -51,7 +59,7 @@ public class HalfTimeComputerTest {
 	}
 	
 	@Test
-	public void test_getMostNearTimeInterval_30·Ö(){
+	public void test_getMostNearTimeInterval_30åˆ†(){
 		HalfTimeComputer halfTimeComputer = new HalfTimeComputer();
 		Calendar cal = Calendar.getInstance();
 		cal.set(2010, 1, 2,23,30,0);
@@ -60,7 +68,7 @@ public class HalfTimeComputerTest {
 	}
 	
 	@Test
-	public void test_getMostNearTimeInterval_0·Ö(){
+	public void test_getMostNearTimeInterval_0åˆ†(){
 		HalfTimeComputer halfTimeComputer = new HalfTimeComputer();
 		Calendar cal = Calendar.getInstance();
 		cal.set(2010, 1, 2,0,0,0);

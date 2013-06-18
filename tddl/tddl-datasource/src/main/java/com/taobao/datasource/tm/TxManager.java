@@ -49,7 +49,7 @@ import com.taobao.datasource.tm.integrity.TransactionIntegrity;
 /**
  * Our TransactionManager implementation.
  *
- * @author <a href="mailto:rickard.oberg@telkel.com">Rickard Öberg</a>
+ * @author <a href="mailto:rickard.oberg@telkel.com">Rickard 脰berg</a>
  * @author <a href="mailto:marc.fleury@telkel.com">Marc Fleury</a>
  * @author <a href="mailto:osh@sparre.dk">Ole Husgaard</a>
  * @author <a href="mailto:jason@planet57.com">Jason Dillon</a>

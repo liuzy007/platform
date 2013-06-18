@@ -12,7 +12,7 @@ import org.junit.Test;
 
 public class AuthorizationFilterUnitTest {
     @Test
-    public void testDoFilter_认证通过() throws Exception {
+    public void testDoFilter_璁よ瘉閫氳繃() throws Exception {
         AuthorizationFilter filter = new AuthorizationFilter();
         IMocksControl mocksControl = EasyMock.createControl();
 
@@ -34,7 +34,7 @@ public class AuthorizationFilterUnitTest {
 
 
     @Test
-    public void testDoFilter_认证失败() throws Exception {
+    public void testDoFilter_璁よ瘉澶辫触() throws Exception {
         AuthorizationFilter filter = new AuthorizationFilter();
         IMocksControl mocksControl = EasyMock.createControl();
 

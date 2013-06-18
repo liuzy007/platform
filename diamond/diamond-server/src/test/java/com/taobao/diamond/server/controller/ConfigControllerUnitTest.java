@@ -34,7 +34,7 @@ public class ConfigControllerUnitTest extends AbstractControllerUnitTest {
 	}
 
 	@Test
-	public void testGetConfig_Ä¬ÈÏ·Ö×é() {
+	public void testGetConfig_é»˜è®¤åˆ†ç»„() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		ConfigInfo configInfo = new ConfigInfo("dataId1",
@@ -46,7 +46,7 @@ public class ConfigControllerUnitTest extends AbstractControllerUnitTest {
 	}
 
 	@Test
-	public void testGetConfig_¿Í»§¶Ë¶¨Òå·Ö×é() {
+	public void testGetConfig_å®¢æˆ·ç«¯å®šä¹‰åˆ†ç»„() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		ConfigInfo configInfo = new ConfigInfo("dataId1", "test",
@@ -219,14 +219,14 @@ public class ConfigControllerUnitTest extends AbstractControllerUnitTest {
 	}
 
 	@Test
-	public void testGetProbe_MD5²»Îª¿ÕÇÒºÍ»º´æÖĞµÄMD5Öµ²»Í¬() throws Exception {
+	public void testGetProbe_MD5ä¸ä¸ºç©ºä¸”å’Œç¼“å­˜ä¸­çš„MD5å€¼ä¸åŒ() throws Exception {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		request.addHeader(Constants.CLIENT_VERSION_HEADER, "2.0.5");
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		String dataId = "probe1";
 		String group = "test";
 		String content = "test probe md5";
-		// Ì½²âµÄdataIdµÄMD5ºÍ»º´æÖĞµÄMD5²»Í¬
+		// æ¢æµ‹çš„dataIdçš„MD5å’Œç¼“å­˜ä¸­çš„MD5ä¸åŒ
 		String probeMd5 = "probeMd5";
 		ConfigInfo configInfo = new ConfigInfo(dataId, group, content);
 		this.configService.updateMD5Cache(configInfo);
@@ -242,13 +242,13 @@ public class ConfigControllerUnitTest extends AbstractControllerUnitTest {
 	}
 
 	@Test
-	public void testGetProbe_MD5²»Îª¿ÕÇÒºÍ»º´æÖĞµÄMD5ÏàÍ¬() {
+	public void testGetProbe_MD5ä¸ä¸ºç©ºä¸”å’Œç¼“å­˜ä¸­çš„MD5ç›¸åŒ() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		String dataId = "probe2";
 		String group = "test";
 		String content = "test probe md5";
-		// Ì½²âµÄdataIdµÄMD5ºÍ»º´æÖĞµÄMD5ÏàÍ¬
+		// æ¢æµ‹çš„dataIdçš„MD5å’Œç¼“å­˜ä¸­çš„MD5ç›¸åŒ
 		String probeMd5 = MD5.getInstance().getMD5String(content);
 		ConfigInfo configInfo = new ConfigInfo(dataId, group, content);
 		this.configService.updateMD5Cache(configInfo);
@@ -264,7 +264,7 @@ public class ConfigControllerUnitTest extends AbstractControllerUnitTest {
 	}
 
 	@Test
-	public void testGetProbe_MD5²»Îª¿Õ»º´æÖĞµÄMD5Îª¿Õ() throws Exception {
+	public void testGetProbe_MD5ä¸ä¸ºç©ºç¼“å­˜ä¸­çš„MD5ä¸ºç©º() throws Exception {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		request.addHeader(Constants.CLIENT_VERSION_HEADER, "2.0.5");
 		MockHttpServletResponse response = new MockHttpServletResponse();
@@ -283,7 +283,7 @@ public class ConfigControllerUnitTest extends AbstractControllerUnitTest {
 	}
 
 	@Test
-	public void testGetProbe_MD5Îª¿ÕÇÒ»º´æÖĞµÄMD5Ò²Îª¿Õ() {
+	public void testGetProbe_MD5ä¸ºç©ºä¸”ç¼“å­˜ä¸­çš„MD5ä¹Ÿä¸ºç©º() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		String dataId = "probe4";
@@ -300,7 +300,7 @@ public class ConfigControllerUnitTest extends AbstractControllerUnitTest {
 	}
 
 	@Test
-	public void testGetProbe_ÀÏ°æ±¾¿Í»§¶Ë() throws Exception {
+	public void testGetProbe_è€ç‰ˆæœ¬å®¢æˆ·ç«¯() throws Exception {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		request.addHeader(Constants.CLIENT_VERSION_HEADER, "2.0.3");
 		MockHttpServletResponse response = new MockHttpServletResponse();

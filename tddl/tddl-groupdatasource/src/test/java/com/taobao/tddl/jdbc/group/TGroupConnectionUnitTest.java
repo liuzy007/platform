@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
@@ -50,7 +58,7 @@ public class TGroupConnectionUnitTest {
 
 	}
 
-//	ÒÑ¾­Ö§³Ö´æ´¢¹ı³Ì
+//	å·²ç»æ”¯æŒå­˜å‚¨è¿‡ç¨‹
 //	@Test(expected = UnsupportedOperationException.class)
 //	public void java_sql_Connection_api_not_support() throws Exception {
 //		TGroupDataSource ds = new TGroupDataSource();
@@ -61,7 +69,7 @@ public class TGroupConnectionUnitTest {
 //	}
 
 	@Test
-	public void test_Ò»¸öÁ¬½ÓÉÏ´´½¨Á½¸öStatement() {
+	public void test_ä¸€ä¸ªè¿æ¥ä¸Šåˆ›å»ºä¸¤ä¸ªStatement() {
 		TGroupDataSource tgds = new TGroupDataSource();
 		tgds.setDbGroupKey("dbKey0");
 		List<DataSourceWrapper> dataSourceWrappers = new ArrayList<DataSourceWrapper>();
@@ -89,7 +97,7 @@ public class TGroupConnectionUnitTest {
 			stat = conn.createStatement();
 			stat.executeQuery("select 2 from test");
 			//Assert.assertTrue(MockDataSource.hasTrace("db", "db1", "select 1 from test"));
-			Assert.fail("Ã»ÓĞÖØÓÃµÚÒ»¸öÁ¬½Ó");
+			Assert.fail("æ²¡æœ‰é‡ç”¨ç¬¬ä¸€ä¸ªè¿æ¥");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		} finally {
@@ -106,7 +114,7 @@ public class TGroupConnectionUnitTest {
 		}
 	}
 	@Test
-	public void test_´´½¨StatementÊ§°ÜÖØÊÔ() {
+	public void test_åˆ›å»ºStatementå¤±è´¥é‡è¯•() {
 		TGroupDataSource tgds = new TGroupDataSource();
 		tgds.setDbGroupKey("dbKey0");
 		List<DataSourceWrapper> dataSourceWrappers = new ArrayList<DataSourceWrapper>();

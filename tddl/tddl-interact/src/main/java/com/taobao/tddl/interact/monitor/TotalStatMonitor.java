@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	//Copyright(c) Taobao.com
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+//Copyright(c) Taobao.com
 package com.taobao.tddl.interact.monitor;
 
 import java.text.SimpleDateFormat;
@@ -15,12 +23,12 @@ import org.apache.commons.logging.LogFactory;
  * @author <a href="junyu@taobao.com">junyu</a> 
  * @version 1.0
  * @since 1.6
- * @date 2011-8-25œ¬ŒÁ03:12:25
+ * @date 2011-8-25‰∏ãÂçà03:12:25
  */
 public class TotalStatMonitor {
 	private static Log logger=LogFactory.getLog(TotalStatMonitor.class);
 	private volatile long statInterval = 30 * 1000;
-//  ≤‚ ‘”√	
+//  ÊµãËØïÁî®	
 //	private volatile long statInterval = 100;
 	public static final String logFieldSep = "#@#";
 	public static final String linesep = System.getProperty("line.separator");

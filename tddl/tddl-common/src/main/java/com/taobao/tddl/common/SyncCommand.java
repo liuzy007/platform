@@ -1,11 +1,19 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common;
 
 /**
  * @author huali
  * 
- * Êı¾İ¿â¸üĞÂÃüÁî£¬Ö»ÄÜÊÇInsert»òÕßUpdate
- * °üº¬ÁËÃüÁîÀàĞÍ£¬²Ù×÷µÄ±íÃû£¬Ö÷¼ü×Ö¶ÎÃû³ÆºÍÖ÷¼üÖµ
- * Ö÷¼üµÄÖµÊÇlong»òÕßStringÀàĞÍ¡£
+ * æ•°æ®åº“æ›´æ–°å‘½ä»¤ï¼Œåªèƒ½æ˜¯Insertæˆ–è€…Update
+ * åŒ…å«äº†å‘½ä»¤ç±»å‹ï¼Œæ“ä½œçš„è¡¨åï¼Œä¸»é”®å­—æ®µåç§°å’Œä¸»é”®å€¼
+ * ä¸»é”®çš„å€¼æ˜¯longæˆ–è€…Stringç±»å‹ã€‚
  */
 public class SyncCommand {
 	public static enum TYPE {
@@ -14,27 +22,27 @@ public class SyncCommand {
 	};
 	
 	/**
-	 * ÃüÁîÀàĞÍ£¬Update»òÕßInsert
+	 * å‘½ä»¤ç±»å‹ï¼ŒUpdateæˆ–è€…Insert
 	 */
 	private TYPE type;
 	
 	/**
-	 * Êı¾İ¿âÃû³Æ
+	 * æ•°æ®åº“åç§°
 	 */
 	private String dbName;
 
 	/**
-	 * ±»²Ù×÷µÄ±íµÄÃû³Æ
+	 * è¢«æ“ä½œçš„è¡¨çš„åç§°
 	 */
 	private String tableName;
 	
 	/**
-	 * Ö÷¼üµÄÁĞÃû³Æ
+	 * ä¸»é”®çš„åˆ—åç§°
 	 */
 	private String columnName;
 	
 	/**
-	 *Ö÷¼üµÄÖµ£¬ÀàĞÍÊÇlong»òÕßString 
+	 *ä¸»é”®çš„å€¼ï¼Œç±»å‹æ˜¯longæˆ–è€…String 
 	 */
 	private Object value;
 

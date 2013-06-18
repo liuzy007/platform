@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.rule.ruleimpl;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.rule.ruleimpl;
 
 import groovy.lang.GroovyClassLoader;
 
@@ -13,10 +21,10 @@ import org.codehaus.groovy.control.CompilationFailedException;
 
 public class GroovyRule<T> extends EnumerativeRule<T> {
 	private static final Log logger = LogFactory.getLog(GroovyRule.class);
-	// Ó¦ÓÃÖÃÈëµÄÉÏÏÂÎÄ£¬¿ÉÒÔÓÃÔÚevelµÄgroovy½Å±¾Àï
+	// åº”ç”¨ç½®å…¥çš„ä¸Šä¸‹æ–‡ï¼Œå¯ä»¥ç”¨åœ¨evelçš„groovyè„šæœ¬é‡Œ
 	private static final String IMPORT_EXTRA_PARAMETER_CONTEXT = "import com.taobao.tddl.interact.rule.bean.ExtraParameterContext;";
 	private static final String IMPORT_STATIC_METHOD = "import static com.taobao.tddl.interact.rule.groovy.GroovyStaticMethod.*;";
-	private static final Pattern RETURN_WHOLE_WORD_PATTERN = Pattern.compile("\\breturn\\b", Pattern.CASE_INSENSITIVE);// È«×ÖÆ¥Åä
+	private static final Pattern RETURN_WHOLE_WORD_PATTERN = Pattern.compile("\\breturn\\b", Pattern.CASE_INSENSITIVE);// å…¨å­—åŒ¹é…
 
 	private Object ruleObj;
 	private Method ruleMethod;
@@ -38,7 +46,7 @@ public class GroovyRule<T> extends EnumerativeRule<T> {
 
 	private void initGroovy() {
 		if (expression == null) {
-			throw new IllegalArgumentException("Î´Ö¸¶¨ expression");
+			throw new IllegalArgumentException("æœªæŒ‡å®š expression");
 		}
 		GroovyClassLoader loader = new GroovyClassLoader(GroovyRule.class.getClassLoader());
 		String groovyRule = getGroovyRule(expression,extraPackagesStr);
@@ -50,16 +58,16 @@ public class GroovyRule<T> extends EnumerativeRule<T> {
 		}
 
 		try {
-			// ĞÂ½¨ÀàÊµÀı
+			// æ–°å»ºç±»å®ä¾‹
 			ruleObj = c_groovy.newInstance();
-			// »ñÈ¡·½·¨
+			// è·å–æ–¹æ³•
 			ruleMethod = getMethod(c_groovy, "eval", Map.class, Object.class);
 			if (ruleMethod == null) {
-				throw new IllegalArgumentException("¹æÔò·½·¨Ã»ÕÒµ½");
+				throw new IllegalArgumentException("è§„åˆ™æ–¹æ³•æ²¡æ‰¾åˆ°");
 			}
 			ruleMethod.setAccessible(true);
 		} catch (Throwable t) {
-			throw new IllegalArgumentException("ÊµÀı»¯¹æÔò¶ÔÏóÊ§°Ü", t);
+			throw new IllegalArgumentException("å®ä¾‹åŒ–è§„åˆ™å¯¹è±¡å¤±è´¥", t);
 		}
 	}
 
@@ -81,7 +89,7 @@ public class GroovyRule<T> extends EnumerativeRule<T> {
 	}
 
 	/**
-	 * Ìæ»»³É(map.get("name"));ÒÔÔÚÔËËãÊ±Í¨¹ıÁĞÃûÈ¡µÃ²ÎÊıÖµ£¨ÃèµãÖµ£©
+	 * æ›¿æ¢æˆ(map.get("name"));ä»¥åœ¨è¿ç®—æ—¶é€šè¿‡åˆ—åå–å¾—å‚æ•°å€¼ï¼ˆæç‚¹å€¼ï¼‰
 	 */
 	@Override
 	protected String replace(com.taobao.tddl.interact.rule.Rule.RuleColumn ruleColumn) {
@@ -89,7 +97,7 @@ public class GroovyRule<T> extends EnumerativeRule<T> {
 	}
 
 	/**
-	 * µ÷ÓÃgroovyµÄ·½·¨£ºpublic Object eval(Map map,Map ctx){...}");
+	 * è°ƒç”¨groovyçš„æ–¹æ³•ï¼špublic Object eval(Map map,Map ctx){...}");
 	 */
 	@SuppressWarnings("unchecked")
 	public T eval(Map<String, Object> columnValues, Object outerCtx) {
@@ -100,7 +108,7 @@ public class GroovyRule<T> extends EnumerativeRule<T> {
 			}
 			return value;
 		} catch (Throwable t) {
-			throw new IllegalArgumentException("µ÷ÓÃ·½·¨Ê§°Ü: " + ruleMethod, t);
+			throw new IllegalArgumentException("è°ƒç”¨æ–¹æ³•å¤±è´¥: " + ruleMethod, t);
 		}
 	}
 
@@ -108,9 +116,9 @@ public class GroovyRule<T> extends EnumerativeRule<T> {
 		try {
 			return c.getMethod(name, parameterTypes);
 		} catch (SecurityException e) {
-			throw new IllegalArgumentException("ÊµÀı»¯¹æÔò¶ÔÏóÊ§°Ü", e);
+			throw new IllegalArgumentException("å®ä¾‹åŒ–è§„åˆ™å¯¹è±¡å¤±è´¥", e);
 		} catch (NoSuchMethodException e) {
-			throw new IllegalArgumentException("Ã»ÓĞÕâ¸ö·½·¨" + name, e);
+			throw new IllegalArgumentException("æ²¡æœ‰è¿™ä¸ªæ–¹æ³•" + name, e);
 		}
 	}
 

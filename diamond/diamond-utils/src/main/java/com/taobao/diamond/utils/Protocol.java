@@ -9,14 +9,14 @@
  */
 package com.taobao.diamond.utils;
 /**
- * ÓÃÀ´´¦ÀíĞ­ÒéÏà¹ØµÄ²Ù×÷
+ * ç”¨æ¥å¤„ç†åè®®ç›¸å…³çš„æ“ä½œ
  * @author zhidao
  * @version 1.0 2011/05/03
  *
  */
 public class Protocol {
 	/**
-	 * ½âÎöÀàÓÚ2.0.4(major.minor.bug-fixÕâÑùµÄ°æ±¾ÎªÊı×Ö)
+	 * è§£æç±»äº2.0.4(major.minor.bug-fixè¿™æ ·çš„ç‰ˆæœ¬ä¸ºæ•°å­—)
 	 * @param version
 	 * @return
 	 */

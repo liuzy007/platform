@@ -15,7 +15,7 @@ public class ContentUtilsUnitTest {
         String str = null;
         try {
             ContentUtils.verifyIncrementPubContent(str);
-            Assert.fail("δ�׳��쳣");
+            Assert.fail("未抛出异常");
         }
         catch (IllegalArgumentException e) {
             Assert.assertTrue(true);
@@ -23,7 +23,7 @@ public class ContentUtilsUnitTest {
         str = "";
         try {
             ContentUtils.verifyIncrementPubContent(str);
-            Assert.fail("δ�׳��쳣");
+            Assert.fail("未抛出异常");
         }
         catch (IllegalArgumentException e) {
             Assert.assertTrue(true);
@@ -35,13 +35,13 @@ public class ContentUtilsUnitTest {
             Assert.assertTrue(true);
         }
         catch (IllegalArgumentException e) {
-            Assert.fail("��Ӧ���׳��쳣");
+            Assert.fail("不应该抛出异常");
         }
         
         str = "hello world \r hello world";
         try {
             ContentUtils.verifyIncrementPubContent(str);
-            Assert.fail("δ�׳��쳣");
+            Assert.fail("未抛出异常");
         }
         catch (IllegalArgumentException e) {
             Assert.assertTrue(true);
@@ -50,7 +50,7 @@ public class ContentUtilsUnitTest {
         str = "hello world \n hello world";
         try {
             ContentUtils.verifyIncrementPubContent(str);
-            Assert.fail("δ�׳��쳣");
+            Assert.fail("未抛出异常");
         }
         catch (IllegalArgumentException e) {
             Assert.assertTrue(true);
@@ -59,7 +59,7 @@ public class ContentUtilsUnitTest {
         str = "hello world \r\n hello world";
         try {
             ContentUtils.verifyIncrementPubContent(str);
-            Assert.fail("δ�׳��쳣");
+            Assert.fail("未抛出异常");
         }
         catch (IllegalArgumentException e) {
             Assert.assertTrue(true);
@@ -68,7 +68,7 @@ public class ContentUtilsUnitTest {
         str = "hello world" + Constants.WORD_SEPARATOR + " hello world";
         try {
             ContentUtils.verifyIncrementPubContent(str);
-            Assert.fail("δ�׳��쳣");
+            Assert.fail("未抛出异常");
         }
         catch (IllegalArgumentException e) {
             Assert.assertTrue(true);

@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.atom;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.atom;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,16 +48,16 @@ public class TAtomDataSourceUnitTest {
 	}
 
 	@Test
-	public void testInitTAtomDataSource_³õÊ¼»¯() throws Exception {
+	public void testInitTAtomDataSource_åˆå§‹åŒ–() throws Exception {
 		String appName = "unitTest";
 		String dbKey = "unitTestDb";
-		//Oracle²âÊÔ
+		//Oracleæµ‹è¯•
 		TAtomDataSource tAtomDataSource = createTAtomDataSource(appName, dbKey, "oracle");
 		JdbcTemplate jtp = new JdbcTemplate(tAtomDataSource);
 		int actual = jtp.queryForInt(TAtomDataSourceUnitTest.TEST_SQL);
 		Assert.assertEquals(actual, 1);
 		tAtomDataSource.destroyDataSource();
-		//mysql²âÊÔ
+		//mysqlæµ‹è¯•
 		tAtomDataSource = createTAtomDataSource(appName, dbKey, "mysql");
 		jtp.setDataSource(tAtomDataSource);
 		actual = jtp.queryForInt(TAtomDataSourceUnitTest.TEST_SQL);
@@ -58,7 +66,7 @@ public class TAtomDataSourceUnitTest {
 	}
 
 	@Test
-	public void testOracleChange_ÇĞ»»Ip() throws IOException, AtomAlreadyInitException, Exception {
+	public void testOracleChange_åˆ‡æ¢Ip() throws IOException, AtomAlreadyInitException, Exception {
 		testChange(new ChangeTestConfig() {
 			public Properties doChange(Properties prop) {
 				prop.setProperty(TAtomConfParser.GLOBA_IP_KEY, "127.0.0.1");
@@ -69,11 +77,11 @@ public class TAtomDataSourceUnitTest {
 				prop.setProperty(TAtomConfParser.GLOBA_IP_KEY, prop.getProperty(TAtomConfParser.GLOBA_IP_KEY));
 				return prop;
 			}
-		}, "globa", "oracle", "testOracleChange_ÇĞ»»Ip");
+		}, "globa", "oracle", "testOracleChange_åˆ‡æ¢Ip");
 	}
 
 	@Test
-	public void testMysqlChange_ÇĞ»»Ip() throws IOException, AtomAlreadyInitException, Exception {
+	public void testMysqlChange_åˆ‡æ¢Ip() throws IOException, AtomAlreadyInitException, Exception {
 		testChange(new ChangeTestConfig() {
 			public Properties doChange(Properties prop) {
 				prop.setProperty(TAtomConfParser.GLOBA_IP_KEY, "127.0.0.1");
@@ -84,11 +92,11 @@ public class TAtomDataSourceUnitTest {
 				prop.setProperty(TAtomConfParser.GLOBA_IP_KEY, prop.getProperty(TAtomConfParser.GLOBA_IP_KEY));
 				return prop;
 			}
-		}, "globa", "mysql", "testMysqlChange_ÇĞ»»Ip");
+		}, "globa", "mysql", "testMysqlChange_åˆ‡æ¢Ip");
 	}
 
 	@Test
-	public void testOracleChange_ÇĞ»»Port() throws IOException, AtomAlreadyInitException, Exception {
+	public void testOracleChange_åˆ‡æ¢Port() throws IOException, AtomAlreadyInitException, Exception {
 		testChange(new ChangeTestConfig() {
 			public Properties doChange(Properties prop) {
 				prop.setProperty(TAtomConfParser.GLOBA_PORT_KEY, "1234");
@@ -99,11 +107,11 @@ public class TAtomDataSourceUnitTest {
 				prop.setProperty(TAtomConfParser.GLOBA_PORT_KEY, prop.getProperty(TAtomConfParser.GLOBA_PORT_KEY));
 				return prop;
 			}
-		}, "globa", "oracle", "testOracleChange_ÇĞ»»Port");
+		}, "globa", "oracle", "testOracleChange_åˆ‡æ¢Port");
 	}
 
 	@Test
-	public void testMysqlChange_ÇĞ»»Port() throws IOException, AtomAlreadyInitException, Exception {
+	public void testMysqlChange_åˆ‡æ¢Port() throws IOException, AtomAlreadyInitException, Exception {
 		testChange(new ChangeTestConfig() {
 			public Properties doChange(Properties prop) {
 				prop.setProperty(TAtomConfParser.GLOBA_PORT_KEY, "1234");
@@ -114,11 +122,11 @@ public class TAtomDataSourceUnitTest {
 				prop.setProperty(TAtomConfParser.GLOBA_PORT_KEY, prop.getProperty(TAtomConfParser.GLOBA_PORT_KEY));
 				return prop;
 			}
-		}, "globa", "mysql", "testMysqlChange_ÇĞ»»Port");
+		}, "globa", "mysql", "testMysqlChange_åˆ‡æ¢Port");
 	}
 
 	@Test
-	public void testOracleChange_ÇĞ»»DbName() throws IOException, AtomAlreadyInitException, Exception {
+	public void testOracleChange_åˆ‡æ¢DbName() throws IOException, AtomAlreadyInitException, Exception {
 		testChange(new ChangeTestConfig() {
 			public Properties doChange(Properties prop) {
 				prop.setProperty(TAtomConfParser.GLOBA_DB_NAME_KEY, "test");
@@ -130,11 +138,11 @@ public class TAtomDataSourceUnitTest {
 				prop.setProperty(TAtomConfParser.GLOBA_DB_NAME_KEY, dbName);
 				return prop;
 			}
-		}, "globa", "oracle", "testOracleChange_ÇĞ»»DbName");
+		}, "globa", "oracle", "testOracleChange_åˆ‡æ¢DbName");
 	}
 
 	@Test
-	public void testMsqlChange_ÇĞ»»DbName() throws IOException, AtomAlreadyInitException, Exception {
+	public void testMsqlChange_åˆ‡æ¢DbName() throws IOException, AtomAlreadyInitException, Exception {
 		testChange(new ChangeTestConfig() {
 			public Properties doChange(Properties prop) {
 				prop.setProperty(TAtomConfParser.GLOBA_DB_NAME_KEY, "testWoKao");
@@ -146,11 +154,11 @@ public class TAtomDataSourceUnitTest {
 				prop.setProperty(TAtomConfParser.GLOBA_DB_NAME_KEY, dbName);
 				return prop;
 			}
-		}, "globa", "mysql", "testMsqlChange_ÇĞ»»DbName");
+		}, "globa", "mysql", "testMsqlChange_åˆ‡æ¢DbName");
 	}
 
 	@Test
-	public void testOracleChange_ÇĞ»»userName() throws IOException, AtomAlreadyInitException, Exception {
+	public void testOracleChange_åˆ‡æ¢userName() throws IOException, AtomAlreadyInitException, Exception {
 		testChange(new ChangeTestConfig() {
 			public Properties doChange(Properties prop) {
 				prop.setProperty(TAtomConfParser.APP_USER_NAME_KEY, "test1");
@@ -162,11 +170,11 @@ public class TAtomDataSourceUnitTest {
 				prop.setProperty(TAtomConfParser.APP_USER_NAME_KEY, dbName);
 				return prop;
 			}
-		}, "app", "oracle", "testOracleChange_ÇĞ»»userName");
+		}, "app", "oracle", "testOracleChange_åˆ‡æ¢userName");
 	}
 
 	@Test
-	public void testMysqlChange_ÇĞ»»userName() throws IOException, AtomAlreadyInitException, Exception {
+	public void testMysqlChange_åˆ‡æ¢userName() throws IOException, AtomAlreadyInitException, Exception {
 		testChange(new ChangeTestConfig() {
 			public Properties doChange(Properties prop) {
 				prop.setProperty(TAtomConfParser.APP_USER_NAME_KEY, "test1");
@@ -178,14 +186,14 @@ public class TAtomDataSourceUnitTest {
 				prop.setProperty(TAtomConfParser.APP_USER_NAME_KEY, dbName);
 				return prop;
 			}
-		}, "app", "mysql", "testMysqlChange_ÇĞ»»userName");
+		}, "app", "mysql", "testMysqlChange_åˆ‡æ¢userName");
 	}
 
 	@Test
-	public void testChange_ÇĞ»»DBStatus() throws IOException, AtomAlreadyInitException, Exception {
+	public void testChange_åˆ‡æ¢DBStatus() throws IOException, AtomAlreadyInitException, Exception {
 		String appName = "unitTest1";
 		String dbKey = "dev-db1";
-		//³õÊ¼»¯³Ö¾ÃÅäÖÃÖĞĞÄÊı¾İ
+		//åˆå§‹åŒ–æŒä¹…é…ç½®ä¸­å¿ƒæ•°æ®
 		TAtomDataSource tAtomDataSource = createTAtomDataSource(appName, dbKey, "oracle");
 		Assert.assertTrue(!tAtomDataSource.getDbStatus().isNaStatus());
 
@@ -206,7 +214,7 @@ public class TAtomDataSourceUnitTest {
 	}
 
 	@Test
-	public void testOracleChange_ÇĞ»»Passwd() throws IOException, AtomAlreadyInitException, Exception {
+	public void testOracleChange_åˆ‡æ¢Passwd() throws IOException, AtomAlreadyInitException, Exception {
 		testChangePasswd(new ChangeTestConfig() {
 			public Properties doChange(Properties prop) {
 				prop.setProperty(TAtomConfParser.PASSWD_ENC_PASSWD_KEY, "-3e8955f636757c420baa8034f95c4c3a");
@@ -222,7 +230,7 @@ public class TAtomDataSourceUnitTest {
 	}
 
 	@Test
-	public void testMySqlChange_ÇĞ»»Passwd() throws IOException, AtomAlreadyInitException, Exception {
+	public void testMySqlChange_åˆ‡æ¢Passwd() throws IOException, AtomAlreadyInitException, Exception {
 		testChangePasswd(new ChangeTestConfig() {
 			public Properties doChange(Properties prop) {
 				prop.setProperty(TAtomConfParser.PASSWD_ENC_PASSWD_KEY, "7c99c52f3e840742");
@@ -248,21 +256,21 @@ public class TAtomDataSourceUnitTest {
 		JdbcTemplate jtp = new JdbcTemplate(tAtomDataSource);
 		int actual = jtp.queryForInt(testSql);
 		Assert.assertEquals(actual, 1);
-		//ÉèÖÃ´íÎóµÄIP½øĞĞÍÆËÍ
-		//È«¾ÖÅäÖÃ
+		//è®¾ç½®é”™è¯¯çš„IPè¿›è¡Œæ¨é€
+		//å…¨å±€é…ç½®
 		String globaStr = PropLoadTestUtil.loadPropFile2String("conf/" + configName + "/globa.properties");
 		MockServer.setConfigInfo(TAtomConstants.getGlobalDataId(dbKey), globaStr);
-		//Ó¦ÓÃÅäÖÃ
+		//åº”ç”¨é…ç½®
 		String appStr = PropLoadTestUtil.loadPropFile2String("conf/" + configName + "/app.properties");
 		MockServer.setConfigInfo(TAtomConstants.getAppDataId(appName, dbKey), appStr);
-		//½âÎöÅäÖÃ
+		//è§£æé…ç½®
 		TAtomDsConfDO tAtomDsConfDO = TAtomConfParser.parserTAtomDsConfDO(globaStr, appStr);
 		Properties passwdProp = PropLoadTestUtil.loadPropFromFile("conf/" + configName + "/psswd.properties");
 		String passwdDataId = TAtomConstants.getPasswdDataId(tAtomDsConfDO.getDbName(), tAtomDsConfDO.getDbType(),
 				tAtomDsConfDO.getUserName());
 		MockServer.setConfigInfo(passwdDataId, PropLoadTestUtil.convertProp2Str(change.doChange(passwdProp)));
 		Thread.sleep(1200);
-		//ÆÚ´ı³öÏÖ´íÎó
+		//æœŸå¾…å‡ºç°é”™è¯¯
 		boolean result = false;
 		try {
 			actual = jtp.queryForInt(testSql);
@@ -275,7 +283,7 @@ public class TAtomDataSourceUnitTest {
 				PropLoadTestUtil.convertProp2Str(restore.doChange(PropLoadTestUtil.loadPropFromFile("conf/"
 						+ configName + "/psswd.properties"))));
 		Thread.sleep(1200);
-		//ÆÚ´ı½á¹ûÕı³£
+		//æœŸå¾…ç»“æœæ­£å¸¸
 		actual = jtp.queryForInt(testSql);
 		Assert.assertEquals(actual, 1);
 		tAtomDataSource.destroyDataSource();
@@ -293,7 +301,7 @@ public class TAtomDataSourceUnitTest {
 		JdbcTemplate jtp = new JdbcTemplate(tAtomDataSource);
 		int actual = jtp.queryForInt(testSql);
 		Assert.assertEquals(actual, 1);
-		//ÉèÖÃ´íÎóµÄIP½øĞĞÍÆËÍ
+		//è®¾ç½®é”™è¯¯çš„IPè¿›è¡Œæ¨é€
 		String fileName = "";
 		String dataId = "";
 		if (type.equals("globa")) {
@@ -306,7 +314,7 @@ public class TAtomDataSourceUnitTest {
 		Properties prop = PropLoadTestUtil.loadPropFromFile("conf/" + configName + fileName);
 		MockServer.setConfigInfo(dataId, PropLoadTestUtil.convertProp2Str(change.doChange(prop)));
 		Thread.sleep(3000);
-		//ÆÚ´ı³öÏÖ´íÎó
+		//æœŸå¾…å‡ºç°é”™è¯¯
 		boolean result = false;
 		try {
 			actual = jtp.queryForInt(testSql);
@@ -319,7 +327,7 @@ public class TAtomDataSourceUnitTest {
 				PropLoadTestUtil.convertProp2Str(restore.doChange(PropLoadTestUtil.loadPropFromFile("conf/"
 						+ configName + fileName))));
 		Thread.sleep(3000);
-		//ÆÚ´ı½á¹ûÕı³£
+		//æœŸå¾…ç»“æœæ­£å¸¸
 		actual = jtp.queryForInt(testSql);
 		Assert.assertEquals(actual, 1);
 		tAtomDataSource.destroyDataSource();
@@ -327,20 +335,20 @@ public class TAtomDataSourceUnitTest {
 
 	private TAtomDataSource createTAtomDataSource(String appName, String dbKey, String configName) throws IOException,
 			AtomAlreadyInitException, Exception {
-		//È«¾ÖÅäÖÃ
+		//å…¨å±€é…ç½®
 		String globaStr = PropLoadTestUtil.loadPropFile2String("conf/" + configName + "/globa.properties");
 		MockServer.setConfigInfo(TAtomConstants.getGlobalDataId(dbKey), globaStr);
-		//Ó¦ÓÃÅäÖÃ
+		//åº”ç”¨é…ç½®
 		String appStr = PropLoadTestUtil.loadPropFile2String("conf/" + configName + "/app.properties");
 		MockServer.setConfigInfo(TAtomConstants.getAppDataId(appName, dbKey), appStr);
-		//½âÎöÅäÖÃ
+		//è§£æé…ç½®
 		TAtomDsConfDO tAtomDsConfDO = TAtomConfParser.parserTAtomDsConfDO(globaStr, appStr);
-		//ÃÜÂëÅäÖÃ
+		//å¯†ç é…ç½®
 		String passwdStr = PropLoadTestUtil.loadPropFile2String("conf/" + configName + "/psswd.properties");
 		MockServer.setConfigInfo(
 				TAtomConstants.getPasswdDataId(tAtomDsConfDO.getDbName(), tAtomDsConfDO.getDbType(),
 						tAtomDsConfDO.getUserName()), passwdStr);
-		//½øĞĞ³õÊ¼»¯
+		//è¿›è¡Œåˆå§‹åŒ–
 		TAtomDataSource tAtomDataSource = new TAtomDataSource();
 		tAtomDataSource.setAppName(appName);
 		tAtomDataSource.setDbKey(dbKey);

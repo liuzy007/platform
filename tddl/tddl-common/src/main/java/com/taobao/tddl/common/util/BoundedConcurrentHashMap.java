@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.util;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.util;
 
 import java.util.Collection;
 import java.util.LinkedHashMap;
@@ -25,7 +33,7 @@ public class BoundedConcurrentHashMap<K, V> extends LinkedHashMap<K, V> {
 //	private final Lock writeLock = lock.writeLock();
 
 	public BoundedConcurrentHashMap(int capacity) {
-		super(capacity * 4  / 3 + 1, 0.75f, true); //”≈ªØ£∫≥À“‘4/3“‘±‹√‚resize()
+		super(capacity * 4  / 3 + 1, 0.75f, true); //‰ºòÂåñÔºö‰πò‰ª•4/3‰ª•ÈÅøÂÖçresize()
 		this.capacity = capacity;
 	}
 

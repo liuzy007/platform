@@ -18,7 +18,7 @@ public class NotifyServiceUnitTest {
 
 
     @Test
-    public void testGenerateNotifyGroupChangedPath_正常情况() {
+    public void testGenerateNotifyGroupChangedPath_姝ｅ父鎯呭喌() {
         String address = "localhost:8080";
         assertEquals("http://localhost:8080/diamond-server/notify.do?method=notifyGroup", this.notifyService
             .generateNotifyGroupChangedPath(address));
@@ -30,7 +30,7 @@ public class NotifyServiceUnitTest {
 
 
     @Test
-    public void testGenerateNotifyGroupChangedPath_自定义URL() {
+    public void testGenerateNotifyGroupChangedPath_鑷畾涔塙RL() {
         String address = "192.168.207.101";
         this.notifyService.getNodeProperties().put(address,
             "http://192.168.207.101/diamond/change.do");
@@ -40,7 +40,7 @@ public class NotifyServiceUnitTest {
 
 
     @Test
-    public void testGenerateNotifyConfigInfoPath_正常情况() {
+    public void testGenerateNotifyConfigInfoPath_姝ｅ父鎯呭喌() {
         final String dataId = "test-data";
         final String group = "group";
         String address = "localhost:8080";
@@ -57,7 +57,7 @@ public class NotifyServiceUnitTest {
 
 
     @Test
-    public void testGenerateNotifyConfigInfoPath_自定义URL() {
+    public void testGenerateNotifyConfigInfoPath_鑷畾涔塙RL() {
         final String address = "localhost:8080";
         this.notifyService.getNodeProperties().put(address,
             "http://192.168.207.101:8080/diamond/change.do");

@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.integration;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.integration;
 
 import static org.junit.Assert.*;
 
@@ -30,7 +38,7 @@ public class DiamondTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		//DBHelper.deleteAll(); //É¾³ıÈı¸ö¿âÖĞcrud±íµÄËùÓĞ¼ÇÂ¼
+		//DBHelper.deleteAll(); //åˆ é™¤ä¸‰ä¸ªåº“ä¸­crudè¡¨çš„æ‰€æœ‰è®°å½•
 		//System.out.println("user.home=" + System.getProperty("user.home"));
 	}
 	
@@ -42,31 +50,31 @@ public class DiamondTest {
 	TGroupDataSource ds;
 
 	@Test(expected = TGroupDataSourceException.class)
-	public void Ã»ÓĞÉèÖÃDbGroupKey() {
+	public void æ²¡æœ‰è®¾ç½®DbGroupKey() {
 		ds = new TGroupDataSource();
 		ds.init();
 	}
 	
 	@Test(expected = TGroupDataSourceException.class)
-	public void DbGroupKey²»ÄÜÊÇ¿Õ°×() {
+	public void DbGroupKeyä¸èƒ½æ˜¯ç©ºç™½() {
 		ds = new TGroupDataSource(" ","");
 		ds.init();
 	}
 	
 	@Test(expected = TGroupDataSourceException.class)
-	public void Ã»ÓĞÉèÖÃappName() {
+	public void æ²¡æœ‰è®¾ç½®appName() {
 		ds = new TGroupDataSource();
 		ds.init();
 	}
 	
 	@Test(expected = TGroupDataSourceException.class)
-	public void appName²»ÄÜÊÇ¿Õ°×() {
+	public void appNameä¸èƒ½æ˜¯ç©ºç™½() {
 		ds = new TGroupDataSource("mygroup","  ");
 		ds.init();
 	}
 
 	@Test(expected = ConfigException.class)
-	public void ²âÊÔDbGroupKeyÔÚÅäÖÃÖĞĞÄÕÒ²»µ½Öµ() {
+	public void æµ‹è¯•DbGroupKeyåœ¨é…ç½®ä¸­å¿ƒæ‰¾ä¸åˆ°å€¼() {
 		ds = new TGroupDataSource("mygroup","myappname");
 		ds.init();
 	}
@@ -76,11 +84,11 @@ public class DiamondTest {
 		public void run() {
 			try {
 				if (index == 1)
-					µ¥¸öÊı¾İ¿â();
+					å•ä¸ªæ•°æ®åº“();
 				else if (index == 2)
-					Èı¸öÊı¾İ¿â_²âÊÔdb1¿É¶ÁĞ´_db2Óëdb3Ö»ÄÜ¶Á();
+					ä¸‰ä¸ªæ•°æ®åº“_æµ‹è¯•db1å¯è¯»å†™_db2ä¸db3åªèƒ½è¯»();
 				else if (index == 3)
-					Èı¸öÊı¾İ¿â_²âÊÔdb1Ö»ÄÜĞ´_db2Óëdb3Ö»ÄÜ¶Á();
+					ä¸‰ä¸ªæ•°æ®åº“_æµ‹è¯•db1åªèƒ½å†™_db2ä¸db3åªèƒ½è¯»();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -107,7 +115,7 @@ public class DiamondTest {
 	}
 
 	//@Test
-	public void µ¥¸öÊı¾İ¿â() throws Exception {
+	public void å•ä¸ªæ•°æ®åº“() throws Exception {
 		ds = new TGroupDataSource();
 		ds.setDbGroupKey(dbGroupKey1);
 		ds.setAppName(appName);
@@ -115,7 +123,7 @@ public class DiamondTest {
 
 		Connection conn = ds.getConnection();
 
-		//²âÊÔStatementµÄcrud
+		//æµ‹è¯•Statementçš„crud
 		Statement stmt = conn.createStatement();
 		assertEquals(stmt.executeUpdate("insert into crud(f1,f2) values(10,'str')"), 1);
 		assertEquals(stmt.executeUpdate("update crud set f2='str2'"), 1);
@@ -127,7 +135,7 @@ public class DiamondTest {
 		rs.close();
 		stmt.close();
 
-		//²âÊÔPreparedStatementµÄcrud
+		//æµ‹è¯•PreparedStatementçš„crud
 		String sql = "insert into crud(f1,f2) values(?,?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, 10);
@@ -159,22 +167,22 @@ public class DiamondTest {
 	}
 
 	//@Test
-	public void »ñµÃ¼ÓÃÜºóµÄÃÜÂë() throws Exception {
-		//ÕâÒ»ĞĞÊÇÎªÁË»ñµÃÃÜÂë"tddl"¼ÓÃÜºóµÄ×Ö·û´®£¬psswd.propertiesÎÄ¼şÖĞµÄencPasswd¾ÍÊÇ´ÓÕâÀïµÃÀ´µÄ
+	public void è·å¾—åŠ å¯†åçš„å¯†ç () throws Exception {
+		//è¿™ä¸€è¡Œæ˜¯ä¸ºäº†è·å¾—å¯†ç "tddl"åŠ å¯†åçš„å­—ç¬¦ä¸²ï¼Œpsswd.propertiesæ–‡ä»¶ä¸­çš„encPasswdå°±æ˜¯ä»è¿™é‡Œå¾—æ¥çš„
 		System.out.println(com.taobao.datasource.resource.security.SecureIdentityLoginModule.encode("TAtomUnitTest",
 				"tddl"));
 	}
 
 	//dbGroup: db1:r10w, db2:r20, db3:r30
 	//@Test
-	public void Èı¸öÊı¾İ¿â_²âÊÔdb1¿É¶ÁĞ´_db2Óëdb3Ö»ÄÜ¶Á() throws Exception {
-		//¶Á¿âÊ±×îÓĞ¿ÉÄÜ´Ódb3¶Á£¬È»ºóÊÇdb2£¬db1µÄÈ¨ÖØ×îĞ¡
+	public void ä¸‰ä¸ªæ•°æ®åº“_æµ‹è¯•db1å¯è¯»å†™_db2ä¸db3åªèƒ½è¯»() throws Exception {
+		//è¯»åº“æ—¶æœ€æœ‰å¯èƒ½ä»db3è¯»ï¼Œç„¶åæ˜¯db2ï¼Œdb1çš„æƒé‡æœ€å°
 		ds = new TGroupDataSource(dbGroupKey2, appName);
 		ds.init();
 
 		Connection conn = ds.getConnection();
 
-		//²âÊÔStatementµÄcrud
+		//æµ‹è¯•Statementçš„crud
 		Statement stmt = conn.createStatement();
 		assertEquals(stmt.executeUpdate("insert into crud(f1,f2) values(10,'str')"), 1);
 		assertEquals(stmt.executeUpdate("update crud set f2='str2'"), 1);
@@ -186,7 +194,7 @@ public class DiamondTest {
 		rs.close();
 		stmt.close();
 
-		//²âÊÔPreparedStatementµÄcrud
+		//æµ‹è¯•PreparedStatementçš„crud
 		String sql = "insert into crud(f1,f2) values(10,'str')";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		assertEquals(ps.executeUpdate(), 1);
@@ -216,12 +224,12 @@ public class DiamondTest {
 
 	//dbGroup: db1:w, db2:r20, db3:r30
 	//@Test
-	public void Èı¸öÊı¾İ¿â_²âÊÔdb1Ö»ÄÜĞ´_db2Óëdb3Ö»ÄÜ¶Á() throws Exception {
+	public void ä¸‰ä¸ªæ•°æ®åº“_æµ‹è¯•db1åªèƒ½å†™_db2ä¸db3åªèƒ½è¯»() throws Exception {
 		ds = new TGroupDataSource(dbGroupKey3, appName);
 		ds.init();
 		Connection conn = ds.getConnection();
 
-		//²âÊÔStatementµÄcrud
+		//æµ‹è¯•Statementçš„crud
 		Statement stmt = conn.createStatement();
 		assertEquals(stmt.executeUpdate("insert into crud(f1,f2) values(100,'str')"), 1);
 		ResultSet rs = stmt.executeQuery("select f1,f2 from crud where f1=100");

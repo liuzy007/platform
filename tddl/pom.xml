@@ -10,7 +10,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 	<name>taobao distributed data layer v${project.version}</name>
 	
 	<properties>
-		<tddl-all.version>3.0.1.5.taobaocode-SNAPSHOT</tddl-all.version>
+<!-- 		<tddl-all.version>3.0.1.5.taobaocode-SNAPSHOT</tddl-all.version> -->
 	</properties>
 	
 	<modules>
@@ -39,9 +39,20 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.3</version>
 				<configuration>
+					<argLine>-Xms512m -Xmx1024m</argLine>
+					<forkMode>always</forkMode>
 					<includes>
 						<include>**/*Test.java</include>
 					</includes>
@@ -49,24 +60,11 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.6</source>
-					<target>1.6</target>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-eclipse-plugin</artifactId>
-				<version>2.5.1</version>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<configuration>
 					<locales>zh_CN</locales>
-					<outputEncoding>GBK</outputEncoding>
-					<inputEncoding>GBK</inputEncoding>
+					<outputEncoding>UTF-8</outputEncoding>
+					<inputEncoding>UTF-8</inputEncoding>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -77,40 +75,66 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 					<tagBase>http://www.xx.com/repos/tddl/tags</tagBase>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>			
 		</plugins>
 	</build>
 	
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>${pom.groupId}</groupId>
+				<groupId>com.taobao.tddl</groupId>
 				<artifactId>tddl-sample</artifactId>
-				<version>${tddl-all.version}</version>
+				<version>${project.version}</version>
+<!-- 				<version>${tddl-all.version}</version> -->
 			</dependency>
 			<dependency>
-				<groupId>${pom.groupId}</groupId>
+				<groupId>com.taobao.tddl</groupId>
 				<artifactId>tddl-common</artifactId>
-				<version>${tddl-all.version}</version>
+				<version>${project.version}</version>
+<!-- 				<version>${tddl-all.version}</version> -->
 			</dependency>
 			<dependency>
-				<groupId>com.taobao.tbdatasource</groupId>
-				<artifactId>tbdatasource</artifactId>
-				<version>${tddl-all.version}</version>
+				<groupId>com.taobao.tddl</groupId>
+				<artifactId>tddl-datasource</artifactId>
+				<version>${project.version}</version>
+<!-- 				<version>${tddl-all.version}</version> -->
 			</dependency>
 			<dependency>
-				<groupId>${pom.groupId}</groupId>
-				<artifactId>tddl-atom-datasource</artifactId>
-				<version>${tddl-all.version}</version>
+				<groupId>com.taobao.tddl</groupId>
+				<artifactId>tddl-atomdatasource</artifactId>
+				<version>${project.version}</version>
+<!-- 				<version>${tddl-all.version}</version> -->
 			</dependency>
 			<dependency>
-				<groupId>${pom.groupId}</groupId>
-				<artifactId>tddl-group-datasource</artifactId>
-				<version>${tddl-all.version}</version>
+				<groupId>com.taobao.tddl</groupId>
+				<artifactId>tddl-groupdatasource</artifactId>
+				<version>${project.version}</version>
+<!-- 				<version>${tddl-all.version}</version> -->
 			</dependency>
 			<dependency>
-				<groupId>${pom.groupId}</groupId>
+				<groupId>com.taobao.tddl</groupId>
 				<artifactId>tddl-interact</artifactId>
-				<version>${tddl-all.version}</version>
+				<version>${project.version}</version>
+<!-- 				<version>${tddl-all.version}</version> -->
 			</dependency>
 			<dependency>
 				<groupId>jboss</groupId>
@@ -244,30 +268,16 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+	
 	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-project-info-reports-plugin</artifactId>
-				<reportSets>
-					<reportSet>
-						<reports>
-							<report>index</report>
-							<report>dependencies</report>
-							<report>dependency-convergence</report>
-							<report>dependency-management</report>
-							<report>cim</report>
-						</reports>
-					</reportSet>
-				</reportSets>
-			</plugin>
+		<plugins>			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>2.5</version>
 				<configuration>
-					<encoding>GBK</encoding>
-					<charset>GBK</charset>
+					<encoding>UTF-8</encoding>
+					<charset>UTF-8</charset>
 				</configuration>
 				<reportSets>
 					<reportSet>
@@ -289,7 +299,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 				<configuration>
 					<configLocation>checkstyle.xml</configLocation>
 				</configuration>
-			</plugin>
+			</plugin>			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-clover-plugin</artifactId>
@@ -318,6 +328,21 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 					<xmlOutput>true</xmlOutput>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>index</report>
+							<report>dependencies</report>
+							<report>dependency-convergence</report>
+							<report>dependency-management</report>
+							<report>cim</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
 		</plugins>
 	</reporting>
 	
@@ -325,16 +350,13 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/ma
 		<repository>
 			<id>taocodeReleases</id>
 			<name>taocode nexus</name>
-			<url>
-				http://mvnrepo.code.taobao.org/nexus/content/repositories/releases/
-			</url>
+			<url>http://mvnrepo.code.taobao.org/nexus/content/repositories/releases/</url>
 		</repository>
 		<snapshotRepository>
 			<id>taocodeSnapshots</id>
 			<name>taocode nexus</name>
-			<url>
-				http://mvnrepo.code.taobao.org/nexus/content/repositories/snapshots/
-			</url>
+			<url>http://mvnrepo.code.taobao.org/nexus/content/repositories/snapshots/</url>
 		</snapshotRepository>
 	</distributionManagement>
+	
 </project>

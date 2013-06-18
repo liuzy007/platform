@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.integration;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.integration;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -52,7 +60,7 @@ public class EquityDbManagerTryLockTest {
 	public void test() {
 	}
 	
-	//ÓĞÒ»¸öÊı¾İ¿â"ds1"ÔÚÎÒ±¾»úÉÏ£¬²»ÄÜÔÚhudsonÉÏÅÜ£¬ÒòÎªÎÒÍíÉÏ¹ØµçÄÔ
+	//æœ‰ä¸€ä¸ªæ•°æ®åº“"ds1"åœ¨æˆ‘æœ¬æœºä¸Šï¼Œä¸èƒ½åœ¨hudsonä¸Šè·‘ï¼Œå› ä¸ºæˆ‘æ™šä¸Šå…³ç”µè„‘
 	//@Test
 	public void tryLockTest() throws Exception {
 		DataSourceWrapper dsw1 = new DataSourceWrapper("ds1", "R20W", DataSourceFactory.getLocalMySQLDataSource(),

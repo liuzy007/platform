@@ -678,7 +678,7 @@ public class InternalManagedConnectionPool
                }
                finally
                {
-                  if(!destroyed) // FIXME: Ö»ÒªÓĞÒ»¸ö±»destroy£¬ÄÇÃ´Ö®ºóµÄËùÓĞcl¶¼²»»á±»·µ»¹¸øclsÁË
+                  if(!destroyed) // FIXME: åªè¦æœ‰ä¸€ä¸ªè¢«destroyï¼Œé‚£ä¹ˆä¹‹åçš„æ‰€æœ‰cléƒ½ä¸ä¼šè¢«è¿”è¿˜ç»™clsäº†
                   {
                      synchronized (cls)
                      {

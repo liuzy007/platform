@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common;
 
 import java.util.Comparator;
 import java.util.Date;
@@ -25,12 +33,12 @@ import com.taobao.tddl.common.util.NagiosUtils;
 
 /*
  * @author guangxia
- * @since 1.0, 2010-2-8 ÏÂÎç04:18:39
+ * @since 1.0, 2010-2-8 ä¸‹åˆ04:18:39
  */
 public class StatMonitor implements StatMonitorMBean {
 	private static final Log logger = LogFactory.getLog(StatMonitor.class);
 
-	//µ¥Î»ÊÇºÁÃë
+	//å•ä½æ˜¯æ¯«ç§’
 	private volatile long statInterval = 5 * 60 * 1000;
 	private Set<String> blackList = new HashSet<String>(0);
 	private int limit = 1000;
@@ -385,7 +393,7 @@ public class StatMonitor implements StatMonitorMBean {
 				local_state.size.incrementAndGet();
 			}
 		}
-		//ÔİÊ±²»¶Ôvalue2ºÍvalue1µÄstatCounter½øĞĞ²Ù×÷, ÒòÎªÃ»ÓĞÕâ¸öĞèÇó
+		//æš‚æ—¶ä¸å¯¹value2å’Œvalue1çš„statCounterè¿›è¡Œæ“ä½œ, å› ä¸ºæ²¡æœ‰è¿™ä¸ªéœ€æ±‚
 		statCounter.incrementCount();
 		statCounter.addValue(value);
 		return true;
@@ -450,7 +458,7 @@ public class StatMonitor implements StatMonitorMBean {
 	}
 
 	/**
-	 * À­È¡×Ô¶¨ÒåÈÕÖ¾ÄÚÈİ²¢´òÓ¡(µ¥Ïß³Ì£¬ÎŞĞèËø)
+	 * æ‹‰å–è‡ªå®šä¹‰æ—¥å¿—å†…å®¹å¹¶æ‰“å°(å•çº¿ç¨‹ï¼Œæ— éœ€é”)
 	 */
 	private static void writeCallBackLog() {
 		ConcurrentHashMap<String, Values> tempMap = new ConcurrentHashMap<String, Values>();
@@ -475,7 +483,7 @@ public class StatMonitor implements StatMonitorMBean {
 	}
 
 	/**
-	 * ½«ÄÚ´æÊı¾İÊä³öµ½ÈÕÖ¾ÖĞ
+	 * å°†å†…å­˜æ•°æ®è¾“å‡ºåˆ°æ—¥å¿—ä¸­
 	 */
 	@SuppressWarnings("unused")
 	private static void writeLogMapToFile_Nagios(ConcurrentHashMap<String, Values> map) {
@@ -491,7 +499,7 @@ public class StatMonitor implements StatMonitorMBean {
 	}
 
 	/**
-	 * ½«ÄÚ´æÊı¾İÊä³öµ½ÈÕÖ¾ÖĞ
+	 * å°†å†…å­˜æ•°æ®è¾“å‡ºåˆ°æ—¥å¿—ä¸­
 	 * SELECT xxx #@#my065037_cm4_feel_25#@#EXECUTE_A_SQL_SUCCESS#@#1#@#1#@#1#@#1#@#10-12-27 13:58:35:224
 	 * SELECT sss #@#my065026_cm4_feel_03#@#EXECUTE_A_SQL_SUCCESS#@#1#@#1#@#1#@#1#@#10-12-27 13:58:35:224
 	 */

@@ -1,38 +1,46 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common;
 
 import com.taobao.tddl.client.ThreadLocalString;
 import com.taobao.tddl.client.util.ThreadLocalMap;
 
 /**
- * Ìá¹©¸øµ¥¶ÀÊ¹ÓÃGroupDataSourceµÄÓÃ»§Ö¸¶¨Êı¾İÔ´ÒÔ¼°Ïà¹ØÖ´ĞĞĞÅÏ¢
+ * æä¾›ç»™å•ç‹¬ä½¿ç”¨GroupDataSourceçš„ç”¨æˆ·æŒ‡å®šæ•°æ®æºä»¥åŠç›¸å…³æ‰§è¡Œä¿¡æ¯
  * 
  * @author junyu
  *
  */
 public class GroupDataSourceRouteHelper {
 	/**
-	 * ´ÓÒ»×éÊı¾İÔ´ÖĞÑ¡ÔñÒ»¸öÖ¸¶¨ĞòºÅÉÏµÄÊı¾İÔ´Ö´ĞĞSQL¡£
+	 * ä»ä¸€ç»„æ•°æ®æºä¸­é€‰æ‹©ä¸€ä¸ªæŒ‡å®šåºå·ä¸Šçš„æ•°æ®æºæ‰§è¡ŒSQLã€‚
 	 * 
-	 * Èç£ºgroupKey=ExampleGroup ¶ÔÓ¦µÄcontentÎª  db1:rw,db2:r,db3:r
+	 * å¦‚ï¼šgroupKey=ExampleGroup å¯¹åº”çš„contentä¸º  db1:rw,db2:r,db3:r
 	 * <pre>
 	 *    RouteHelper.executeByGroupDataSourceIndex(2);
 	 *    jdbcTemplate.queryForList(sql);
 	 * </pre>
 	 * 
-	 * ×îÖÕ²éÑ¯¿Ï¶¨»áÔÚµÚÈı¸öÊı¾İÔ´ÉÏÖ´ĞĞ£¨db3£©
-	 * ×¢Òâ£¬Ö¸¶¨dbµÄ¶ÁĞ´ÌØĞÔĞèÒªÂú×ãÒªÇó£¬Èç²»¿ÉÔÚ
-	 * Ö¸¶¨Ö»¶ÁÊı¾İÔ´ÉÏ½øĞĞĞ´²Ù×÷£¬·ñÔòÅ×´í¡£
+	 * æœ€ç»ˆæŸ¥è¯¢è‚¯å®šä¼šåœ¨ç¬¬ä¸‰ä¸ªæ•°æ®æºä¸Šæ‰§è¡Œï¼ˆdb3ï¼‰
+	 * æ³¨æ„ï¼ŒæŒ‡å®šdbçš„è¯»å†™ç‰¹æ€§éœ€è¦æ»¡è¶³è¦æ±‚ï¼Œå¦‚ä¸å¯åœ¨
+	 * æŒ‡å®šåªè¯»æ•°æ®æºä¸Šè¿›è¡Œå†™æ“ä½œï¼Œå¦åˆ™æŠ›é”™ã€‚
 	 * 
 	 * @author junyu
-	 * @param dataSourceIndex ÔÚÖ¸¶¨GroupÖĞ£¬ËùĞèÒªÖ´ĞĞµÄdbĞòºÅ
+	 * @param dataSourceIndex åœ¨æŒ‡å®šGroupä¸­ï¼Œæ‰€éœ€è¦æ‰§è¡Œçš„dbåºå·
 	 */
 	public static void executeByGroupDataSourceIndex(int dataSourceIndex) {
 		ThreadLocalMap.put(ThreadLocalString.DATASOURCE_INDEX, dataSourceIndex);
 	}
 
 	/**
-	 * ÎªÁË±£Ö¤Ò»¸öÏß³ÌÖ´ĞĞ¶à¸ö²Ù×÷²»Ôì³É»ìÂÒ(ÀıÈçÊÂÎñÖĞ×÷¶à¸ö²Ù×÷)£¬
-	 * Çë¶ÔÃ¿¸öÒµÎñ·½·¨×ötry-finally£¬²¢ÔÚfinallyÖĞµ÷ÓÃ¸Ã·½·¨Çå³ıindex:
+	 * ä¸ºäº†ä¿è¯ä¸€ä¸ªçº¿ç¨‹æ‰§è¡Œå¤šä¸ªæ“ä½œä¸é€ æˆæ··ä¹±(ä¾‹å¦‚äº‹åŠ¡ä¸­ä½œå¤šä¸ªæ“ä½œ)ï¼Œ
+	 * è¯·å¯¹æ¯ä¸ªä¸šåŠ¡æ–¹æ³•åštry-finallyï¼Œå¹¶åœ¨finallyä¸­è°ƒç”¨è¯¥æ–¹æ³•æ¸…é™¤index:
 	 * 
 	 * try{
 	 *   GroupDataSourceRouteHelper.executeByGroupDataSourceIndex(0);

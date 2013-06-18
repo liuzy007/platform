@@ -32,7 +32,7 @@ import com.taobao.diamond.server.utils.GlobalCounter;
 import com.taobao.diamond.utils.Protocol;
 
 /**
- * ´¦ÀíÅäÖÃĞÅÏ¢»ñÈ¡ºÍÌá½»µÄcontroller
+ * å¤„ç†é…ç½®ä¿¡æ¯è·å–å’Œæäº¤çš„controller
  * 
  * @author boyan
  * @date 2010-5-4
@@ -48,12 +48,12 @@ public class ConfigController {
 	private DiskService diskService;
 
 	/**
-	 * ´¦ÀíÅäÖÃĞÅÏ¢ÇëÇó
+	 * å¤„ç†é…ç½®ä¿¡æ¯è¯·æ±‚
 	 * 
 	 * @param request
 	 * @param dataId
 	 * @param clientGroup
-	 *            ¿Í»§¶ËÉèÖÃµÄ·Ö×éĞÅÏ¢
+	 *            å®¢æˆ·ç«¯è®¾ç½®çš„åˆ†ç»„ä¿¡æ¯
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.GET)
@@ -65,7 +65,7 @@ public class ConfigController {
 		response.setHeader("Content-Type", "text/html;charset=GBK");
 		final String address = getRemortIP(request);
 		if (address == null) {
-			// Î´ÕÒµ½Ô¶¶ËµØÖ·£¬·µ»Ø400´íÎó
+			// æœªæ‰¾åˆ°è¿œç«¯åœ°å€ï¼Œè¿”å›400é”™è¯¯
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			return "400";
 
@@ -84,28 +84,28 @@ public class ConfigController {
 		if (md5 != null) {
 			response.setHeader(Constants.CONTENT_MD5, md5);
 
-			// Èç¹ûMd5ÖµÒ»ÖÂ£¬·µ»Ø304
+			// å¦‚æœMd5å€¼ä¸€è‡´ï¼Œè¿”å›304
 			String requestMd5 = request.getHeader(Constants.CONTENT_MD5);
 			if (md5.equals(requestMd5)) {
 				response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
 				return "304";
 			}
 		} else {
-			// Ã»ÓĞ404.jsp, ·µ»Ø¸ø¿Í»§¶ËÊÇ404×´Ì¬Âë, Õâ¸ö×´Ì¬ÂëÊµ¼ÊÉÏÊÇÕÒ²»µ½404.jspËùÖÂ
+			// æ²¡æœ‰404.jsp, è¿”å›ç»™å®¢æˆ·ç«¯æ˜¯404çŠ¶æ€ç , è¿™ä¸ªçŠ¶æ€ç å®é™…ä¸Šæ˜¯æ‰¾ä¸åˆ°404.jspæ‰€è‡´
 			return "404";
 		}
-		// ÕıÔÚ±»ĞŞ¸Ä£¬·µ»Ø304£¬ÕâÀïµÄ¼ì²é²¢Ã»ÓĞ°ì·¨±£Ö¤Ò»ÖÂĞÔ£¬Òò´Ë×ödouble-check¾¡Á¦±£Ö¤
+		// æ­£åœ¨è¢«ä¿®æ”¹ï¼Œè¿”å›304ï¼Œè¿™é‡Œçš„æ£€æŸ¥å¹¶æ²¡æœ‰åŠæ³•ä¿è¯ä¸€è‡´æ€§ï¼Œå› æ­¤åšdouble-checkå°½åŠ›ä¿è¯
 		if (diskService.isModified(dataId, group)) {
 			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
 			return "304";
 		}
 		String path = configService.getConfigInfoPath(dataId, address, group);
-		// ÔÙ´Î¼ì²é
+		// å†æ¬¡æ£€æŸ¥
 		if (diskService.isModified(dataId, group)) {
 			response.setStatus(HttpServletResponse.SC_NOT_MODIFIED);
 			return "304";
 		}
-		// ½ûÓÃ»º´æ
+		// ç¦ç”¨ç¼“å­˜
 		response.setHeader("Pragma", "no-cache");
 		response.setDateHeader("Expires", 0);
 		response.setHeader("Cache-Control", "no-cache,no-store");
@@ -113,12 +113,12 @@ public class ConfigController {
 	}
 
 	/**
-	 * ´¦ÀíÅäÖÃĞÅÏ¢ÇëÇó
+	 * å¤„ç†é…ç½®ä¿¡æ¯è¯·æ±‚
 	 * 
 	 * @param request
 	 * @param dataId
 	 * @param clientGroup
-	 *            ¿Í»§¶ËÉèÖÃµÄ·Ö×éĞÅÏ¢
+	 *            å®¢æˆ·ç«¯è®¾ç½®çš„åˆ†ç»„ä¿¡æ¯
 	 * @return
 	 */
 	@RequestMapping(method = RequestMethod.POST)
@@ -132,7 +132,7 @@ public class ConfigController {
 		response.setHeader("Content-Type", "text/html;charset=GBK");
 		final String address = getRemortIP(request);
 		if (address == null) {
-			// Î´ÕÒµ½Ô¶¶ËµØÖ·£¬·µ»Ø400´íÎó
+			// æœªæ‰¾åˆ°è¿œç«¯åœ°å€ï¼Œè¿”å›400é”™è¯¯
 			response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
 			return "400";
 
@@ -173,7 +173,7 @@ public class ConfigController {
 
 		}
 
-		// ½ûÓÃ»º´æ
+		// ç¦ç”¨ç¼“å­˜
 		response.setHeader("Pragma", "no-cache");
 		response.setDateHeader("Expires", 0);
 		response.setHeader("Cache-Control", "no-cache,no-store");
@@ -196,7 +196,7 @@ public class ConfigController {
 			response.addHeader(Constants.PROBE_MODIFY_RESPONSE_NEW,
 					returnHeader);
 			response.addHeader(Constants.PROBE_MODIFY_RESPONSE,
-					resultBuilder.toString());// ÀÏ°æµÄ1.0¿Í»§¶ËÔÚÓÃ
+					resultBuilder.toString());// è€ç‰ˆçš„1.0å®¢æˆ·ç«¯åœ¨ç”¨
 		} else {
 			request.setAttribute("content", "");
 			response.addHeader(Constants.PROBE_MODIFY_RESPONSE_NEW, "");

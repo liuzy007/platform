@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.rule.enumerator;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.rule.enumerator;
 
 
 public class IntegerPartDiscontinousRangeEnumerator extends NumberPartDiscontinousRangeEnumerator {
@@ -69,12 +77,12 @@ public class IntegerPartDiscontinousRangeEnumerator extends NumberPartDiscontino
 	protected Set<Object> getAllPassableFields(Comparative begin, Integer cumulativeTimes,
 			Comparable<?> atomicIncreationValue) {
 		if (cumulativeTimes == null) {
-			throw new IllegalStateException("ÔÚÃ»ÓÐÌá¹©µþ¼Ó´ÎÊýµÄÇ°ÌáÏÂ£¬²»ÄÜ¹»¸ù¾Ýµ±Ç°·¶Î§Ìõ¼þÑ¡³ö¶ÔÓ¦µÄ¶¨ÒåÓòµÄÃ¶¾ÙÖµ£¬sqlÖÐ²»Òª³öÏÖ> < >= <=");
+			throw new IllegalStateException("åœ¨æ²¡æœ‰æä¾›å åŠ æ¬¡æ•°çš„å‰æä¸‹ï¼Œä¸èƒ½å¤Ÿæ ¹æ®å½“å‰èŒƒå›´æ¡ä»¶é€‰å‡ºå¯¹åº”çš„å®šä¹‰åŸŸçš„æžšä¸¾å€¼ï¼Œsqlä¸­ä¸è¦å‡ºçŽ°> < >= <=");
 		}
 		if (atomicIncreationValue == null) {
 			atomicIncreationValue = DEFAULT_ATOMIC_VALUE;
 		}
-		//°Ñ> < Ìæ»»Îª>= <=
+		//æŠŠ> < æ›¿æ¢ä¸º>= <=
 		begin = changeGreater2GreaterOrEq(begin);
 		begin = changeLess2LessOrEq(begin);
 

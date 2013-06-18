@@ -9,7 +9,7 @@ import com.taobao.diamond.io.watch.WatchService;
 
 
 /**
- * Watch·şÎñÊµÀı
+ * WatchæœåŠ¡å®ä¾‹
  * 
  * @author boyan
  * @date 2010-5-4
@@ -19,14 +19,14 @@ public class WatchServiceExample {
         WatchService watcher = FileSystem.getDefault().newWatchService();
 
         Path path = new Path(new File("/home/dennis/test"));
-        // ×¢²áÊÂ¼ş
+        // æ³¨å†Œäº‹ä»¶
         path.register(watcher, StandardWatchEventKind.ENTRY_CREATE, StandardWatchEventKind.ENTRY_DELETE,
             StandardWatchEventKind.ENTRY_MODIFY);
 
-        // ÎŞÏßÑ­»·µÈ´ıÊÂ¼ş
+        // æ— çº¿å¾ªç¯ç­‰å¾…äº‹ä»¶
         for (;;) {
 
-            // Æ¾Ö¤
+            // å‡­è¯
             WatchKey key;
             try {
                 key = watcher.take();
@@ -36,22 +36,22 @@ public class WatchServiceExample {
             }
 
             /**
-             * »ñÈ¡ÊÂ¼ş¼¯ºÏ
+             * è·å–äº‹ä»¶é›†åˆ
              */
             for (WatchEvent<?> event : key.pollEvents()) {
-                // ÊÂ¼şµÄÀàĞÍ
+                // äº‹ä»¶çš„ç±»å‹
                 WatchEvent.Kind<?> kind = event.kind();
 
-                // Í¨¹ıcontext·½·¨µÃµ½·¢ÉúÊÂ¼şµÄpath
+                // é€šè¿‡contextæ–¹æ³•å¾—åˆ°å‘ç”Ÿäº‹ä»¶çš„path
                 WatchEvent<Path> ev = (WatchEvent<Path>) event;
                 Path eventPath = ev.context();
 
-                // ¼òµ¥´òÓ¡
-                System.out.format("ÊÂ¼ş´¥·¢ file %s,Event %s%n", eventPath.getAbsolutePath(), kind.name());
+                // ç®€å•æ‰“å°
+                System.out.format("äº‹ä»¶è§¦å‘ file %s,Event %s%n", eventPath.getAbsolutePath(), kind.name());
 
             }
 
-            // reset£¬Èç¹ûÎŞĞ§£¬Ìø³öÑ­»·,ÎŞĞ§¿ÉÄÜÊÇ¼àÌıµÄÄ¿Â¼±»É¾³ı
+            // resetï¼Œå¦‚æœæ— æ•ˆï¼Œè·³å‡ºå¾ªç¯,æ— æ•ˆå¯èƒ½æ˜¯ç›‘å¬çš„ç›®å½•è¢«åˆ é™¤
             boolean valid = key.reset();
             if (!valid) {
                 break;

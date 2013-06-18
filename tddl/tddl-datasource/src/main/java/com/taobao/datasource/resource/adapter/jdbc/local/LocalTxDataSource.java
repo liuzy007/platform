@@ -89,7 +89,7 @@ public class LocalTxDataSource{
     }
 
     private void registerMBean() throws Exception {
-    	//如果没有设置JNDI的名字则不注册MBEAN
+    	//濡傛灉娌℃湁璁剧疆JNDI鐨勫悕瀛楀垯涓嶆敞鍐孧BEAN
     	if(null!=name&&useJmx){
             ObjectName objectName = new ObjectName(String.format(POOL_OBJECT_NAME_FORMAT, name));
             server.registerMBean(pool, objectName);
@@ -124,7 +124,7 @@ public class LocalTxDataSource{
     }
 
     private void unregisterMBean() throws Exception {
-    	//如果有设置JNDI的名字则注销MBEAN
+    	//濡傛灉鏈夎缃甁NDI鐨勫悕瀛楀垯娉ㄩ攢MBEAN
     	if(null!=name&&useJmx){
     	      ObjectName objectName = new ObjectName(String.format(POOL_OBJECT_NAME_FORMAT, name));
     	      server.unregisterMBean(objectName);

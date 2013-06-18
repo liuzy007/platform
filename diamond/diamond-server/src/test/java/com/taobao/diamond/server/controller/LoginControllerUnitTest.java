@@ -41,7 +41,7 @@ public class LoginControllerUnitTest {
         ModelMap modelMap = new ModelMap();
         assertEquals("login", this.loginController.login(request, "boyan", "boyan", modelMap));
         assertNull(request.getSession().getAttribute("user"));
-        assertEquals("µÇÂ¼Ê§°Ü£¬ÓÃ»§ÃûÃÜÂë²»Æ¥Åä", modelMap.get("message"));
+        assertEquals("ç™»å½•å¤±è´¥ï¼Œç”¨æˆ·åå¯†ç ä¸åŒ¹é…", modelMap.get("message"));
 
     }
 

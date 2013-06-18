@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -38,7 +46,7 @@ public class TGroupPreparedStatementUnitTest {
 
 		Connection conn = ds.getConnection();
 		PreparedStatement stmt = conn.prepareStatement(insertSQL);
-		//Statement.execute如果第一个结果为 ResultSet 对象，则返回 true；如果其为更新计数或者不存在任何结果，则返回 false
+		//Statement.execute濡傛灉绗竴涓粨鏋滀负 ResultSet 瀵硅薄锛屽垯杩斿洖 true锛涘鏋滃叾涓烘洿鏂拌鏁版垨鑰呬笉瀛樺湪浠讳綍缁撴灉锛屽垯杩斿洖 false
 		assertFalse(stmt.execute());
 		stmt.close();
 		
@@ -68,7 +76,7 @@ public class TGroupPreparedStatementUnitTest {
 		assertEquals(stmt.executeUpdate(), 1);
 		stmt.close();
 
-		//测试批量更新
+		//娴嬭瘯鎵归噺鏇存柊
 		stmt = conn.prepareStatement("insert into crud(f1,f2) values(?,?)");
 		stmt.setInt(1, 10);
 		stmt.setString(2, "str1");

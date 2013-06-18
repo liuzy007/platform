@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.sample.base;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.sample.base;
 
 import java.util.Date;
 import org.apache.commons.lang.RandomStringUtils;
@@ -9,7 +17,7 @@ import com.taobao.tddl.sample.util.DateUtil;
  * Comment for BaseSampleCase
  * <p/>
  * Author By: zhuoxue.yll
- * Created Date: 2012-2-29 下午02:29:10 
+ * Created Date: 2012-2-29 涓嬪崍02:29:10 
  */
 
 public class BaseSampleCase {
@@ -24,7 +32,7 @@ public class BaseSampleCase {
 		if (args == null) {
 			args = new Object[] {};
 		}
-		// 确保数据清除成功
+		// 纭繚鏁版嵁娓呴櫎鎴愬姛
 		try {
 			tddlJTX.update(sql, args);
 		} catch (Exception e) {
@@ -37,7 +45,7 @@ public class BaseSampleCase {
 			args = new Object[] {};
 		}
 
-		// 确保数据准备成功
+		// 纭繚鏁版嵁鍑嗗鎴愬姛
 		try {
 			int rs = tddlJTX.update(sql, args);
 			if (rs <= 0) {

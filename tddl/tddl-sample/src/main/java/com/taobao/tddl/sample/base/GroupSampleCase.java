@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.sample.base;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.sample.base;
 
 import org.junit.After;
 import org.junit.Before;
@@ -11,7 +19,7 @@ import com.taobao.tddl.jdbc.group.TGroupDataSource;
  * Comment for GroupSampleCase
  * <p/>
  * Author By: zhuoxue.yll
- * Created Date: 2012-2-29 œ¬ŒÁ02:28:32 
+ * Created Date: 2012-2-29 ‰∏ãÂçà02:28:32 
  */
 public class GroupSampleCase extends BaseSampleCase {
 
@@ -25,7 +33,7 @@ public class GroupSampleCase extends BaseSampleCase {
 
 	@Before
 	public void init() throws Exception {
-		// «Â ˝æ›∑¿÷π∏…»≈
+		// Ê∏ÖÊï∞ÊçÆÈò≤Ê≠¢Âπ≤Êâ∞
 		String sql = "delete from normaltbl_0001 where pk=?";
 		GroupDataSourceRouteHelper.executeByGroupDataSourceIndex(0);
 		clearData(tddlJT, sql, new Object[] { RANDOM_ID });
@@ -37,7 +45,7 @@ public class GroupSampleCase extends BaseSampleCase {
 
 	@After
 	public void destroy() {
-		// «Â ˝æ›∑¿÷π∏…»≈
+		// Ê∏ÖÊï∞ÊçÆÈò≤Ê≠¢Âπ≤Êâ∞
 		String sql = "delete from normaltbl_0001 where pk=?";
 		GroupDataSourceRouteHelper.executeByGroupDataSourceIndex(0);
 		clearData(tddlJT, sql, new Object[] { RANDOM_ID });

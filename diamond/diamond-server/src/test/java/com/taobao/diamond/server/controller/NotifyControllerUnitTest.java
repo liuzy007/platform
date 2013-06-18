@@ -30,8 +30,8 @@ public class NotifyControllerUnitTest extends AbstractControllerUnitTest {
 
 	@Test
 	public void testNotifyConfigInfo() throws Exception {
-		// ²âÊÔÁ÷³Ì£ºÖ±½ÓÍ¨¹ıPersistService²åÈëÒ»ÌõÅäÖÃĞÅÏ¢£¬²»±£´æµ½´ÅÅÌ
-		// µ÷ÓÃnotifyGroupInfoÍ¨Öª¼ÓÔØÅäÖÃĞÅÏ¢²¢´æÈë´ÅÅÌ£¬¼ì²éÎÄ¼ş´æÔÚ²¢ÄÚÈİÕıÈ·
+		// æµ‹è¯•æµç¨‹ï¼šç›´æ¥é€šè¿‡PersistServiceæ’å…¥ä¸€æ¡é…ç½®ä¿¡æ¯ï¼Œä¸ä¿å­˜åˆ°ç£ç›˜
+		// è°ƒç”¨notifyGroupInfoé€šçŸ¥åŠ è½½é…ç½®ä¿¡æ¯å¹¶å­˜å…¥ç£ç›˜ï¼Œæ£€æŸ¥æ–‡ä»¶å­˜åœ¨å¹¶å†…å®¹æ­£ç¡®
 		String dataId = "dataId";
 		String group = "test-group";
 		String content = "diamond server";
@@ -44,15 +44,15 @@ public class NotifyControllerUnitTest extends AbstractControllerUnitTest {
 			this.persistService.addConfigInfo(DiamondUtils.getCurrentTime(),
 					new ConfigInfo(dataId, group, content));
 			file = new File(path + "/config-data/test-group/dataId");
-			// ÈÔÈ»²»´æÔÚ
+			// ä»ç„¶ä¸å­˜åœ¨
 			assertFalse(file.exists());
 			mockServletContext(dataId, group, content);
 			assertEquals("200",
 					this.notifyController.notifyConfigInfo(dataId, group));
 			file = new File(path + "/config-data/test-group/dataId");
-			// ´æÔÚ
+			// å­˜åœ¨
 			assertTrue(file.exists());
-			// Ğ£ÑéÄÚÈİ
+			// æ ¡éªŒå†…å®¹
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
 					new FileInputStream(file)));
 			String line = reader.readLine();

@@ -16,7 +16,7 @@ import com.taobao.diamond.client.DiamondSubscriber;
 import com.taobao.diamond.common.Constants;
 
 /**
- * Diamond¿Í»§¶Ë¹¤³§Àà£¬¿ÉÒÔ²úÉúÒ»¸öµ¥ÀıµÄDiamondSubscriber£¬¹©ËùÓĞµÄDiamondManager¹²ÓÃ ²»Í¬µÄ¼¯Èº¶ÔÓ¦²»Í¬µÄµ¥Àı
+ * Diamondå®¢æˆ·ç«¯å·¥å‚ç±»ï¼Œå¯ä»¥äº§ç”Ÿä¸€ä¸ªå•ä¾‹çš„DiamondSubscriberï¼Œä¾›æ‰€æœ‰çš„DiamondManagerå…±ç”¨ ä¸åŒçš„é›†ç¾¤å¯¹åº”ä¸åŒçš„å•ä¾‹
  * 
  * @author aoqiong
  * 
@@ -25,10 +25,10 @@ public class DiamondClientFactory {
 	private static Map<String, DiamondSubscriber> subscribersMap = new ConcurrentHashMap<String, DiamondSubscriber>();
 
 	/**
-	 * »ñÈ¡Ä³¸ö¼¯ÈºµÄµ¥Àı¶©ÔÄÕß
+	 * è·å–æŸä¸ªé›†ç¾¤çš„å•ä¾‹è®¢é˜…è€…
 	 * 
 	 * @param clusterType
-	 *            ¼¯ÈºÀàĞÍ
+	 *            é›†ç¾¤ç±»å‹
 	 * @return
 	 */
 	public synchronized static DiamondSubscriber getSingletonDiamondSubscriber(

@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -88,15 +96,15 @@ public class SQLPreParserTest {
 	private static boolean isCRUD(String sql0) {
 		if (sql0 == null)
 			return false;
-		sql0 = sql0.trim(); //trim¿ÉÒÔÈ¥µô\\s,°üÀ¨»»ĞĞ·û¡¢ÖÆ±í·ûµÈ
+		sql0 = sql0.trim(); //trimå¯ä»¥å»æ‰\\s,åŒ…æ‹¬æ¢è¡Œç¬¦ã€åˆ¶è¡¨ç¬¦ç­‰
 		if (sql0.length() < 7) {
 			return false;
 		}
 
 		if (sql0.indexOf("/*") != -1) {
-			//È¥³ıhint
+			//å»é™¤hint
 			//System.out.println("hint:"+sql0);
-			sql0 = sql0.replaceAll("/\\*.*?\\*/", "").trim(); //ÀÁ¶èÆ¥Åä(×î¶ÌÆ¥Åä)
+			sql0 = sql0.replaceAll("/\\*.*?\\*/", "").trim(); //æ‡’æƒ°åŒ¹é…(æœ€çŸ­åŒ¹é…)
 			//System.out.println(sql0);
 		}
 		sql0 = sql0.toLowerCase();

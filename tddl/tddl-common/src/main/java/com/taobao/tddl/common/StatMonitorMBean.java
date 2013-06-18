@@ -1,24 +1,32 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common;
 
 
 /*
  * @author guangxia
- * @since 1.0, 2010-2-9 ÏÂÎç03:40:20
+ * @since 1.0, 2010-2-9 ä¸‹åˆ03:40:20
  */
 public interface StatMonitorMBean {
 	
     /**
-     * ÖØĞÂ¿ªÊ¼ÊµÊ±Í³¼Æ
+     * é‡æ–°å¼€å§‹å®æ—¶ç»Ÿè®¡
      */
     void resetStat();
     /**
-     * ×îĞÂÍ³¼ÆµÄÊ±¼äµã
+     * æœ€æ–°ç»Ÿè®¡çš„æ—¶é—´ç‚¹
      * 
      * @return
      */
     long getStatDuration();
     /**
-     * »ñÈ¡ÊµÊ±Í³¼Æ½á¹û
+     * è·å–å®æ—¶ç»Ÿè®¡ç»“æœ
      * 
      * @param key1
      * @param key2

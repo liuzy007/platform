@@ -1,17 +1,25 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.util;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.util;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * TDDL×¨ÓÃµÄ×Ö·û´¦Àí±ã½İÀà
+ * TDDLä¸“ç”¨çš„å­—ç¬¦å¤„ç†ä¾¿æ·ç±»
  * 
  * @author linxuan
  * 
  */
 public class TStringUtil {
 	/**
-	 * »ñµÃµÚÒ»¸östart£¬endÖ®¼äµÄ×Ö´®£¬ ²»°üÀ¨start£¬end±¾Éí¡£·µ»ØÖµÒÑ×öÁËtrim
+	 * è·å¾—ç¬¬ä¸€ä¸ªstartï¼Œendä¹‹é—´çš„å­—ä¸²ï¼Œ ä¸åŒ…æ‹¬startï¼Œendæœ¬èº«ã€‚è¿”å›å€¼å·²åšäº†trim
 	 */
 	public static String getBetween(String sql, String start, String end) {
 		int index0 = sql.indexOf(start);
@@ -26,7 +34,7 @@ public class TStringUtil {
 	}
 
 	/**
-	 * Ö»×öÒ»´ÎÇĞ·Ö
+	 * åªåšä¸€æ¬¡åˆ‡åˆ†
 	 * @param str
 	 * @param splitor
 	 * @return
@@ -67,7 +75,7 @@ public class TStringUtil {
 	}
 	
 	/**
-	 * È¥³ıµÚÒ»¸östart,endÖ®¼äµÄ×Ö·û´®£¬°üÀ¨start,end±¾Éí
+	 * å»é™¤ç¬¬ä¸€ä¸ªstart,endä¹‹é—´çš„å­—ç¬¦ä¸²ï¼ŒåŒ…æ‹¬start,endæœ¬èº«
 	 * 
 	 * @param sql
 	 * @param start
@@ -92,7 +100,7 @@ public class TStringUtil {
 	}
 
 	/**
-	 * ½«ËùÓĞ/t/s/nµÈ¿Õ°×·ûÈ«²¿Ìæ»»Îª¿Õ¸ñ£¬²¢ÇÒÈ¥³ı¶àÓà¿Õ°× ¸÷ÖÖ²»Í¬ÊµÏÖµÄ±È½Ï²âÊÔ£¬²Î¼û£ºTStringUtilTest
+	 * å°†æ‰€æœ‰/t/s/nç­‰ç©ºç™½ç¬¦å…¨éƒ¨æ›¿æ¢ä¸ºç©ºæ ¼ï¼Œå¹¶ä¸”å»é™¤å¤šä½™ç©ºç™½ å„ç§ä¸åŒå®ç°çš„æ¯”è¾ƒæµ‹è¯•ï¼Œå‚è§ï¼šTStringUtilTest
 	 */
 	public static String fillTabWithSpace(String str) {
 		if (str == null) {
@@ -117,7 +125,7 @@ public class TStringUtil {
 				index0 = index1 = -1;
 			} else {
 				if (index0 == -1) {
-					index0 = index1 = i; // µÚÒ»¸ö¿Õ°×
+					index0 = index1 = i; // ç¬¬ä¸€ä¸ªç©ºç™½
 				} else {
 					index1 = i;
 				}
@@ -127,5 +135,702 @@ public class TStringUtil {
 		buffer.append(str.substring(index));
 
 		return buffer.toString();
-	}		/**     * ±È½ÏÁ½¸ö×Ö·û´®£¨´óĞ¡Ğ´Ãô¸Ğ£©¡£     * <pre>     * StringUtil.equals(null, null)   = true     * StringUtil.equals(null, "abc")  = false     * StringUtil.equals("abc", null)  = false     * StringUtil.equals("abc", "abc") = true     * StringUtil.equals("abc", "ABC") = false     * </pre>     *     * @param str1 Òª±È½ÏµÄ×Ö·û´®1     * @param str2 Òª±È½ÏµÄ×Ö·û´®2     *     * @return Èç¹ûÁ½¸ö×Ö·û´®ÏàÍ¬£¬»òÕß¶¼ÊÇ<code>null</code>£¬Ôò·µ»Ø<code>true</code>     */    public static boolean equals(String str1, String str2) {        if (str1 == null) {            return str2 == null;        }        return str1.equals(str2);    }	/**     * È¡µÃÖ¸¶¨·Ö¸ô·ûµÄÇ°Á½´Î³öÏÖÖ®¼äµÄ×Ó´®¡£     *      * <p>     * Èç¹û×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£ Èç¹û·Ö¸ô×Ó´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£     * <pre>     * StringUtil.substringBetween(null, *)            = null     * StringUtil.substringBetween("", "")             = ""     * StringUtil.substringBetween("", "tag")          = null     * StringUtil.substringBetween("tagabctag", null)  = null     * StringUtil.substringBetween("tagabctag", "")    = ""     * StringUtil.substringBetween("tagabctag", "tag") = "abc"     * </pre>     * </p>     *     * @param str ×Ö·û´®     * @param tag ÒªËÑË÷µÄ·Ö¸ô×Ó´®     *     * @return ×Ó´®£¬Èç¹ûÔ­Ê¼´®Îª<code>null</code>»òÎ´ÕÒµ½·Ö¸ô×Ó´®£¬Ôò·µ»Ø<code>null</code>     */    public static String substringBetween(String str, String tag) {        return substringBetween(str, tag, tag, 0);    }    /**     * È¡µÃÁ½¸ö·Ö¸ô·ûÖ®¼äµÄ×Ó´®¡£     *      * <p>     * Èç¹û×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£ Èç¹û·Ö¸ô×Ó´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£     * <pre>     * StringUtil.substringBetween(null, *, *)          = null     * StringUtil.substringBetween("", "", "")          = ""     * StringUtil.substringBetween("", "", "tag")       = null     * StringUtil.substringBetween("", "tag", "tag")    = null     * StringUtil.substringBetween("yabcz", null, null) = null     * StringUtil.substringBetween("yabcz", "", "")     = ""     * StringUtil.substringBetween("yabcz", "y", "z")   = "abc"     * StringUtil.substringBetween("yabczyabcz", "y", "z")   = "abc"     * </pre>     * </p>     *     * @param str ×Ö·û´®     * @param open ÒªËÑË÷µÄ·Ö¸ô×Ó´®1     * @param close ÒªËÑË÷µÄ·Ö¸ô×Ó´®2     *     * @return ×Ó´®£¬Èç¹ûÔ­Ê¼´®Îª<code>null</code>»òÎ´ÕÒµ½·Ö¸ô×Ó´®£¬Ôò·µ»Ø<code>null</code>     */    public static String substringBetween(String str, String open, String close) {        return substringBetween(str, open, close, 0);    }    /**     * È¡µÃÁ½¸ö·Ö¸ô·ûÖ®¼äµÄ×Ó´®¡£     *      * <p>     * Èç¹û×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£ Èç¹û·Ö¸ô×Ó´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£     * <pre>     * StringUtil.substringBetween(null, *, *)          = null     * StringUtil.substringBetween("", "", "")          = ""     * StringUtil.substringBetween("", "", "tag")       = null     * StringUtil.substringBetween("", "tag", "tag")    = null     * StringUtil.substringBetween("yabcz", null, null) = null     * StringUtil.substringBetween("yabcz", "", "")     = ""     * StringUtil.substringBetween("yabcz", "y", "z")   = "abc"     * StringUtil.substringBetween("yabczyabcz", "y", "z")   = "abc"     * </pre>     * </p>     *     * @param str ×Ö·û´®     * @param open ÒªËÑË÷µÄ·Ö¸ô×Ó´®1     * @param close ÒªËÑË÷µÄ·Ö¸ô×Ó´®2     * @param fromIndex ´ÓÖ¸¶¨index´¦ËÑË÷     *     * @return ×Ó´®£¬Èç¹ûÔ­Ê¼´®Îª<code>null</code>»òÎ´ÕÒµ½·Ö¸ô×Ó´®£¬Ôò·µ»Ø<code>null</code>     */    public static String substringBetween(String str, String open, String close, int fromIndex) {        if ((str == null) || (open == null) || (close == null)) {            return null;        }        int start = str.indexOf(open, fromIndex);        if (start != -1) {            int end = str.indexOf(close, start + open.length());            if (end != -1) {                return str.substring(start + open.length(), end);            }        }        return null;    }    	 /**     * È¡µÃ³¤¶ÈÎªÖ¸¶¨×Ö·ûÊıµÄ×îÓÒ±ßµÄ×Ó´®¡£     * <pre>     * StringUtil.right(null, *)    = null     * StringUtil.right(*, -ve)     = ""     * StringUtil.right("", *)      = ""     * StringUtil.right("abc", 0)   = ""     * StringUtil.right("abc", 2)   = "bc"     * StringUtil.right("abc", 4)   = "abc"     * </pre>     *     * @param str ×Ö·û´®     * @param len ×îÓÒ×Ó´®µÄ³¤¶È     *     * @return ×Ó´®£¬Èç¹ûÔ­Ê¼×Ö´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>     */    public static String right(String str, int len) {        if (str == null) {            return null;        }        if (len < 0) {            return EMPTY_STRING;        }        if (str.length() <= len) {            return str;        } else {            return str.substring(str.length() - len);        }    }    	  /**     * È¡µÃ³¤¶ÈÎªÖ¸¶¨×Ö·ûÊıµÄ×î×ó±ßµÄ×Ó´®¡£     * <pre>     * StringUtil.left(null, *)    = null     * StringUtil.left(*, -ve)     = ""     * StringUtil.left("", *)      = ""     * StringUtil.left("abc", 0)   = ""     * StringUtil.left("abc", 2)   = "ab"     * StringUtil.left("abc", 4)   = "abc"     * </pre>     *     * @param str ×Ö·û´®     * @param len ×î×ó×Ó´®µÄ³¤¶È     *     * @return ×Ó´®£¬Èç¹ûÔ­Ê¼×Ö´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>     */    public static String left(String str, int len) {        if (str == null) {            return null;        }        if (len < 0) {            return EMPTY_STRING;        }        if (str.length() <= len) {            return str;        } else {            return str.substring(0, len);        }    }    	/**     * ÅĞ¶Ï×Ö·û´®ÊÇ·ñÖ»°üº¬unicodeÊı×Ö¡£     *      * <p>     * <code>null</code>½«·µ»Ø<code>false</code>£¬¿Õ×Ö·û´®<code>""</code>½«·µ»Ø<code>true</code>¡£     * </p>     * <pre>     * StringUtil.isNumeric(null)   = false     * StringUtil.isNumeric("")     = true     * StringUtil.isNumeric("  ")   = false     * StringUtil.isNumeric("123")  = true     * StringUtil.isNumeric("12 3") = false     * StringUtil.isNumeric("ab2c") = false     * StringUtil.isNumeric("12-3") = false     * StringUtil.isNumeric("12.3") = false     * </pre>     *     * @param str Òª¼ì²éµÄ×Ö·û´®     *     * @return Èç¹û×Ö·û´®·Ç<code>null</code>²¢ÇÒÈ«ÓÉunicodeÊı×Ö×é³É£¬Ôò·µ»Ø<code>true</code>     */    public static boolean isNumeric(String str) {        if (str == null) {            return false;        }        int length = str.length();        for (int i = 0; i < length; i++) {            if (!Character.isDigit(str.charAt(i))) {                return false;            }        }        return true;    }    	  /** ¿Õ×Ö·û´®¡£ */    public static final String EMPTY_STRING = "";        /**     * È¡µÃ×îºóÒ»¸öµÄ·Ö¸ô×Ó´®Ö®Ç°µÄ×Ó´®¡£     *      * <p>     * Èç¹û×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£ Èç¹û·Ö¸ô×Ó´®Îª<code>null</code>»òÎ´ÕÒµ½¸Ã×Ó´®£¬Ôò·µ»ØÔ­×Ö·û´®¡£     * <pre>     * StringUtil.substringBeforeLast(null, *)      = null     * StringUtil.substringBeforeLast("", *)        = ""     * StringUtil.substringBeforeLast("abcba", "b") = "abc"     * StringUtil.substringBeforeLast("abc", "c")   = "ab"     * StringUtil.substringBeforeLast("a", "a")     = ""     * StringUtil.substringBeforeLast("a", "z")     = "a"     * StringUtil.substringBeforeLast("a", null)    = "a"     * StringUtil.substringBeforeLast("a", "")      = "a"     * </pre>     * </p>     *     * @param str ×Ö·û´®     * @param separator ÒªËÑË÷µÄ·Ö¸ô×Ó´®     *     * @return ×Ó´®£¬Èç¹ûÔ­Ê¼´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>     */    public static String substringBeforeLast(String str, String separator) {        if ((str == null) || (separator == null) || (str.length() == 0)                    || (separator.length() == 0)) {            return str;        }        int pos = str.lastIndexOf(separator);        if (pos == -1) {            return str;        }        return str.substring(0, pos);    }    /**     * È¡µÃ×îºóÒ»¸öµÄ·Ö¸ô×Ó´®Ö®ºóµÄ×Ó´®¡£     *      * <p>     * Èç¹û×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£ Èç¹û·Ö¸ô×Ó´®Îª<code>null</code>»òÎ´ÕÒµ½¸Ã×Ó´®£¬Ôò·µ»ØÔ­×Ö·û´®¡£     * <pre>     * StringUtil.substringAfterLast(null, *)      = null     * StringUtil.substringAfterLast("", *)        = ""     * StringUtil.substringAfterLast(*, "")        = ""     * StringUtil.substringAfterLast(*, null)      = ""     * StringUtil.substringAfterLast("abc", "a")   = "bc"     * StringUtil.substringAfterLast("abcba", "b") = "a"     * StringUtil.substringAfterLast("abc", "c")   = ""     * StringUtil.substringAfterLast("a", "a")     = ""     * StringUtil.substringAfterLast("a", "z")     = ""     * </pre>     * </p>     *     * @param str ×Ö·û´®     * @param separator ÒªËÑË÷µÄ·Ö¸ô×Ó´®     *     * @return ×Ó´®£¬Èç¹ûÔ­Ê¼´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>     */    public static String substringAfterLast(String str, String separator) {        if ((str == null) || (str.length() == 0)) {            return str;        }        if ((separator == null) || (separator.length() == 0)) {            return EMPTY_STRING;        }        int pos = str.lastIndexOf(separator);        if ((pos == -1) || (pos == (str.length() - separator.length()))) {            return EMPTY_STRING;        }        return str.substring(pos + separator.length());    }        /**     * È¡µÃµÚÒ»¸ö³öÏÖµÄ·Ö¸ô×Ó´®Ö®ºóµÄ×Ó´®¡£     *      * <p>     * Èç¹û×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£ Èç¹û·Ö¸ô×Ó´®Îª<code>null</code>»òÎ´ÕÒµ½¸Ã×Ó´®£¬Ôò·µ»ØÔ­×Ö·û´®¡£     * <pre>     * StringUtil.substringAfter(null, *)      = null     * StringUtil.substringAfter("", *)        = ""     * StringUtil.substringAfter(*, null)      = ""     * StringUtil.substringAfter("abc", "a")   = "bc"     * StringUtil.substringAfter("abcba", "b") = "cba"     * StringUtil.substringAfter("abc", "c")   = ""     * StringUtil.substringAfter("abc", "d")   = ""     * StringUtil.substringAfter("abc", "")    = "abc"     * </pre>     * </p>     *     * @param str ×Ö·û´®     * @param separator ÒªËÑË÷µÄ·Ö¸ô×Ó´®     *     * @return ×Ó´®£¬Èç¹ûÔ­Ê¼´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>     */    public static String substringAfter(String str, String separator) {        if ((str == null) || (str.length() == 0)) {            return str;        }        if (separator == null) {            return EMPTY_STRING;        }        int pos = str.indexOf(separator);        if (pos == -1) {            return EMPTY_STRING;        }        return str.substring(pos + separator.length());    }    	/* ============================================================================ */    /*  ËÑË÷²¢È¡×Ó´®º¯Êı¡£                                                          */    /* ============================================================================ */    /**     * È¡µÃµÚÒ»¸ö³öÏÖµÄ·Ö¸ô×Ó´®Ö®Ç°µÄ×Ó´®¡£     *      * <p>     * Èç¹û×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£ Èç¹û·Ö¸ô×Ó´®Îª<code>null</code>»òÎ´ÕÒµ½¸Ã×Ó´®£¬Ôò·µ»ØÔ­×Ö·û´®¡£     * <pre>     * StringUtil.substringBefore(null, *)      = null     * StringUtil.substringBefore("", *)        = ""     * StringUtil.substringBefore("abc", "a")   = ""     * StringUtil.substringBefore("abcba", "b") = "a"     * StringUtil.substringBefore("abc", "c")   = "ab"     * StringUtil.substringBefore("abc", "d")   = "abc"     * StringUtil.substringBefore("abc", "")    = ""     * StringUtil.substringBefore("abc", null)  = "abc"     * </pre>     * </p>     *     * @param str ×Ö·û´®     * @param separator ÒªËÑË÷µÄ·Ö¸ô×Ó´®     *     * @return ×Ó´®£¬Èç¹ûÔ­Ê¼´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>     */    public static String substringBefore(String str, String separator) {        if ((str == null) || (separator == null) || (str.length() == 0)) {            return str;        }        if (separator.length() == 0) {            return EMPTY_STRING;        }        int pos = str.indexOf(separator);        if (pos == -1) {            return str;        }        return str.substring(0, pos);    }		  /**     * ¼ì²é×Ö·û´®ÖĞÊÇ·ñ°üº¬Ö¸¶¨µÄ×Ö·û´®¡£Èç¹û×Ö·û´®Îª<code>null</code>£¬½«·µ»Ø<code>false</code>¡£     * <pre>     * StringUtil.contains(null, *)     = false     * StringUtil.contains(*, null)     = false     * StringUtil.contains("", "")      = true     * StringUtil.contains("abc", "")   = true     * StringUtil.contains("abc", "a")  = true     * StringUtil.contains("abc", "z")  = false     * </pre>     *     * @param str ÒªÉ¨ÃèµÄ×Ö·û´®     * @param searchStr Òª²éÕÒµÄ×Ö·û´®     *     * @return Èç¹ûÕÒµ½£¬Ôò·µ»Ø<code>true</code>     */    public static boolean contains(String str, String searchStr) {        if ((str == null) || (searchStr == null)) {            return false;        }        return str.indexOf(searchStr) >= 0;    }	 /* ============================================================================ */    /*  È¥¿Õ°×£¨»òÖ¸¶¨×Ö·û£©µÄº¯Êı¡£                                                */    /*                                                                              */    /*  ÒÔÏÂ·½·¨ÓÃÀ´³ıÈ¥Ò»¸ö×Ö´®ÖĞµÄ¿Õ°×»òÖ¸¶¨×Ö·û¡£                                */    /* ============================================================================ */    /**     * ³ıÈ¥×Ö·û´®Í·Î²²¿µÄ¿Õ°×£¬Èç¹û×Ö·û´®ÊÇ<code>null</code>£¬ÒÀÈ»·µ»Ø<code>null</code>¡£     *      * <p>     * ×¢Òâ£¬ºÍ<code>String.trim</code>²»Í¬£¬´Ë·½·¨Ê¹ÓÃ<code>Character.isWhitespace</code>À´ÅĞ¶¨¿Õ°×£¬     * Òò¶ø¿ÉÒÔ³ıÈ¥Ó¢ÎÄ×Ö·û¼¯Ö®ÍâµÄÆäËü¿Õ°×£¬ÈçÖĞÎÄ¿Õ¸ñ¡£     * <pre>     * StringUtil.trim(null)          = null     * StringUtil.trim("")            = ""     * StringUtil.trim("     ")       = ""     * StringUtil.trim("abc")         = "abc"     * StringUtil.trim("    abc    ") = "abc"     * </pre>     * </p>     *     * @param str Òª´¦ÀíµÄ×Ö·û´®     *     * @return ³ıÈ¥¿Õ°×µÄ×Ö·û´®£¬Èç¹ûÔ­×Ö´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>     */    public static String trim(String str) {        return trim(str, null, 0);    }    	   /**     * ³ıÈ¥×Ö·û´®Í·Î²²¿µÄÖ¸¶¨×Ö·û£¬Èç¹û×Ö·û´®ÊÇ<code>null</code>£¬ÒÀÈ»·µ»Ø<code>null</code>¡£     * <pre>     * StringUtil.trim(null, *)          = null     * StringUtil.trim("", *)            = ""     * StringUtil.trim("abc", null)      = "abc"     * StringUtil.trim("  abc", null)    = "abc"     * StringUtil.trim("abc  ", null)    = "abc"     * StringUtil.trim(" abc ", null)    = "abc"     * StringUtil.trim("  abcyx", "xyz") = "  abc"     * </pre>     *     * @param str Òª´¦ÀíµÄ×Ö·û´®     * @param stripChars Òª³ıÈ¥µÄ×Ö·û£¬Èç¹ûÎª<code>null</code>±íÊ¾³ıÈ¥¿Õ°××Ö·û     * @param mode <code>-1</code>±íÊ¾trimStart£¬<code>0</code>±íÊ¾trimÈ«²¿£¬<code>1</code>±íÊ¾trimEnd     *     * @return ³ıÈ¥Ö¸¶¨×Ö·ûºóµÄµÄ×Ö·û´®£¬Èç¹ûÔ­×Ö´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>     */    private static String trim(String str, String stripChars, int mode) {        if (str == null) {            return null;        }        int length = str.length();        int start = 0;        int end   = length;        // É¨Ãè×Ö·û´®Í·²¿        if (mode <= 0) {            if (stripChars == null) {                while ((start < end) && (Character.isWhitespace(str.charAt(start)))) {                    start++;                }            } else if (stripChars.length() == 0) {                return str;            } else {                while ((start < end) && (stripChars.indexOf(str.charAt(start)) != -1)) {                    start++;                }            }        }        // É¨Ãè×Ö·û´®Î²²¿        if (mode >= 0) {            if (stripChars == null) {                while ((start < end) && (Character.isWhitespace(str.charAt(end - 1)))) {                    end--;                }            } else if (stripChars.length() == 0) {                return str;            } else {                while ((start < end) && (stripChars.indexOf(str.charAt(end - 1)) != -1)) {                    end--;                }            }        }        if ((start > 0) || (end < length)) {            return str.substring(start, end);        }        return str;    }    	 /**     * ¼ì²é×Ö·û´®ÊÇ·ñ²»ÊÇ¿Õ°×£º<code>null</code>¡¢¿Õ×Ö·û´®<code>""</code>»òÖ»ÓĞ¿Õ°××Ö·û¡£     * <pre>     * StringUtil.isBlank(null)      = false     * StringUtil.isBlank("")        = false     * StringUtil.isBlank(" ")       = false     * StringUtil.isBlank("bob")     = true     * StringUtil.isBlank("  bob  ") = true     * </pre>     *     * @param str Òª¼ì²éµÄ×Ö·û´®     *     * @return Èç¹ûÎª¿Õ°×, Ôò·µ»Ø<code>true</code>     */    public static boolean isNotBlank(String str) {        int length;        if ((str == null) || ((length = str.length()) == 0)) {            return false;        }        for (int i = 0; i < length; i++) {            if (!Character.isWhitespace(str.charAt(i))) {                return true;            }        }        return false;    }		  /**     * ¼ì²é×Ö·û´®ÊÇ·ñÊÇ¿Õ°×£º<code>null</code>¡¢¿Õ×Ö·û´®<code>""</code>»òÖ»ÓĞ¿Õ°××Ö·û¡£     * <pre>     * StringUtil.isBlank(null)      = true     * StringUtil.isBlank("")        = true     * StringUtil.isBlank(" ")       = true     * StringUtil.isBlank("bob")     = false     * StringUtil.isBlank("  bob  ") = false     * </pre>     *     * @param str Òª¼ì²éµÄ×Ö·û´®     *     * @return Èç¹ûÎª¿Õ°×, Ôò·µ»Ø<code>true</code>     */    public static boolean isBlank(String str) {        int length;        if ((str == null) || ((length = str.length()) == 0)) {            return true;        }        for (int i = 0; i < length; i++) {            if (!Character.isWhitespace(str.charAt(i))) {                return false;            }        }        return true;    }		   /**     * ½«×Ö·û´®°´Ö¸¶¨×Ö·û·Ö¸î¡£     *      * <p>     * ·Ö¸ô·û²»»á³öÏÖÔÚÄ¿±êÊı×éÖĞ£¬Á¬ĞøµÄ·Ö¸ô·û¾Í±»¿´×÷Ò»¸ö¡£Èç¹û×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£     * <pre>     * StringUtil.split(null, *)                = null     * StringUtil.split("", *)                  = []     * StringUtil.split("abc def", null)        = ["abc", "def"]     * StringUtil.split("abc def", " ")         = ["abc", "def"]     * StringUtil.split("abc  def", " ")        = ["abc", "def"]     * StringUtil.split(" ab:  cd::ef  ", ":")  = ["ab", "cd", "ef"]     * StringUtil.split("abc.def", "")          = ["abc.def"]     *  </pre>     * </p>     *     * @param str Òª·Ö¸îµÄ×Ö·û´®     * @param separatorChars ·Ö¸ô·û     *     * @return ·Ö¸îºóµÄ×Ö·û´®Êı×é£¬Èç¹ûÔ­×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>     */    public static String[] splitm(String str, String separatorChars) {        return split(str, separatorChars, -1);    }    public static final String[] EMPTY_STRING_ARRAY = new String[0];        /**     * ½«×Ö·û´®°´Ö¸¶¨×Ö·û·Ö¸î¡£     *      * <p>     * ·Ö¸ô·û²»»á³öÏÖÔÚÄ¿±êÊı×éÖĞ£¬Á¬ĞøµÄ·Ö¸ô·û¾Í±»¿´×÷Ò»¸ö¡£Èç¹û×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£     * <pre>     * StringUtil.split(null, *, *)                 = null     * StringUtil.split("", *, *)                   = []     * StringUtil.split("ab cd ef", null, 0)        = ["ab", "cd", "ef"]     * StringUtil.split("  ab   cd ef  ", null, 0)  = ["ab", "cd", "ef"]     * StringUtil.split("ab:cd::ef", ":", 0)        = ["ab", "cd", "ef"]     * StringUtil.split("ab:cd:ef", ":", 2)         = ["ab", "cdef"]     * StringUtil.split("abc.def", "", 2)           = ["abc.def"]     * </pre>     * </p>     *     * @param str Òª·Ö¸îµÄ×Ö·û´®     * @param separatorChars ·Ö¸ô·û     * @param max ·µ»ØµÄÊı×éµÄ×î´ó¸öÊı£¬Èç¹ûĞ¡ÓÚµÈÓÚ0£¬Ôò±íÊ¾ÎŞÏŞÖÆ     *     * @return ·Ö¸îºóµÄ×Ö·û´®Êı×é£¬Èç¹ûÔ­×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>     */    public static String[] split(String str, String separatorChars, int max) {        if (str == null) {            return null;        }        int length = str.length();        if (length == 0) {            return EMPTY_STRING_ARRAY;        }        List    list      = new ArrayList();        int     sizePlus1 = 1;        int     i         = 0;        int     start     = 0;        boolean match     = false;        if (separatorChars == null) {            // null±íÊ¾Ê¹ÓÃ¿Õ°××÷Îª·Ö¸ô·û            while (i < length) {                if (Character.isWhitespace(str.charAt(i))) {                    if (match) {                        if (sizePlus1++ == max) {                            i = length;                        }                        list.add(str.substring(start, i));                        match = false;                    }                    start = ++i;                    continue;                }                match = true;                i++;            }        } else if (separatorChars.length() == 1) {            // ÓÅ»¯·Ö¸ô·û³¤¶ÈÎª1µÄÇéĞÎ            char sep = separatorChars.charAt(0);            while (i < length) {                if (str.charAt(i) == sep) {                    if (match) {                        if (sizePlus1++ == max) {                            i = length;                        }                        list.add(str.substring(start, i));                        match = false;                    }                    start = ++i;                    continue;                }                match = true;                i++;            }        } else {            // Ò»°ãÇéĞÎ            while (i < length) {                if (separatorChars.indexOf(str.charAt(i)) >= 0) {                    if (match) {                        if (sizePlus1++ == max) {                            i = length;                        }                        list.add(str.substring(start, i));                        match = false;                    }                    start = ++i;                    continue;                }                match = true;                i++;            }        }        if (match) {            list.add(str.substring(start, i));        }        return (String[]) list.toArray(new String[list.size()]);    }
+	}
+	
+	/**
+     * æ¯”è¾ƒä¸¤ä¸ªå­—ç¬¦ä¸²ï¼ˆå¤§å°å†™æ•æ„Ÿï¼‰ã€‚
+     * <pre>
+     * StringUtil.equals(null, null)   = true
+     * StringUtil.equals(null, "abc")  = false
+     * StringUtil.equals("abc", null)  = false
+     * StringUtil.equals("abc", "abc") = true
+     * StringUtil.equals("abc", "ABC") = false
+     * </pre>
+     *
+     * @param str1 è¦æ¯”è¾ƒçš„å­—ç¬¦ä¸²1
+     * @param str2 è¦æ¯”è¾ƒçš„å­—ç¬¦ä¸²2
+     *
+     * @return å¦‚æœä¸¤ä¸ªå­—ç¬¦ä¸²ç›¸åŒï¼Œæˆ–è€…éƒ½æ˜¯<code>null</code>ï¼Œåˆ™è¿”å›<code>true</code>
+     */
+    public static boolean equals(String str1, String str2) {
+        if (str1 == null) {
+            return str2 == null;
+        }
+
+        return str1.equals(str2);
+    }
+
+	/**
+     * å–å¾—æŒ‡å®šåˆ†éš”ç¬¦çš„å‰ä¸¤æ¬¡å‡ºç°ä¹‹é—´çš„å­ä¸²ã€‚
+     * 
+     * <p>
+     * å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚ å¦‚æœåˆ†éš”å­ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚
+     * <pre>
+     * StringUtil.substringBetween(null, *)            = null
+     * StringUtil.substringBetween("", "")             = ""
+     * StringUtil.substringBetween("", "tag")          = null
+     * StringUtil.substringBetween("tagabctag", null)  = null
+     * StringUtil.substringBetween("tagabctag", "")    = ""
+     * StringUtil.substringBetween("tagabctag", "tag") = "abc"
+     * </pre>
+     * </p>
+     *
+     * @param str å­—ç¬¦ä¸²
+     * @param tag è¦æœç´¢çš„åˆ†éš”å­ä¸²
+     *
+     * @return å­ä¸²ï¼Œå¦‚æœåŸå§‹ä¸²ä¸º<code>null</code>æˆ–æœªæ‰¾åˆ°åˆ†éš”å­ä¸²ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String substringBetween(String str, String tag) {
+        return substringBetween(str, tag, tag, 0);
+    }
+
+    /**
+     * å–å¾—ä¸¤ä¸ªåˆ†éš”ç¬¦ä¹‹é—´çš„å­ä¸²ã€‚
+     * 
+     * <p>
+     * å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚ å¦‚æœåˆ†éš”å­ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚
+     * <pre>
+     * StringUtil.substringBetween(null, *, *)          = null
+     * StringUtil.substringBetween("", "", "")          = ""
+     * StringUtil.substringBetween("", "", "tag")       = null
+     * StringUtil.substringBetween("", "tag", "tag")    = null
+     * StringUtil.substringBetween("yabcz", null, null) = null
+     * StringUtil.substringBetween("yabcz", "", "")     = ""
+     * StringUtil.substringBetween("yabcz", "y", "z")   = "abc"
+     * StringUtil.substringBetween("yabczyabcz", "y", "z")   = "abc"
+     * </pre>
+     * </p>
+     *
+     * @param str å­—ç¬¦ä¸²
+     * @param open è¦æœç´¢çš„åˆ†éš”å­ä¸²1
+     * @param close è¦æœç´¢çš„åˆ†éš”å­ä¸²2
+     *
+     * @return å­ä¸²ï¼Œå¦‚æœåŸå§‹ä¸²ä¸º<code>null</code>æˆ–æœªæ‰¾åˆ°åˆ†éš”å­ä¸²ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String substringBetween(String str, String open, String close) {
+        return substringBetween(str, open, close, 0);
+    }
+
+    /**
+     * å–å¾—ä¸¤ä¸ªåˆ†éš”ç¬¦ä¹‹é—´çš„å­ä¸²ã€‚
+     * 
+     * <p>
+     * å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚ å¦‚æœåˆ†éš”å­ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚
+     * <pre>
+     * StringUtil.substringBetween(null, *, *)          = null
+     * StringUtil.substringBetween("", "", "")          = ""
+     * StringUtil.substringBetween("", "", "tag")       = null
+     * StringUtil.substringBetween("", "tag", "tag")    = null
+     * StringUtil.substringBetween("yabcz", null, null) = null
+     * StringUtil.substringBetween("yabcz", "", "")     = ""
+     * StringUtil.substringBetween("yabcz", "y", "z")   = "abc"
+     * StringUtil.substringBetween("yabczyabcz", "y", "z")   = "abc"
+     * </pre>
+     * </p>
+     *
+     * @param str å­—ç¬¦ä¸²
+     * @param open è¦æœç´¢çš„åˆ†éš”å­ä¸²1
+     * @param close è¦æœç´¢çš„åˆ†éš”å­ä¸²2
+     * @param fromIndex ä»æŒ‡å®šindexå¤„æœç´¢
+     *
+     * @return å­ä¸²ï¼Œå¦‚æœåŸå§‹ä¸²ä¸º<code>null</code>æˆ–æœªæ‰¾åˆ°åˆ†éš”å­ä¸²ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String substringBetween(String str, String open, String close, int fromIndex) {
+        if ((str == null) || (open == null) || (close == null)) {
+            return null;
+        }
+
+        int start = str.indexOf(open, fromIndex);
+
+        if (start != -1) {
+            int end = str.indexOf(close, start + open.length());
+
+            if (end != -1) {
+                return str.substring(start + open.length(), end);
+            }
+        }
+
+        return null;
+    }
+    
+	 /**
+     * å–å¾—é•¿åº¦ä¸ºæŒ‡å®šå­—ç¬¦æ•°çš„æœ€å³è¾¹çš„å­ä¸²ã€‚
+     * <pre>
+     * StringUtil.right(null, *)    = null
+     * StringUtil.right(*, -ve)     = ""
+     * StringUtil.right("", *)      = ""
+     * StringUtil.right("abc", 0)   = ""
+     * StringUtil.right("abc", 2)   = "bc"
+     * StringUtil.right("abc", 4)   = "abc"
+     * </pre>
+     *
+     * @param str å­—ç¬¦ä¸²
+     * @param len æœ€å³å­ä¸²çš„é•¿åº¦
+     *
+     * @return å­ä¸²ï¼Œå¦‚æœåŸå§‹å­—ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String right(String str, int len) {
+        if (str == null) {
+            return null;
+        }
+
+        if (len < 0) {
+            return EMPTY_STRING;
+        }
+
+        if (str.length() <= len) {
+            return str;
+        } else {
+            return str.substring(str.length() - len);
+        }
+    }
+
+    
+	  /**
+     * å–å¾—é•¿åº¦ä¸ºæŒ‡å®šå­—ç¬¦æ•°çš„æœ€å·¦è¾¹çš„å­ä¸²ã€‚
+     * <pre>
+     * StringUtil.left(null, *)    = null
+     * StringUtil.left(*, -ve)     = ""
+     * StringUtil.left("", *)      = ""
+     * StringUtil.left("abc", 0)   = ""
+     * StringUtil.left("abc", 2)   = "ab"
+     * StringUtil.left("abc", 4)   = "abc"
+     * </pre>
+     *
+     * @param str å­—ç¬¦ä¸²
+     * @param len æœ€å·¦å­ä¸²çš„é•¿åº¦
+     *
+     * @return å­ä¸²ï¼Œå¦‚æœåŸå§‹å­—ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String left(String str, int len) {
+        if (str == null) {
+            return null;
+        }
+
+        if (len < 0) {
+            return EMPTY_STRING;
+        }
+
+        if (str.length() <= len) {
+            return str;
+        } else {
+            return str.substring(0, len);
+        }
+    }
+    
+	/**
+     * åˆ¤æ–­å­—ç¬¦ä¸²æ˜¯å¦åªåŒ…å«unicodeæ•°å­—ã€‚
+     * 
+     * <p>
+     * <code>null</code>å°†è¿”å›<code>false</code>ï¼Œç©ºå­—ç¬¦ä¸²<code>""</code>å°†è¿”å›<code>true</code>ã€‚
+     * </p>
+     * <pre>
+     * StringUtil.isNumeric(null)   = false
+     * StringUtil.isNumeric("")     = true
+     * StringUtil.isNumeric("  ")   = false
+     * StringUtil.isNumeric("123")  = true
+     * StringUtil.isNumeric("12 3") = false
+     * StringUtil.isNumeric("ab2c") = false
+     * StringUtil.isNumeric("12-3") = false
+     * StringUtil.isNumeric("12.3") = false
+     * </pre>
+     *
+     * @param str è¦æ£€æŸ¥çš„å­—ç¬¦ä¸²
+     *
+     * @return å¦‚æœå­—ç¬¦ä¸²é<code>null</code>å¹¶ä¸”å…¨ç”±unicodeæ•°å­—ç»„æˆï¼Œåˆ™è¿”å›<code>true</code>
+     */
+    public static boolean isNumeric(String str) {
+        if (str == null) {
+            return false;
+        }
+
+        int length = str.length();
+
+        for (int i = 0; i < length; i++) {
+            if (!Character.isDigit(str.charAt(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    
+	  /** ç©ºå­—ç¬¦ä¸²ã€‚ */
+    public static final String EMPTY_STRING = "";
+    
+    /**
+     * å–å¾—æœ€åä¸€ä¸ªçš„åˆ†éš”å­ä¸²ä¹‹å‰çš„å­ä¸²ã€‚
+     * 
+     * <p>
+     * å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚ å¦‚æœåˆ†éš”å­ä¸²ä¸º<code>null</code>æˆ–æœªæ‰¾åˆ°è¯¥å­ä¸²ï¼Œåˆ™è¿”å›åŸå­—ç¬¦ä¸²ã€‚
+     * <pre>
+     * StringUtil.substringBeforeLast(null, *)      = null
+     * StringUtil.substringBeforeLast("", *)        = ""
+     * StringUtil.substringBeforeLast("abcba", "b") = "abc"
+     * StringUtil.substringBeforeLast("abc", "c")   = "ab"
+     * StringUtil.substringBeforeLast("a", "a")     = ""
+     * StringUtil.substringBeforeLast("a", "z")     = "a"
+     * StringUtil.substringBeforeLast("a", null)    = "a"
+     * StringUtil.substringBeforeLast("a", "")      = "a"
+     * </pre>
+     * </p>
+     *
+     * @param str å­—ç¬¦ä¸²
+     * @param separator è¦æœç´¢çš„åˆ†éš”å­ä¸²
+     *
+     * @return å­ä¸²ï¼Œå¦‚æœåŸå§‹ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String substringBeforeLast(String str, String separator) {
+        if ((str == null) || (separator == null) || (str.length() == 0)
+                    || (separator.length() == 0)) {
+            return str;
+        }
+
+        int pos = str.lastIndexOf(separator);
+
+        if (pos == -1) {
+            return str;
+        }
+
+        return str.substring(0, pos);
+    }
+
+    /**
+     * å–å¾—æœ€åä¸€ä¸ªçš„åˆ†éš”å­ä¸²ä¹‹åçš„å­ä¸²ã€‚
+     * 
+     * <p>
+     * å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚ å¦‚æœåˆ†éš”å­ä¸²ä¸º<code>null</code>æˆ–æœªæ‰¾åˆ°è¯¥å­ä¸²ï¼Œåˆ™è¿”å›åŸå­—ç¬¦ä¸²ã€‚
+     * <pre>
+     * StringUtil.substringAfterLast(null, *)      = null
+     * StringUtil.substringAfterLast("", *)        = ""
+     * StringUtil.substringAfterLast(*, "")        = ""
+     * StringUtil.substringAfterLast(*, null)      = ""
+     * StringUtil.substringAfterLast("abc", "a")   = "bc"
+     * StringUtil.substringAfterLast("abcba", "b") = "a"
+     * StringUtil.substringAfterLast("abc", "c")   = ""
+     * StringUtil.substringAfterLast("a", "a")     = ""
+     * StringUtil.substringAfterLast("a", "z")     = ""
+     * </pre>
+     * </p>
+     *
+     * @param str å­—ç¬¦ä¸²
+     * @param separator è¦æœç´¢çš„åˆ†éš”å­ä¸²
+     *
+     * @return å­ä¸²ï¼Œå¦‚æœåŸå§‹ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String substringAfterLast(String str, String separator) {
+        if ((str == null) || (str.length() == 0)) {
+            return str;
+        }
+
+        if ((separator == null) || (separator.length() == 0)) {
+            return EMPTY_STRING;
+        }
+
+        int pos = str.lastIndexOf(separator);
+
+        if ((pos == -1) || (pos == (str.length() - separator.length()))) {
+            return EMPTY_STRING;
+        }
+
+        return str.substring(pos + separator.length());
+    }
+    
+    /**
+     * å–å¾—ç¬¬ä¸€ä¸ªå‡ºç°çš„åˆ†éš”å­ä¸²ä¹‹åçš„å­ä¸²ã€‚
+     * 
+     * <p>
+     * å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚ å¦‚æœåˆ†éš”å­ä¸²ä¸º<code>null</code>æˆ–æœªæ‰¾åˆ°è¯¥å­ä¸²ï¼Œåˆ™è¿”å›åŸå­—ç¬¦ä¸²ã€‚
+     * <pre>
+     * StringUtil.substringAfter(null, *)      = null
+     * StringUtil.substringAfter("", *)        = ""
+     * StringUtil.substringAfter(*, null)      = ""
+     * StringUtil.substringAfter("abc", "a")   = "bc"
+     * StringUtil.substringAfter("abcba", "b") = "cba"
+     * StringUtil.substringAfter("abc", "c")   = ""
+     * StringUtil.substringAfter("abc", "d")   = ""
+     * StringUtil.substringAfter("abc", "")    = "abc"
+     * </pre>
+     * </p>
+     *
+     * @param str å­—ç¬¦ä¸²
+     * @param separator è¦æœç´¢çš„åˆ†éš”å­ä¸²
+     *
+     * @return å­ä¸²ï¼Œå¦‚æœåŸå§‹ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String substringAfter(String str, String separator) {
+        if ((str == null) || (str.length() == 0)) {
+            return str;
+        }
+
+        if (separator == null) {
+            return EMPTY_STRING;
+        }
+
+        int pos = str.indexOf(separator);
+
+        if (pos == -1) {
+            return EMPTY_STRING;
+        }
+
+        return str.substring(pos + separator.length());
+    }
+    
+	/* ============================================================================ */
+    /*  æœç´¢å¹¶å–å­ä¸²å‡½æ•°ã€‚                                                          */
+    /* ============================================================================ */
+
+    /**
+     * å–å¾—ç¬¬ä¸€ä¸ªå‡ºç°çš„åˆ†éš”å­ä¸²ä¹‹å‰çš„å­ä¸²ã€‚
+     * 
+     * <p>
+     * å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚ å¦‚æœåˆ†éš”å­ä¸²ä¸º<code>null</code>æˆ–æœªæ‰¾åˆ°è¯¥å­ä¸²ï¼Œåˆ™è¿”å›åŸå­—ç¬¦ä¸²ã€‚
+     * <pre>
+     * StringUtil.substringBefore(null, *)      = null
+     * StringUtil.substringBefore("", *)        = ""
+     * StringUtil.substringBefore("abc", "a")   = ""
+     * StringUtil.substringBefore("abcba", "b") = "a"
+     * StringUtil.substringBefore("abc", "c")   = "ab"
+     * StringUtil.substringBefore("abc", "d")   = "abc"
+     * StringUtil.substringBefore("abc", "")    = ""
+     * StringUtil.substringBefore("abc", null)  = "abc"
+     * </pre>
+     * </p>
+     *
+     * @param str å­—ç¬¦ä¸²
+     * @param separator è¦æœç´¢çš„åˆ†éš”å­ä¸²
+     *
+     * @return å­ä¸²ï¼Œå¦‚æœåŸå§‹ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String substringBefore(String str, String separator) {
+        if ((str == null) || (separator == null) || (str.length() == 0)) {
+            return str;
+        }
+
+        if (separator.length() == 0) {
+            return EMPTY_STRING;
+        }
+
+        int pos = str.indexOf(separator);
+
+        if (pos == -1) {
+            return str;
+        }
+
+        return str.substring(0, pos);
+    }
+	
+	  /**
+     * æ£€æŸ¥å­—ç¬¦ä¸²ä¸­æ˜¯å¦åŒ…å«æŒ‡å®šçš„å­—ç¬¦ä¸²ã€‚å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œå°†è¿”å›<code>false</code>ã€‚
+     * <pre>
+     * StringUtil.contains(null, *)     = false
+     * StringUtil.contains(*, null)     = false
+     * StringUtil.contains("", "")      = true
+     * StringUtil.contains("abc", "")   = true
+     * StringUtil.contains("abc", "a")  = true
+     * StringUtil.contains("abc", "z")  = false
+     * </pre>
+     *
+     * @param str è¦æ‰«æçš„å­—ç¬¦ä¸²
+     * @param searchStr è¦æŸ¥æ‰¾çš„å­—ç¬¦ä¸²
+     *
+     * @return å¦‚æœæ‰¾åˆ°ï¼Œåˆ™è¿”å›<code>true</code>
+     */
+    public static boolean contains(String str, String searchStr) {
+        if ((str == null) || (searchStr == null)) {
+            return false;
+        }
+
+        return str.indexOf(searchStr) >= 0;
+    }
+
+	 /* ============================================================================ */
+    /*  å»ç©ºç™½ï¼ˆæˆ–æŒ‡å®šå­—ç¬¦ï¼‰çš„å‡½æ•°ã€‚                                                */
+    /*                                                                              */
+    /*  ä»¥ä¸‹æ–¹æ³•ç”¨æ¥é™¤å»ä¸€ä¸ªå­—ä¸²ä¸­çš„ç©ºç™½æˆ–æŒ‡å®šå­—ç¬¦ã€‚                                */
+    /* ============================================================================ */
+
+    /**
+     * é™¤å»å­—ç¬¦ä¸²å¤´å°¾éƒ¨çš„ç©ºç™½ï¼Œå¦‚æœå­—ç¬¦ä¸²æ˜¯<code>null</code>ï¼Œä¾ç„¶è¿”å›<code>null</code>ã€‚
+     * 
+     * <p>
+     * æ³¨æ„ï¼Œå’Œ<code>String.trim</code>ä¸åŒï¼Œæ­¤æ–¹æ³•ä½¿ç”¨<code>Character.isWhitespace</code>æ¥åˆ¤å®šç©ºç™½ï¼Œ
+     * å› è€Œå¯ä»¥é™¤å»è‹±æ–‡å­—ç¬¦é›†ä¹‹å¤–çš„å…¶å®ƒç©ºç™½ï¼Œå¦‚ä¸­æ–‡ç©ºæ ¼ã€‚
+     * <pre>
+     * StringUtil.trim(null)          = null
+     * StringUtil.trim("")            = ""
+     * StringUtil.trim("     ")       = ""
+     * StringUtil.trim("abc")         = "abc"
+     * StringUtil.trim("    abc    ") = "abc"
+     * </pre>
+     * </p>
+     *
+     * @param str è¦å¤„ç†çš„å­—ç¬¦ä¸²
+     *
+     * @return é™¤å»ç©ºç™½çš„å­—ç¬¦ä¸²ï¼Œå¦‚æœåŸå­—ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String trim(String str) {
+        return trim(str, null, 0);
+    }
+    
+	   /**
+     * é™¤å»å­—ç¬¦ä¸²å¤´å°¾éƒ¨çš„æŒ‡å®šå­—ç¬¦ï¼Œå¦‚æœå­—ç¬¦ä¸²æ˜¯<code>null</code>ï¼Œä¾ç„¶è¿”å›<code>null</code>ã€‚
+     * <pre>
+     * StringUtil.trim(null, *)          = null
+     * StringUtil.trim("", *)            = ""
+     * StringUtil.trim("abc", null)      = "abc"
+     * StringUtil.trim("  abc", null)    = "abc"
+     * StringUtil.trim("abc  ", null)    = "abc"
+     * StringUtil.trim(" abc ", null)    = "abc"
+     * StringUtil.trim("  abcyx", "xyz") = "  abc"
+     * </pre>
+     *
+     * @param str è¦å¤„ç†çš„å­—ç¬¦ä¸²
+     * @param stripChars è¦é™¤å»çš„å­—ç¬¦ï¼Œå¦‚æœä¸º<code>null</code>è¡¨ç¤ºé™¤å»ç©ºç™½å­—ç¬¦
+     * @param mode <code>-1</code>è¡¨ç¤ºtrimStartï¼Œ<code>0</code>è¡¨ç¤ºtrimå…¨éƒ¨ï¼Œ<code>1</code>è¡¨ç¤ºtrimEnd
+     *
+     * @return é™¤å»æŒ‡å®šå­—ç¬¦åçš„çš„å­—ç¬¦ä¸²ï¼Œå¦‚æœåŸå­—ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    private static String trim(String str, String stripChars, int mode) {
+        if (str == null) {
+            return null;
+        }
+
+        int length = str.length();
+        int start = 0;
+        int end   = length;
+
+        // æ‰«æå­—ç¬¦ä¸²å¤´éƒ¨
+        if (mode <= 0) {
+            if (stripChars == null) {
+                while ((start < end) && (Character.isWhitespace(str.charAt(start)))) {
+                    start++;
+                }
+            } else if (stripChars.length() == 0) {
+                return str;
+            } else {
+                while ((start < end) && (stripChars.indexOf(str.charAt(start)) != -1)) {
+                    start++;
+                }
+            }
+        }
+
+        // æ‰«æå­—ç¬¦ä¸²å°¾éƒ¨
+        if (mode >= 0) {
+            if (stripChars == null) {
+                while ((start < end) && (Character.isWhitespace(str.charAt(end - 1)))) {
+                    end--;
+                }
+            } else if (stripChars.length() == 0) {
+                return str;
+            } else {
+                while ((start < end) && (stripChars.indexOf(str.charAt(end - 1)) != -1)) {
+                    end--;
+                }
+            }
+        }
+
+        if ((start > 0) || (end < length)) {
+            return str.substring(start, end);
+        }
+
+        return str;
+    }
+    
+	 /**
+     * æ£€æŸ¥å­—ç¬¦ä¸²æ˜¯å¦ä¸æ˜¯ç©ºç™½ï¼š<code>null</code>ã€ç©ºå­—ç¬¦ä¸²<code>""</code>æˆ–åªæœ‰ç©ºç™½å­—ç¬¦ã€‚
+     * <pre>
+     * StringUtil.isBlank(null)      = false
+     * StringUtil.isBlank("")        = false
+     * StringUtil.isBlank(" ")       = false
+     * StringUtil.isBlank("bob")     = true
+     * StringUtil.isBlank("  bob  ") = true
+     * </pre>
+     *
+     * @param str è¦æ£€æŸ¥çš„å­—ç¬¦ä¸²
+     *
+     * @return å¦‚æœä¸ºç©ºç™½, åˆ™è¿”å›<code>true</code>
+     */
+    public static boolean isNotBlank(String str) {
+        int length;
+
+        if ((str == null) || ((length = str.length()) == 0)) {
+            return false;
+        }
+
+        for (int i = 0; i < length; i++) {
+            if (!Character.isWhitespace(str.charAt(i))) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+	
+	  /**
+     * æ£€æŸ¥å­—ç¬¦ä¸²æ˜¯å¦æ˜¯ç©ºç™½ï¼š<code>null</code>ã€ç©ºå­—ç¬¦ä¸²<code>""</code>æˆ–åªæœ‰ç©ºç™½å­—ç¬¦ã€‚
+     * <pre>
+     * StringUtil.isBlank(null)      = true
+     * StringUtil.isBlank("")        = true
+     * StringUtil.isBlank(" ")       = true
+     * StringUtil.isBlank("bob")     = false
+     * StringUtil.isBlank("  bob  ") = false
+     * </pre>
+     *
+     * @param str è¦æ£€æŸ¥çš„å­—ç¬¦ä¸²
+     *
+     * @return å¦‚æœä¸ºç©ºç™½, åˆ™è¿”å›<code>true</code>
+     */
+    public static boolean isBlank(String str) {
+        int length;
+
+        if ((str == null) || ((length = str.length()) == 0)) {
+            return true;
+        }
+
+        for (int i = 0; i < length; i++) {
+            if (!Character.isWhitespace(str.charAt(i))) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+	
+	   /**
+     * å°†å­—ç¬¦ä¸²æŒ‰æŒ‡å®šå­—ç¬¦åˆ†å‰²ã€‚
+     * 
+     * <p>
+     * åˆ†éš”ç¬¦ä¸ä¼šå‡ºç°åœ¨ç›®æ ‡æ•°ç»„ä¸­ï¼Œè¿ç»­çš„åˆ†éš”ç¬¦å°±è¢«çœ‹ä½œä¸€ä¸ªã€‚å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚
+     * <pre>
+     * StringUtil.split(null, *)                = null
+     * StringUtil.split("", *)                  = []
+     * StringUtil.split("abc def", null)        = ["abc", "def"]
+     * StringUtil.split("abc def", " ")         = ["abc", "def"]
+     * StringUtil.split("abc  def", " ")        = ["abc", "def"]
+     * StringUtil.split(" ab:  cd::ef  ", ":")  = ["ab", "cd", "ef"]
+     * StringUtil.split("abc.def", "")          = ["abc.def"]
+     *  </pre>
+     * </p>
+     *
+     * @param str è¦åˆ†å‰²çš„å­—ç¬¦ä¸²
+     * @param separatorChars åˆ†éš”ç¬¦
+     *
+     * @return åˆ†å‰²åçš„å­—ç¬¦ä¸²æ•°ç»„ï¼Œå¦‚æœåŸå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String[] splitm(String str, String separatorChars) {
+        return split(str, separatorChars, -1);
+    }
+
+    public static final String[] EMPTY_STRING_ARRAY = new String[0];
+    
+    /**
+     * å°†å­—ç¬¦ä¸²æŒ‰æŒ‡å®šå­—ç¬¦åˆ†å‰²ã€‚
+     * 
+     * <p>
+     * åˆ†éš”ç¬¦ä¸ä¼šå‡ºç°åœ¨ç›®æ ‡æ•°ç»„ä¸­ï¼Œè¿ç»­çš„åˆ†éš”ç¬¦å°±è¢«çœ‹ä½œä¸€ä¸ªã€‚å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚
+     * <pre>
+     * StringUtil.split(null, *, *)                 = null
+     * StringUtil.split("", *, *)                   = []
+     * StringUtil.split("ab cd ef", null, 0)        = ["ab", "cd", "ef"]
+     * StringUtil.split("  ab   cd ef  ", null, 0)  = ["ab", "cd", "ef"]
+     * StringUtil.split("ab:cd::ef", ":", 0)        = ["ab", "cd", "ef"]
+     * StringUtil.split("ab:cd:ef", ":", 2)         = ["ab", "cdef"]
+     * StringUtil.split("abc.def", "", 2)           = ["abc.def"]
+     * </pre>
+     * </p>
+     *
+     * @param str è¦åˆ†å‰²çš„å­—ç¬¦ä¸²
+     * @param separatorChars åˆ†éš”ç¬¦
+     * @param max è¿”å›çš„æ•°ç»„çš„æœ€å¤§ä¸ªæ•°ï¼Œå¦‚æœå°äºç­‰äº0ï¼Œåˆ™è¡¨ç¤ºæ— é™åˆ¶
+     *
+     * @return åˆ†å‰²åçš„å­—ç¬¦ä¸²æ•°ç»„ï¼Œå¦‚æœåŸå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>
+     */
+    public static String[] split(String str, String separatorChars, int max) {
+        if (str == null) {
+            return null;
+        }
+
+        int length = str.length();
+
+        if (length == 0) {
+            return EMPTY_STRING_ARRAY;
+        }
+
+        List    list      = new ArrayList();
+        int     sizePlus1 = 1;
+        int     i         = 0;
+        int     start     = 0;
+        boolean match     = false;
+
+        if (separatorChars == null) {
+            // nullè¡¨ç¤ºä½¿ç”¨ç©ºç™½ä½œä¸ºåˆ†éš”ç¬¦
+            while (i < length) {
+                if (Character.isWhitespace(str.charAt(i))) {
+                    if (match) {
+                        if (sizePlus1++ == max) {
+                            i = length;
+                        }
+
+                        list.add(str.substring(start, i));
+                        match = false;
+                    }
+
+                    start = ++i;
+                    continue;
+                }
+
+                match = true;
+                i++;
+            }
+        } else if (separatorChars.length() == 1) {
+            // ä¼˜åŒ–åˆ†éš”ç¬¦é•¿åº¦ä¸º1çš„æƒ…å½¢
+            char sep = separatorChars.charAt(0);
+
+            while (i < length) {
+                if (str.charAt(i) == sep) {
+                    if (match) {
+                        if (sizePlus1++ == max) {
+                            i = length;
+                        }
+
+                        list.add(str.substring(start, i));
+                        match = false;
+                    }
+
+                    start = ++i;
+                    continue;
+                }
+
+                match = true;
+                i++;
+            }
+        } else {
+            // ä¸€èˆ¬æƒ…å½¢
+            while (i < length) {
+                if (separatorChars.indexOf(str.charAt(i)) >= 0) {
+                    if (match) {
+                        if (sizePlus1++ == max) {
+                            i = length;
+                        }
+
+                        list.add(str.substring(start, i));
+                        match = false;
+                    }
+
+                    start = ++i;
+                    continue;
+                }
+
+                match = true;
+                i++;
+            }
+        }
+
+        if (match) {
+            list.add(str.substring(start, i));
+        }
+
+        return (String[]) list.toArray(new String[list.size()]);
+    }
 }

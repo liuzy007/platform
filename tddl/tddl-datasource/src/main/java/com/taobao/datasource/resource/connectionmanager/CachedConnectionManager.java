@@ -172,13 +172,13 @@ public class CachedConnectionManager{
 
     public void init() throws Exception {
         TransactionSynchronizer.setTransactionManager(tm);
-        // TODO: ÕÒ³öÒÔÏÂ·½·¨µÄÌæ´ú·½°¸
+        // TODO: æ‰¾å‡ºä»¥ä¸‹æ–¹æ³•çš„æ›¿ä»£æ–¹æ¡ˆ
         // ServerVMClientUserTransaction.getSingleton().registerTxStartedListener(this);
         // EnterpriseContext.setUserTransactionStartedListener(this);
     }
 
     public void destroy() throws Exception {
-        // TODO: ÕÒ³öÒÔÏÂ·½·¨µÄÌæ´ú·½°¸
+        // TODO: æ‰¾å‡ºä»¥ä¸‹æ–¹æ³•çš„æ›¿ä»£æ–¹æ¡ˆ
         // ServerVMClientUserTransaction.getSingleton().unregisterTxStartedListener(this);
         // EnterpriseContext.setUserTransactionStartedListener(null);
     }
@@ -327,7 +327,7 @@ public class CachedConnectionManager{
       throw new IllegalStateException("Trying to return an unknown connection2! " + c);
    }
 
-   // FIXME: UserTransaction¿ªÊ¼Ê±ĞèÒªµ÷ÓÃÕâ¸ö·½·¨
+   // FIXME: UserTransactionå¼€å§‹æ—¶éœ€è¦è°ƒç”¨è¿™ä¸ªæ–¹æ³•
    //called by UserTransaction after starting a transaction
    public void userTransactionStarted()
            throws SystemException

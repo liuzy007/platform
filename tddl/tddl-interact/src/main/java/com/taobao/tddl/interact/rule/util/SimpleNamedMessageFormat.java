@@ -1,12 +1,20 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.rule.util;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.rule.util;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Ò»¸ö¼òµ¥µÄÓĞÃû×ÖµÄÕ¼Î»·ûÌæ»»Æ÷
- * ÀàËÆjava.text.MessageFormat, Ö»ÊÇÕ¼Î»·ûÊÇ{name1} {name2} ¶ø²»ÊÇ{0} {2}
+ * ä¸€ä¸ªç®€å•çš„æœ‰åå­—çš„å ä½ç¬¦æ›¿æ¢å™¨
+ * ç±»ä¼¼java.text.MessageFormat, åªæ˜¯å ä½ç¬¦æ˜¯{name1} {name2} è€Œä¸æ˜¯{0} {2}
  * 
  * @author linxuan
  */
@@ -52,7 +60,7 @@ public class SimpleNamedMessageFormat {
 	}
 
 	private String buildByParsedFrags(Map<String, ? extends Object> args) {
-		//Êµ¼ÊÉÏÕâ¸ösbµÄ³¤¶È¿ÉÒÔÌáÇ°Ëã³öÀ´(guangxia)
+		//å®é™…ä¸Šè¿™ä¸ªsbçš„é•¿åº¦å¯ä»¥æå‰ç®—å‡ºæ¥(guangxia)
 		StringBuilder sb = new StringBuilder();
 		for (Frag frag : frags) {
 			if (!frag.isPlaceHolderName) {
@@ -70,7 +78,7 @@ public class SimpleNamedMessageFormat {
 	}
 
 	/**
-	 * ²»Ö§³ÖÇ¶Ì×
+	 * ä¸æ”¯æŒåµŒå¥—
 	 */
 	private String format0(Map<String, ? extends Object> args) {
 		List<Frag> initfrags = new ArrayList<Frag>();
