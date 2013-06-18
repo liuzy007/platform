@@ -2,6 +2,6 @@ platform
 ========
 
 #Environment Versions
-Java SDK = jdk1.6.0_22
-
-Maven = 
+encoding = UTF-8
+java-sdk = jdk1.6.0_22
+maven = 
