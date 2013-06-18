@@ -1,11 +1,19 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.rule.ruleimpl;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.rule.ruleimpl;
 
 import java.util.Map;
 
 public class WrappedGroovyRule extends GroovyRule<String> {
-	protected String valuePrefix; //ÎÞgetter/setter
-	protected String valueSuffix; //ÎÞgetter/setter
-	protected int valueAlignLen = 0; //ÎÞgetter/setter
+	protected String valuePrefix; //æ— getter/setter
+	protected String valueSuffix; //æ— getter/setter
+	protected int valueAlignLen = 0; //æ— getter/setter
 
 	public WrappedGroovyRule(String expression, String wrapPattern) {
 		super(expression);
@@ -30,7 +38,7 @@ public class WrappedGroovyRule extends GroovyRule<String> {
 		}
 		this.valuePrefix = wrapPattern.substring(0, index0);
 		this.valueSuffix = wrapPattern.substring(index1 + 1);
-		this.valueAlignLen = index1 - index0 - 1; //{0000}ÖÐ0µÄ¸öÊý
+		this.valueAlignLen = index1 - index0 - 1; //{0000}ä¸­0çš„ä¸ªæ•°
 	}
 
 	protected static String wrapValue(String prefix, String suffix, int len, String value) {

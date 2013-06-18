@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.rule.enumerator;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.rule.enumerator;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,8 +19,8 @@ public abstract class NumberPartDiscontinousRangeEnumerator extends PartDisconti
 	private static final boolean isAllowNegative;
 	static {
 		/**
-		 * ´ó¶àÊıÕûĞÎµÄID/·Ö¿â·Ö±í×Ö¶ÎÄ¬ÈÏ¶¼ÊÇ´óÓÚÁãµÄ¡£Èç¹ûÓĞĞ¡ÓÚ0µÄÏµÍ³£¬ÄÇÃ´½«Õâ¸ö²ÎÊıÉèÎªtrue£¬
-		 * Í¬Ê±×Ô¼ºÒª±£Ö¤ÒªÃ´²»³öÏÖid<3ÕâÑùµÄÌõ¼ş£¬ÒªÃ´Ëã³ö¸ºµÄdbIndexÒ²Ã»ÓĞÎÊÌâ
+		 * å¤§å¤šæ•°æ•´å½¢çš„ID/åˆ†åº“åˆ†è¡¨å­—æ®µé»˜è®¤éƒ½æ˜¯å¤§äºé›¶çš„ã€‚å¦‚æœæœ‰å°äº0çš„ç³»ç»Ÿï¼Œé‚£ä¹ˆå°†è¿™ä¸ªå‚æ•°è®¾ä¸ºtrueï¼Œ
+		 * åŒæ—¶è‡ªå·±è¦ä¿è¯è¦ä¹ˆä¸å‡ºç°id<3è¿™æ ·çš„æ¡ä»¶ï¼Œè¦ä¹ˆç®—å‡ºè´Ÿçš„dbIndexä¹Ÿæ²¡æœ‰é—®é¢˜
 		 */
 		isAllowNegative = "true".equals(System.getProperty("com.taobao.tddl.rule.isAllowNegativeShardValue", "false"));
 	}
@@ -89,7 +97,7 @@ public abstract class NumberPartDiscontinousRangeEnumerator extends PartDisconti
 	protected Set<Object> getAllPassableFields(Comparative begin, Integer cumulativeTimes,
 			Comparable<?> atomicIncreationValue) {
 		if (cumulativeTimes == null) {
-			throw new IllegalStateException("ÔÚÃ»ÓĞÌá¹©µş¼Ó´ÎÊıµÄÇ°ÌáÏÂ£¬²»ÄÜ¹»¸ù¾İµ±Ç°·¶Î§Ìõ¼şÑ¡³ö¶ÔÓ¦µÄ¶¨ÒåÓòµÄÃ¶¾ÙÖµ£¬sqlÖĞ²»Òª³öÏÖ> < >= <=");
+			throw new IllegalStateException("åœ¨æ²¡æœ‰æä¾›å åŠ æ¬¡æ•°çš„å‰æä¸‹ï¼Œä¸èƒ½å¤Ÿæ ¹æ®å½“å‰èŒƒå›´æ¡ä»¶é€‰å‡ºå¯¹åº”çš„å®šä¹‰åŸŸçš„æšä¸¾å€¼ï¼Œsqlä¸­ä¸è¦å‡ºç°> < >= <=");
 		}
 //		if (cumulativeTimes == null) {
 //			return Collections.emptySet();
@@ -97,7 +105,7 @@ public abstract class NumberPartDiscontinousRangeEnumerator extends PartDisconti
 		if (atomicIncreationValue == null) {
 			atomicIncreationValue = DEFAULT_LONG_ATOMIC_VALUE;
 		}
-		// °Ñ> < Ìæ»»Îª>= <=
+		// æŠŠ> < æ›¿æ¢ä¸º>= <=
 		begin = changeGreater2GreaterOrEq(begin);
 		begin = changeLess2LessOrEq(begin);
 
@@ -113,7 +121,7 @@ public abstract class NumberPartDiscontinousRangeEnumerator extends PartDisconti
 			}
 		} else if (comparasion == Comparative.LessThanOrEqual) {
 			for (int i = 0; i < cumulativeTimes; i++) {
-				//ÕâÀï¿ÉÄÜ³öÏÖ²»ÆÚÍûµÄ¸ºÊı
+				//è¿™é‡Œå¯èƒ½å‡ºç°ä¸æœŸæœ›çš„è´Ÿæ•°
 				Number value = (Number) plus(beginInt, -atomicIncreateValueInt * i);
 				if (!isAllowNegative && value.longValue() < 0) {
 					break;

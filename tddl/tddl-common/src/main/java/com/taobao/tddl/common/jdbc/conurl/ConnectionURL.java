@@ -1,7 +1,17 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.jdbc.conurl;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.jdbc.conurl;
 
-import com.taobao.tddl.common.util.TStringUtil;import com.taobao.tddl.interact.rule.bean.DBType;
-/**连接地址抽象类需要通过ConnectionURLParser 解析后获得具体的对象
+import com.taobao.tddl.common.util.TStringUtil;
+import com.taobao.tddl.interact.rule.bean.DBType;
+
+/**杩炴帴鍦板潃鎶借薄绫婚渶瑕侀�氳繃ConnectionURLParser 瑙ｆ瀽鍚庤幏寰楀叿浣撶殑瀵硅薄
  * @author qihao
  *
  */

@@ -1,1 +1,460 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common;import java.util.Arrays;import java.util.HashSet;import java.util.Map;import java.util.Properties;import java.util.Set;import org.apache.commons.logging.Log;import org.apache.commons.logging.LogFactory;import org.apache.log4j.Logger;import com.taobao.tddl.common.ConfigServerHelper.AbstractDataListener;import com.taobao.tddl.common.ConfigServerHelper.DataListener;import com.taobao.tddl.common.ConfigServerHelper.TDDLConfigKey;import com.taobao.tddl.common.monitor.AtomBufferedStatLogWriter;import com.taobao.tddl.common.monitor.BufferedStatLogWriter;import com.taobao.tddl.common.monitor.MatrixBufferedStatLogWriter;import com.taobao.tddl.common.monitor.SnapshotValuesOutputCallBack;import com.taobao.tddl.common.util.BoundedConcurrentHashMap;import com.taobao.tddl.common.util.NagiosUtils;import com.taobao.tddl.common.util.TStringUtil;public class Monitor {	public static final String KEY1 = "TDDL";	//public static final String KEY1_TABLE = "TDDL_TABLE|";	//public static final String KEY2_EXEC_SQL = "TDDL_SQL|";	public static final String KEY2_SYNC = "Sync";	public static final String KEY2_SYNC_CONTEXT_SQL = "SyncServerContextSql"; //added by huali£¬ÊÇÔÚÍ¬²½·şÎñÆ÷Í¬²½µÄÊ±ºòÉèÖÃ¸øcontextµÄsql£¬·ñÔò¼à¿ØµÄ´úÂë»áNPE 	public static final String KEY3_BatchUpdateSyncLog = "BatchUpdateSyncLog";	public static final String KEY3_BatchDeleteSyncLog = "BatchDeleteSyncLog";	public static final String KEY3_SyncLogFetched = "SyncLogFetched";	public static final String KEY3_ReplicationTasksAccepted = "ReplicationTasksAccepted";	public static final String KEY3_UpdateSlaveRow_dup_all = "UpdateSlaveRow_dup_all";	public static final String KEY3_PARSE_SQL = "PARSE_SQL_SUCCESS";	public static final String KEY3_TAIR_HIT_RATING = "TAIR_HIT_RATING";	public static final String KEY3_GET_DB_AND_TABLES = "GET_DB_ANDTABLES_SUCCESS";//»á¼ÇÂ¼×ßÔòÒıÇæÓÃµÄÊ±¼äºÍ×ÜºÄÊ±	/**	 * Ö´ĞĞsqlµÄ×ÜÊ±¼ä£¬°üº¬ÕæÕıÊı¾İ¿âµÄÖ´ĞĞÊ±¼äºÍ×ÜÊ±¼ä	 */	public static final String KEY3_EXECUTE_A_SQL_SUCCESS = "EXECUTE_A_SQL_SUCCESS";	/**	 * ×Ü¹²Ö´ĞĞÁË¼¸¸ö¿â£¬¼¸¸ö±í	 */	public static final String KEY3_EXECUTE_A_SQL_SUCCESS_DBTAB = "EXECUTE_A_SQL_SUCCESS_DBTAB";	/**	 * Ö´ĞĞsqlµÄ×ÜÊ±¼ä£¬°üº¬ÕæÕıÊı¾İ¿âµÄÖ´ĞĞÊ±¼äºÍ×ÜÊ±¼ä	 */	public static final String KEY3_EXECUTE_A_SQL_TIMEOUT = "EXECUTE_A_SQL_TIMEOUT";	public static final String KEY3_EXECUTE_A_SQL_TIMEOUT_DBTAB = "EXECUTE_A_SQL_TIMEOUT_DBTAB";	public static final String KEY3_EXECUTE_A_SQL_EXCEPTION = "EXECUTE_A_SQL_WITH_EXCEPTION";	public static final String KEY3_EXECUTE_A_SQL_EXCEPTION_DBTAB = "EXECUTE_A_SQL_WITH_EXCEPTION_DBTAB";	public static final String KEY2_REPLICATION_SQL = "TDDL_REPLICATION_SQL|";	/**	 * ¸´ÖÆµ½´Ó¿â³É¹¦£¬¼ÆÈëĞ´¿âÊ±¼äºÍ×ÜºÄ·ÑÊ±¼ä	 */	public static final String KEY3_COPY_2_SLAVE_SUCCESS = "COPY_2_SLAVE_SUCCESS";	/**	 * ¼ÇÂ¼´ÓÉú³ÉÈÎÎñµ½¸ÃÈÎÎñ¿ªÊ¼±»Ö´ĞĞÖ®¼äËùÏûºÄµÄÊ±¼ä	 */	public static final String KEY3_COPY_2_SLAVE_SUCCESS_TIME_CONSUMING_IN_THREADPOOL = "COPY_2_SLAVE_SUCCESS_TIME_CONSUMING_IN_THREADPOOL";	/**	 * ¸´ÖÆµ½´Ó¿â³¬Ê±£¬Òª¼ÇÂ¼²éÑ¯+Ğ´ÈësqlËùºÄ·ÑµÄÊ±¼ä¡£	 */	public static final String KEY3_COPY_2_SLAVE_TIMEOUT = "COPY_2_SLAVE_TIMEOUT";	/**	 * ¼ÇÂ¼´ÓÉú³ÉÈÎÎñµ½¸ÃÈÎÎñ¿ªÊ¼±»Ö´ĞĞÖ®¼äËùÏûºÄµÄÊ±¼ä	 */	public static final String KEY3_COPY_2_SLAVE_TIMEOUT_TIME_CONSUMING_IN_THREADPOOL = "COPY_2_SLAVE_TIMEOUT_TIME_CONSUMING_IN_THREADPOOL";	/**	 * ¸´ÖÆµ½´Ó¿âÒì³££¬²»¼ÆÈëÖ÷¼ü³åÍ»ÈÏÎª¸üĞÂ³É¹¦ÕâÖÖÇé¿ö¡£	 */	public static final String KEY3_COPY_2_SLAVE_EXCEPTION = "COPY_2_SLAVE_EXCEPTION";	public static final String KEY3_COPY_2_SLAVE_EXCEPTION_TIME_CONSUMING_IN_THREADPOOL = "COPY_2_SLAVE_EXCEPTION_TIME_CONSUMING_IN_THREADPOOL";	/**	 * Ê¹ÓÃsyncCenter£¬¸´ÖÆ³É¹¦×ÜºÄ·ÑÊ±¼ä£¨ÇëÇósyncCenterÇ°£¬µ½syncCenter·µ»ØÏìÓ¦ºó£©	 */	public static final String KEY3_SYNC_VIA_CENTER_SUCCESS = "SYNC_VIA_CENTER_SUCCESS";	/**	 * Ê¹ÓÃsyncCenter£¬¸´ÖÆ³¬Ê±Ê±¼ä£¨ÇëÇósyncCenterÇ°£¬µ½syncCenter·µ»ØÏìÓ¦ºó£©	 */	public static final String KEY3_SYNC_VIA_CENTER_TIMEOUT = "SYNC_VIA_CENTER_TIMEOUT";	/**	 * Ê¹ÓÃsyncCenter£¬¸´ÖÆ³¬Ê±Ê±£¬ÈÎÎñÔÚ¶ÓÁĞÖĞµÄµÈ´ıÊ±¼ä	 */	public static final String KEY3_SYNC_VIA_CENTER_TIMEOUT_TIME_IN_QUEUE = "SYNC_VIA_CENTER_TIMEOUT_TIME_IN_QUEUE";	/**	 * value1£ºÊ¹ÓÃsyncCenter£¬ÔÚ³¬Ê±¼äwaitForResponseTimeoutÄÚ,Ã»ÓĞµÈµ½server·µ»ØµÄ´ÎÊı¡£value2£º×Ü´ÎÊı	 */	public static final String KEY3_SYNC_VIA_CENTER_NO_RESPONSE = "SYNC_VIA_CENTER_NO_RESPONSE";	/**	 * ¼ÇlogµÄÊ±¼ä	 */	public static final String KEY3_WRITE_LOG_SUCCESS = "WRITE_LOG_SUCCESS";	public static final String KEY3_WRITE_LOG_EXCEPTION = "WRITE_LOG_EXCEPTION";	private static final Log logger = LogFactory.getLog(Monitor.class);	private static final Logger log = LoggerInit.TDDL_MD5_TO_SQL_MAPPING;	private static final BoundedConcurrentHashMap<String, String> sqlToMD5Map = new BoundedConcurrentHashMap<String, String>();	private static MD5Maker md5Maker = MD5Maker.getInstance();	public static volatile String APPNAME = "TDDL";	public enum RECORD_TYPE {		RECORD_SQL, MD5, NONE	}	private static volatile RECORD_TYPE recordType = RECORD_TYPE.RECORD_SQL;	private static volatile int left = 0; //´Ó×óÆğ±£Áô¶àÉÙ¸ö×Ö·û	private static volatile int right = 0;//´ÓÓÒÆğ±£Áô¶àÉÙ¸ö×Ö·û	private static volatile String[] excludsKeys = null;	private static volatile String[] includeKeys = null; //°×Ãûµ¥	public static volatile Boolean isStatRealDbInWrapperDs = null;	//modify by junyu,2012-3-28	public static volatile boolean isStatAtomSql = true; //Ä¬ÈÏ²»´òÓ¡sqlÈÕÖ¾	public static volatile int sqlTimeout=500; //Ä¬ÈÏ³¬Ê±500ºÁÃë	public static volatile int atomSamplingRate=100;//ÖµÖ»ÄÜÎª0-100,ÈÕÖ¾µÄ²ÉÑùÆµÂÊ	public static volatile int statChannelMask = 7; //°´Î»£º¹ş²ª|BufferedStatLogWriter|StatMonitor	public static volatile int dumpInterval = -1;	public static volatile int cacheSize = -1;	static {		init();	}	//private static AsynWriter<String> inputWriter;	private static void init() {		if ("TDDL".equals(APPNAME)) {			logger.warn("²»Ö¸¶¨TDDLÒÔÍâµÄappNameÔò²»¶©ÔÄ");			return;		}		//DATA_ID_TDDL_CLIENT_CONFIG = DATA_ID_PREFIX + "{0}_tddlconfig"		//String tddlconfigDataId = ConfigServerHelper.DATA_ID_PREFIX + APPNAME + "_tddlconfig";		//Object firstFetchedConfigs = ConfigServerHelper.subscribePersistentData(tddlconfigDataId, tddlConfigListener);		Object firstFetchedConfigs = ConfigServerHelper.subscribeTDDLConfig(APPNAME, tddlConfigListener);		if (firstFetchedConfigs == null) {			logger.warn("No tddlconfig received, use default");		}		//inputWriter = new AsynWriter<String>(commalog);		//inputWriter.init();	}	public static interface GlobalConfigListener {		void onConfigReceive(Properties p);	}	private static final Set<GlobalConfigListener> globalConfigListeners = new HashSet<GlobalConfigListener>(0);	public static void addGlobalConfigListener(GlobalConfigListener listener) {		globalConfigListeners.add(listener);	}	public static void removeGlobalConfigListener(GlobalConfigListener listener) {		globalConfigListeners.remove(listener);	}	private static final DataListener tddlConfigListener = new AbstractDataListener() {		public void onDataReceive(Object data) {			Properties p = ConfigServerHelper.parseProperties(data, "[tddlConfigListener]");			if (p == null) {				logger.warn("Empty tddlconfig");				return;			}			try {				for (Map.Entry<Object, Object> entry : p.entrySet()) {					String key = ((String) entry.getKey()).trim();					String value = ((String) entry.getValue()).trim();					switch (TDDLConfigKey.valueOf(key)) {					case statKeyRecordType: {						RECORD_TYPE old = recordType;						recordType = RECORD_TYPE.valueOf(value);						logger.warn("statKeyRecordType switch from [" + old + "] to [" + recordType + "]");						break;					}					case statKeyLeftCutLen: {						int old = left;						left = Integer.valueOf(value);						logger.warn("statKeyLeftCutLen switch from [" + old + "] to [" + left + "]");						break;					}					case statKeyRightCutLen: {						int old = right;						right = Integer.valueOf(value);						logger.warn("statKeyRightCutLen switch from [" + old + "] to [" + right + "]");						break;					}					case statKeyExcludes: {						String[] old = excludsKeys;						excludsKeys = value.split(",");						logger.warn("statKeyExcludes switch from " + Arrays.toString(old) + " to [" + value + "]");						break;					}					case statKeyIncludes: {						String[] old = includeKeys;						includeKeys = value.split(",");						logger.warn("statKeyIncludes switch from " + Arrays.toString(old) + " to [" + value + "]");						break;					}					case StatRealDbInWrapperDs: {						boolean old = isStatRealDbInWrapperDs;						isStatRealDbInWrapperDs = Boolean.valueOf(value);						logger.warn("StatRealDbInWrapperDs switch from [" + old + "] to [" + value + "]");						break;					}					case StatChannelMask: {						int old = statChannelMask;						statChannelMask = Integer.valueOf(value);						logger.warn("statChannelMask switch from [" + old + "] to [" + value + "]");						break;					}					case statDumpInterval: {						int old = dumpInterval;						dumpInterval = Integer.valueOf(value);						statMonitor.setStatInterval(dumpInterval * 1000);						BufferedStatLogWriter.dumpInterval = dumpInterval;						logger.warn("statDumpInterval switch from [" + old + "] to [" + value + "]");						break;					}					case statCacheSize: {						int old = cacheSize;						cacheSize = Integer.valueOf(value);						statMonitor.setLimit(cacheSize);						BufferedStatLogWriter.maxkeysize = cacheSize;						logger.warn("statCacheSize switch from [" + old + "] to [" + value + "]");						break;					}					case statAtomSql: {						boolean old = isStatAtomSql;						isStatAtomSql = Boolean.parseBoolean(value);						logger.warn("isStatAtomSql switch from [" + old + "] to [" + value + "]");						break;					}					case sqlExecTimeOutMilli:{						int old = sqlTimeout;						sqlTimeout=Integer.valueOf(value);						logger.warn("sqlTimeout switch from [" + old + "] to [" + value + "]");						break;					}					case atomSqlSamplingRate:{						int old=atomSamplingRate;						if(old>0){							int rate=0;							if(Integer.valueOf(value) % 100==0){								rate=100;							}else{								rate=Integer.valueOf(value) % 100;//Èç¹û³¬¹ı100,È¡ÓàÁ¿							}							atomSamplingRate=rate;							logger.warn("atomSqlSamplingRate switch from [" + old + "] to [" + atomSamplingRate + "]");						}else{							logger.warn("atomSqlSamplingRate will not change,because the value got is nagetive!old value is:"+old);						}					}					default:						logger.warn("Not cared TDDLConfigKey:" + key);					}				}			} catch (Exception e) {				logger.error("[tddlConfigListener.onDataReceive]", e);			}						for (GlobalConfigListener listener : globalConfigListeners) {				listener.onConfigReceive(p);			}		}	};	//public static final StatMonitor statMonitor = StatMonitor.getInstance();	public static final StatMonitor statMonitor = StatMonitor.getInstance();	static {		statMonitor.start();	}	private static void addMonitor(String key1, String key2, String key3, long value1, long value2) {		//Ò»¶ÎÊ±¼äÄÚ²åÈÕÖ¾¿âµÄÊ§°ÜÂÊºÍÆ½¾ùÏìÓ¦Ê±¼ä		if (KEY3_WRITE_LOG_SUCCESS.equals(key3)) {			statMonitor.addStat(key1, "", NagiosUtils.KEY_INSERT_LOGDB_FAIL_RATE, 0);			statMonitor.addStat(key1, "", NagiosUtils.KEY_INSERT_LOGDB_TIME_AVG, value1);		} else if (KEY3_WRITE_LOG_EXCEPTION.equals(key3)) {			statMonitor.addStat(key1, "", NagiosUtils.KEY_INSERT_LOGDB_FAIL_RATE, 1);		}		//Ò»¶ÎÊ±¼äÄÚĞĞ¸´ÖÆµÄÊ§°ÜÂÊºÍÆ½¾ùÏìÓ¦Ê±¼ä		else if (KEY3_COPY_2_SLAVE_SUCCESS.equals(key3)) {			statMonitor.addStat(key1, "", NagiosUtils.KEY_REPLICATION_FAIL_RATE, 0);			statMonitor.addStat(key1, "", NagiosUtils.KEY_REPLICATION_TIME_AVG, value1);		} else if (KEY3_WRITE_LOG_EXCEPTION.equals(key3)) {			statMonitor.addStat(key1, "", NagiosUtils.KEY_REPLICATION_FAIL_RATE, 1);		}	}	public static String buildTableKey1(String virtualTableName) {		//return KEY1_TABLE+virtualTableName;		return "" + virtualTableName; //±£Ö¤²»·µ»Ønull	}	/**	 * ¼ÇÂ¼sql	 * ²»¼ÇÂ¼sql	 * ¼ÇÂ¼Ç°½ØÈ¡sql	 * ¼ÇÂ¼ºó½ØÈ¡sql	 * ¼ÇÂ¼md5	 * 	 * ÏÈ×óºóÓÒ	 * 	 * @param sql	 * @return	 */	public static String buildExecuteSqlKey2(String sql) {		if (sql == null) {			return "null";		}		switch (recordType) {		case RECORD_SQL:			String s = TStringUtil.fillTabWithSpace(sql);			if (left > 0) {				s = TStringUtil.left(s, left);			}			if (right > 0) {				s = TStringUtil.right(s, right);			}			return s;		case MD5:			String s1 = TStringUtil.fillTabWithSpace(sql);			if (left > 0) {				s1 = TStringUtil.left(s1, left);			}			if (right > 0) {				s1 = TStringUtil.right(s1, right);			}			String md5 = sqlToMD5Map.get(s1);			if (md5 != null) {				return md5;			} else {				String sqlmd5 = md5Maker.getMD5(s1);				StringBuilder sb = new StringBuilder();				sb.append("[md5]").append(sqlmd5).append(" [sql]").append(s1);				log.warn(sb.toString());				sqlToMD5Map.put(s1, sqlmd5);				return sqlmd5;			}		case NONE:			return "";		default:			throw new IllegalArgumentException("²»·ûºÏÒªÇóµÄ¼ÇÂ¼logÀàĞÍ! " + recordType);		}	}	public static String buildExecuteDBAndTableKey1(String realDSKey, String realTable) {		StringBuilder sb = new StringBuilder();		sb.append(KEY1).append("|").append(realDSKey).append("|").append(realTable);		return sb.toString();	}	/**	 * Êı¾İ¸´ÖÆ¹ı³ÌÖĞĞèÒªÓÃµ½µÄsqlµÄkey	 * 	 * @param sql	 * @return	 */	public static String buildReplicationSqlKey2(String sql) {		return buildExecuteSqlKey2(sql);	}	/**	 * @param key1 Ò»°ãÊÇÂß¼­±íÃû£¬appnameµÈ	 * @param key2 Ò»°ãÊÇSQL	 * @param key3 Ò»Ğ©³É¹¦¡¢Ê§°Ü¡¢³¬Ê±¡¢ÃüÖĞÂÊµÈ±êÖ¾	 * @param value1 Ö´ĞĞÊ±¼ä	 * @param value2 ´ÎÊı	 */	public static void add(String key1, String key2, String key3, long value1, long value2) {		if (isExclude(key1, key2, key3)) {			return;		}//		if ((statChannelMask & 4) == 4) { // 100//			MonitorLog.addStat(key1, "", key3, value1, value2); // ¹ş²ªÈÕÖ¾ÔİÊ±±£Áô//		}		if ((statChannelMask & 2) == 2) { // 010			BufferedStatLogWriter.add(key2, key1, key3, value2, value1); //		}		if ((statChannelMask & 1) == 1) { // 001			addMonitor(key1, key2, key3, value1, value2); // Æ½¾ùÏìÓ¦Ê±¼äµÈ¶¯Ì¬¼à¿ØNagois		}	}		public static void atomSqlAdd(String key1,String key2,String key3,String key4,String key5,String key6,long value1,long value2){		AtomBufferedStatLogWriter.add(key2, key1, key3, key4,key5,key6,value2,value1);	}		public static void matrixSqlAdd(String key1,String key2,String key3,long value1,long value2){		MatrixBufferedStatLogWriter.add(key2, key1, key3, value2,value1);	}		private final static PositiveAtomicCounter pc=new PositiveAtomicCounter();	public static boolean isSamplingRecord(){		int ra=pc.incrementAndGet()%100;		if(ra<Monitor.atomSamplingRate){			return true;		}else{			return false;		}	}	private static boolean isExclude(String key1, String key2, String key3) {		if (excludsKeys == null || excludsKeys.length == 0)			return false;		for (String exclude : excludsKeys) {			if (key1.indexOf(exclude) != -1 || key2.indexOf(exclude) != -1 || key3.indexOf(exclude) != -1)				return true;		}		return false;	}	public static boolean isInclude(String sql) {		if (includeKeys != null && includeKeys.length != 0) { // ´æÔÚ°×Ãûµ¥			boolean discard = true;			for (String whiteItem : includeKeys) {				if (sql.indexOf(whiteItem) != -1) {					discard = false;					break;				}			}			if (discard) {				return false; // ²»ÔÚ°×Ãûµ¥ÖĞ£¬²»Êä³öÈÕÖ¾£¬ÒÔ¼õÉÙÈÕÖ¾Á¿			}		}		return true;	}	public static void setAppName(String appname) {		if (appname != null) {			APPNAME = appname;			init();		}	}	public static synchronized void addSnapshotValuesCallbask(SnapshotValuesOutputCallBack callbackList) {		StatMonitor.addSnapshotValuesCallbask(callbackList);	}	public static synchronized void removeSnapshotValuesCallback(SnapshotValuesOutputCallBack callbackList) {		StatMonitor.removeSnapshotValuesCallback(callbackList);	}}
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+import org.apache.log4j.Logger;
+
+import com.taobao.tddl.common.ConfigServerHelper.AbstractDataListener;
+import com.taobao.tddl.common.ConfigServerHelper.DataListener;
+import com.taobao.tddl.common.ConfigServerHelper.TDDLConfigKey;
+import com.taobao.tddl.common.monitor.AtomBufferedStatLogWriter;
+import com.taobao.tddl.common.monitor.BufferedStatLogWriter;
+import com.taobao.tddl.common.monitor.MatrixBufferedStatLogWriter;
+import com.taobao.tddl.common.monitor.SnapshotValuesOutputCallBack;
+import com.taobao.tddl.common.util.BoundedConcurrentHashMap;
+import com.taobao.tddl.common.util.NagiosUtils;
+import com.taobao.tddl.common.util.TStringUtil;
+
+public class Monitor {
+	public static final String KEY1 = "TDDL";
+	//public static final String KEY1_TABLE = "TDDL_TABLE|";
+	//public static final String KEY2_EXEC_SQL = "TDDL_SQL|";
+	public static final String KEY2_SYNC = "Sync";
+	public static final String KEY2_SYNC_CONTEXT_SQL = "SyncServerContextSql"; //added by hualiï¼Œæ˜¯åœ¨åŒæ­¥æœåŠ¡å™¨åŒæ­¥çš„æ—¶å€™è®¾ç½®ç»™contextçš„sqlï¼Œå¦åˆ™ç›‘æ§çš„ä»£ç ä¼šNPE 
+	public static final String KEY3_BatchUpdateSyncLog = "BatchUpdateSyncLog";
+	public static final String KEY3_BatchDeleteSyncLog = "BatchDeleteSyncLog";
+	public static final String KEY3_SyncLogFetched = "SyncLogFetched";
+	public static final String KEY3_ReplicationTasksAccepted = "ReplicationTasksAccepted";
+	public static final String KEY3_UpdateSlaveRow_dup_all = "UpdateSlaveRow_dup_all";
+	public static final String KEY3_PARSE_SQL = "PARSE_SQL_SUCCESS";
+	public static final String KEY3_TAIR_HIT_RATING = "TAIR_HIT_RATING";
+	public static final String KEY3_GET_DB_AND_TABLES = "GET_DB_ANDTABLES_SUCCESS";//ä¼šè®°å½•èµ°åˆ™å¼•æ“ç”¨çš„æ—¶é—´å’Œæ€»è€—æ—¶
+	/**
+	 * æ‰§è¡Œsqlçš„æ€»æ—¶é—´ï¼ŒåŒ…å«çœŸæ­£æ•°æ®åº“çš„æ‰§è¡Œæ—¶é—´å’Œæ€»æ—¶é—´
+	 */
+	public static final String KEY3_EXECUTE_A_SQL_SUCCESS = "EXECUTE_A_SQL_SUCCESS";
+	/**
+	 * æ€»å…±æ‰§è¡Œäº†å‡ ä¸ªåº“ï¼Œå‡ ä¸ªè¡¨
+	 */
+	public static final String KEY3_EXECUTE_A_SQL_SUCCESS_DBTAB = "EXECUTE_A_SQL_SUCCESS_DBTAB";
+	/**
+	 * æ‰§è¡Œsqlçš„æ€»æ—¶é—´ï¼ŒåŒ…å«çœŸæ­£æ•°æ®åº“çš„æ‰§è¡Œæ—¶é—´å’Œæ€»æ—¶é—´
+	 */
+	public static final String KEY3_EXECUTE_A_SQL_TIMEOUT = "EXECUTE_A_SQL_TIMEOUT";
+
+	public static final String KEY3_EXECUTE_A_SQL_TIMEOUT_DBTAB = "EXECUTE_A_SQL_TIMEOUT_DBTAB";
+
+	public static final String KEY3_EXECUTE_A_SQL_EXCEPTION = "EXECUTE_A_SQL_WITH_EXCEPTION";
+
+	public static final String KEY3_EXECUTE_A_SQL_EXCEPTION_DBTAB = "EXECUTE_A_SQL_WITH_EXCEPTION_DBTAB";
+
+	public static final String KEY2_REPLICATION_SQL = "TDDL_REPLICATION_SQL|";
+
+	/**
+	 * å¤åˆ¶åˆ°ä»åº“æˆåŠŸï¼Œè®¡å…¥å†™åº“æ—¶é—´å’Œæ€»è€—è´¹æ—¶é—´
+	 */
+	public static final String KEY3_COPY_2_SLAVE_SUCCESS = "COPY_2_SLAVE_SUCCESS";
+
+	/**
+	 * è®°å½•ä»ç”Ÿæˆä»»åŠ¡åˆ°è¯¥ä»»åŠ¡å¼€å§‹è¢«æ‰§è¡Œä¹‹é—´æ‰€æ¶ˆè€—çš„æ—¶é—´
+	 */
+	public static final String KEY3_COPY_2_SLAVE_SUCCESS_TIME_CONSUMING_IN_THREADPOOL = "COPY_2_SLAVE_SUCCESS_TIME_CONSUMING_IN_THREADPOOL";
+	/**
+	 * å¤åˆ¶åˆ°ä»åº“è¶…æ—¶ï¼Œè¦è®°å½•æŸ¥è¯¢+å†™å…¥sqlæ‰€è€—è´¹çš„æ—¶é—´ã€‚
+	 */
+	public static final String KEY3_COPY_2_SLAVE_TIMEOUT = "COPY_2_SLAVE_TIMEOUT";
+
+	/**
+	 * è®°å½•ä»ç”Ÿæˆä»»åŠ¡åˆ°è¯¥ä»»åŠ¡å¼€å§‹è¢«æ‰§è¡Œä¹‹é—´æ‰€æ¶ˆè€—çš„æ—¶é—´
+	 */
+	public static final String KEY3_COPY_2_SLAVE_TIMEOUT_TIME_CONSUMING_IN_THREADPOOL = "COPY_2_SLAVE_TIMEOUT_TIME_CONSUMING_IN_THREADPOOL";
+	/**
+	 * å¤åˆ¶åˆ°ä»åº“å¼‚å¸¸ï¼Œä¸è®¡å…¥ä¸»é”®å†²çªè®¤ä¸ºæ›´æ–°æˆåŠŸè¿™ç§æƒ…å†µã€‚
+	 */
+	public static final String KEY3_COPY_2_SLAVE_EXCEPTION = "COPY_2_SLAVE_EXCEPTION";
+
+	public static final String KEY3_COPY_2_SLAVE_EXCEPTION_TIME_CONSUMING_IN_THREADPOOL = "COPY_2_SLAVE_EXCEPTION_TIME_CONSUMING_IN_THREADPOOL";
+
+	/**
+	 * ä½¿ç”¨syncCenterï¼Œå¤åˆ¶æˆåŠŸæ€»è€—è´¹æ—¶é—´ï¼ˆè¯·æ±‚syncCenterå‰ï¼Œåˆ°syncCenterè¿”å›å“åº”åï¼‰
+	 */
+	public static final String KEY3_SYNC_VIA_CENTER_SUCCESS = "SYNC_VIA_CENTER_SUCCESS";
+	/**
+	 * ä½¿ç”¨syncCenterï¼Œå¤åˆ¶è¶…æ—¶æ—¶é—´ï¼ˆè¯·æ±‚syncCenterå‰ï¼Œåˆ°syncCenterè¿”å›å“åº”åï¼‰
+	 */
+	public static final String KEY3_SYNC_VIA_CENTER_TIMEOUT = "SYNC_VIA_CENTER_TIMEOUT";
+	/**
+	 * ä½¿ç”¨syncCenterï¼Œå¤åˆ¶è¶…æ—¶æ—¶ï¼Œä»»åŠ¡åœ¨é˜Ÿåˆ—ä¸­çš„ç­‰å¾…æ—¶é—´
+	 */
+	public static final String KEY3_SYNC_VIA_CENTER_TIMEOUT_TIME_IN_QUEUE = "SYNC_VIA_CENTER_TIMEOUT_TIME_IN_QUEUE";
+	/**
+	 * value1ï¼šä½¿ç”¨syncCenterï¼Œåœ¨è¶…æ—¶é—´waitForResponseTimeoutå†…,æ²¡æœ‰ç­‰åˆ°serverè¿”å›çš„æ¬¡æ•°ã€‚value2ï¼šæ€»æ¬¡æ•°
+	 */
+	public static final String KEY3_SYNC_VIA_CENTER_NO_RESPONSE = "SYNC_VIA_CENTER_NO_RESPONSE";
+
+	/**
+	 * è®°logçš„æ—¶é—´
+	 */
+	public static final String KEY3_WRITE_LOG_SUCCESS = "WRITE_LOG_SUCCESS";
+
+	public static final String KEY3_WRITE_LOG_EXCEPTION = "WRITE_LOG_EXCEPTION";
+
+	private static final Log logger = LogFactory.getLog(Monitor.class);
+	private static final Logger log = LoggerInit.TDDL_MD5_TO_SQL_MAPPING;
+	private static final BoundedConcurrentHashMap<String, String> sqlToMD5Map = new BoundedConcurrentHashMap<String, String>();
+	private static MD5Maker md5Maker = MD5Maker.getInstance();
+	public static volatile String APPNAME = "TDDL";
+
+	public enum RECORD_TYPE {
+		RECORD_SQL, MD5, NONE
+	}
+
+	private static volatile RECORD_TYPE recordType = RECORD_TYPE.RECORD_SQL;
+	private static volatile int left = 0; //ä»å·¦èµ·ä¿ç•™å¤šå°‘ä¸ªå­—ç¬¦
+	private static volatile int right = 0;//ä»å³èµ·ä¿ç•™å¤šå°‘ä¸ªå­—ç¬¦
+	private static volatile String[] excludsKeys = null;
+	private static volatile String[] includeKeys = null; //ç™½åå•
+	public static volatile Boolean isStatRealDbInWrapperDs = null;
+	//modify by junyu,2012-3-28
+	public static volatile boolean isStatAtomSql = true; //é»˜è®¤ä¸æ‰“å°sqlæ—¥å¿—
+	public static volatile int sqlTimeout=500; //é»˜è®¤è¶…æ—¶500æ¯«ç§’
+	public static volatile int atomSamplingRate=100;//å€¼åªèƒ½ä¸º0-100,æ—¥å¿—çš„é‡‡æ ·é¢‘ç‡
+	public static volatile int statChannelMask = 7; //æŒ‰ä½ï¼šå“ˆå‹ƒ|BufferedStatLogWriter|StatMonitor
+	public static volatile int dumpInterval = -1;
+	public static volatile int cacheSize = -1;
+	static {
+		init();
+	}
+
+	//private static AsynWriter<String> inputWriter;
+	private static void init() {
+		if ("TDDL".equals(APPNAME)) {
+			logger.warn("ä¸æŒ‡å®šTDDLä»¥å¤–çš„appNameåˆ™ä¸è®¢é˜…");
+			return;
+		}
+		//DATA_ID_TDDL_CLIENT_CONFIG = DATA_ID_PREFIX + "{0}_tddlconfig"
+		//String tddlconfigDataId = ConfigServerHelper.DATA_ID_PREFIX + APPNAME + "_tddlconfig";
+		//Object firstFetchedConfigs = ConfigServerHelper.subscribePersistentData(tddlconfigDataId, tddlConfigListener);
+		Object firstFetchedConfigs = ConfigServerHelper.subscribeTDDLConfig(APPNAME, tddlConfigListener);
+		if (firstFetchedConfigs == null) {
+			logger.warn("No tddlconfig received, use default");
+		}
+		//inputWriter = new AsynWriter<String>(commalog);
+		//inputWriter.init();
+	}
+
+	public static interface GlobalConfigListener {
+		void onConfigReceive(Properties p);
+	}
+
+	private static final Set<GlobalConfigListener> globalConfigListeners = new HashSet<GlobalConfigListener>(0);
+
+	public static void addGlobalConfigListener(GlobalConfigListener listener) {
+		globalConfigListeners.add(listener);
+	}
+	public static void removeGlobalConfigListener(GlobalConfigListener listener) {
+		globalConfigListeners.remove(listener);
+	}
+
+	private static final DataListener tddlConfigListener = new AbstractDataListener() {
+		public void onDataReceive(Object data) {
+			Properties p = ConfigServerHelper.parseProperties(data, "[tddlConfigListener]");
+			if (p == null) {
+				logger.warn("Empty tddlconfig");
+				return;
+			}
+			try {
+				for (Map.Entry<Object, Object> entry : p.entrySet()) {
+					String key = ((String) entry.getKey()).trim();
+					String value = ((String) entry.getValue()).trim();
+					switch (TDDLConfigKey.valueOf(key)) {
+					case statKeyRecordType: {
+						RECORD_TYPE old = recordType;
+						recordType = RECORD_TYPE.valueOf(value);
+						logger.warn("statKeyRecordType switch from [" + old + "] to [" + recordType + "]");
+						break;
+					}
+					case statKeyLeftCutLen: {
+						int old = left;
+						left = Integer.valueOf(value);
+						logger.warn("statKeyLeftCutLen switch from [" + old + "] to [" + left + "]");
+						break;
+					}
+					case statKeyRightCutLen: {
+						int old = right;
+						right = Integer.valueOf(value);
+						logger.warn("statKeyRightCutLen switch from [" + old + "] to [" + right + "]");
+						break;
+					}
+					case statKeyExcludes: {
+						String[] old = excludsKeys;
+						excludsKeys = value.split(",");
+						logger.warn("statKeyExcludes switch from " + Arrays.toString(old) + " to [" + value + "]");
+						break;
+					}
+					case statKeyIncludes: {
+						String[] old = includeKeys;
+						includeKeys = value.split(",");
+						logger.warn("statKeyIncludes switch from " + Arrays.toString(old) + " to [" + value + "]");
+						break;
+					}
+					case StatRealDbInWrapperDs: {
+						boolean old = isStatRealDbInWrapperDs;
+						isStatRealDbInWrapperDs = Boolean.valueOf(value);
+						logger.warn("StatRealDbInWrapperDs switch from [" + old + "] to [" + value + "]");
+						break;
+					}
+					case StatChannelMask: {
+						int old = statChannelMask;
+						statChannelMask = Integer.valueOf(value);
+						logger.warn("statChannelMask switch from [" + old + "] to [" + value + "]");
+						break;
+					}
+					case statDumpInterval: {
+						int old = dumpInterval;
+						dumpInterval = Integer.valueOf(value);
+						statMonitor.setStatInterval(dumpInterval * 1000);
+						BufferedStatLogWriter.dumpInterval = dumpInterval;
+						logger.warn("statDumpInterval switch from [" + old + "] to [" + value + "]");
+						break;
+					}
+					case statCacheSize: {
+						int old = cacheSize;
+						cacheSize = Integer.valueOf(value);
+						statMonitor.setLimit(cacheSize);
+						BufferedStatLogWriter.maxkeysize = cacheSize;
+						logger.warn("statCacheSize switch from [" + old + "] to [" + value + "]");
+						break;
+					}
+					case statAtomSql: {
+						boolean old = isStatAtomSql;
+						isStatAtomSql = Boolean.parseBoolean(value);
+						logger.warn("isStatAtomSql switch from [" + old + "] to [" + value + "]");
+						break;
+					}
+					case sqlExecTimeOutMilli:{
+						int old = sqlTimeout;
+						sqlTimeout=Integer.valueOf(value);
+						logger.warn("sqlTimeout switch from [" + old + "] to [" + value + "]");
+						break;
+					}
+					case atomSqlSamplingRate:{
+						int old=atomSamplingRate;
+						if(old>0){
+							int rate=0;
+							if(Integer.valueOf(value) % 100==0){
+								rate=100;
+							}else{
+								rate=Integer.valueOf(value) % 100;//å¦‚æœè¶…è¿‡100,å–ä½™é‡
+							}
+							atomSamplingRate=rate;
+							logger.warn("atomSqlSamplingRate switch from [" + old + "] to [" + atomSamplingRate + "]");
+						}else{
+							logger.warn("atomSqlSamplingRate will not change,because the value got is nagetive!old value is:"+old);
+						}
+					}
+					default:
+						logger.warn("Not cared TDDLConfigKey:" + key);
+					}
+				}
+			} catch (Exception e) {
+				logger.error("[tddlConfigListener.onDataReceive]", e);
+			}
+			
+			for (GlobalConfigListener listener : globalConfigListeners) {
+				listener.onConfigReceive(p);
+			}
+		}
+	};
+	//public static final StatMonitor statMonitor = StatMonitor.getInstance();
+	public static final StatMonitor statMonitor = StatMonitor.getInstance();
+	static {
+		statMonitor.start();
+	}
+
+	private static void addMonitor(String key1, String key2, String key3, long value1, long value2) {
+		//ä¸€æ®µæ—¶é—´å†…æ’æ—¥å¿—åº“çš„å¤±è´¥ç‡å’Œå¹³å‡å“åº”æ—¶é—´
+		if (KEY3_WRITE_LOG_SUCCESS.equals(key3)) {
+			statMonitor.addStat(key1, "", NagiosUtils.KEY_INSERT_LOGDB_FAIL_RATE, 0);
+			statMonitor.addStat(key1, "", NagiosUtils.KEY_INSERT_LOGDB_TIME_AVG, value1);
+		} else if (KEY3_WRITE_LOG_EXCEPTION.equals(key3)) {
+			statMonitor.addStat(key1, "", NagiosUtils.KEY_INSERT_LOGDB_FAIL_RATE, 1);
+		}
+		//ä¸€æ®µæ—¶é—´å†…è¡Œå¤åˆ¶çš„å¤±è´¥ç‡å’Œå¹³å‡å“åº”æ—¶é—´
+		else if (KEY3_COPY_2_SLAVE_SUCCESS.equals(key3)) {
+			statMonitor.addStat(key1, "", NagiosUtils.KEY_REPLICATION_FAIL_RATE, 0);
+			statMonitor.addStat(key1, "", NagiosUtils.KEY_REPLICATION_TIME_AVG, value1);
+		} else if (KEY3_WRITE_LOG_EXCEPTION.equals(key3)) {
+			statMonitor.addStat(key1, "", NagiosUtils.KEY_REPLICATION_FAIL_RATE, 1);
+		}
+	}
+
+	public static String buildTableKey1(String virtualTableName) {
+		//return KEY1_TABLE+virtualTableName;
+		return "" + virtualTableName; //ä¿è¯ä¸è¿”å›null
+	}
+
+	/**
+	 * è®°å½•sql
+	 * ä¸è®°å½•sql
+	 * è®°å½•å‰æˆªå–sql
+	 * è®°å½•åæˆªå–sql
+	 * è®°å½•md5
+	 * 
+	 * å…ˆå·¦åå³
+	 * 
+	 * @param sql
+	 * @return
+	 */
+	public static String buildExecuteSqlKey2(String sql) {
+		if (sql == null) {
+			return "null";
+		}
+		switch (recordType) {
+		case RECORD_SQL:
+			String s = TStringUtil.fillTabWithSpace(sql);
+			if (left > 0) {
+				s = TStringUtil.left(s, left);
+			}
+			if (right > 0) {
+				s = TStringUtil.right(s, right);
+			}
+			return s;
+		case MD5:
+			String s1 = TStringUtil.fillTabWithSpace(sql);
+			if (left > 0) {
+				s1 = TStringUtil.left(s1, left);
+			}
+			if (right > 0) {
+				s1 = TStringUtil.right(s1, right);
+			}
+			String md5 = sqlToMD5Map.get(s1);
+			if (md5 != null) {
+				return md5;
+			} else {
+				String sqlmd5 = md5Maker.getMD5(s1);
+				StringBuilder sb = new StringBuilder();
+				sb.append("[md5]").append(sqlmd5).append(" [sql]").append(s1);
+				log.warn(sb.toString());
+				sqlToMD5Map.put(s1, sqlmd5);
+				return sqlmd5;
+			}
+		case NONE:
+			return "";
+		default:
+			throw new IllegalArgumentException("ä¸ç¬¦åˆè¦æ±‚çš„è®°å½•logç±»å‹! " + recordType);
+		}
+
+	}
+
+	public static String buildExecuteDBAndTableKey1(String realDSKey, String realTable) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(KEY1).append("|").append(realDSKey).append("|").append(realTable);
+		return sb.toString();
+	}
+
+	/**
+	 * æ•°æ®å¤åˆ¶è¿‡ç¨‹ä¸­éœ€è¦ç”¨åˆ°çš„sqlçš„key
+	 * 
+	 * @param sql
+	 * @return
+	 */
+	public static String buildReplicationSqlKey2(String sql) {
+		return buildExecuteSqlKey2(sql);
+	}
+
+	/**
+	 * @param key1 ä¸€èˆ¬æ˜¯é€»è¾‘è¡¨åï¼Œappnameç­‰
+	 * @param key2 ä¸€èˆ¬æ˜¯SQL
+	 * @param key3 ä¸€äº›æˆåŠŸã€å¤±è´¥ã€è¶…æ—¶ã€å‘½ä¸­ç‡ç­‰æ ‡å¿—
+	 * @param value1 æ‰§è¡Œæ—¶é—´
+	 * @param value2 æ¬¡æ•°
+	 */
+	public static void add(String key1, String key2, String key3, long value1, long value2) {
+		if (isExclude(key1, key2, key3)) {
+			return;
+		}
+//		if ((statChannelMask & 4) == 4) { // 100
+//			MonitorLog.addStat(key1, "", key3, value1, value2); // å“ˆå‹ƒæ—¥å¿—æš‚æ—¶ä¿ç•™
+//		}
+		if ((statChannelMask & 2) == 2) { // 010
+			BufferedStatLogWriter.add(key2, key1, key3, value2, value1); //
+		}
+		if ((statChannelMask & 1) == 1) { // 001
+			addMonitor(key1, key2, key3, value1, value2); // å¹³å‡å“åº”æ—¶é—´ç­‰åŠ¨æ€ç›‘æ§Nagois
+		}
+	}
+	
+	public static void atomSqlAdd(String key1,String key2,String key3,String key4,String key5,String key6,long value1,long value2){
+		AtomBufferedStatLogWriter.add(key2, key1, key3, key4,key5,key6,value2,value1);
+	}
+	
+	public static void matrixSqlAdd(String key1,String key2,String key3,long value1,long value2){
+		MatrixBufferedStatLogWriter.add(key2, key1, key3, value2,value1);
+	}
+	
+	private final static PositiveAtomicCounter pc=new PositiveAtomicCounter();
+	public static boolean isSamplingRecord(){
+		int ra=pc.incrementAndGet()%100;
+		if(ra<Monitor.atomSamplingRate){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	private static boolean isExclude(String key1, String key2, String key3) {
+		if (excludsKeys == null || excludsKeys.length == 0)
+			return false;
+		for (String exclude : excludsKeys) {
+			if (key1.indexOf(exclude) != -1 || key2.indexOf(exclude) != -1 || key3.indexOf(exclude) != -1)
+				return true;
+		}
+		return false;
+	}
+
+	public static boolean isInclude(String sql) {
+		if (includeKeys != null && includeKeys.length != 0) { // å­˜åœ¨ç™½åå•
+			boolean discard = true;
+			for (String whiteItem : includeKeys) {
+				if (sql.indexOf(whiteItem) != -1) {
+					discard = false;
+					break;
+				}
+			}
+			if (discard) {
+				return false; // ä¸åœ¨ç™½åå•ä¸­ï¼Œä¸è¾“å‡ºæ—¥å¿—ï¼Œä»¥å‡å°‘æ—¥å¿—é‡
+			}
+		}
+		return true;
+	}
+
+	public static void setAppName(String appname) {
+		if (appname != null) {
+			APPNAME = appname;
+			init();
+		}
+	}
+
+	public static synchronized void addSnapshotValuesCallbask(SnapshotValuesOutputCallBack callbackList) {
+		StatMonitor.addSnapshotValuesCallbask(callbackList);
+	}
+
+	public static synchronized void removeSnapshotValuesCallback(SnapshotValuesOutputCallBack callbackList) {
+		StatMonitor.removeSnapshotValuesCallback(callbackList);
+	}
+}

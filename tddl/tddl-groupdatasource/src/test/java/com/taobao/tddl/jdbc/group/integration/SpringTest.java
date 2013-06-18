@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.integration;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.integration;
 
 import static org.junit.Assert.*;
 
@@ -17,7 +25,7 @@ import com.taobao.tddl.jdbc.group.SpringTGroupDataSource;
 import com.taobao.tddl.jdbc.group.testutil.DBHelper;
 
 /**
- * 不使用TAtomDataSource，基于org.apache.commons.dbcp.BasicDataSource测试crud
+ * 涓嶄娇鐢═AtomDataSource锛屽熀浜巓rg.apache.commons.dbcp.BasicDataSource娴嬭瘯crud
  * 
  * @author yangzhu
  *
@@ -48,7 +56,7 @@ public class SpringTest {
 
 		Connection conn = ds.getConnection();
 
-		//测试Statement的crud
+		//娴嬭瘯Statement鐨刢rud
 		Statement stmt = conn.createStatement();
 		assertEquals(stmt.executeUpdate("insert into crud(f1,f2) values(10,'str')"), 1);
 		assertEquals(stmt.executeUpdate("update crud set f2='str2'"), 1);
@@ -60,7 +68,7 @@ public class SpringTest {
 		rs.close();
 		stmt.close();
 
-		//测试PreparedStatement的crud
+		//娴嬭瘯PreparedStatement鐨刢rud
 		String sql = "insert into crud(f1,f2) values(10,'str')";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		assertEquals(ps.executeUpdate(), 1);

@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.sync;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.sync;
 
 public class RowBasedReplicationTask implements Runnable {
 	//private final boolean isUpdateLogRecord;
@@ -19,7 +27,7 @@ public class RowBasedReplicationTask implements Runnable {
 		long asyncThreadRunTime = System.currentTimeMillis();
 		context.setReplicationStartTime(asyncThreadRunTime);
 
-		//Èç¹ûtaskListener²»Îªnull£¬Ôò²»Á¢¼´É¾³ısynclog£¬¶øÊÇ½»¸øtaskListener×öÅúÁ¿²Ù×÷
+		//å¦‚æœtaskListenerä¸ä¸ºnullï¼Œåˆ™ä¸ç«‹å³åˆ é™¤synclogï¼Œè€Œæ˜¯äº¤ç»™taskListeneråšæ‰¹é‡æ“ä½œ
 		boolean success = RowBasedReplicationExecutor.execute(context, taskListener == null);
 
 		if (this.taskListener != null) {

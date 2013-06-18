@@ -1,11 +1,19 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.util;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.util;
 
 import javax.sql.DataSource;
 
 import com.taobao.tddl.interact.rule.bean.DBType;
 
 /**
- * ÎªÁË±ÜÃâ¶ÔTGroupDataSourceÕâÒ»²ã¶ÔspringµÄÒÀÀµ
+ * ä¸ºäº†é¿å…å¯¹TGroupDataSourceè¿™ä¸€å±‚å¯¹springçš„ä¾èµ–
  * 
  * @author linxuan
  * 

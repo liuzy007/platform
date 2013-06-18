@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	//Copyright(c) Taobao.com
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+//Copyright(c) Taobao.com
 package com.taobao.tddl.interact.rule.virtualnode;
 
 import java.util.HashMap;
@@ -12,7 +20,7 @@ import com.taobao.tddl.interact.rule.util.VirturalNodeUtil;
  * @author <a href="junyu@taobao.com">junyu</a> 
  * @version 1.0
  * @since 1.6
- * @date 2011-6-2œ¬ŒÁ03:12:39
+ * @date 2011-6-2‰∏ãÂçà03:12:39
  */
 public class DBTableMap extends WrappedLogic implements VirtualNodeMap{
     private ConcurrentHashMap<String/*1,2,3... math like integer,long*/,String/*group_0*/> dbContext=new ConcurrentHashMap<String,String>();

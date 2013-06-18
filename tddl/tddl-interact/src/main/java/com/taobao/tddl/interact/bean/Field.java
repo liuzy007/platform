@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.bean;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.bean;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,21 +14,21 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 /**
- * ´æ·ÅÁĞÃû->sourceKeyµÄÓ³Éä¡£
+ * å­˜æ”¾åˆ—å->sourceKeyçš„æ˜ å°„ã€‚
  * 
- * ¶àÌí¼ÓÒ»¸öSet¡£ÓÃÓÚÌØÊâ³¡¾°µÄÔËËã¡£
+ * å¤šæ·»åŠ ä¸€ä¸ªSetã€‚ç”¨äºç‰¹æ®Šåœºæ™¯çš„è¿ç®—ã€‚
  * 
- * Õâ¸ösetµÄÖ÷Òª×÷ÓÃ¾ÍÊÇ´æ·ÅsourceKeyµÄÍ¬Ê±£¬Ò²´æ·ÅÓ³ÉäºóµÄ½á¹û¡£Õâ¸ö½á¹ûÊÇÔÚmapping ruleÖĞ²étairÒÔºó²úÉúµÄ£¬ÎªÁË¼õÉÙÒ»´Î²é
+ * è¿™ä¸ªsetçš„ä¸»è¦ä½œç”¨å°±æ˜¯å­˜æ”¾sourceKeyçš„åŒæ—¶ï¼Œä¹Ÿå­˜æ”¾æ˜ å°„åçš„ç»“æœã€‚è¿™ä¸ªç»“æœæ˜¯åœ¨mapping ruleä¸­æŸ¥tairä»¥åäº§ç”Ÿçš„ï¼Œä¸ºäº†å‡å°‘ä¸€æ¬¡æŸ¥
  * 
- * tairµÄ¹ı³Ì£¬Òò´ËÒª¼ÇÂ¼ÏÂ²étairÒÔºóµÄÖµ¶¼ÊÇÄÄĞ©£¬²¢ÇÒ°´ÕÕ½á¹û½øĞĞ·ÖÀà¡£
+ * tairçš„è¿‡ç¨‹ï¼Œå› æ­¤è¦è®°å½•ä¸‹æŸ¥tairä»¥åçš„å€¼éƒ½æ˜¯å“ªäº›ï¼Œå¹¶ä¸”æŒ‰ç…§ç»“æœè¿›è¡Œåˆ†ç±»ã€‚
  * 
- * ÒòÎªÓ³Éä¹æÔòÖ»ÔÊĞíÁĞÃûÎ¨Ò»£¬²»ÔÊĞí¶àÁĞ²ÎÓëÔËËã¡£
+ * å› ä¸ºæ˜ å°„è§„åˆ™åªå…è®¸åˆ—åå”¯ä¸€ï¼Œä¸å…è®¸å¤šåˆ—å‚ä¸è¿ç®—ã€‚
  * 
- * ÔÚÁĞÃûÓĞÇÒ½öÓĞÒ»¸öµÄÇé¿öÏÂ¡£setÖĞµÄtargetValueÓ¦¸Ã¾ÍÊÇsourceKeyÍ¨¹ıtairÓ³ÉäÒÔºóµÄ½á¹û¡£
+ * åœ¨åˆ—åæœ‰ä¸”ä»…æœ‰ä¸€ä¸ªçš„æƒ…å†µä¸‹ã€‚setä¸­çš„targetValueåº”è¯¥å°±æ˜¯sourceKeyé€šè¿‡tairæ˜ å°„ä»¥åçš„ç»“æœã€‚
  * 
- * ÔÚÆäËûÇé¿öÏÂ,mappingKeysÓ¦¸ÃÓÀÔ¶Îª¿Õ¡£
+ * åœ¨å…¶ä»–æƒ…å†µä¸‹,mappingKeysåº”è¯¥æ°¸è¿œä¸ºç©ºã€‚
  * 
- * ÕâÑùĞ´µÄ×÷ÓÃÊÇ²»ÎÛÈ¾ÏÖÓĞsourceKeys¡£¼õÉÙÂß¼­¸Ä¶¯
+ * è¿™æ ·å†™çš„ä½œç”¨æ˜¯ä¸æ±¡æŸ“ç°æœ‰sourceKeysã€‚å‡å°‘é€»è¾‘æ”¹åŠ¨
  * 
  * @author shenxun
  * 
@@ -32,23 +40,23 @@ public class Field
 		sourceKeys = new HashMap<String, Set<Object>>(capacity);
 	}
 
-	public Map<String/* ÁĞÃû */, Set<Object>/* µÃµ½¸Ã½á¹ûµÄÃèµãÖµÃû */> sourceKeys;
+	public Map<String/* åˆ—å */, Set<Object>/* å¾—åˆ°è¯¥ç»“æœçš„æç‚¹å€¼å */> sourceKeys;
 
 	public static final Field EMPTY_FIELD = new Field(0);
 
 	/**
-	 * ÓÃÓÚÓ³Éä¹æÔòÖĞ´æ·ÅÓ³ÉäºóµÄËùÓĞÖµ£¬ÕâĞ©Öµ¶¼Ó¦¸ÃÓĞÏàÍ¬µÄÁĞÃû£¬¶ÔÓ¦mappingTargetColumn
+	 * ç”¨äºæ˜ å°„è§„åˆ™ä¸­å­˜æ”¾æ˜ å°„åçš„æ‰€æœ‰å€¼ï¼Œè¿™äº›å€¼éƒ½åº”è¯¥æœ‰ç›¸åŒçš„åˆ—åï¼Œå¯¹åº”mappingTargetColumn
 	 */
 	public Set<Object> mappingKeys;
 	 /**
-	 * ¶ÔÓ¦ÉÏÊömappingKeysµÄtargetColumn
+	 * å¯¹åº”ä¸Šè¿°mappingKeysçš„targetColumn
 	 */
 	public String mappingTargetColumn;
 	
 	
 	public boolean equals(Object obj, Map<String, String> alias)
 	{
-		//ÓÃÓÚ±È½ÏÁ½¸öfieldÊÇ·ñÏàµÈ¡£field°üº¬¶à¸öÁĞ£¬ÄÇÃ´¶àÁĞÄÚµÄÃ¿Ò»¸öÖµ¶¼Ó¦¸ÃÄÜÕÒµ½¶ÔÓ¦µÄÖµ²ÅËãÏàµÈ¡£
+		//ç”¨äºæ¯”è¾ƒä¸¤ä¸ªfieldæ˜¯å¦ç›¸ç­‰ã€‚fieldåŒ…å«å¤šä¸ªåˆ—ï¼Œé‚£ä¹ˆå¤šåˆ—å†…çš„æ¯ä¸€ä¸ªå€¼éƒ½åº”è¯¥èƒ½æ‰¾åˆ°å¯¹åº”çš„å€¼æ‰ç®—ç›¸ç­‰ã€‚
 		if (!(obj instanceof Field))
 		{
 			return false;

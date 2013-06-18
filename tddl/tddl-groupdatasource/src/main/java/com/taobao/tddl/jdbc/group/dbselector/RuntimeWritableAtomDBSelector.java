@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.dbselector;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.dbselector;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -11,14 +19,14 @@ import com.taobao.tddl.jdbc.group.config.ConfigManager;
 import com.taobao.tddl.jdbc.group.config.GroupExtraConfig;
 
 /**
- * ÓÃÓÚÔËĞĞÆÚ¼äÖ÷±¸ÇĞ»»µÄ³¡¾°£¬DBAÍ¨³£ÔÚ×öÍêÖ÷±¸ÇĞ»»ºó²Å»áÈ¥ĞŞ¸ÄÃ¿¸öTAtomDataSourceµÄÅäÖÃ¡£
- * ¼ÙÉèÓĞd0,d1,d2Èı¸ö¿â£¬Íê³ÉÒ»´ÎÇĞ»»Ê±¶ÔÓ¦Ã¿¸öTAtomDataSourceµÄ×´Ì¬¿ìÕÕÈçÏÂ: ===================== d0 d1
+ * ç”¨äºè¿è¡ŒæœŸé—´ä¸»å¤‡åˆ‡æ¢çš„åœºæ™¯ï¼ŒDBAé€šå¸¸åœ¨åšå®Œä¸»å¤‡åˆ‡æ¢åæ‰ä¼šå»ä¿®æ”¹æ¯ä¸ªTAtomDataSourceçš„é…ç½®ã€‚
+ * å‡è®¾æœ‰d0,d1,d2ä¸‰ä¸ªåº“ï¼Œå®Œæˆä¸€æ¬¡åˆ‡æ¢æ—¶å¯¹åº”æ¯ä¸ªTAtomDataSourceçš„çŠ¶æ€å¿«ç…§å¦‚ä¸‹: ===================== d0 d1
  * d2 (1) rw r r (2) na r r (3) na rw r (4) r rw r =====================
  *
- * (1)ÊÇÇĞ»»Ç°Õı³£µÄ×´Ì¬¿ìÕÕ£¬(4)ÊÇÇĞ»»Íê³ÉºóµÄ×´Ì¬¿ìÕÕ£¬(2)¡¢(3)ÊÇÖĞ¼ä¹ı³ÌµÄ×´Ì¬¿ìÕÕ¡£
+ * (1)æ˜¯åˆ‡æ¢å‰æ­£å¸¸çš„çŠ¶æ€å¿«ç…§ï¼Œ(4)æ˜¯åˆ‡æ¢å®Œæˆåçš„çŠ¶æ€å¿«ç…§ï¼Œ(2)ã€(3)æ˜¯ä¸­é—´è¿‡ç¨‹çš„çŠ¶æ€å¿«ç…§ã€‚
  *
- * Èç¹ûÒµÎñÏµÍ³ÔÚ×´Ì¬(1)¡¢(3)¡¢(4)ÏÂÒªÇó½øĞĞ¸üĞÂ²Ù×÷£¬Ôò¸üĞÂ²Ù×÷±»ÔÊĞí£¬ÒòÎªÔÚÕâÈı¸ö×´Ì¬ÖĞ¶¼ÄÜÕÒµ½Ò»¸öº¬ÓĞ"w"µÄdb£¬
- * Èç¹ûÒµÎñÏµÍ³ÔÚ×´Ì¬(2)ÏÂÒªÇó½øĞĞ¸üĞÂ²Ù×÷£¬Ôò¸üĞÂ²Ù×÷±»¾Ü¾ø£¬Å×³öÒì³££¬ÒòÎªÔÚÕâ¸ö×´Ì¬ÖĞÕÒ²»µ½º¬ÓĞ"w"µÄdb£¬
+ * å¦‚æœä¸šåŠ¡ç³»ç»Ÿåœ¨çŠ¶æ€(1)ã€(3)ã€(4)ä¸‹è¦æ±‚è¿›è¡Œæ›´æ–°æ“ä½œï¼Œåˆ™æ›´æ–°æ“ä½œè¢«å…è®¸ï¼Œå› ä¸ºåœ¨è¿™ä¸‰ä¸ªçŠ¶æ€ä¸­éƒ½èƒ½æ‰¾åˆ°ä¸€ä¸ªå«æœ‰"w"çš„dbï¼Œ
+ * å¦‚æœä¸šåŠ¡ç³»ç»Ÿåœ¨çŠ¶æ€(2)ä¸‹è¦æ±‚è¿›è¡Œæ›´æ–°æ“ä½œï¼Œåˆ™æ›´æ–°æ“ä½œè¢«æ‹’ç»ï¼ŒæŠ›å‡ºå¼‚å¸¸ï¼Œå› ä¸ºåœ¨è¿™ä¸ªçŠ¶æ€ä¸­æ‰¾ä¸åˆ°å«æœ‰"w"çš„dbï¼Œ
  *
  * @author yangzhu
  */
@@ -36,7 +44,7 @@ public class RuntimeWritableAtomDBSelector extends AbstractDBSelector {
 
 		this.equityDbManager = new EquityDbManager(dataSourceWrapperMap,
 				dummyWeightMap, groupExtraConfig);
-		this.readable = false; // Ö»ÓÃÓÚĞ´
+		this.readable = false; // åªç”¨äºå†™
 		this.dataSourceWrapperMap = dataSourceWrapperMap;
 	}
 
@@ -47,7 +55,8 @@ public class RuntimeWritableAtomDBSelector extends AbstractDBSelector {
 				return e.getValue();
 		return null;
 	}
-	public Map getDataSources() {
+
+	public Map getDataSources() {
 		return dataSourceWrapperMap;
 	}
 

@@ -10,14 +10,14 @@
 package com.taobao.diamond.server.service;
 
 /**
- * 配置的语义校验器
+ * 閰嶇疆鐨勮涔夋牎楠屽櫒
  * 
  * @author boyan
  * @date 2010-5-11
  */
 public interface ConfigValidator {
     /**
-     * 校验配置是否正确
+     * 鏍￠獙閰嶇疆鏄惁姝ｇ‘
      * 
      * @param dataId
      * @param group

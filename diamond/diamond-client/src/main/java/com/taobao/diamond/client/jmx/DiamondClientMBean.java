@@ -16,7 +16,7 @@ import java.util.Set;
 
 public interface DiamondClientMBean {
     /**
-     * »ñÈ¡¿Í»§¶Ë×¢²á¼àÌıµÄËùÓĞdataId
+     * è·å–å®¢æˆ·ç«¯æ³¨å†Œç›‘å¬çš„æ‰€æœ‰dataId
      * 
      * @return
      */
@@ -24,7 +24,7 @@ public interface DiamondClientMBean {
 
 
     /**
-     * »ñÈ¡µ±Ç°Ê¹ÓÃµÄ·şÎñÆ÷ÁĞ±í
+     * è·å–å½“å‰ä½¿ç”¨çš„æœåŠ¡å™¨åˆ—è¡¨
      * 
      * @return
      */
@@ -32,14 +32,14 @@ public interface DiamondClientMBean {
 
 
     /**
-     * »ñµÃ·¢²¼µÄdataIdÁĞ±í
+     * è·å¾—å‘å¸ƒçš„dataIdåˆ—è¡¨
      * 
      * @return
      */
     Map<String, Set<String>> getPubDataIds();
 
     /**
-     * »ñµÃdataIdµÄÍÆËÍ´ÎÊı
+     * è·å¾—dataIdçš„æ¨é€æ¬¡æ•°
      */
     Map<String, Map<String, Integer>> getPopCount();
 }

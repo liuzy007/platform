@@ -32,7 +32,7 @@ import com.taobao.diamond.utils.FileUtils;
 
 
 /**
- * DumpÅäÖÃĞÅÏ¢ÈÎÎñ
+ * Dumpé…ç½®ä¿¡æ¯ä»»åŠ¡
  * 
  * @author boyan
  * @date 2010-5-10
@@ -83,7 +83,7 @@ public final class DumpConfigInfoTask implements Runnable {
             Page<ConfigInfo> page = this.timerTaskService.getPersistService().findAllConfigInfo(1, PAGE_SIZE);
             updateLastRunSuccessTs();
             if (page != null) {
-                // ×ÜÒ³Êı
+                // æ€»é¡µæ•°
                 int totalPages = page.getPagesAvailable();
                 updateConfigInfo(page);
                 if (totalPages > 1) {
@@ -111,7 +111,7 @@ public final class DumpConfigInfoTask implements Runnable {
         timerTaskService.setLastDumpErrorTs(System.currentTimeMillis());
         // query timeout
         if (t.getMessage().indexOf("Query execution was interrupted") != -1) {
-            String msg = "PersistService#findAllConfigInfo#:Êı¾İ¿âÁ¬½Ó³¬Ê±";
+            String msg = "PersistService#findAllConfigInfo#:æ•°æ®åº“è¿æ¥è¶…æ—¶";
             log.error(msg, t);
             if (timerTaskService.isFirstLoadDumpInfo()) {
                 dealFail("");
@@ -121,9 +121,9 @@ public final class DumpConfigInfoTask implements Runnable {
             }
             throw new RuntimeException(msg);
         }
-        // ¼ÓÔØÒì³££¬¼ÇÈë±¾µØÎÄ¼ş
+        // åŠ è½½å¼‚å¸¸ï¼Œè®°å…¥æœ¬åœ°æ–‡ä»¶
         recordDumpInfoFaild(new Date());
-        log.error("ÔËĞĞdumpÅäÖÃÈÎÎñ³ö´í", t);
+        log.error("è¿è¡Œdumpé…ç½®ä»»åŠ¡å‡ºé”™", t);
     }
 
 
@@ -142,12 +142,12 @@ public final class DumpConfigInfoTask implements Runnable {
         System.out.println(info);
         String onFirstLoadFail = System.getProperty("onFirstLoadFail", EXIT);
         if (onFirstLoadFail.indexOf(EXIT) != -1) {
-            System.out.println("µÚÒ»´Îload dump info ³ö´í ÏµÍ³ÍË³ö.");
+            System.out.println("ç¬¬ä¸€æ¬¡load dump info å‡ºé”™ ç³»ç»Ÿé€€å‡º.");
             SystemConfig.system_pause();
             System.exit(1);
         }
         if (onFirstLoadFail.indexOf(LOCAL) != -1) {
-            System.out.println("µ±Ç°SystemConfig.dbConnLostDealing:" + SystemConfig.LOAD_DUMP + ":" + "³¢ÊÔ¼ÓÔØ±¾µØDump");
+            System.out.println("å½“å‰SystemConfig.dbConnLostDealing:" + SystemConfig.LOAD_DUMP + ":" + "å°è¯•åŠ è½½æœ¬åœ°Dump");
             tryLoadLocalDistDumpInfo();
         }
     }
@@ -178,7 +178,7 @@ public final class DumpConfigInfoTask implements Runnable {
                                             timerTaskService.getConfigService().updateMD5Cache(configInfo);
                                         }
                                         catch (IOException e) {
-                                            log.error("¼ÓÔØConfigInfoÊ§°Ü:dataId:" + dataIdName + ":" + groupName);
+                                            log.error("åŠ è½½ConfigInfoå¤±è´¥:dataId:" + dataIdName + ":" + groupName);
                                             log.error(e.getMessage(), e.getCause());
                                         }
 
@@ -211,13 +211,13 @@ public final class DumpConfigInfoTask implements Runnable {
                 configInfos.add(configInfo);
             }
             try {
-                // Ğ´Èë´ÅÅÌ£¬¸üĞÂ»º´æ
+                // å†™å…¥ç£ç›˜ï¼Œæ›´æ–°ç¼“å­˜
                 this.timerTaskService.getConfigService().updateMD5Cache(configInfo);
 
                 this.timerTaskService.getDiskService().saveToDisk(configInfo);
             }
             catch (Throwable t) {
-                log.error("DumpÅäÖÃĞÅÏ¢³ö´í", t);
+                log.error("Dumpé…ç½®ä¿¡æ¯å‡ºé”™", t);
             }
 
         }
@@ -229,7 +229,7 @@ public final class DumpConfigInfoTask implements Runnable {
             configInfos.clear();
         }
         if (SystemConfig.isOnlineMode()) {
-            throw new IllegalArgumentException("flyingModeÖ»ÄÜÔÚÀëÏßÄ£Ê½Ê¹ÓÃ");
+            throw new IllegalArgumentException("flyingModeåªèƒ½åœ¨ç¦»çº¿æ¨¡å¼ä½¿ç”¨");
         }
         configInfos.addAll(tryLoadLocalDistDumpInfo());
 

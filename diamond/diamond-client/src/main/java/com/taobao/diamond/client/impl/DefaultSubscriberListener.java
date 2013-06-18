@@ -54,15 +54,15 @@ public class DefaultSubscriberListener implements SubscriberListener {
 		String dataId = configureInfomation.getDataId();
 		String group = configureInfomation.getGroup();
 		if (null == dataId) {
-			log.error("·şÎñÆ÷¶Ë·µ»ØÁË¿ÕµÄDataID");
+			log.error("æœåŠ¡å™¨ç«¯è¿”å›äº†ç©ºçš„DataID");
 		} else {
 			String key = makeKey(dataId, group);
 			Map<String, CopyOnWriteArrayList<ManagerListener>> map = allListeners
 					.get(key);
 			if (null == map) {
-				log.warn("¿Í»§Ã»ÓĞÉèÖÃMessageListener");
+				log.warn("å®¢æˆ·æ²¡æœ‰è®¾ç½®MessageListener");
 			} else if (map.size() == 0) {
-				log.warn("¿Í»§Ã»ÓĞÉèÖÃMessageListener");
+				log.warn("å®¢æˆ·æ²¡æœ‰è®¾ç½®MessageListener");
 				allListeners.remove(key);
 			} else {
 				for (List<ManagerListener> listeners : map.values()) {
@@ -76,9 +76,9 @@ public class DefaultSubscriberListener implements SubscriberListener {
 
 	private void callListener(final ConfigureInfomation configureInfomation,
 			final ManagerListener listener) {
-		// Èç¹ûlistenerÎªnull£¬¼ÇÂ¼ÈÕÖ¾£¬²»Ó°Ïì¿Í»§¶ËµÄÕı³£Ê¹ÓÃ£¬Í¬²½»ñÈ¡Êı¾İÒÀÈ»ÄÜ¹»³É¹¦
+		// å¦‚æœlistenerä¸ºnullï¼Œè®°å½•æ—¥å¿—ï¼Œä¸å½±å“å®¢æˆ·ç«¯çš„æ­£å¸¸ä½¿ç”¨ï¼ŒåŒæ­¥è·å–æ•°æ®ä¾ç„¶èƒ½å¤ŸæˆåŠŸ
 		if (listener == null) {
-			log.warn("¼àÌıÆ÷Îª¿Õ¾¯¸æ£º¿Í»§¶ËÔÚ´´½¨DiamondManagerÊ±Ã»ÓĞÖ¸¶¨¼àÌıÆ÷");
+			log.warn("ç›‘å¬å™¨ä¸ºç©ºè­¦å‘Šï¼šå®¢æˆ·ç«¯åœ¨åˆ›å»ºDiamondManageræ—¶æ²¡æœ‰æŒ‡å®šç›‘å¬å™¨");
 			return;
 		}
 
@@ -89,24 +89,24 @@ public class DefaultSubscriberListener implements SubscriberListener {
 					try {
 						listener.receiveConfigInfo(configureInfomation
 								.getConfigureInfomation());
-						// ¿Í»§¶ËÕıÈ·´¦ÀíÁË½ÓÊÕµ½µÄÊı¾İ£¬¼ÇÂ¼ÈÕÖ¾ by leiwen
-						log.info("¿Í»§¶ËÕıÈ·´¦ÀíÁË½ÓÊÕµ½µÄÊı¾İ: " + "listener="
+						// å®¢æˆ·ç«¯æ­£ç¡®å¤„ç†äº†æ¥æ”¶åˆ°çš„æ•°æ®ï¼Œè®°å½•æ—¥å¿— by leiwen
+						log.info("å®¢æˆ·ç«¯æ­£ç¡®å¤„ç†äº†æ¥æ”¶åˆ°çš„æ•°æ®: " + "listener="
 								+ listener.getClass().getName() + " & dataId="
 								+ configureInfomation.getDataId() + " & group="
 								+ configureInfomation.getGroup()
 								+ " & configInfo="
 								+ configureInfomation.getConfigureInfomation()
 								+ " & type=" + rotateType);
-						// Ïòserver·¢ËÍ´¦Àí½á¹û
+						// å‘serverå‘é€å¤„ç†ç»“æœ
 						diamondSubscriber.sendAckToServer(
 								configureInfomation.getDataId(),
 								configureInfomation.getGroup(),
 								Constants.STAT_CLIENT_SUCCESS, listenerName,
 								rotateType, ACK_TIME_OUT);
 					} catch (Throwable t) {
-						// ¿Í»§¶Ë´¦Àí½ÓÊÕµ½µÄÊı¾İÊ±·¢ÉúÒì³££¬¼ÇÂ¼ÈÕÖ¾ by leiwen
+						// å®¢æˆ·ç«¯å¤„ç†æ¥æ”¶åˆ°çš„æ•°æ®æ—¶å‘ç”Ÿå¼‚å¸¸ï¼Œè®°å½•æ—¥å¿— by leiwen
 						log.error(
-								"¿Í»§¶ËMessageListenerÖĞÅ×Òì³££¬Çë¿Í»§×Ô²é£º"
+								"å®¢æˆ·ç«¯MessageListenerä¸­æŠ›å¼‚å¸¸ï¼Œè¯·å®¢æˆ·è‡ªæŸ¥ï¼š"
 										+ "listener="
 										+ listener.getClass().getName()
 										+ " & dataId="
@@ -117,7 +117,7 @@ public class DefaultSubscriberListener implements SubscriberListener {
 										+ configureInfomation
 												.getConfigureInfomation()
 										+ " & type=" + rotateType, t);
-						// Ïòserver·¢ËÍ´¦Àí½á¹û
+						// å‘serverå‘é€å¤„ç†ç»“æœ
 						diamondSubscriber.sendAckToServer(
 								configureInfomation.getDataId(),
 								configureInfomation.getGroup(),
@@ -131,28 +131,28 @@ public class DefaultSubscriberListener implements SubscriberListener {
 			try {
 				listener.receiveConfigInfo(configureInfomation
 						.getConfigureInfomation());
-				// ¿Í»§¶ËÕıÈ·´¦ÀíÁË½ÓÊÕµ½µÄÊı¾İ£¬¼ÇÂ¼ÈÕÖ¾ by leiwen
-				log.info("¿Í»§¶ËÕıÈ·´¦ÀíÁË½ÓÊÕµ½µÄÊı¾İ: " + "listener="
+				// å®¢æˆ·ç«¯æ­£ç¡®å¤„ç†äº†æ¥æ”¶åˆ°çš„æ•°æ®ï¼Œè®°å½•æ—¥å¿— by leiwen
+				log.info("å®¢æˆ·ç«¯æ­£ç¡®å¤„ç†äº†æ¥æ”¶åˆ°çš„æ•°æ®: " + "listener="
 						+ listener.getClass().getName() + " & dataId="
 						+ configureInfomation.getDataId() + " & group="
 						+ configureInfomation.getGroup() + " & configInfo="
 						+ configureInfomation.getConfigureInfomation()
 						+ " & type=" + rotateType);
-				// Ïòserver·¢ËÍ´¦Àí½á¹û
+				// å‘serverå‘é€å¤„ç†ç»“æœ
 				diamondSubscriber.sendAckToServer(
 						configureInfomation.getDataId(),
 						configureInfomation.getGroup(),
 						Constants.STAT_CLIENT_SUCCESS, listenerName,
 						rotateType, ACK_TIME_OUT);
 			} catch (Throwable t) {
-				// ¿Í»§¶Ë´¦Àí½ÓÊÕµ½µÄÊı¾İÊ±·¢ÉúÒì³££¬¼ÇÂ¼ÈÕÖ¾ by leiwen
-				log.error("¿Í»§¶ËMessageListenerÖĞÅ×Òì³££¬Çë¿Í»§×Ô²é£º" + "listener="
+				// å®¢æˆ·ç«¯å¤„ç†æ¥æ”¶åˆ°çš„æ•°æ®æ—¶å‘ç”Ÿå¼‚å¸¸ï¼Œè®°å½•æ—¥å¿— by leiwen
+				log.error("å®¢æˆ·ç«¯MessageListenerä¸­æŠ›å¼‚å¸¸ï¼Œè¯·å®¢æˆ·è‡ªæŸ¥ï¼š" + "listener="
 						+ listener.getClass().getName() + " & dataId="
 						+ configureInfomation.getDataId() + " & group="
 						+ configureInfomation.getGroup() + " & configInfo="
 						+ configureInfomation.getConfigureInfomation()
 						+ " & type=" + rotateType, t);
-				// Ïòserver·¢ËÍ´¦Àí½á¹û
+				// å‘serverå‘é€å¤„ç†ç»“æœ
 				diamondSubscriber.sendAckToServer(
 						configureInfomation.getDataId(),
 						configureInfomation.getGroup(),
@@ -163,7 +163,7 @@ public class DefaultSubscriberListener implements SubscriberListener {
 	}
 
 	/**
-	 * Ìí¼ÓÒ»¸öDataID¶ÔÓ¦µÄManagerListener
+	 * æ·»åŠ ä¸€ä¸ªDataIDå¯¹åº”çš„ManagerListener
 	 * 
 	 * @param dataId
 	 * @param listener
@@ -196,7 +196,7 @@ public class DefaultSubscriberListener implements SubscriberListener {
 	}
 
 	/**
-	 * É¾³ıÒ»¸öDataID¶ÔÓ¦µÄËùÓĞµÄManagerListeners
+	 * åˆ é™¤ä¸€ä¸ªDataIDå¯¹åº”çš„æ‰€æœ‰çš„ManagerListeners
 	 * 
 	 * @param dataId
 	 */
@@ -214,7 +214,7 @@ public class DefaultSubscriberListener implements SubscriberListener {
 	}
 
 	/**
-	 * Ìí¼ÓÒ»¸öDataID¶ÔÓ¦µÄÒ»Ğ©ManagerListener
+	 * æ·»åŠ ä¸€ä¸ªDataIDå¯¹åº”çš„ä¸€äº›ManagerListener
 	 * 
 	 * @param dataId
 	 * @param addListeners

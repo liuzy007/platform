@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.testutil;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.testutil;
 
 import java.sql.Connection;
 import java.sql.Statement;
@@ -15,7 +23,7 @@ import com.taobao.tddl.jdbc.group.TGroupDataSource;
  *
  */
 public class DBHelper {
-	//É¾³ýÈý¸ö¿âÖÐcrud±íµÄËùÓÐ¼ÇÂ¼
+	//åˆ é™¤ä¸‰ä¸ªåº“ä¸­crudè¡¨çš„æ‰€æœ‰è®°å½•
 	public static void deleteAll() throws Exception {
 		DataSource ds1 = DataSourceFactory.getMySQLDataSource(1);
 		DataSource ds2 = DataSourceFactory.getMySQLDataSource(2);

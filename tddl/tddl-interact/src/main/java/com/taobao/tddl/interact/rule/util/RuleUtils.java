@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.rule.util;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.rule.util;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -13,15 +21,15 @@ public class RuleUtils {
 	
 	private static final Enumerator enumerator = new EnumeratorImp();
 	
-	public static Map<String, Set<Object>/* ³éÑùºóÃèµãµÄkeyºÍÖµµÄpair */> getSamplingField(Map<String, Comparative> argumentsMap,
+	public static Map<String, Set<Object>/* æŠ½æ ·åæç‚¹çš„keyå’Œå€¼çš„pair */> getSamplingField(Map<String, Comparative> argumentsMap,
 			Set<AdvancedParameter> param) {
-		// TODO:ÏêÏ¸×¢ÊÍ,¼ÆËãµÑ¿¨¶û»ı
-		// Ã¶¾ÙÒÔºóµÄcolumnsÓëËûÃÇµÄÃèµãÖ®¼äµÄ¶ÔÓ¦¹ØÏµ
+		// TODO:è¯¦ç»†æ³¨é‡Š,è®¡ç®—ç¬›å¡å°”ç§¯
+		// æšä¸¾ä»¥åçš„columnsä¸ä»–ä»¬çš„æç‚¹ä¹‹é—´çš„å¯¹åº”å…³ç³»
 		Map<String, Set<Object>> enumeratedMap = new HashMap<String, Set<Object>>(
 				param.size());
 		for (AdvancedParameter entry : param) {
 			String key = entry.key;
-			// µ±Ç°enumeratorÖĞÖ¸¶¨µ±Ç°¹æÔòÊÇ·ñĞèÒª´¦Àí½»¼¯ÎÊÌâ¡£
+			// å½“å‰enumeratorä¸­æŒ‡å®šå½“å‰è§„åˆ™æ˜¯å¦éœ€è¦å¤„ç†äº¤é›†é—®é¢˜ã€‚
 			// enumerator.setNeedMergeValueInCloseInterval();
 
 			try {
@@ -32,7 +40,7 @@ public class RuleUtils {
 						entry.needMergeValueInCloseInterval);
 				enumeratedMap.put(key, samplingField);
 			} catch (UnsupportedOperationException e) {
-				throw new UnsupportedOperationException("µ±Ç°ÁĞ·Ö¿â·Ö±í³öÏÖ´íÎó£¬³öÏÖ´íÎóµÄÁĞÃûÊÇ:"
+				throw new UnsupportedOperationException("å½“å‰åˆ—åˆ†åº“åˆ†è¡¨å‡ºç°é”™è¯¯ï¼Œå‡ºç°é”™è¯¯çš„åˆ—åæ˜¯:"
 						+ entry.key, e);
 			}
 
@@ -41,7 +49,7 @@ public class RuleUtils {
 	}
 //	public static String placeHolder(int bit, int table) {
 //        if(bit < String.valueOf(table).length()){
-//        	//µ±width < ÊıÖµµÄ×î´óÎ»ÊıÊ±£¬Ó¦¸ÃÖ±½Ó·µ»ØÊıÖµ
+//        	//å½“width < æ•°å€¼çš„æœ€å¤§ä½æ•°æ—¶ï¼Œåº”è¯¥ç›´æ¥è¿”å›æ•°å€¼
 //        	return String.valueOf(table);
 //        }
 //		int max = (int) Math.pow(10, (bit));
@@ -100,9 +108,9 @@ public class RuleUtils {
 //	//			matcher.appendTail(sb);
 //	//			listRule.setExpression(sb.toString());
 //	//			listRule.setAdvancedParameter(params);
-//				//´ı¾®ºÅµÄ¹æÔòÖ±½Óset
+//				//å¾…äº•å·çš„è§„åˆ™ç›´æ¥set
 //				listRule.setExpression((String)ruleString);
-//				//·ÅÈëÉÏÏÂÎÄ 
+//				//æ”¾å…¥ä¸Šä¸‹æ–‡ 
 //				
 //				list.add(listRule);
 //			}else if (ruleString instanceof ListAbstractResultRule){
@@ -134,13 +142,13 @@ public class RuleUtils {
 ////				param.atomicIncreateValue = Integer.valueOf(paramTokens[1]);
 ////				param.cumulativeTimes = Integer.valueOf(paramTokens[2]);
 ////			} catch (NumberFormatException e) {
-////				throw new IllegalArgumentException("ÊäÈëµÄ²ÎÊı²»ÎªIntegerÀàĞÍ,²ÎÊıÎª:"
+////				throw new IllegalArgumentException("è¾“å…¥çš„å‚æ•°ä¸ä¸ºIntegerç±»å‹,å‚æ•°ä¸º:"
 ////						+ paramToken, e);
 ////			}
 ////			break;
 ////		default:
-////			throw new IllegalArgumentException("´íÎóµÄ²ÎÊı¸öÊı£¬±ØĞëÎª1¸ö»òÕß3¸ö£¬3¸öµÄÊ±ºòÎªÔÊĞíÊ¹ÓÃ"
-////					+ "Ã¶¾ÙÊ±µÄÊı¾İ");
+////			throw new IllegalArgumentException("é”™è¯¯çš„å‚æ•°ä¸ªæ•°ï¼Œå¿…é¡»ä¸º1ä¸ªæˆ–è€…3ä¸ªï¼Œ3ä¸ªçš„æ—¶å€™ä¸ºå…è®¸ä½¿ç”¨"
+////					+ "æšä¸¾æ—¶çš„æ•°æ®");
 ////		}
 ////		return param;
 ////	}

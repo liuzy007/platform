@@ -51,7 +51,7 @@ public class IntegrateClientTest {
         }
         listener.setUpdateConfigInfo(false);
         Assert.assertNotNull(listener.getConfigureInfomation());
-        System.err.println("»ñÈ¡ÁËÅäÖÃĞÅÏ¢");
+        System.err.println("è·å–äº†é…ç½®ä¿¡æ¯");
         Thread.sleep(50000);
     }
 }

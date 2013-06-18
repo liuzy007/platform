@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.atom.common;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.atom.common;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,7 +17,7 @@ import org.junit.Test;
 public class TAtomConURLToolsUnitTest {
 
 	@Test
-	public void getOracleConURL_ƴװOracle_URL() {
+	public void getOracleConURL_拼装Oracle_URL() {
 		String ociUrl = TAtomConURLTools.getOracleConURL("192.168.1.1", "1521", "ociTest", "oci");
 		String actualOci = "jdbc:oracle:oci:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=192.168.1.1)(PORT=1521)))(CONNECT_DATA=(SERVER=DEDICAT)(SERVICE_NAME=ociTest)))";
 		Assert.assertEquals(ociUrl, actualOci);
@@ -20,7 +28,7 @@ public class TAtomConURLToolsUnitTest {
 	}
 
 	@Test
-	public void getMySqlConURL_ƴװMySql_URL() {
+	public void getMySqlConURL_拼装MySql_URL() {
 		String mysqlUrl1 = TAtomConURLTools.getMySqlConURL("192.168.1.1", "3306", "mysqlTest", null);
 		String actualMySql1 = "jdbc:mysql://192.168.1.1:3306/mysqlTest?characterEncoding=gbk";
 		Assert.assertEquals(mysqlUrl1, actualMySql1);

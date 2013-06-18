@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.util;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.util;
 
 import java.io.IOException;
 import java.lang.management.ManagementFactory;
@@ -40,7 +48,7 @@ public final class TDDLMBeanServer {
 	// private static MyMBeanServer me = new MyMBeanServer();
 
 	private TDDLMBeanServer() {
-		// ´´½¨MBServer
+		// åˆ›å»ºMBServer
 		String hostName = null;
 		try {
 			InetAddress addr = InetAddress.getLocalHost();
@@ -117,7 +125,7 @@ public final class TDDLMBeanServer {
 	}
 
 	private void registerMBean0(Object o, String name) {
-		// ×¢²áMBean
+		// æ³¨å†ŒMBean
 		if (null != mbs) {
 			try {
 				mbs.registerMBean(o, new ObjectName(o.getClass().getPackage()
@@ -133,7 +141,7 @@ public final class TDDLMBeanServer {
 	}
 
 	private void registerMBeanWithId0(Object o, String id) {
-		// ×¢²áMBean
+		// æ³¨å†ŒMBean
 		if (null == id || id.length() == 0) {
 			throw new IllegalArgumentException("must set id");
 		}
@@ -183,7 +191,7 @@ public final class TDDLMBeanServer {
 	}
 
 	private void registerMBeanWithIdPrefix0(Object o, String idPrefix) {
-		// ×¢²áMBean
+		// æ³¨å†ŒMBean
 		if (null != mbs) {
 			if (null == idPrefix || idPrefix.length() == 0) {
 				idPrefix = "default";

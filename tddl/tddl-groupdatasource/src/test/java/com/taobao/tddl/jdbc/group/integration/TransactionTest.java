@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.integration;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.integration;
 
 import static org.junit.Assert.*;
 
@@ -16,7 +24,7 @@ import com.taobao.tddl.jdbc.group.SpringTGroupDataSource;
 import com.taobao.tddl.jdbc.group.testutil.DBHelper;
 
 /**
- * 不使用TAtomDataSource，基于org.apache.commons.dbcp.BasicDataSource测试crud
+ * 涓嶄娇鐢═AtomDataSource锛屽熀浜巓rg.apache.commons.dbcp.BasicDataSource娴嬭瘯crud
  * 
  * @author yangzhu
  * 
@@ -49,7 +57,7 @@ public class TransactionTest {
 		Connection conn = ds.getConnection();
 		conn.setAutoCommit(false);
 
-		// 测试Statement的crud
+		// 娴嬭瘯Statement鐨刢rud
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("select f1,f2 from crud");
 		assertEquals(stmt

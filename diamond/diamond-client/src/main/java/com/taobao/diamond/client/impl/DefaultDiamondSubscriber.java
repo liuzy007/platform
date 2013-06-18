@@ -65,15 +65,15 @@ import com.taobao.diamond.utils.LoggerInit;
 import com.taobao.diamond.utils.SimpleCache;
 
 /**
- * È±Ê¡µÄDiamondSubscriber
+ * ç¼ºçœçš„DiamondSubscriber
  * 
  * @author aoqiong
  * 
  */
 class DefaultDiamondSubscriber implements DiamondSubscriber {
-	// ±¾µØÎÄ¼ş¼àÊÓÄ¿Â¼
+	// æœ¬åœ°æ–‡ä»¶ç›‘è§†ç›®å½•
 	private static final String DATA_DIR = "data";
-	// ÉÏÒ»´ÎÕıÈ·ÅäÖÃµÄ¾µÏñÄ¿Â¼
+	// ä¸Šä¸€æ¬¡æ­£ç¡®é…ç½®çš„é•œåƒç›®å½•
 	private static final String SNAPSHOT_DIR = "snapshot";
 
 	private static final Log log = LogFactory
@@ -121,7 +121,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 
 	private volatile boolean bFirstCheck = true;
 
-	// ¼¯Èº±êÊ¶
+	// é›†ç¾¤æ ‡è¯†
 	private String clusterType;
 
 	public static class Builder {
@@ -210,9 +210,9 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	/**
-	 * Æô¶¯DiamondSubscriber£º<br>
-	 * 1.×èÈûÖ÷¶¯»ñÈ¡ËùÓĞµÄDataIdÅäÖÃĞÅÏ¢<br>
-	 * 2.Æô¶¯¶¨Ê±Ïß³Ì¶¨Ê±»ñÈ¡ËùÓĞµÄDataIdÅäÖÃĞÅÏ¢<br>
+	 * å¯åŠ¨DiamondSubscriberï¼š<br>
+	 * 1.é˜»å¡ä¸»åŠ¨è·å–æ‰€æœ‰çš„DataIdé…ç½®ä¿¡æ¯<br>
+	 * 2.å¯åŠ¨å®šæ—¶çº¿ç¨‹å®šæ—¶è·å–æ‰€æœ‰çš„DataIdé…ç½®ä¿¡æ¯<br>
 	 */
 	public synchronized void start() {
 		if (isRun) {
@@ -232,33 +232,33 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 
 		this.snapshotConfigInfoProcessor = new SnapshotConfigInfoProcessor(
 				this.diamondConfigure.getFilePath() + "/" + SNAPSHOT_DIR);
-		// ÉèÖÃdomainNamePosÖµ
+		// è®¾ç½®domainNamePoså€¼
 		randomDomainNamePos();
 
 		initHttpClient();
 
-		// ³õÊ¼»¯Íê±Ï
+		// åˆå§‹åŒ–å®Œæ¯•
 		isRun = true;
 
 		if (log.isInfoEnabled()) {
-			log.info("µ±Ç°Ê¹ÓÃµÄÓòÃûÓĞ£º" + this.diamondConfigure.getDomainNameList());
+			log.info("å½“å‰ä½¿ç”¨çš„åŸŸåæœ‰ï¼š" + this.diamondConfigure.getDomainNameList());
 		}
 
 		if (MockServer.isTestMode()) {
 			bFirstCheck = false;
 		} else {
-			// ÉèÖÃÂÖÑ¯¼ä¸ôÊ±¼ä
+			// è®¾ç½®è½®è¯¢é—´éš”æ—¶é—´
 			this.diamondConfigure
 					.setPollingIntervalTime(Constants.POLLING_INTERVAL_TIME);
 		}
-		// ÂÖÑ¯
+		// è½®è¯¢
 		rotateCheckConfigInfo();
 
 		addShutdownHook();
 	}
 
 	private void randomDomainNamePos() {
-		// Ëæ»ú»¯ÆğÊ¼·şÎñÆ÷µØÖ·
+		// éšæœºåŒ–èµ·å§‹æœåŠ¡å™¨åœ°å€
 		Random rand = new Random();
 		List<String> domainList = this.diamondConfigure.getDomainNameList();
 		if (!domainList.isEmpty()) {
@@ -271,7 +271,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 
 			@Override
 			public void run() {
-				// ¹Ø±Õµ¥Àı¶©ÔÄÕß
+				// å…³é—­å•ä¾‹è®¢é˜…è€…
 				close();
 			}
 
@@ -298,7 +298,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				diamondConfigure.getMaxHostConnections());
 		params.setMaxTotalConnections(diamondConfigure.getMaxTotalConnections());
 		params.setConnectionTimeout(diamondConfigure.getConnectionTimeout());
-		// ÉèÖÃ¶Á³¬Ê±Îª1·ÖÖÓ,
+		// è®¾ç½®è¯»è¶…æ—¶ä¸º1åˆ†é’Ÿ,
 		// boyan@taobao.com
 		params.setSoTimeout(60 * 1000);
 
@@ -308,7 +308,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	/**
-	 * ½ö¹©²âÊÔ£¬ÇĞÎğµ÷ÓÃ
+	 * ä»…ä¾›æµ‹è¯•ï¼Œåˆ‡å‹¿è°ƒç”¨
 	 * 
 	 * @param pos
 	 */
@@ -317,13 +317,13 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	/**
-	 * Ñ­»·Ì½²âÅäÖÃĞÅÏ¢ÊÇ·ñ±ä»¯£¬Èç¹û±ä»¯£¬ÔòÔÙ´ÎÏòDiamondServerÇëÇó»ñÈ¡¶ÔÓ¦µÄÅäÖÃĞÅÏ¢
+	 * å¾ªç¯æ¢æµ‹é…ç½®ä¿¡æ¯æ˜¯å¦å˜åŒ–ï¼Œå¦‚æœå˜åŒ–ï¼Œåˆ™å†æ¬¡å‘DiamondServerè¯·æ±‚è·å–å¯¹åº”çš„é…ç½®ä¿¡æ¯
 	 */
 	private void rotateCheckConfigInfo() {
 		scheduledExecutor.schedule(new Runnable() {
 			public void run() {
 				if (!isRun) {
-					log.warn("DiamondSubscriber²»ÔÚÔËĞĞ×´Ì¬ÖĞ£¬ÍË³ö²éÑ¯Ñ­»·");
+					log.warn("DiamondSubscriberä¸åœ¨è¿è¡ŒçŠ¶æ€ä¸­ï¼Œé€€å‡ºæŸ¥è¯¢å¾ªç¯");
 					return;
 				}
 				try {
@@ -332,7 +332,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 					checkSnapshot();
 				} catch (Exception e) {
 					e.printStackTrace();
-					log.error("Ñ­»·Ì½²â·¢ÉúÒì³£", e);
+					log.error("å¾ªç¯æ¢æµ‹å‘ç”Ÿå¼‚å¸¸", e);
 				} finally {
 					rotateCheckConfigInfo();
 				}
@@ -354,12 +354,12 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 			log.info("[pushit client] cacheData == null");
 			return;
 		}
-		log.info("[pushit client] diamond-client¿ªÊ¼Ö÷¶¯Ïòdiamond-serverÇëÇóÊı¾İ");
+		log.info("[pushit client] diamond-clientå¼€å§‹ä¸»åŠ¨å‘diamond-serverè¯·æ±‚æ•°æ®");
 		receiveConfigInfo(cacheData);
 	}
 
 	/**
-	 * ÏòDiamondServerÇëÇódataId¶ÔÓ¦µÄÅäÖÃĞÅÏ¢£¬²¢½«½á¹ûÅ×¸ø¿Í»§µÄ¼àÌıÆ÷
+	 * å‘DiamondServerè¯·æ±‚dataIdå¯¹åº”çš„é…ç½®ä¿¡æ¯ï¼Œå¹¶å°†ç»“æœæŠ›ç»™å®¢æˆ·çš„ç›‘å¬å™¨
 	 * 
 	 * @param dataId
 	 */
@@ -367,7 +367,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 		scheduledExecutor.execute(new Runnable() {
 			public void run() {
 				if (!isRun) {
-					log.warn("DiamondSubscriber²»ÔÚÔËĞĞ×´Ì¬ÖĞ£¬ÍË³ö²éÑ¯Ñ­»·");
+					log.warn("DiamondSubscriberä¸åœ¨è¿è¡ŒçŠ¶æ€ä¸­ï¼Œé€€å‡ºæŸ¥è¯¢å¾ªç¯");
 					return;
 				}
 
@@ -386,7 +386,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 
 					popConfigInfo(cacheData, configInfo, RotateType.SERVER);
 				} catch (Exception e) {
-					log.error("ÏòDiamond·şÎñÆ÷Ë÷ÒªÅäÖÃĞÅÏ¢µÄ¹ı³ÌÅ×Òì³£", e);
+					log.error("å‘DiamondæœåŠ¡å™¨ç´¢è¦é…ç½®ä¿¡æ¯çš„è¿‡ç¨‹æŠ›å¼‚å¸¸", e);
 				}
 			}
 		});
@@ -403,7 +403,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 			for (Entry<String, CacheData> cacheDataEntry : cacheDatas
 					.entrySet()) {
 				final CacheData cacheData = cacheDataEntry.getValue();
-				// Ã»ÓĞ»ñÈ¡±¾µØÅäÖÃ£¬Ò²Ã»ÓĞ´Ódiamond server»ñÈ¡ÅäÖÃ³É¹¦,Ôò¼ÓÔØÉÏÒ»´ÎµÄsnapshot
+				// æ²¡æœ‰è·å–æœ¬åœ°é…ç½®ï¼Œä¹Ÿæ²¡æœ‰ä»diamond serverè·å–é…ç½®æˆåŠŸ,åˆ™åŠ è½½ä¸Šä¸€æ¬¡çš„snapshot
 				if (!cacheData.isUseLocalConfigInfo()
 						&& cacheData.getFetchCount() == 0) {
 					String configInfo = getSnapshotConfiginfomation(
@@ -422,10 +422,10 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				.getReceiveWaitTime());
 		if (null == updateDataIdGroupPairs
 				|| updateDataIdGroupPairs.size() == 0) {
-			log.debug("Ã»ÓĞ±»ĞŞ¸ÄµÄDataID");
+			log.debug("æ²¡æœ‰è¢«ä¿®æ”¹çš„DataID");
 			return;
 		}
-		// ¶ÔÓÚÃ¿¸ö·¢Éú±ä»¯µÄDataID£¬¶¼ÇëÇóÒ»´Î¶ÔÓ¦µÄÅäÖÃĞÅÏ¢
+		// å¯¹äºæ¯ä¸ªå‘ç”Ÿå˜åŒ–çš„DataIDï¼Œéƒ½è¯·æ±‚ä¸€æ¬¡å¯¹åº”çš„é…ç½®ä¿¡æ¯
 		for (String freshDataIdGroupPair : updateDataIdGroupPairs) {
 			int middleIndex = freshDataIdGroupPair.indexOf(WORD_SEPARATOR);
 			if (middleIndex == -1)
@@ -461,7 +461,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 					String configInfo = getLocalConfigureInfomation(cacheData);
 					if (null != configInfo) {
 						if (log.isInfoEnabled()) {
-							log.info("±¾µØÅäÖÃĞÅÏ¢±»¶ÁÈ¡, dataId:"
+							log.info("æœ¬åœ°é…ç½®ä¿¡æ¯è¢«è¯»å–, dataId:"
 									+ cacheData.getDataId() + ", group:"
 									+ cacheData.getGroup());
 						}
@@ -472,14 +472,14 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 						continue;
 					}
 				} catch (Exception e) {
-					log.error("Ïò±¾µØË÷ÒªÅäÖÃĞÅÏ¢µÄ¹ı³ÌÅ×Òì³£", e);
+					log.error("å‘æœ¬åœ°ç´¢è¦é…ç½®ä¿¡æ¯çš„è¿‡ç¨‹æŠ›å¼‚å¸¸", e);
 				}
 			}
 		}
 	}
 
 	/**
-	 * ½«¶©ÔÄĞÅÏ¢Å×¸ø¿Í»§µÄ¼àÌıÆ÷
+	 * å°†è®¢é˜…ä¿¡æ¯æŠ›ç»™å®¢æˆ·çš„ç›‘å¬å™¨
 	 * 
 	 */
 	void popConfigInfo(final CacheData cacheData, final String configInfo,
@@ -503,7 +503,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 								.receiveConfigInfo(configureInfomation);
 						saveSnapshot(dataId, group, configInfo);
 					} catch (Throwable t) {
-						log.error("ÅäÖÃĞÅÏ¢¼àÌıÆ÷ÖĞÓĞÒì³££¬groupÎª£º" + group + ", dataIdÎª£º"
+						log.error("é…ç½®ä¿¡æ¯ç›‘å¬å™¨ä¸­æœ‰å¼‚å¸¸ï¼Œgroupä¸ºï¼š" + group + ", dataIdä¸ºï¼š"
 								+ dataId, t);
 					}
 				}
@@ -518,7 +518,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				saveSnapshot(dataId, group, configInfo);
 			} catch (Throwable t) {
 				log.error(
-						"ÅäÖÃĞÅÏ¢¼àÌıÆ÷ÖĞÓĞÒì³££¬groupÎª£º" + group + ", dataIdÎª£º" + dataId,
+						"é…ç½®ä¿¡æ¯ç›‘å¬å™¨ä¸­æœ‰å¼‚å¸¸ï¼Œgroupä¸ºï¼š" + group + ", dataIdä¸ºï¼š" + dataId,
 						t);
 			}
 		}
@@ -528,7 +528,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 		if (!isRun) {
 			return;
 		}
-		log.warn("¿ªÊ¼¹Ø±ÕDiamondSubscriber");
+		log.warn("å¼€å§‹å…³é—­DiamondSubscriber");
 
 		localConfigInfoProcessor.stop();
 		serverAddressProcessor.stop();
@@ -538,16 +538,16 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 		scheduledExecutor = null;
 		cache.clear();
 		DiamondClientUtil.close();
-		log.warn("¹Ø±ÕDiamondSubscriberÍê³É");
+		log.warn("å…³é—­DiamondSubscriberå®Œæˆ");
 	}
 
 	/**
 	 * 
 	 * @param waitTime
-	 *            ±¾´Î²éÑ¯ÒÑ¾­ºÄ·ÑµÄÊ±¼ä(ÒÑ¾­²éÑ¯µÄ¶à´ÎHTTPºÄ·ÑµÄÊ±¼ä)
+	 *            æœ¬æ¬¡æŸ¥è¯¢å·²ç»è€—è´¹çš„æ—¶é—´(å·²ç»æŸ¥è¯¢çš„å¤šæ¬¡HTTPè€—è´¹çš„æ—¶é—´)
 	 * @param timeout
-	 *            ±¾´Î²éÑ¯×ÜµÄ¿ÉºÄ·ÑÊ±¼ä(¿É¹©¶à´ÎHTTP²éÑ¯Ê¹ÓÃ)
-	 * @return ±¾´ÎHTTP²éÑ¯ÄÜ¹»Ê¹ÓÃµÄÊ±¼ä
+	 *            æœ¬æ¬¡æŸ¥è¯¢æ€»çš„å¯è€—è´¹æ—¶é—´(å¯ä¾›å¤šæ¬¡HTTPæŸ¥è¯¢ä½¿ç”¨)
+	 * @return æœ¬æ¬¡HTTPæŸ¥è¯¢èƒ½å¤Ÿä½¿ç”¨çš„æ—¶é—´
 	 */
 	long getOnceTimeOut(long waitTime, long timeout) {
 		long onceTimeOut = this.diamondConfigure.getOnceTimeout();
@@ -562,7 +562,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 			throws IOException {
 		if (!isRun) {
 			throw new RuntimeException(
-					"DiamondSubscriber²»ÔÚÔËĞĞ×´Ì¬ÖĞ£¬ÎŞ·¨»ñÈ¡±¾µØConfigureInfomation");
+					"DiamondSubscriberä¸åœ¨è¿è¡ŒçŠ¶æ€ä¸­ï¼Œæ— æ³•è·å–æœ¬åœ°ConfigureInfomation");
 		}
 		return localConfigInfoProcessor.getLocalConfigureInfomation(cacheData,
 				false);
@@ -574,13 +574,13 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 
 	public String getConfigureInfomation(String dataId, String group,
 			long timeout) {
-		// Í¬²½½Ó¿ÚÁ÷¿Ø
+		// åŒæ­¥æ¥å£æµæ§
 		// flowControl();
 		if (null == group) {
 			group = Constants.DEFAULT_GROUP;
 		}
 		CacheData cacheData = getCacheData(dataId, group);
-		// ÓÅÏÈÊ¹ÓÃ±¾µØÅäÖÃ
+		// ä¼˜å…ˆä½¿ç”¨æœ¬åœ°é…ç½®
 		try {
 			String localConfig = localConfigInfoProcessor
 					.getLocalConfigureInfomation(cacheData, true);
@@ -590,9 +590,9 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				return localConfig;
 			}
 		} catch (IOException e) {
-			log.error("»ñÈ¡±¾µØÅäÖÃÎÄ¼ş³ö´í", e);
+			log.error("è·å–æœ¬åœ°é…ç½®æ–‡ä»¶å‡ºé”™", e);
 		}
-		// »ñÈ¡±¾µØÅäÖÃÊ§°Ü£¬´ÓÍøÂçÈ¡
+		// è·å–æœ¬åœ°é…ç½®å¤±è´¥ï¼Œä»ç½‘ç»œå–
 		String result = getConfigureInfomation(dataId, group, timeout, false);
 		if (result != null) {
 			saveSnapshot(dataId, group, result);
@@ -610,7 +610,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 			}
 			return true;
 		} catch (Exception e) {
-			log.error("ÅĞ¶ÏÊı¾İÊÇ·ñ´æÔÚÊ±³ö´í, dataId=" + dataId + ", group=" + group, e);
+			log.error("åˆ¤æ–­æ•°æ®æ˜¯å¦å­˜åœ¨æ—¶å‡ºé”™, dataId=" + dataId + ", group=" + group, e);
 			return false;
 		}
 	}
@@ -621,7 +621,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				this.snapshotConfigInfoProcessor.saveSnaptshot(dataId, group,
 						config);
 			} catch (IOException e) {
-				log.error("±£´æsnapshot³ö´í,dataId=" + dataId + ",group=" + group,
+				log.error("ä¿å­˜snapshotå‡ºé”™,dataId=" + dataId + ",group=" + group,
 						e);
 			}
 		}
@@ -629,7 +629,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 
 	public String getAvailableConfigureInfomation(String dataId, String group,
 			long timeout) {
-		// ³¢ÊÔÏÈ´Ó±¾µØºÍÍøÂç»ñÈ¡ÅäÖÃĞÅÏ¢
+		// å°è¯•å…ˆä»æœ¬åœ°å’Œç½‘ç»œè·å–é…ç½®ä¿¡æ¯
 		try {
 			String result = getConfigureInfomation(dataId, group, timeout);
 			if (result != null && result.length() > 0) {
@@ -638,7 +638,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 		} catch (Throwable t) {
 			// ignore
 		}
-		// ²âÊÔÄ£Ê½²»Ê¹ÓÃ±¾µØdump
+		// æµ‹è¯•æ¨¡å¼ä¸ä½¿ç”¨æœ¬åœ°dump
 		if (MockServer.isTestMode()) {
 			return null;
 		}
@@ -667,7 +667,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 			}
 			return config;
 		} catch (Exception e) {
-			log.error("»ñÈ¡snapshot³ö´í£¬ dataId=" + dataId + ",group=" + group, e);
+			log.error("è·å–snapshotå‡ºé”™ï¼Œ dataId=" + dataId + ",group=" + group, e);
 			return null;
 		}
 	}
@@ -678,7 +678,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	 * @param group
 	 * @param timeout
 	 * @param skipContentCache
-	 *            ÊÇ·ñÊ¹ÓÃ±¾µØµÄÄÚÈİcache¡£Ö÷¶¯getÊ±»áÊ¹ÓÃ£¬ÓĞcheck´¥·¢µÄÒì²½get²»Ê¹ÓÃ±¾µØcache¡£
+	 *            æ˜¯å¦ä½¿ç”¨æœ¬åœ°çš„å†…å®¹cacheã€‚ä¸»åŠ¨getæ—¶ä¼šä½¿ç”¨ï¼Œæœ‰checkè§¦å‘çš„å¼‚æ­¥getä¸ä½¿ç”¨æœ¬åœ°cacheã€‚
 	 * @return
 	 */
 	String getConfigureInfomation(String dataId, String group, long timeout,
@@ -686,18 +686,18 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 		start();
 		if (!isRun) {
 			throw new RuntimeException(
-					"DiamondSubscriber²»ÔÚÔËĞĞ×´Ì¬ÖĞ£¬ÎŞ·¨»ñÈ¡ConfigureInfomation");
+					"DiamondSubscriberä¸åœ¨è¿è¡ŒçŠ¶æ€ä¸­ï¼Œæ— æ³•è·å–ConfigureInfomation");
 		}
 		if (null == group) {
 			group = Constants.DEFAULT_GROUP;
 		}
-		// =======================Ê¹ÓÃ²âÊÔÄ£Ê½=======================
+		// =======================ä½¿ç”¨æµ‹è¯•æ¨¡å¼=======================
 		if (MockServer.isTestMode()) {
 			return MockServer.getConfigInfo(dataId, group);
 		}
 		// ==========================================================
 		/**
-		 * Ê¹ÓÃ´øÓĞTTLµÄcache£¬
+		 * ä½¿ç”¨å¸¦æœ‰TTLçš„cacheï¼Œ
 		 */
 		if (!skipContentCache) {
 			String key = makeCacheKey(dataId, group);
@@ -716,22 +716,22 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 
 		CacheData cacheData = getCacheData(dataId, group);
 
-		// ×ÜµÄÖØÊÔ´ÎÊı
+		// æ€»çš„é‡è¯•æ¬¡æ•°
 		int retryTimes = this.getDiamondConfigure().getRetrieveDataRetryTimes();
-		log.info("Éè¶¨µÄ»ñÈ¡ÅäÖÃÊı¾İµÄÖØÊÔ´ÎÊıÎª£º" + retryTimes);
-		// ÒÑ¾­³¢ÊÔ¹ıµÄ´ÎÊı
+		log.info("è®¾å®šçš„è·å–é…ç½®æ•°æ®çš„é‡è¯•æ¬¡æ•°ä¸ºï¼š" + retryTimes);
+		// å·²ç»å°è¯•è¿‡çš„æ¬¡æ•°
 		int tryCount = 0;
 
 		while (0 == timeout || timeout > waitTime) {
-			// ³¢ÊÔ´ÎÊı¼Ó1
+			// å°è¯•æ¬¡æ•°åŠ 1
 			tryCount++;
 			if (tryCount > retryTimes + 1) {
-				log.warn("ÒÑ¾­µ½´ïÁËÉè¶¨µÄÖØÊÔ´ÎÊı");
+				log.warn("å·²ç»åˆ°è¾¾äº†è®¾å®šçš„é‡è¯•æ¬¡æ•°");
 				break;
 			}
-			log.info("»ñÈ¡ÅäÖÃÊı¾İ£¬µÚ" + tryCount + "´Î³¢ÊÔ, waitTime:" + waitTime);
+			log.info("è·å–é…ç½®æ•°æ®ï¼Œç¬¬" + tryCount + "æ¬¡å°è¯•, waitTime:" + waitTime);
 
-			// ÉèÖÃ³¬Ê±Ê±¼ä
+			// è®¾ç½®è¶…æ—¶æ—¶é—´
 			long onceTimeOut = getOnceTimeOut(waitTime, timeout);
 			waitTime += onceTimeOut;
 
@@ -749,7 +749,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				case SC_OK: {
 					String result = getSuccess(dataId, group, cacheData,
 							httpMethod);
-					// Í³¼ÆdataidµÄ±ä»¯
+					// ç»Ÿè®¡dataidçš„å˜åŒ–
 					recordDataIdChange(dataId, group);
 					return result;
 				}
@@ -761,14 +761,14 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				}
 
 				case SC_NOT_FOUND: {
-					log.warn("Ã»ÓĞÕÒµ½DataIDÎª:" + dataId + "¶ÔÓ¦µÄÅäÖÃĞÅÏ¢");
+					log.warn("æ²¡æœ‰æ‰¾åˆ°DataIDä¸º:" + dataId + "å¯¹åº”çš„é…ç½®ä¿¡æ¯");
 					this.snapshotConfigInfoProcessor.removeSnapshot(dataId,
 							group);
 					return null;
 				}
 
 				case SC_SERVICE_UNAVAILABLE: {
-					// µ±Ç°·şÎñÆ÷²»¿ÉÓÃ£¬ÇĞ»»
+					// å½“å‰æœåŠ¡å™¨ä¸å¯ç”¨ï¼Œåˆ‡æ¢
 					rotateToNextDomain();
 				}
 					break;
@@ -780,21 +780,21 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				}
 				}
 			} catch (HttpException e) {
-				log.error("»ñÈ¡ÅäÖÃĞÅÏ¢HttpÒì³£" + e);
+				log.error("è·å–é…ç½®ä¿¡æ¯Httpå¼‚å¸¸" + e);
 				rotateToNextDomain();
 			} catch (IOException e) {
 
-				log.error("»ñÈ¡ÅäÖÃĞÅÏ¢IOÒì³£" + e);
+				log.error("è·å–é…ç½®ä¿¡æ¯IOå¼‚å¸¸" + e);
 				rotateToNextDomain();
 			} catch (Exception e) {
-				log.error("Î´ÖªÒì³£", e);
+				log.error("æœªçŸ¥å¼‚å¸¸", e);
 				rotateToNextDomain();
 			} finally {
 				httpMethod.releaseConnection();
 			}
 		}
-		throw new RuntimeException("»ñÈ¡ConfigureInfomation³¬Ê±, DataID" + dataId
-				+ ", GroupÎª£º" + group + ",³¬Ê±Ê±¼äÎª£º" + timeout);
+		throw new RuntimeException("è·å–ConfigureInfomationè¶…æ—¶, DataID" + dataId
+				+ ", Groupä¸ºï¼š" + group + ",è¶…æ—¶æ—¶é—´ä¸ºï¼š" + timeout);
 	}
 
 	private CacheData getCacheData(String dataId, String group) {
@@ -820,61 +820,61 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	/**
-	 * »ØÀ¡µÄ½á¹ûÎªRP_NO_CHANGE£¬ÔòÕû¸öÁ÷³ÌÎª£º<br>
-	 * 1.¼ì²é»º´æÖĞµÄMD5ÂëÓë·µ»ØµÄMD5ÂëÊÇ·ñÒ»ÖÂ£¬Èç¹û²»Ò»ÖÂ£¬ÔòÉ¾³ı»º´æĞĞ¡£ÖØĞÂÔÙ´Î²éÑ¯¡£<br>
-	 * 2.Èç¹ûMD5ÂëÒ»ÖÂ£¬ÔòÖ±½Ó·µ»ØNULL<br>
+	 * å›é¦ˆçš„ç»“æœä¸ºRP_NO_CHANGEï¼Œåˆ™æ•´ä¸ªæµç¨‹ä¸ºï¼š<br>
+	 * 1.æ£€æŸ¥ç¼“å­˜ä¸­çš„MD5ç ä¸è¿”å›çš„MD5ç æ˜¯å¦ä¸€è‡´ï¼Œå¦‚æœä¸ä¸€è‡´ï¼Œåˆ™åˆ é™¤ç¼“å­˜è¡Œã€‚é‡æ–°å†æ¬¡æŸ¥è¯¢ã€‚<br>
+	 * 2.å¦‚æœMD5ç ä¸€è‡´ï¼Œåˆ™ç›´æ¥è¿”å›NULL<br>
 	 */
 	private String getNotModified(String dataId, CacheData cacheData,
 			HttpMethod httpMethod) {
 		Header md5Header = httpMethod.getResponseHeader(Constants.CONTENT_MD5);
 		if (null == md5Header) {
-			throw new RuntimeException("RP_NO_CHANGE·µ»ØµÄ½á¹ûÖĞÃ»ÓĞMD5Âë");
+			throw new RuntimeException("RP_NO_CHANGEè¿”å›çš„ç»“æœä¸­æ²¡æœ‰MD5ç ");
 		}
 		String md5 = md5Header.getValue();
 		if (!cacheData.getMd5().equals(md5)) {
 			String lastMd5 = cacheData.getMd5();
 			cacheData.setMd5(Constants.NULL);
 			cacheData.setLastModifiedHeader(Constants.NULL);
-			throw new RuntimeException("MD5ÂëĞ£Ñé¶Ô±È³ö´í,DataIDÎª:[" + dataId
-					+ "]ÉÏ´ÎMD5Îª:[" + lastMd5 + "]±¾´ÎMD5Îª:[" + md5 + "]");
+			throw new RuntimeException("MD5ç æ ¡éªŒå¯¹æ¯”å‡ºé”™,DataIDä¸º:[" + dataId
+					+ "]ä¸Šæ¬¡MD5ä¸º:[" + lastMd5 + "]æœ¬æ¬¡MD5ä¸º:[" + md5 + "]");
 		}
 
 		cacheData.setMd5(md5);
 		changeSpacingInterval(httpMethod);
 		if (log.isInfoEnabled()) {
-			log.info("DataId: " + dataId + ", ¶ÔÓ¦µÄconfigInfoÃ»ÓĞ±ä»¯");
+			log.info("DataId: " + dataId + ", å¯¹åº”çš„configInfoæ²¡æœ‰å˜åŒ–");
 		}
 		return null;
 	}
 
 	/**
-	 * »ØÀ¡µÄ½á¹ûÎªRP_OK£¬ÔòÕû¸öÁ÷³ÌÎª£º<br>
-	 * 1.»ñÈ¡ÅäÖÃĞÅÏ¢£¬Èç¹ûÅäÖÃĞÅÏ¢Îª¿Õ»òÕßÅ×³öÒì³££¬ÔòÅ×³öÔËĞĞÊ±Òì³£<br>
-	 * 2.¼ì²âÅäÖÃĞÅÏ¢ÊÇ·ñ·ûºÏ»ØÀ¡½á¹ûÖĞµÄMD5Âë£¬²»·ûºÏ£¬ÔòÔÙ´Î»ñÈ¡ÅäÖÃĞÅÏ¢£¬²¢¼ÇÂ¼ÈÕÖ¾<br>
-	 * 3.·ûºÏ£¬Ôò´æ´¢LastModifiedĞÅÏ¢ºÍMD5Âë£¬µ÷Õû²éÑ¯µÄ¼ä¸ôÊ±¼ä£¬½«»ñÈ¡µÄÅäÖÃĞÅÏ¢·¢ËÍ¸ø¿Í»§µÄ¼àÌıÆ÷<br>
+	 * å›é¦ˆçš„ç»“æœä¸ºRP_OKï¼Œåˆ™æ•´ä¸ªæµç¨‹ä¸ºï¼š<br>
+	 * 1.è·å–é…ç½®ä¿¡æ¯ï¼Œå¦‚æœé…ç½®ä¿¡æ¯ä¸ºç©ºæˆ–è€…æŠ›å‡ºå¼‚å¸¸ï¼Œåˆ™æŠ›å‡ºè¿è¡Œæ—¶å¼‚å¸¸<br>
+	 * 2.æ£€æµ‹é…ç½®ä¿¡æ¯æ˜¯å¦ç¬¦åˆå›é¦ˆç»“æœä¸­çš„MD5ç ï¼Œä¸ç¬¦åˆï¼Œåˆ™å†æ¬¡è·å–é…ç½®ä¿¡æ¯ï¼Œå¹¶è®°å½•æ—¥å¿—<br>
+	 * 3.ç¬¦åˆï¼Œåˆ™å­˜å‚¨LastModifiedä¿¡æ¯å’ŒMD5ç ï¼Œè°ƒæ•´æŸ¥è¯¢çš„é—´éš”æ—¶é—´ï¼Œå°†è·å–çš„é…ç½®ä¿¡æ¯å‘é€ç»™å®¢æˆ·çš„ç›‘å¬å™¨<br>
 	 */
 	private String getSuccess(String dataId, String group, CacheData cacheData,
 			HttpMethod httpMethod) {
 		String configInfo = Constants.NULL;
 		configInfo = getContent(httpMethod);
 		if (null == configInfo) {
-			throw new RuntimeException("RP_OK»ñÈ¡ÁË´íÎóµÄÅäÖÃĞÅÏ¢");
+			throw new RuntimeException("RP_OKè·å–äº†é”™è¯¯çš„é…ç½®ä¿¡æ¯");
 		}
 
 		Header md5Header = httpMethod.getResponseHeader(Constants.CONTENT_MD5);
 		if (null == md5Header) {
-			throw new RuntimeException("RP_OK·µ»ØµÄ½á¹ûÖĞÃ»ÓĞMD5Âë, " + configInfo);
+			throw new RuntimeException("RP_OKè¿”å›çš„ç»“æœä¸­æ²¡æœ‰MD5ç , " + configInfo);
 		}
 		String md5 = md5Header.getValue();
 		if (!checkContent(configInfo, md5)) {
-			throw new RuntimeException("ÅäÖÃĞÅÏ¢µÄMD5ÂëĞ£Ñé³ö´í,DataIDÎª:[" + dataId
-					+ "]ÅäÖÃĞÅÏ¢Îª:[" + configInfo + "]MD5Îª:[" + md5 + "]");
+			throw new RuntimeException("é…ç½®ä¿¡æ¯çš„MD5ç æ ¡éªŒå‡ºé”™,DataIDä¸º:[" + dataId
+					+ "]é…ç½®ä¿¡æ¯ä¸º:[" + configInfo + "]MD5ä¸º:[" + md5 + "]");
 		}
 
 		Header lastModifiedHeader = httpMethod
 				.getResponseHeader(Constants.LAST_MODIFIED);
 		if (null == lastModifiedHeader) {
-			throw new RuntimeException("RP_OK·µ»ØµÄ½á¹ûÖĞÃ»ÓĞlastModifiedHeader");
+			throw new RuntimeException("RP_OKè¿”å›çš„ç»“æœä¸­æ²¡æœ‰lastModifiedHeader");
 		}
 		String lastModified = lastModifiedHeader.getValue();
 
@@ -883,11 +883,11 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 
 		changeSpacingInterval(httpMethod);
 
-		// ÉèÖÃµ½±¾µØcache
+		// è®¾ç½®åˆ°æœ¬åœ°cache
 		String key = makeCacheKey(dataId, group);
 		contentCache.put(key, configInfo);
 
-		// ¼ÇÂ¼½ÓÊÕµ½µÄÊı¾İ
+		// è®°å½•æ¥æ”¶åˆ°çš„æ•°æ®
 		StringBuilder buf = new StringBuilder();
 		buf.append("dataId=").append(dataId);
 		buf.append(" ,group=").append(group);
@@ -911,7 +911,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 						cacheData.getMd5());
 			}
 		}
-		// ÉèÖÃappNameºÍ¿Í»§¶Ë°æ±¾
+		// è®¾ç½®appNameå’Œå®¢æˆ·ç«¯ç‰ˆæœ¬
 		if (null != this.appName) {
 			httpMethod.addRequestHeader(Constants.APPNAME, this.appName);
 		}
@@ -920,7 +920,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 
 		httpMethod.addRequestHeader(Constants.ACCEPT_ENCODING, "gzip,deflate");
 
-		// ÉèÖÃHttpMethodµÄ²ÎÊı
+		// è®¾ç½®HttpMethodçš„å‚æ•°
 		HttpMethodParams params = new HttpMethodParams();
 		params.setSoTimeout((int) onceTimeOut);
 		// ///////////////////////
@@ -936,7 +936,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	/**
-	 * ´ÓDiamondServer»ñÈ¡Öµ±ä»¯ÁËµÄDataIDÁĞ±í
+	 * ä»DiamondServerè·å–å€¼å˜åŒ–äº†çš„DataIDåˆ—è¡¨
 	 * 
 	 * @param timeout
 	 * @return
@@ -944,9 +944,9 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	Set<String> checkUpdateDataIds(long timeout) {
 		if (!isRun) {
 			throw new RuntimeException(
-					"DiamondSubscriber²»ÔÚÔËĞĞ×´Ì¬ÖĞ£¬ÎŞ·¨»ñÈ¡ĞŞ¸Ä¹ıµÄDataIDÁĞ±í");
+					"DiamondSubscriberä¸åœ¨è¿è¡ŒçŠ¶æ€ä¸­ï¼Œæ— æ³•è·å–ä¿®æ”¹è¿‡çš„DataIDåˆ—è¡¨");
 		}
-		// =======================Ê¹ÓÃ²âÊÔÄ£Ê½=======================
+		// =======================ä½¿ç”¨æµ‹è¯•æ¨¡å¼=======================
 		if (MockServer.isTestMode()) {
 			return testData();
 		}
@@ -959,7 +959,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 		}
 
 		while (0 == timeout || timeout > waitTime) {
-			// ÉèÖÃ³¬Ê±Ê±¼ä
+			// è®¾ç½®è¶…æ—¶æ—¶é—´
 			long onceTimeOut = getOnceTimeOut(waitTime, timeout);
 			waitTime += onceTimeOut;
 
@@ -974,7 +974,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 			}
 			postMethod.addRequestHeader(Constants.CLIENT_VERSION_HEADER,
 					Constants.CLIENT_VERSION);
-			// ÉèÖÃHttpMethodµÄ²ÎÊı
+			// è®¾ç½®HttpMethodçš„å‚æ•°
 			HttpMethodParams params = new HttpMethodParams();
 			params.setSoTimeout((int) onceTimeOut);
 			// ///////////////////////
@@ -1001,26 +1001,26 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 					break;
 
 				default: {
-					log.warn("»ñÈ¡ĞŞ¸Ä¹ıµÄDataIDÁĞ±íµÄÇëÇó»ØÓ¦µÄHTTP State: " + httpStatus);
+					log.warn("è·å–ä¿®æ”¹è¿‡çš„DataIDåˆ—è¡¨çš„è¯·æ±‚å›åº”çš„HTTP State: " + httpStatus);
 					rotateToNextDomain();
 				}
 				}
 			} catch (HttpException e) {
-				log.error("»ñÈ¡ÅäÖÃĞÅÏ¢HttpÒì³£" + e);
+				log.error("è·å–é…ç½®ä¿¡æ¯Httpå¼‚å¸¸" + e);
 				rotateToNextDomain();
 			} catch (IOException e) {
-				log.error("»ñÈ¡ÅäÖÃĞÅÏ¢IOÒì³£" + e);
+				log.error("è·å–é…ç½®ä¿¡æ¯IOå¼‚å¸¸" + e);
 				rotateToNextDomain();
 			} catch (Exception e) {
-				log.error("Î´ÖªÒì³£", e);
+				log.error("æœªçŸ¥å¼‚å¸¸", e);
 				rotateToNextDomain();
 			} finally {
 				postMethod.releaseConnection();
 			}
 		}
-		throw new RuntimeException("»ñÈ¡ĞŞ¸Ä¹ıµÄDataIDÁĞ±í³¬Ê± "
+		throw new RuntimeException("è·å–ä¿®æ”¹è¿‡çš„DataIDåˆ—è¡¨è¶…æ—¶ "
 				+ diamondConfigure.getDomainNameList().get(
-						this.domainNamePos.get()) + ", ³¬Ê±Ê±¼äÎª£º" + timeout);
+						this.domainNamePos.get()) + ", è¶…æ—¶æ—¶é—´ä¸ºï¼š" + timeout);
 	}
 
 	void sendAckToServer(String dataId, String group, String message,
@@ -1029,7 +1029,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 		long waitTime = 0;
 
 		while (timeout == 0 || timeout > waitTime) {
-			// ÉèÖÃ±¾´Î³¬Ê±Ê±¼ä
+			// è®¾ç½®æœ¬æ¬¡è¶…æ—¶æ—¶é—´
 			long onceTimeOut = getOnceTimeOut(waitTime, timeout);
 			waitTime += onceTimeOut;
 
@@ -1043,43 +1043,43 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				switch (status) {
 
 				case SC_OK: {
-					log.info("¿Í»§¶ËÕıÈ·Ïò·şÎñ¶Ë·¢ËÍÁË´¦Àí½á¹û");
+					log.info("å®¢æˆ·ç«¯æ­£ç¡®å‘æœåŠ¡ç«¯å‘é€äº†å¤„ç†ç»“æœ");
 					return;
 				}
 
 				case SC_NOT_FOUND: {
-					log.warn("client.ackÎÄ¼ş²»´æÔÚ");
+					log.warn("client.ackæ–‡ä»¶ä¸å­˜åœ¨");
 					rotateToNextDomain();
 					break;
 				}
 
 				case SC_SERVICE_UNAVAILABLE: {
-					log.warn("µ±Ç°diamond server²»¿ÉÓÃ");
+					log.warn("å½“å‰diamond serverä¸å¯ç”¨");
 					rotateToNextDomain();
 					break;
 				}
 
 				default: {
-					log.warn("·´À¡HTTP×´Ì¬Âë: " + httpClient.getState());
+					log.warn("åé¦ˆHTTPçŠ¶æ€ç : " + httpClient.getState());
 					rotateToNextDomain();
 				}
 
 				}
 			} catch (HttpException e) {
-				log.error("¿Í»§¶ËÏò·şÎñ¶Ë·¢ËÍ´¦Àí½á¹ûÊ±³öÏÖHTTPÒì³££º", e);
+				log.error("å®¢æˆ·ç«¯å‘æœåŠ¡ç«¯å‘é€å¤„ç†ç»“æœæ—¶å‡ºç°HTTPå¼‚å¸¸ï¼š", e);
 				rotateToNextDomain();
 			} catch (IOException e) {
-				log.error("¿Í»§¶ËÏò·şÎñ¶Ë·¢ËÍ´¦Àí½á¹ûÊ±³öÏÖIOÒì³££º", e);
+				log.error("å®¢æˆ·ç«¯å‘æœåŠ¡ç«¯å‘é€å¤„ç†ç»“æœæ—¶å‡ºç°IOå¼‚å¸¸ï¼š", e);
 				rotateToNextDomain();
 			} catch (Exception e) {
-				log.error("¿Í»§¶ËÏò·şÎñ¶Ë·¢ËÍ´¦Àí½á¹ûÊ±³öÏÖÎ´ÖªÒì³££º", e);
+				log.error("å®¢æˆ·ç«¯å‘æœåŠ¡ç«¯å‘é€å¤„ç†ç»“æœæ—¶å‡ºç°æœªçŸ¥å¼‚å¸¸ï¼š", e);
 				rotateToNextDomain();
 			} finally {
 				ackMethod.releaseConnection();
 			}
 		}
 
-		log.error("¿Í»§¶ËÏò·şÎñ¶Ë·¢ËÍ´¦Àí½á¹û³¬Ê±, ³¬Ê±Ê±¼äÎª:" + timeout + "ms");
+		log.error("å®¢æˆ·ç«¯å‘æœåŠ¡ç«¯å‘é€å¤„ç†ç»“æœè¶…æ—¶, è¶…æ—¶æ—¶é—´ä¸º:" + timeout + "ms");
 
 	}
 
@@ -1098,14 +1098,14 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	private void configureAckHttpMethod(HttpMethod httpMethod, long onceTimeOut) {
-		// ÉèÖÃappNameºÍ¿Í»§¶Ë°æ±¾
+		// è®¾ç½®appNameå’Œå®¢æˆ·ç«¯ç‰ˆæœ¬
 		if (null != this.appName) {
 			httpMethod.addRequestHeader(Constants.APPNAME, this.appName);
 		}
 		httpMethod.addRequestHeader(Constants.CLIENT_VERSION_HEADER,
 				Constants.CLIENT_VERSION);
 
-		// ÉèÖÃHttpMethodµÄ²ÎÊı
+		// è®¾ç½®HttpMethodçš„å‚æ•°
 		HttpMethodParams params = new HttpMethodParams();
 		params.setSoTimeout((int) onceTimeOut);
 
@@ -1130,7 +1130,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	/**
-	 * »ñÈ¡±¾µØ¸üĞÂÁËµÄDataID
+	 * è·å–æœ¬åœ°æ›´æ–°äº†çš„DataID
 	 * 
 	 * @return
 	 */
@@ -1155,13 +1155,13 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	// }
 
 	/**
-	 * »ñÈ¡Ì½²â¸üĞÂµÄDataIDµÄÇëÇó×Ö·û´®
+	 * è·å–æ¢æµ‹æ›´æ–°çš„DataIDçš„è¯·æ±‚å­—ç¬¦ä¸²
 	 * 
 	 * @param localModifySet
 	 * @return
 	 */
 	private String getProbeUpdateString() {
-		// »ñÈ¡checkµÄDataID:Group:MD5´®
+		// è·å–checkçš„DataID:Group:MD5ä¸²
 		StringBuilder probeModifyBuilder = new StringBuilder();
 		for (Entry<String, ConcurrentHashMap<String, CacheData>> cacheDatasEntry : this.cache
 				.entrySet()) {
@@ -1174,7 +1174,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 			for (Entry<String, CacheData> cacheDataEntry : cacheDatas
 					.entrySet()) {
 				final CacheData data = cacheDataEntry.getValue();
-				// ·ÇÊ¹ÓÃ±¾µØÅäÖÃ£¬²ÅÈ¥diamond server¼ì²é
+				// éä½¿ç”¨æœ¬åœ°é…ç½®ï¼Œæ‰å»diamond serveræ£€æŸ¥
 				if (!data.isUseLocalConfigInfo()) {
 					probeModifyBuilder.append(dataId).append(WORD_SEPARATOR);
 
@@ -1205,24 +1205,24 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	/**
-	 * ÓÉÓÚÒÔºó¿ÉÄÜ´æÔÚÔÚÒ»¸öÏß³Ì³ØÀïÍ¬Ê±ÇëÇó¶à¸öDataID¶ÔÓ¦µÄConfigInfoµÄÇé¿ö£¬Îª±ÜÃâÏà»¥Ó°Ïì£¬
-	 * Ã¿¸öDataIDµÄDomainPosÊÇ²»Ò»ÑùµÄ
+	 * ç”±äºä»¥åå¯èƒ½å­˜åœ¨åœ¨ä¸€ä¸ªçº¿ç¨‹æ± é‡ŒåŒæ—¶è¯·æ±‚å¤šä¸ªDataIDå¯¹åº”çš„ConfigInfoçš„æƒ…å†µï¼Œä¸ºé¿å…ç›¸äº’å½±å“ï¼Œ
+	 * æ¯ä¸ªDataIDçš„DomainPosæ˜¯ä¸ä¸€æ ·çš„
 	 * 
 	 * @param cacheData
 	 */
 	/*
 	 * void rotateToNextDomain(CacheData cacheData) { synchronized (cacheData) {
 	 * int domainNameCount = diamondConfigure.getDomainNameList().size(); int
-	 * index = cacheData.getDomainNamePos().incrementAndGet(); // ¸ºÊı±£»¤ if(index
+	 * index = cacheData.getDomainNamePos().incrementAndGet(); // è´Ÿæ•°ä¿æŠ¤ if(index
 	 * < 0) { index = -index; } cacheData.getDomainNamePos().set(index %
 	 * domainNameCount); if (diamondConfigure.getDomainNameList().size() > 0)
-	 * log.warn("DataID: [" + cacheData.getDataId() + "]ÂÖ»»DiamondServerÓòÃûµ½£º" +
+	 * log.warn("DataID: [" + cacheData.getDataId() + "]è½®æ¢DiamondServeråŸŸååˆ°ï¼š" +
 	 * diamondConfigure
 	 * .getDomainNameList().get(cacheData.getDomainNamePos().get())); } }
 	 */
 
 	/**
-	 * Õâ¸ö¿Ï¶¨Í¬Ê±Ö»ÓĞÒ»¸ö²éÑ¯µÄ
+	 * è¿™ä¸ªè‚¯å®šåŒæ—¶åªæœ‰ä¸€ä¸ªæŸ¥è¯¢çš„
 	 */
 	synchronized void rotateToNextDomain() {
 		int domainNameCount = diamondConfigure.getDomainNameList().size();
@@ -1231,18 +1231,18 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 			index = -index;
 		}
 		if (domainNameCount == 0) {
-			log.error("diamond·şÎñÆ÷µØÖ·ÁĞ±í³¤¶ÈÎªÁã, ÇëÁªÏµ¸ºÔğÈËÅÅ²é");
+			log.error("diamondæœåŠ¡å™¨åœ°å€åˆ—è¡¨é•¿åº¦ä¸ºé›¶, è¯·è”ç³»è´Ÿè´£äººæ’æŸ¥");
 			return;
 		}
 		domainNamePos.set(index % domainNameCount);
 		if (diamondConfigure.getDomainNameList().size() > 0)
-			log.warn("ÂÖ»»DiamondServerÓòÃûµ½£º"
+			log.warn("è½®æ¢DiamondServeråŸŸååˆ°ï¼š"
 					+ diamondConfigure.getDomainNameList().get(
 							domainNamePos.get()));
 	}
 
 	/**
-	 * »ñÈ¡²éÑ¯UriµÄString
+	 * è·å–æŸ¥è¯¢Uriçš„String
 	 * 
 	 * @param dataId
 	 * @param group
@@ -1261,7 +1261,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	/**
-	 * ÉèÖÃĞÂµÄÏûÏ¢ÂÖÑ¯¼ä¸ôÊ±¼ä
+	 * è®¾ç½®æ–°çš„æ¶ˆæ¯è½®è¯¢é—´éš”æ—¶é—´
 	 * 
 	 * @param httpMethod
 	 */
@@ -1273,13 +1273,13 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				diamondConfigure.setPollingIntervalTime(Integer
 						.parseInt(spacingIntervalHeaders[0].getValue()));
 			} catch (RuntimeException e) {
-				log.error("ÉèÖÃÏÂ´Î¼ä¸ôÊ±¼äÊ§°Ü", e);
+				log.error("è®¾ç½®ä¸‹æ¬¡é—´éš”æ—¶é—´å¤±è´¥", e);
 			}
 		}
 	}
 
 	/**
-	 * »ñÈ¡ResponseµÄÅäÖÃĞÅÏ¢
+	 * è·å–Responseçš„é…ç½®ä¿¡æ¯
 	 * 
 	 * @param httpMethod
 	 * @return
@@ -1287,7 +1287,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	String getContent(HttpMethod httpMethod) {
 		StringBuilder contentBuilder = new StringBuilder();
 		if (isZipContent(httpMethod)) {
-			// ´¦ÀíÑ¹Ëõ¹ıµÄÅäÖÃĞÅÏ¢µÄÂß¼­
+			// å¤„ç†å‹ç¼©è¿‡çš„é…ç½®ä¿¡æ¯çš„é€»è¾‘
 			InputStream is = null;
 			GZIPInputStream gzin = null;
 			InputStreamReader isr = null;
@@ -1296,7 +1296,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				is = httpMethod.getResponseBodyAsStream();
 				gzin = new GZIPInputStream(is);
 				isr = new InputStreamReader(gzin,
-						((HttpMethodBase) httpMethod).getResponseCharSet()); // ÉèÖÃ¶ÁÈ¡Á÷µÄ±àÂë¸ñÊ½£¬×Ô¶¨Òå±àÂë
+						((HttpMethodBase) httpMethod).getResponseCharSet()); // è®¾ç½®è¯»å–æµçš„ç¼–ç æ ¼å¼ï¼Œè‡ªå®šä¹‰ç¼–ç 
 				br = new BufferedReader(isr);
 				char[] buffer = new char[4096];
 				int readlen = -1;
@@ -1304,7 +1304,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 					contentBuilder.append(buffer, 0, readlen);
 				}
 			} catch (Exception e) {
-				log.error("½âÑ¹ËõÊ§°Ü", e);
+				log.error("è§£å‹ç¼©å¤±è´¥", e);
 			} finally {
 				try {
 					br.close();
@@ -1328,12 +1328,12 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 				}
 			}
 		} else {
-			// ´¦ÀíÃ»ÓĞ±»Ñ¹Ëõ¹ıµÄÅäÖÃĞÅÏ¢µÄÂß¼­
+			// å¤„ç†æ²¡æœ‰è¢«å‹ç¼©è¿‡çš„é…ç½®ä¿¡æ¯çš„é€»è¾‘
 			String content = null;
 			try {
 				content = httpMethod.getResponseBodyAsString();
 			} catch (Exception e) {
-				log.error("»ñÈ¡ÅäÖÃĞÅÏ¢Ê§°Ü", e);
+				log.error("è·å–é…ç½®ä¿¡æ¯å¤±è´¥", e);
 			}
 			if (null == content) {
 				return null;
@@ -1371,14 +1371,14 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 			modifiedDataIdsString = URLDecoder.decode(modifiedDataIdsString,
 					"UTF-8");
 		} catch (Exception e) {
-			log.error("½âÂëmodifiedDataIdsString³ö´í", e);
+			log.error("è§£ç modifiedDataIdsStringå‡ºé”™", e);
 		}
 
 		if (log.isInfoEnabled() && modifiedDataIdsString != null) {
 			if (modifiedDataIdsString.startsWith("OK")) {
-				log.debug("Ì½²âµÄ·µ»Ø½á¹û:" + modifiedDataIdsString);
+				log.debug("æ¢æµ‹çš„è¿”å›ç»“æœ:" + modifiedDataIdsString);
 			} else {
-				log.info("Ì½²âµ½Êı¾İ±ä»¯:" + modifiedDataIdsString);
+				log.info("æ¢æµ‹åˆ°æ•°æ®å˜åŒ–:" + modifiedDataIdsString);
 			}
 		}
 
@@ -1393,7 +1393,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	/**
-	 * ¼ì²âÅäÖÃĞÅÏ¢ÄÚÈİÓëMD5ÂëÊÇ·ñÒ»ÖÂ
+	 * æ£€æµ‹é…ç½®ä¿¡æ¯å†…å®¹ä¸MD5ç æ˜¯å¦ä¸€è‡´
 	 * 
 	 * @param configInfo
 	 * @param md5
@@ -1405,7 +1405,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	/**
-	 * ²é¿´ÊÇ·ñÎªÑ¹ËõµÄÄÚÈİ
+	 * æŸ¥çœ‹æ˜¯å¦ä¸ºå‹ç¼©çš„å†…å®¹
 	 * 
 	 * @param httpMethod
 	 * @return
@@ -1431,7 +1431,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 
 	public void addDataId(String dataId, String group) {
 		SimpleDateFormat formatter = new SimpleDateFormat(
-				"yyyyÄêMMÔÂddÈÕ   HH:mm:ss");
+				"yyyyå¹´MMæœˆddæ—¥   HH:mm:ss");
 		log.info("diamond client start:"
 				+ formatter.format(new Date(System.currentTimeMillis())));
 		if (null == group) {
@@ -1454,7 +1454,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 		if (null == cacheData) {
 			cacheDatas.putIfAbsent(group, new CacheData(dataId, group));
 			if (log.isInfoEnabled()) {
-				log.info("Ìí¼ÓÁËDataID[" + dataId + "]£¬ÆäGroupÎª" + group);
+				log.info("æ·»åŠ äº†DataID[" + dataId + "]ï¼Œå…¶Groupä¸º" + group);
 			}
 			this.start();
 			DiamondClientUtil.addDataId(this.clusterType, dataId + "-" + group);
@@ -1508,11 +1508,11 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 		}
 		cacheDatas.remove(group);
 
-		log.warn("É¾³ıÁËDataID[" + dataId + "]ÖĞµÄGroup: " + group);
+		log.warn("åˆ é™¤äº†DataID[" + dataId + "]ä¸­çš„Group: " + group);
 
 		if (cacheDatas.size() == 0) {
 			this.cache.remove(dataId);
-			log.warn("É¾³ıÁËDataID[" + dataId + "]");
+			log.warn("åˆ é™¤äº†DataID[" + dataId + "]");
 		}
 	}
 
@@ -1524,7 +1524,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 		if (!isRun) {
 			this.diamondConfigure = diamondConfigure;
 		} else {
-			// ÔËĞĞÖ®ºó£¬Ä³Ğ©²ÎÊıÎŞ·¨¸üĞÂ
+			// è¿è¡Œä¹‹åï¼ŒæŸäº›å‚æ•°æ— æ³•æ›´æ–°
 			copyDiamondConfigure(diamondConfigure);
 		}
 		if (!diamondConfigure.getDomainNameList().isEmpty()) {
@@ -1534,7 +1534,7 @@ class DefaultDiamondSubscriber implements DiamondSubscriber {
 	}
 
 	private void copyDiamondConfigure(DiamondConfigure diamondConfigure) {
-		// TODO ÄÄĞ©Öµ¿ÉÒÔÔÚÔËĞĞÊ±¶¯Ì¬¸üĞÂ?
+		// TODO å“ªäº›å€¼å¯ä»¥åœ¨è¿è¡Œæ—¶åŠ¨æ€æ›´æ–°?
 	}
 
 	private static String getAppName() {

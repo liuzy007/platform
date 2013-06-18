@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.sync;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.sync;
 
 import java.util.Arrays;
 import java.util.List;
@@ -6,9 +14,9 @@ import java.util.List;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 public class BizTDDLContext{
-	public BizTDDLContext(){/* ±ãÓÚËÑË÷newµÄµØ·½ */};
-	private JdbcTemplate masterJdbcTemplate; //Ö÷¿â×éµÄTDataSource¶ÔÓ¦µÄJdbcTemplate
-	private String masterColumns; //¶ººÅ·Ö¸ôµÄÖ÷¿âÁĞÃû 
+	public BizTDDLContext(){/* ä¾¿äºæœç´¢newçš„åœ°æ–¹ */};
+	private JdbcTemplate masterJdbcTemplate; //ä¸»åº“ç»„çš„TDataSourceå¯¹åº”çš„JdbcTemplate
+	private String masterColumns; //é€—å·åˆ†éš”çš„ä¸»åº“åˆ—å 
 	private List<String> uniqueKeys;
 	private SlaveInfo[] slaveInfos;
 

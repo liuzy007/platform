@@ -1,31 +1,66 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.atom.jdbc;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.atom.jdbc;
 
-import java.io.PrintWriter;import java.sql.Connection;import java.sql.SQLException;import java.util.HashMap;import java.util.Map;import java.util.concurrent.ConcurrentHashMap;import java.util.concurrent.atomic.AtomicInteger;import java.util.concurrent.locks.ReentrantLock;import javax.sql.DataSource;import org.apache.commons.logging.Log;import org.apache.commons.logging.LogFactory;import com.taobao.tddl.client.jdbc.sorter.ExceptionSorter;import com.taobao.tddl.client.jdbc.sorter.MySQLExceptionSorter;import com.taobao.tddl.client.jdbc.sorter.OracleExceptionSorter;import com.taobao.tddl.common.Monitor;import com.taobao.tddl.common.monitor.SnapshotValuesOutputCallBack;import com.taobao.tddl.common.util.CountPunisher;import com.taobao.tddl.common.util.NagiosUtils;import com.taobao.tddl.common.util.SmoothValve;import com.taobao.tddl.common.util.TimesliceFlowControl;import com.taobao.tddl.jdbc.atom.config.object.AtomDbStatusEnum;import com.taobao.tddl.jdbc.atom.config.object.AtomDbTypeEnum;import com.taobao.tddl.jdbc.atom.config.object.TAtomDsConfDO;import com.taobao.tddl.jdbc.atom.exception.AtomNotAvailableException;
+import java.io.PrintWriter;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.locks.ReentrantLock;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import com.taobao.tddl.client.jdbc.sorter.ExceptionSorter;
+import com.taobao.tddl.client.jdbc.sorter.MySQLExceptionSorter;
+import com.taobao.tddl.client.jdbc.sorter.OracleExceptionSorter;
+import com.taobao.tddl.common.Monitor;
+import com.taobao.tddl.common.monitor.SnapshotValuesOutputCallBack;
+import com.taobao.tddl.common.util.CountPunisher;
+import com.taobao.tddl.common.util.NagiosUtils;
+import com.taobao.tddl.common.util.SmoothValve;
+import com.taobao.tddl.common.util.TimesliceFlowControl;
+import com.taobao.tddl.jdbc.atom.config.object.AtomDbStatusEnum;
+import com.taobao.tddl.jdbc.atom.config.object.AtomDbTypeEnum;
+import com.taobao.tddl.jdbc.atom.config.object.TAtomDsConfDO;
+import com.taobao.tddl.jdbc.atom.exception.AtomNotAvailableException;
+
 public class TDataSourceWrapper implements DataSource,SnapshotValuesOutputCallBack{
 	private static Log logger = LogFactory.getLog(TDataSourceWrapper.class);
 	private final DataSource targetDataSource;
 	/**
-	 * µ±Ç°Ïß³ÌµÄthreadCountÖµ,Èç¹û½øĞĞÁËÇĞ»»¡£ ÄÇÃ´Ê¹ÓÃµÄÊÇ²»Í¬µÄDatasource°ü×°Àà£¬²»»áÏà»¥Ó°Ïì¡£
-	 * threadCountÊä³öÔÚÇĞ»»¹ı³ÌÖĞÔÚÄÇ¸öÊ±ºò²»ÄÜ·´Ó¦×¼È·µÄÖµ¡£
-	 * µ«ÒòÎª¾ÉµÄ±»¶ªÆúÇ°Ò²ÓĞÓÃ£¬µÈÓÚÔÚÄÚ´æÖĞÎ¬³ÖÁËÁ½·İ²»Í¬µÄTDataSourceWrapper. Òò´ËÏß³Ì¼ÆÊı²»»á¶îÍâÔö¼Ó¡£
+	 * å½“å‰çº¿ç¨‹çš„threadCountå€¼,å¦‚æœè¿›è¡Œäº†åˆ‡æ¢ã€‚ é‚£ä¹ˆä½¿ç”¨çš„æ˜¯ä¸åŒçš„DatasourceåŒ…è£…ç±»ï¼Œä¸ä¼šç›¸äº’å½±å“ã€‚
+	 * threadCountè¾“å‡ºåœ¨åˆ‡æ¢è¿‡ç¨‹ä¸­åœ¨é‚£ä¸ªæ—¶å€™ä¸èƒ½ååº”å‡†ç¡®çš„å€¼ã€‚
+	 * ä½†å› ä¸ºæ—§çš„è¢«ä¸¢å¼ƒå‰ä¹Ÿæœ‰ç”¨ï¼Œç­‰äºåœ¨å†…å­˜ä¸­ç»´æŒäº†ä¸¤ä»½ä¸åŒçš„TDataSourceWrapper. å› æ­¤çº¿ç¨‹è®¡æ•°ä¸ä¼šé¢å¤–å¢åŠ ã€‚
 	 */
-	final AtomicInteger threadCount = new AtomicInteger();//°üÈ¨ÏŞ
-	final AtomicInteger threadCountReject = new AtomicInteger();//°üÈ¨ÏŞ
-	final AtomicInteger concurrentReadCount = new AtomicInteger(); //°üÈ¨ÏŞ
-	final AtomicInteger concurrentWriteCount = new AtomicInteger(); //°üÈ¨ÏŞ
-	volatile TimesliceFlowControl writeFlowControl; //°üÈ¨ÏŞ
-	volatile TimesliceFlowControl readFlowControl; //°üÈ¨ÏŞ
+	final AtomicInteger threadCount = new AtomicInteger();//åŒ…æƒé™
+	final AtomicInteger threadCountReject = new AtomicInteger();//åŒ…æƒé™
+	final AtomicInteger concurrentReadCount = new AtomicInteger(); //åŒ…æƒé™
+	final AtomicInteger concurrentWriteCount = new AtomicInteger(); //åŒ…æƒé™
+	volatile TimesliceFlowControl writeFlowControl; //åŒ…æƒé™
+	volatile TimesliceFlowControl readFlowControl; //åŒ…æƒé™
 
 	/**
-	 * Ğ´¼ÆÊı
+	 * å†™è®¡æ•°
 	 */
-	final AtomicInteger writeTimesReject = new AtomicInteger();//°üÈ¨ÏŞ
+	final AtomicInteger writeTimesReject = new AtomicInteger();//åŒ…æƒé™
 
 	/**
-	 * ¶Á¼ÆÊı
+	 * è¯»è®¡æ•°
 	 */
-	final AtomicInteger readTimesReject = new AtomicInteger();//°üÈ¨ÏŞ
-	volatile ConnectionProperties connectionProperties = new ConnectionProperties(); //°üÈ¨ÏŞ
+	final AtomicInteger readTimesReject = new AtomicInteger();//åŒ…æƒé™
+	volatile ConnectionProperties connectionProperties = new ConnectionProperties(); //åŒ…æƒé™
 
 	protected TAtomDsConfDO runTimeConf;
 	private static final Map<String, ExceptionSorter> exceptionSorters = new HashMap<String, ExceptionSorter>(2);
@@ -34,9 +69,9 @@ public class TDataSourceWrapper implements DataSource,SnapshotValuesOutputCallBa
 		exceptionSorters.put(AtomDbTypeEnum.MYSQL.name(), new MySQLExceptionSorter());
 	}
 	private final ReentrantLock lock = new ReentrantLock();
-	//private volatile boolean isNotAvailable = false; //ÊÇ·ñ²»¿ÉÓÃ
+	//private volatile boolean isNotAvailable = false; //æ˜¯å¦ä¸å¯ç”¨
 	private volatile SmoothValve smoothValve = new SmoothValve(20);
-	private volatile CountPunisher timeOutPunisher = new CountPunisher(new SmoothValve(20), 3000, 300);//3ÃëÖÓÖ®ÄÚ³¬Ê±300´ÎÔò³Í·££¬²»¿ÉÄÜµÄ·§Öµ£¬Ïàµ±ÓÚ¹Ø±ÕÁË
+	private volatile CountPunisher timeOutPunisher = new CountPunisher(new SmoothValve(20), 3000, 300);//3ç§’é’Ÿä¹‹å†…è¶…æ—¶300æ¬¡åˆ™æƒ©ç½šï¼Œä¸å¯èƒ½çš„é˜€å€¼ï¼Œç›¸å½“äºå…³é—­äº†
 
 	private static final int default_retryBadDbInterval = 2000; //milliseconds
 	protected static int retryBadDbInterval; //milliseconds
@@ -64,21 +99,29 @@ public class TDataSourceWrapper implements DataSource,SnapshotValuesOutputCallBa
 	public static class ConnectionProperties {
 		public volatile AtomDbStatusEnum dbStatus;
 		/**
-		 * µ±Ç°Êı¾İ¿âµÄÃû×Ö
+		 * å½“å‰æ•°æ®åº“çš„åå­—
 		 */
-		public volatile String datasourceName;				//add by junyu,2012-4-17,ÈÕÖ¾Í³¼ÆÊ¹ÓÃ		public volatile String ip;				public volatile String port;				public volatile String realDbName;
+		public volatile String datasourceName;
+		
+		//add by junyu,2012-4-17,æ—¥å¿—ç»Ÿè®¡ä½¿ç”¨
+		public volatile String ip;
+		
+		public volatile String port;
+		
+		public volatile String realDbName;
+
 		/**
-		 * Ïß³ÌcountÏŞÖÆ£¬0Îª²»ÏŞÖÆ
+		 * çº¿ç¨‹counté™åˆ¶ï¼Œ0ä¸ºä¸é™åˆ¶
 		 */
 		public volatile int threadCountRestriction;
 
 		/**
-		 * ÔÊĞí²¢·¢¶ÁµÄ×î´ó¸öÊı£¬0Îª²»ÏŞÖÆ
+		 * å…è®¸å¹¶å‘è¯»çš„æœ€å¤§ä¸ªæ•°ï¼Œ0ä¸ºä¸é™åˆ¶
 		 */
 		public volatile int maxConcurrentReadRestrict;
 
 		/**
-		 * ÔÊĞí²¢·¢Ğ´µÄ×î´ó¸öÊı£¬0Îª²»ÏŞÖÆ
+		 * å…è®¸å¹¶å‘å†™çš„æœ€å¤§ä¸ªæ•°ï¼Œ0ä¸ºä¸é™åˆ¶
 		 */
 		public volatile int maxConcurrentWriteRestrict;
 	}
@@ -89,9 +132,9 @@ public class TDataSourceWrapper implements DataSource,SnapshotValuesOutputCallBa
 
 		Monitor.addSnapshotValuesCallbask(this);
 
-		this.readFlowControl = new TimesliceFlowControl("¶ÁÁ÷Á¿", runTimeConf.getTimeSliceInMillis(), runTimeConf
+		this.readFlowControl = new TimesliceFlowControl("è¯»æµé‡", runTimeConf.getTimeSliceInMillis(), runTimeConf
 				.getReadRestrictTimes());
-		this.writeFlowControl = new TimesliceFlowControl("Ğ´Á÷Á¿", runTimeConf.getTimeSliceInMillis(), runTimeConf
+		this.writeFlowControl = new TimesliceFlowControl("å†™æµé‡", runTimeConf.getTimeSliceInMillis(), runTimeConf
 				.getWriteRestrictTimes());
 
 		logger.warn("set thread count restrict " + runTimeConf.getThreadCountRestrict());
@@ -104,7 +147,7 @@ public class TDataSourceWrapper implements DataSource,SnapshotValuesOutputCallBa
 		this.connectionProperties.maxConcurrentWriteRestrict = runTimeConf.getMaxConcurrentWriteRestrict();
 	}
 
-	//°üÈ¨ÏŞ£¬¸øÏÂÓÎ¶ÔÏóµ÷ÓÃ
+	//åŒ…æƒé™ï¼Œç»™ä¸‹æ¸¸å¯¹è±¡è°ƒç”¨
 	void countTimeOut() {
 		timeOutPunisher.count();
 	}
@@ -116,7 +159,7 @@ public class TDataSourceWrapper implements DataSource,SnapshotValuesOutputCallBa
 	}
 
 	/**
-	 * ÕâÀïÖ»×öÁËtryLockÁ¬½Ó³¢ÊÔ£¬ÕæÕıµÄÂß¼­Î¯ÅÉ¸øgetConnection0
+	 * è¿™é‡Œåªåšäº†tryLockè¿æ¥å°è¯•ï¼ŒçœŸæ­£çš„é€»è¾‘å§”æ´¾ç»™getConnection0
 	 */
 	public Connection getConnection(String username, String password) throws SQLException {
 		SmoothValve valve = smoothValve;
@@ -125,25 +168,30 @@ public class TDataSourceWrapper implements DataSource,SnapshotValuesOutputCallBa
 				boolean toTry = System.currentTimeMillis() - lastRetryTime > retryBadDbInterval;
 				if (toTry && lock.tryLock()) {
 					try {
-						Connection t = this.getConnection0(username, password); //Í¬Ò»¸öÊ±¼äÖ»»áÓĞÒ»¸öÏß³Ì¼ÌĞøÊ¹ÓÃÕâ¸öÊı¾İÔ´¡£
-						valve.setAvailable(); //ÓÃÒ»¸öÏß³ÌÖØÊÔ£¬Ö´ĞĞ³É¹¦Ôò±ê¼ÇÎª¿ÉÓÃ£¬×Ô¶¯»Ö¸´
+						Connection t = this.getConnection0(username, password); //åŒä¸€ä¸ªæ—¶é—´åªä¼šæœ‰ä¸€ä¸ªçº¿ç¨‹ç»§ç»­ä½¿ç”¨è¿™ä¸ªæ•°æ®æºã€‚
+						valve.setAvailable(); //ç”¨ä¸€ä¸ªçº¿ç¨‹é‡è¯•ï¼Œæ‰§è¡ŒæˆåŠŸåˆ™æ ‡è®°ä¸ºå¯ç”¨ï¼Œè‡ªåŠ¨æ¢å¤
 						return t;
 					} finally {
 						lastRetryTime = System.currentTimeMillis();
 						lock.unlock();
 					}
 				} else {
-					throw new AtomNotAvailableException(this.runTimeConf.getDbName() + " isNotAvailable"); //ÆäËûÏß³Ìfail-fast
+					throw new AtomNotAvailableException(this.runTimeConf.getDbName() + " isNotAvailable"); //å…¶ä»–çº¿ç¨‹fail-fast
 				}
 			} else {
 				if (valve.smoothThroughOnInitial()) {
 					return this.getConnection0(username, password);
 				} else {
 					throw new AtomNotAvailableException(this.runTimeConf.getDbName()
-							+ " squeezeThrough rejected on fatal reset"); //Î´Í¨¹ı¸´Î»Ê±µÄÏŞÁ÷±£»¤
+							+ " squeezeThrough rejected on fatal reset"); //æœªé€šè¿‡å¤ä½æ—¶çš„é™æµä¿æŠ¤
 				}
 			}
-		} catch (SQLException e) {			String dbType=this.runTimeConf.getDbType();			if(dbType!=null){				dbType=dbType.toUpperCase();			}			
+		} catch (SQLException e) {
+			String dbType=this.runTimeConf.getDbType();
+			if(dbType!=null){
+				dbType=dbType.toUpperCase();
+			}
+			
 			ExceptionSorter exceptionSorter = exceptionSorters
 					.get(dbType);
 			if (exceptionSorter.isExceptionFatal(e)) {
@@ -190,29 +238,43 @@ public class TDataSourceWrapper implements DataSource,SnapshotValuesOutputCallBa
 	}
 
 	/**
-	 * ÉèÖÃ
+	 * è®¾ç½®
 	 *
 	 * @param datasourceName
 	 */
 	public synchronized void setDatasourceName(String datasourceName) {
 		this.connectionProperties.datasourceName = datasourceName;
-	}		public synchronized void setDatasourceIp(String ip) {		this.connectionProperties.ip = ip;	}		public synchronized void setDatasourcePort(String port) {		this.connectionProperties.port = port;	}		public synchronized void setDatasourceRealDbName(String realDbName) {		this.connectionProperties.realDbName = realDbName;	}
+	}
+	
+	public synchronized void setDatasourceIp(String ip) {
+		this.connectionProperties.ip = ip;
+	}
+	
+	public synchronized void setDatasourcePort(String port) {
+		this.connectionProperties.port = port;
+	}
+	
+	public synchronized void setDatasourceRealDbName(String realDbName) {
+		this.connectionProperties.realDbName = realDbName;
+	}
+
 
 	/**
-	 * ÉèÖÃÊ±¼äÆ¬£¬ÔÚÕâ¸öÊ±ºòÒªÖØĞÂÖÆ¶¨¼Æ»®¡£ bug fix : ÒÔÇ°Ã»ÓĞÖØĞÂÖÆ¶¨schedule.µ¼ÖÂÕâ¸öÉèÖÃÊÇÎŞĞ§µÄ
+	 * è®¾ç½®æ—¶é—´ç‰‡ï¼Œåœ¨è¿™ä¸ªæ—¶å€™è¦é‡æ–°åˆ¶å®šè®¡åˆ’ã€‚ bug fix : ä»¥å‰æ²¡æœ‰é‡æ–°åˆ¶å®šschedule.å¯¼è‡´è¿™ä¸ªè®¾ç½®æ˜¯æ— æ•ˆçš„
 	 *
 	 * @param timeSliceInMillis
 	 */
 	public synchronized void setTimeSliceInMillis(int timeSliceInMillis) {
 		if (timeSliceInMillis == 0) {
 			logger.warn("timeSliceInMills is 0,return ");
-		}		
-		this.readFlowControl = new TimesliceFlowControl("¶ÁÁ÷Á¿", timeSliceInMillis, runTimeConf.getReadRestrictTimes());
-		this.writeFlowControl = new TimesliceFlowControl("Ğ´Á÷Á¿", timeSliceInMillis, runTimeConf.getWriteRestrictTimes());
+		}
+		
+		this.readFlowControl = new TimesliceFlowControl("è¯»æµé‡", timeSliceInMillis, runTimeConf.getReadRestrictTimes());
+		this.writeFlowControl = new TimesliceFlowControl("å†™æµé‡", timeSliceInMillis, runTimeConf.getWriteRestrictTimes());
 	}
 
 	/* ========================================================================
-	 * ===== jdbc½Ó¿Ú·½·¨£¬¼òµ¥Î¯ÅÉ¸øtargetDataSource
+	 * ===== jdbcæ¥å£æ–¹æ³•ï¼Œç®€å•å§”æ´¾ç»™targetDataSource
 	 * ======================================================================*/
 
 	public PrintWriter getLogWriter() throws SQLException {
@@ -232,7 +294,7 @@ public class TDataSourceWrapper implements DataSource,SnapshotValuesOutputCallBa
 	}
 
 	/**
-	 * jdk1.6 ĞÂÔö½Ó¿Ú
+	 * jdk1.6 æ–°å¢æ¥å£
 	 */
 	@SuppressWarnings("unchecked")
 	public <T> T unwrap(Class<T> iface) throws SQLException {
@@ -252,25 +314,25 @@ public class TDataSourceWrapper implements DataSource,SnapshotValuesOutputCallBa
 		ConcurrentHashMap<String, Values> concurrentHashMap = new ConcurrentHashMap<String, Values>();
 		String prefix = connectionProperties.datasourceName + "_";
 
-		// Ìí¼ÓthreadCount
+		// æ·»åŠ threadCount
 		Values threadCountValues = new Values();
 		threadCountValues.value1.set(threadCount.longValue());
 		threadCountValues.value2.set(connectionProperties.threadCountRestriction);
 		concurrentHashMap.put(prefix + Key.THREAD_COUNT, threadCountValues);
 
-		//Ìí¼Ó¶ÁĞ´¾Ü¾ø´ÎÊı
+		//æ·»åŠ è¯»å†™æ‹’ç»æ¬¡æ•°
 		Values rejectCountValues = new Values();
 		rejectCountValues.value1.set(readTimesReject.longValue() + this.readFlowControl.getTotalRejectCount());
 		rejectCountValues.value2.set(writeTimesReject.longValue() + this.writeFlowControl.getTotalRejectCount());
 		concurrentHashMap.put(prefix + Key.READ_WRITE_TIMES_REJECT_COUNT, rejectCountValues);
 
-		// Ìí¼Ó¶ÁĞ´count
+		// æ·»åŠ è¯»å†™count
 		Values lastReadWriteSnapshot = new Values();
 		lastReadWriteSnapshot.value1.set(this.readFlowControl.getCurrentCount());
 		lastReadWriteSnapshot.value2.set(this.writeFlowControl.getCurrentCount());
 		concurrentHashMap.put(prefix + Key.READ_WRITE_TIMES, lastReadWriteSnapshot);
 
-		//Ìí¼Ó¶ÁĞ´²¢·¢´ÎÊı
+		//æ·»åŠ è¯»å†™å¹¶å‘æ¬¡æ•°
 		Values rwConcurrent = new Values();
 		rwConcurrent.value1.set(this.concurrentReadCount.longValue());
 		rwConcurrent.value2.set(this.concurrentWriteCount.longValue());

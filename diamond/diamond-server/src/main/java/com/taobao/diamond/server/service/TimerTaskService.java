@@ -30,7 +30,7 @@ import com.taobao.diamond.server.utils.SystemConfig;
 
 
 /**
- * ¶¨Ê±ÈÎÎñ·şÎñÆ÷
+ * å®šæ—¶ä»»åŠ¡æœåŠ¡å™¨
  * 
  * @author boyan
  * @date 2010-5-7
@@ -118,9 +118,9 @@ public class TimerTaskService {
         }
         finally {
             System.out.println("#######################################################");
-            System.out.println("############## ConfigInfo ×Ô¼ìÎÄ¼ş¿ªÊ¼Éú³É  #####################");
+            System.out.println("############## ConfigInfo è‡ªæ£€æ–‡ä»¶å¼€å§‹ç”Ÿæˆ  #####################");
             productConfigInfoCheckBatchFile(configInfos);
-            System.out.println("############## ConfigInfo ×Ô¼ìÎÄ¼şÉú³ÉÍê±Ï  #####################");
+            System.out.println("############## ConfigInfo è‡ªæ£€æ–‡ä»¶ç”Ÿæˆå®Œæ¯•  #####################");
             System.out.println("#######################################################");
         }
 
@@ -154,7 +154,7 @@ public class TimerTaskService {
         try {
             File f = new File("slf_check_urls.txt");
             fn = f.getAbsolutePath();
-            System.out.println("×Ô¼ìÎÄ¼şÂ·¾¶ :" + f.getAbsolutePath());
+            System.out.println("è‡ªæ£€æ–‡ä»¶è·¯å¾„ :" + f.getAbsolutePath());
             PrintStream out = new PrintStream(new FileOutputStream(f));
             int total = configInfos.size();
             for (ConfigInfo configInfo : configInfos) {

@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.sample.atom;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.sample.atom;
 
 import java.util.Date;
 import java.util.List;
@@ -12,13 +20,13 @@ import com.taobao.tddl.sample.util.DateUtil;
  * Comment for AtomBaseSample
  * <p/>
  * Author By: zhuoxue.yll
- * Created Date: 2012-2-29 ÏÂÎç02:26:16 
+ * Created Date: 2012-2-29 ä¸‹åˆ02:26:16 
  */
 @SuppressWarnings("rawtypes")
 public class AtomSample extends AtomSampleCase {
 
 	/**
-	 * ÔÚÖ¸¶¨µÄ±íÖĞ²åÈëÊı¾İ
+	 * åœ¨æŒ‡å®šçš„è¡¨ä¸­æ’å…¥æ•°æ®
 	 */
 	@Test
 	public void insertByPreStTest() {
@@ -31,7 +39,7 @@ public class AtomSample extends AtomSampleCase {
 	}
 
 	/**
-	 * ÔÚÖ¸¶¨µÄ±í¸üĞÂÊı¾İ
+	 * åœ¨æŒ‡å®šçš„è¡¨æ›´æ–°æ•°æ®
 	 */
 	@Test
 	public void updateByPreStTest() {
@@ -46,7 +54,7 @@ public class AtomSample extends AtomSampleCase {
 	}
 
 	/**
-	 * ÔÚÖ¸¶¨µÄ±íÉ¾³ıÊı¾İ
+	 * åœ¨æŒ‡å®šçš„è¡¨åˆ é™¤æ•°æ®
 	 */
 	@Test
 	public void queryByPreStTest() {
@@ -59,7 +67,7 @@ public class AtomSample extends AtomSampleCase {
 	}
 
 	/**
-	 * ÔÚÖ¸¶¨µÄ±í²éÑ¯Êı¾İ
+	 * åœ¨æŒ‡å®šçš„è¡¨æŸ¥è¯¢æ•°æ®
 	 */
 	@Test
 	public void deleteByPreStTest() {
@@ -74,7 +82,7 @@ public class AtomSample extends AtomSampleCase {
 	}
 
 	/**
-	 * ÔÚÖ¸¶¨µÄ±í½øĞĞreplace²Ù×÷
+	 * åœ¨æŒ‡å®šçš„è¡¨è¿›è¡Œreplaceæ“ä½œ
 	 *
 	 */
 	@Test
@@ -88,7 +96,7 @@ public class AtomSample extends AtomSampleCase {
 	}
 
 	/**
-	 * ÔÚÖ¸¶¨µÄ±íÖĞ²åÈëÊı¾İ
+	 * åœ¨æŒ‡å®šçš„è¡¨ä¸­æ’å…¥æ•°æ®
 	 */
 	@Test
 	public void insertByStTest() {
@@ -100,7 +108,7 @@ public class AtomSample extends AtomSampleCase {
 	}
 
 	/**
-	 * ÔÚÖ¸¶¨µÄ±í¸üĞÂÊı¾İ
+	 * åœ¨æŒ‡å®šçš„è¡¨æ›´æ–°æ•°æ®
 	 */
 	@Test
 	public void updateByStTest() {
@@ -114,7 +122,7 @@ public class AtomSample extends AtomSampleCase {
 	}
 
 	/**
-	 * ÔÚÖ¸¶¨µÄ±íÉ¾³ıÊı¾İ
+	 * åœ¨æŒ‡å®šçš„è¡¨åˆ é™¤æ•°æ®
 	 */
 	@Test
 	public void queryByStTest() {
@@ -125,7 +133,7 @@ public class AtomSample extends AtomSampleCase {
 	}
 
 	/**
-	 * ÔÚÖ¸¶¨µÄ±í²éÑ¯Êı¾İ
+	 * åœ¨æŒ‡å®šçš„è¡¨æŸ¥è¯¢æ•°æ®
 	 */
 	@Test
 	public void deleteByStTest() {
@@ -139,7 +147,7 @@ public class AtomSample extends AtomSampleCase {
 	}
 
 	/**
-	 * ÔÚÖ¸¶¨µÄ±í½øĞĞreplace²Ù×÷
+	 * åœ¨æŒ‡å®šçš„è¡¨è¿›è¡Œreplaceæ“ä½œ
 	 *
 	 */
 	@Test

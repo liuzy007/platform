@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.integration;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.integration;
 
 import static org.junit.Assert.*;
 
@@ -28,7 +36,7 @@ public class DataSourceIndexTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		//DBHelper.deleteAll(); //É¾³ýÈý¸ö¿âÖÐcrud±íµÄËùÓÐ¼ÇÂ¼
+		//DBHelper.deleteAll(); //åˆ é™¤ä¸‰ä¸ªåº“ä¸­crudè¡¨çš„æ‰€æœ‰è®°å½•
 	}
 	
 	@Before

@@ -1,9 +1,21 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.hintparsercommon;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.hintparsercommon;
 
-import java.util.HashMap;import java.util.Map;import com.taobao.tddl.common.util.TStringUtil;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.taobao.tddl.common.util.TStringUtil;
+
 /**
- * hint½âÎöÆ÷µÄ»ù´¡ÊµÏÖ¡£ ÎªÁË½«hintºÍÕı³£×¢ÊÍ¼ÓÒÔÇø·Ö£¬ÕâÀïÌí¼ÓÒ»¸öÌØÊâ±ê¼Ç¡°+¡±¡£ĞÎÈç:(¼ûÏÂ)
- * hint±ØĞë³öÏÖÔÚËùÓĞsqlµÄ×îÇ°Ãæ£¬Èç¹û²»ÊÇÔÚsql×îÇ°Ãæ³öÏÖ£¬Ôò²»ËãÎªtddl hint
+ * hintè§£æå™¨çš„åŸºç¡€å®ç°ã€‚ ä¸ºäº†å°†hintå’Œæ­£å¸¸æ³¨é‡ŠåŠ ä»¥åŒºåˆ†ï¼Œè¿™é‡Œæ·»åŠ ä¸€ä¸ªç‰¹æ®Šæ ‡è®°â€œ+â€ã€‚å½¢å¦‚:(è§ä¸‹)
+ * hintå¿…é¡»å‡ºç°åœ¨æ‰€æœ‰sqlçš„æœ€å‰é¢ï¼Œå¦‚æœä¸æ˜¯åœ¨sqlæœ€å‰é¢å‡ºç°ï¼Œåˆ™ä¸ç®—ä¸ºtddl hint
  * 
  * @author whisper
  * 
@@ -11,16 +23,16 @@ import java.util.HashMap;import java.util.Map;import com.taobao.tddl.common.u
 /* + hint1=value;hint2=value;hint3=value */
 public class TDDLHintParser {
 	/**
-	 * ½«Ò»¶Îtddl×¢ÊÍ½âÎöÎªÒ»¸östring map. ²ÎÊıÈçÏÂÃæµÄÀı×Ó:£¨ÒòÎª×¢ÊÍµÄÎÊÌâ£¬Ö±½ÓĞ´ÔÚ·½·¨ÉÏÃæµÄÀı×ÓÉÏÁË)
+	 * å°†ä¸€æ®µtddlæ³¨é‡Šè§£æä¸ºä¸€ä¸ªstring map. å‚æ•°å¦‚ä¸‹é¢çš„ä¾‹å­:ï¼ˆå› ä¸ºæ³¨é‡Šçš„é—®é¢˜ï¼Œç›´æ¥å†™åœ¨æ–¹æ³•ä¸Šé¢çš„ä¾‹å­ä¸Šäº†)
 	 * 
 	 * @param sql
 	 * @return
 	 */
 	/* + hint1:value;hint2:value;hint3:value */
 	public static Map<String, String> parseHint(String sqlHint) {
-		//°şÀë×¢ÊÍÖĞµÄ/*+ºÍ*/
+		//å‰¥ç¦»æ³¨é‡Šä¸­çš„/*+å’Œ*/
 		sqlHint = TStringUtil.substringBetween(sqlHint, "/*+", "*/");
-		//ÕâÀïÊ¹ÓÃStringUtil´øÀ´µÄ¸±×÷ÓÃÊÇÈç¹ûÓĞ sql = xx ;; b = uu ;ÔòÖĞ¼äµÄÁ½¸ö·Ö¸î;;»á±»Ê¶±ğÎªÒ»¸ö£¬µ«¿ÉÒÔ½ÓÊÜ
+		//è¿™é‡Œä½¿ç”¨StringUtilå¸¦æ¥çš„å‰¯ä½œç”¨æ˜¯å¦‚æœæœ‰ sql = xx ;; b = uu ;åˆ™ä¸­é—´çš„ä¸¤ä¸ªåˆ†å‰²;;ä¼šè¢«è¯†åˆ«ä¸ºä¸€ä¸ªï¼Œä½†å¯ä»¥æ¥å—
 		String[] hints = TStringUtil.splitm(sqlHint,";");
 		Map<String, String> hintMap = new HashMap<String, String>(hints.length);
 		for(String hint : hints){
@@ -29,7 +41,7 @@ public class TDDLHintParser {
 			}else{
 				String[] pair = TStringUtil.splitm(hint,":");
 				if(pair.length != 2){
-					throw new IllegalArgumentException("²ÎÊı¸öÊı´íÎó£¬¼üÖµ¶Ô²»Îª2;"+hint);
+					throw new IllegalArgumentException("å‚æ•°ä¸ªæ•°é”™è¯¯ï¼Œé”®å€¼å¯¹ä¸ä¸º2;"+hint);
 				}
 				String key = pair[0];
 				key = key.trim();
@@ -41,7 +53,7 @@ public class TDDLHintParser {
 		return hintMap;
 	}
 	/**
-	 * ÓÃÓÚÅĞ¶ÏÊÇ·ñ°üº¬TDDL hint
+	 * ç”¨äºåˆ¤æ–­æ˜¯å¦åŒ…å«TDDL hint
 	 * @param sql
 	 * @return
 	 */
@@ -53,10 +65,10 @@ public class TDDLHintParser {
 	}
 	
 	 /**
-     * È¡µÃÁ½¸ö·Ö¸ô·ûÖ®¼äµÄ×Ó´®¡£
+     * å–å¾—ä¸¤ä¸ªåˆ†éš”ç¬¦ä¹‹é—´çš„å­ä¸²ã€‚
      * 
      * <p>
-     * Èç¹û×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£ Èç¹û·Ö¸ô×Ó´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£
+     * å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚ å¦‚æœåˆ†éš”å­ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚
      * <pre>
      * StringUtil.substringBetween(null, *, *)          = null
      * StringUtil.substringBetween("", "", "")          = ""
@@ -69,17 +81,17 @@ public class TDDLHintParser {
      * </pre>
      * </p>
      *
-     * @param str ×Ö·û´®
-     * @param open ÒªËÑË÷µÄ·Ö¸ô×Ó´®1
-     * @param close ÒªËÑË÷µÄ·Ö¸ô×Ó´®2
+     * @param str å­—ç¬¦ä¸²
+     * @param open è¦æœç´¢çš„åˆ†éš”å­ä¸²1
+     * @param close è¦æœç´¢çš„åˆ†éš”å­ä¸²2
      *
-     * @return ×Ó´®£¬Èç¹ûÔ­Ê¼´®Îª<code>null</code>»òÎ´ÕÒµ½·Ö¸ô×Ó´®£¬Ôò·µ»Ø<code>null</code>
+     * @return å­ä¸²ï¼Œå¦‚æœåŸå§‹ä¸²ä¸º<code>null</code>æˆ–æœªæ‰¾åˆ°åˆ†éš”å­ä¸²ï¼Œåˆ™è¿”å›<code>null</code>
      */
 	 static String substringBetween(String str, String open, String close) {
 		return substringBetween(str, open, close, 0);
 	}
 	/**
-	 * ½«sqlÖĞµÄhintÉ¾³ıµô¡£
+	 * å°†sqlä¸­çš„hintåˆ é™¤æ‰ã€‚
 	 * 
 	 * @param sql
 	 * @return
@@ -87,7 +99,7 @@ public class TDDLHintParser {
 	public static String removeHint(String sql){
 		if(containTDDLHint(sql)){
 			int index = sql.indexOf("*/");
-			//¼ÓÉÏ*/µÄÁ½¸ö×Ö·û
+			//åŠ ä¸Š*/çš„ä¸¤ä¸ªå­—ç¬¦
 			return sql.substring(index+2);
 		}
 		return sql;
@@ -102,10 +114,10 @@ public class TDDLHintParser {
 //		System.out.println(removeHint(s));
 	}
 	/**
-     * È¡µÃÁ½¸ö·Ö¸ô·ûÖ®¼äµÄ×Ó´®¡£
+     * å–å¾—ä¸¤ä¸ªåˆ†éš”ç¬¦ä¹‹é—´çš„å­ä¸²ã€‚
      * 
      * <p>
-     * Èç¹û×Ö·û´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£ Èç¹û·Ö¸ô×Ó´®Îª<code>null</code>£¬Ôò·µ»Ø<code>null</code>¡£
+     * å¦‚æœå­—ç¬¦ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚ å¦‚æœåˆ†éš”å­ä¸²ä¸º<code>null</code>ï¼Œåˆ™è¿”å›<code>null</code>ã€‚
      * <pre>
      * StringUtil.substringBetween(null, *, *)          = null
      * StringUtil.substringBetween("", "", "")          = ""
@@ -118,13 +130,13 @@ public class TDDLHintParser {
      * </pre>
      * </p>
      *
-     * @param str ×Ö·û´®
-     * @param open ÒªËÑË÷µÄ·Ö¸ô×Ó´®1
-     * @param close ÒªËÑË÷µÄ·Ö¸ô×Ó´®2
-     * @param fromIndex ´ÓÖ¸¶¨index´¦ËÑË÷
+     * @param str å­—ç¬¦ä¸²
+     * @param open è¦æœç´¢çš„åˆ†éš”å­ä¸²1
+     * @param close è¦æœç´¢çš„åˆ†éš”å­ä¸²2
+     * @param fromIndex ä»æŒ‡å®šindexå¤„æœç´¢
      *
-     * @return ×Ó´®£¬Èç¹ûÔ­Ê¼´®Îª<code>null</code>»òÎ´ÕÒµ½·Ö¸ô×Ó´®£¬Ôò·µ»Ø<code>null</code>
-     * @throws IllegalArgumentException Èç¹ûÃ»ÓĞÕÒµ½open±êÇ©»òÕßclose±êÇ©
+     * @return å­ä¸²ï¼Œå¦‚æœåŸå§‹ä¸²ä¸º<code>null</code>æˆ–æœªæ‰¾åˆ°åˆ†éš”å­ä¸²ï¼Œåˆ™è¿”å›<code>null</code>
+     * @throws IllegalArgumentException å¦‚æœæ²¡æœ‰æ‰¾åˆ°openæ ‡ç­¾æˆ–è€…closeæ ‡ç­¾
      */
 	private static String substringBetween(String str, String open,
 			String close, int fromIndex) {

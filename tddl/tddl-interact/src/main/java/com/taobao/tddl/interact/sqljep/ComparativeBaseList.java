@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.sqljep;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.sqljep;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -8,9 +16,9 @@ import java.util.Map;
 import com.taobao.tddl.common.sqlobjecttree.SQLFragment;
 
 /**
- * Comparative List,×÷ÓÃÊÇ³ÖÓĞ¶à¸öComparative
+ * Comparative List,ä½œç”¨æ˜¯æŒæœ‰å¤šä¸ªComparative
  * 
- * ÊÇ¶Ôand ½ÚµãºÍor½ÚµãµÄÒ»ÖÖ¹«¹²³éÏó¡£
+ * æ˜¯å¯¹and èŠ‚ç‚¹å’ŒorèŠ‚ç‚¹çš„ä¸€ç§å…¬å…±æŠ½è±¡ã€‚
  * 
  * @author shenxun
  *

@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	//package com.taobao.tddl.common.dbroute;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+//package com.taobao.tddl.common.dbroute;
 //
 //import java.io.Serializable;
 //
@@ -53,7 +61,7 @@
 //	}
 //	
 //	/**
-//	 * @deprecated ¸Ã×Ö¶ÎÒÑ¾­·ÏÆú¡£Çë²»ÒªÊ¹ÓÃ¡£
+//	 * @deprecated è¯¥å­—æ®µå·²ç»åºŸå¼ƒã€‚è¯·ä¸è¦ä½¿ç”¨ã€‚
 //	 * @param id
 //	 * @return
 //	 */
@@ -71,11 +79,11 @@
 //	}
 //
 //	/**
-//	 * ¸ù¾İuserid»ñÈ¡DBRoute("db1" || "db2"), ²¢ÇÒ¸ù¾İuseridµÄµÚÒ»¸ö×Ö·ûÉèÖÃºÃxid
-//	 * ¿ÉÒÔÓÃSqlMapBaseDAOSupport.getDBRouteManager.getTemplates(dr, sqlid)À´»ñÈ¡
+//	 * æ ¹æ®useridè·å–DBRoute("db1" || "db2"), å¹¶ä¸”æ ¹æ®useridçš„ç¬¬ä¸€ä¸ªå­—ç¬¦è®¾ç½®å¥½xid
+//	 * å¯ä»¥ç”¨SqlMapBaseDAOSupport.getDBRouteManager.getTemplates(dr, sqlid)æ¥è·å–
 //	 * 
 //	 * @param userid
-//	 * @return Ä¬ÈÏnull
+//	 * @return é»˜è®¤null
 //	 */
 //	public static final DBRoute getDBRouteWithXidByUserid(String userid) {
 //		if (null == userid || 32 != userid.trim().length()) {
@@ -119,7 +127,7 @@
 //	}
 //
 //	/**
-//	 * @deprecated ¸Ã×Ö¶ÎÒÑ¾­·ÏÆú¡£Çë²»ÒªÊ¹ÓÃ¡£
+//	 * @deprecated è¯¥å­—æ®µå·²ç»åºŸå¼ƒã€‚è¯·ä¸è¦ä½¿ç”¨ã€‚
 //	 * @return Returns the userId.
 //	 */
 //	@Deprecated
@@ -131,7 +139,7 @@
 //		return userIDL;
 //	}
 //	/**
-//	 * @deprecated ¸Ã×Ö¶ÎÒÑ¾­·ÏÆú¡£Çë²»ÒªÊ¹ÓÃ¡£
+//	 * @deprecated è¯¥å­—æ®µå·²ç»åºŸå¼ƒã€‚è¯·ä¸è¦ä½¿ç”¨ã€‚
 //	 * @param userId
 //	 *            The userId to set.
 //	 */
@@ -141,13 +149,13 @@
 //		routingStrategy = BY_USER;
 //	}
 //	/**
-//	 * @param userId Ô¼¶¨Îª±ØĞë>=0²Å¿ÉÒÔÕı³£Ê¹ÓÃ
-//	 * @exception RuntimeException Èç¹ûÊäÈëµÄÖµ<0£»
+//	 * @param userId çº¦å®šä¸ºå¿…é¡»>=0æ‰å¯ä»¥æ­£å¸¸ä½¿ç”¨
+//	 * @exception RuntimeException å¦‚æœè¾“å…¥çš„å€¼<0ï¼›
 //	 *            The userId to set.
 //	 */
 //	public void setUserId(long userId) {
 //		if(userId<0){
-//			throw new RuntimeException("long ĞÍuserID²»ÄÜĞ¡ÓÚ0");
+//			throw new RuntimeException("long å‹userIDä¸èƒ½å°äº0");
 //		}
 //		this.userIDL = userId;
 //		routingStrategy = BY_USER_LONG;

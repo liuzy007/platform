@@ -96,7 +96,7 @@ public class ConfigServiceUnitTest {
 		assertEquals(MD5.getInstance().getMD5String("hello world"), md5);
 		this.mocksControl.verify();
 
-		// ²»Í¨¹ıÊı¾İ¿â¸üĞÂ
+		// ä¸é€šè¿‡æ•°æ®åº“æ›´æ–°
 		this.configService.updateMD5Cache(new ConfigInfo("dataId", "group",
 				"boyan@taobao.com"));
 		md5 = this.configService.getContentMD5("dataId", "group");
@@ -120,7 +120,7 @@ public class ConfigServiceUnitTest {
 			file = new File(path + "/" + "config-data/group1/dataId1");
 			assertFalse(file.exists());
 
-			// ²åÈëÊı¾İ£¬È»ºó¸üĞÂ£¬²é¿´Êı¾İ¿âºÍÎÄ¼şÊÇ·ñ¶¼±»¸üĞÂ
+			// æ’å…¥æ•°æ®ï¼Œç„¶åæ›´æ–°ï¼ŒæŸ¥çœ‹æ•°æ®åº“å’Œæ–‡ä»¶æ˜¯å¦éƒ½è¢«æ›´æ–°
 			ConfigInfo configInfo = new ConfigInfo("dataId1", "group1",
 					"just a test");
 			mockServletContext("dataId1", "group1", "just a test");
@@ -140,7 +140,7 @@ public class ConfigServiceUnitTest {
 			assertEquals("just a test", line);
 			reader.close();
 
-			// ¸üĞÂ
+			// æ›´æ–°
 			configInfo.setContent("new content");
 			configInfo.setMd5(MD5.getInstance().getMD5String("new content"));
 			this.configService.updateConfigInfo(configInfo.getDataId(),
@@ -159,7 +159,7 @@ public class ConfigServiceUnitTest {
 			assertEquals("new content", line);
 			reader.close();
 
-			// É¾³ı
+			// åˆ é™¤
 			this.configService.removeConfigInfo("dataId1", "group1");
 			assertNull(this.configService.findConfigInfo("dataId1", "group1"));
 			assertNull(this.configService.getContentMD5("dataId1", "group1"));
@@ -209,7 +209,7 @@ public class ConfigServiceUnitTest {
 		assertEquals("hello world", line);
 		reader.close();
 
-		// É¾³ıÊı¾İ¿âÔÙ¼ÓÔØ£¬Ó¦¸ÃÉ¾³ıÎÄ¼ş
+		// åˆ é™¤æ•°æ®åº“å†åŠ è½½ï¼Œåº”è¯¥åˆ é™¤æ–‡ä»¶
 		this.persistService.removeConfigInfo("dataId1", "group1");
 		this.configService.loadConfigInfoToDisk("dataId1", "group1");
 		file = new File(path + "/" + "config-data/group1/dataId1");

@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.datasource;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.datasource;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -7,7 +15,7 @@ import java.sql.SQLException;
 import javax.sql.DataSource;
 
 /**
- * TaobaoDataSourceµÄ³éÏóÀà£¬½«javax.sql.DataSourceÖÐµÄ·½·¨¼¯ÖÐµ½Ò»Æð
+ * TaobaoDataSourceçš„æŠ½è±¡ç±»ï¼Œå°†javax.sql.DataSourceä¸­çš„æ–¹æ³•é›†ä¸­åˆ°ä¸€èµ·
  * 
  * @author qihao
  * 

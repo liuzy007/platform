@@ -11,7 +11,7 @@ package com.taobao.diamond.client.impl;
 
 
 /**
- * ÂÖÑ¯ÀàĞÍ, ÓĞÂÖÑ¯±¾µØÅäÖÃ, ÂÖÑ¯diamond serverÅäÖÃ, ÂÖÑ¯±¾µØsnapshotÅäÖÃÈıÖÖÀàĞÍ
+ * è½®è¯¢ç±»å‹, æœ‰è½®è¯¢æœ¬åœ°é…ç½®, è½®è¯¢diamond serveré…ç½®, è½®è¯¢æœ¬åœ°snapshoté…ç½®ä¸‰ç§ç±»å‹
  * @author leiwen.zh
  *
  */

@@ -35,11 +35,11 @@ public class AppNameUtils {
     public static String getAppName(String[] excludes) {
         String[] appNames = getAllAppNames(excludes);
         if (appNames == null || appNames.length == 0) {
-            log.error("Ã»ÕÒµ½ÈÎºÎºó×ºÃûÎª¡°.ear¡±¡¢¡°.spring¡±»ò¡°.war¡±µÄ°ü");
+            log.error("æ²¡æ‰¾åˆ°ä»»ä½•åç¼€åä¸ºâ€œ.earâ€ã€â€œ.springâ€æˆ–â€œ.warâ€çš„åŒ…");
             return null;
         }
         if (appNames.length > 1) {
-            log.warn("ÕÒµ½³¬¹ıÒ»¸öºó×ºÃûÎª¡°.ear¡±¡¢¡°.spring¡±»ò¡°.war¡±µÄ°ü" + Arrays.toString(appNames) + "£¬·µ»ØµÚÒ»¸ö");
+            log.warn("æ‰¾åˆ°è¶…è¿‡ä¸€ä¸ªåç¼€åä¸ºâ€œ.earâ€ã€â€œ.springâ€æˆ–â€œ.warâ€çš„åŒ…" + Arrays.toString(appNames) + "ï¼Œè¿”å›ç¬¬ä¸€ä¸ª");
         }
         return appNames[0];
     }

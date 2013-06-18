@@ -65,7 +65,7 @@ public class LocalConfigInfoProcessor {
             }
         }
         catch (Exception e) {
-            throw new RuntimeException("»ñÈ¡Ö÷»úµØÖ·Ê§°Ü", e);
+            throw new RuntimeException("è·å–ä¸»æœºåœ°å€å¤±è´¥", e);
         }
         return address;
     }
@@ -82,7 +82,7 @@ public class LocalConfigInfoProcessor {
     boolean isQualified(String dataId, String group) {
         Map<String, String> map2 = localMap.get(this.localAddress);
         if (null == map2) {
-            throw new RuntimeException("ÑéÖ¤±¾µØÅäÖÃĞÅÏ¢ÎÄ¼ş×ÊÖÊ´íÎó");
+            throw new RuntimeException("éªŒè¯æœ¬åœ°é…ç½®ä¿¡æ¯æ–‡ä»¶èµ„è´¨é”™è¯¯");
         }
         String qualifiedGroup = map2.get(dataId);
         if (group.equals(qualifiedGroup)) {
@@ -93,11 +93,11 @@ public class LocalConfigInfoProcessor {
 
 
     /**
-     * »ñÈ¡±¾µØÅäÖÃ
+     * è·å–æœ¬åœ°é…ç½®
      * 
      * @param cacheData
      * @param force
-     *            Ç¿ÖÆ»ñÈ¡£¬ÔÚÃ»ÓĞ±ä¸üµÄÊ±ºò²»·µ»Ønull
+     *            å¼ºåˆ¶è·å–ï¼Œåœ¨æ²¡æœ‰å˜æ›´çš„æ—¶å€™ä¸è¿”å›null
      * @return
      * @throws IOException
      */
@@ -125,12 +125,12 @@ public class LocalConfigInfoProcessor {
             return null;
         }
         if (force) {
-        	log.info("Ö÷¶¯´Ó±¾µØ»ñÈ¡ÅäÖÃÊı¾İ, dataId:" + cacheData.getDataId() + ", group:" + cacheData.getGroup());
+        	log.info("ä¸»åŠ¨ä»æœ¬åœ°è·å–é…ç½®æ•°æ®, dataId:" + cacheData.getDataId() + ", group:" + cacheData.getGroup());
         	
             String content = FileUtils.getFileContent(filePath);
             return content;
         }
-        // ÅĞ¶ÏÊÇ·ñ±ä¸ü£¬Ã»ÓĞ±ä¸ü£¬·µ»Ønull
+        // åˆ¤æ–­æ˜¯å¦å˜æ›´ï¼Œæ²¡æœ‰å˜æ›´ï¼Œè¿”å›null
         if (!filePath.equals(cacheData.getLocalConfigInfoFile())
                 || existFiles.get(filePath) != cacheData.getLocalConfigInfoVersion()) {
             String content = FileUtils.getFileContent(filePath);
@@ -139,7 +139,7 @@ public class LocalConfigInfoProcessor {
             cacheData.setUseLocalConfigInfo(true);
             
             if (log.isInfoEnabled()) {
-                log.info("±¾µØÅäÖÃÊı¾İ·¢Éú±ä»¯, dataId:" + cacheData.getDataId() + ", group:" + cacheData.getGroup());
+                log.info("æœ¬åœ°é…ç½®æ•°æ®å‘ç”Ÿå˜åŒ–, dataId:" + cacheData.getDataId() + ", group:" + cacheData.getGroup());
             }
             
             return content;
@@ -148,7 +148,7 @@ public class LocalConfigInfoProcessor {
             cacheData.setUseLocalConfigInfo(true);
             
             if (log.isInfoEnabled()) {
-            	log.debug("±¾µØÅäÖÃÊı¾İÃ»ÓĞ·¢Éú±ä»¯, dataId:" + cacheData.getDataId() + ", group:" + cacheData.getGroup());
+            	log.debug("æœ¬åœ°é…ç½®æ•°æ®æ²¡æœ‰å‘ç”Ÿå˜åŒ–, dataId:" + cacheData.getDataId() + ", group:" + cacheData.getGroup());
             }
             
             return null;
@@ -245,17 +245,17 @@ public class LocalConfigInfoProcessor {
         final WatchService watcher = FileSystem.getDefault().newWatchService();
 
         Path path = new Path(new File(filePath));
-        // ×¢²áÊÂ¼ş
+        // æ³¨å†Œäº‹ä»¶
         watcher.register(path, true, StandardWatchEventKind.ENTRY_CREATE, StandardWatchEventKind.ENTRY_DELETE,
             StandardWatchEventKind.ENTRY_MODIFY);
-        // µÚÒ»´ÎÔËĞĞ£¬Ö÷¶¯check
+        // ç¬¬ä¸€æ¬¡è¿è¡Œï¼Œä¸»åŠ¨check
         checkAtFirst(watcher);
         singleExecutor.execute(new Runnable() {
             public void run() {
-                log.debug(">>>>>>ÒÑ¾­¿ªÊ¼¼à¿ØÄ¿Â¼<<<<<<");
-                // ÎŞÏŞÑ­»·µÈ´ıÊÂ¼ş
+                log.debug(">>>>>>å·²ç»å¼€å§‹ç›‘æ§ç›®å½•<<<<<<");
+                // æ— é™å¾ªç¯ç­‰å¾…äº‹ä»¶
                 while (isRun) {
-                    // Æ¾Ö¤
+                    // å‡­è¯
                     WatchKey key;
                     try {
                         key = watcher.take();
@@ -263,13 +263,13 @@ public class LocalConfigInfoProcessor {
                     catch (InterruptedException x) {
                         continue;
                     }
-                    // reset£¬Èç¹ûÎŞĞ§£¬Ìø³öÑ­»·,ÎŞĞ§¿ÉÄÜÊÇ¼àÌıµÄÄ¿Â¼±»É¾³ı
+                    // resetï¼Œå¦‚æœæ— æ•ˆï¼Œè·³å‡ºå¾ªç¯,æ— æ•ˆå¯èƒ½æ˜¯ç›‘å¬çš„ç›®å½•è¢«åˆ é™¤
                     if (!processEvents(key)) {
-                        log.error("reset unvalid,¼à¿Ø·şÎñÊ§Ğ§");
+                        log.error("reset unvalid,ç›‘æ§æœåŠ¡å¤±æ•ˆ");
                         break;
                     }
                 }
-                log.debug(">>>>>>ÍË³ö¼à¿ØÄ¿Â¼<<<<<<");
+                log.debug(">>>>>>é€€å‡ºç›‘æ§ç›®å½•<<<<<<");
                 watcher.close();
 
             }
@@ -288,7 +288,7 @@ public class LocalConfigInfoProcessor {
 
 
     /**
-     * ´¦Àí´¥·¢µÄÊÂ¼ş
+     * å¤„ç†è§¦å‘çš„äº‹ä»¶
      * 
      * @param key
      * @return
@@ -296,13 +296,13 @@ public class LocalConfigInfoProcessor {
     @SuppressWarnings( { "unchecked" })
     private boolean processEvents(WatchKey key) {
         /**
-         * »ñÈ¡ÊÂ¼ş¼¯ºÏ
+         * è·å–äº‹ä»¶é›†åˆ
          */
         for (WatchEvent<?> event : key.pollEvents()) {
-            // ÊÂ¼şµÄÀàĞÍ
+            // äº‹ä»¶çš„ç±»å‹
             // WatchEvent.Kind<?> kind = event.kind();
 
-            // Í¨¹ıcontext·½·¨µÃµ½·¢ÉúÊÂ¼şµÄpath
+            // é€šè¿‡contextæ–¹æ³•å¾—åˆ°å‘ç”Ÿäº‹ä»¶çš„path
             WatchEvent<Path> ev = (WatchEvent<Path>) event;
             Path eventPath = ev.context();
 
@@ -323,23 +323,23 @@ public class LocalConfigInfoProcessor {
                                     .getFileContent(realPath), Map.class);
                     }
                     catch (Exception e) {
-                        log.error("JSON·´ĞòÁĞ»¯Ê§°Ü" + realPath, e);
+                        log.error("JSONååºåˆ—åŒ–å¤±è´¥" + realPath, e);
                         localMap = null;
                         continue;
                     }
                     if (log.isInfoEnabled()) {
-                        log.info(Constants.MAP_FILE + "ÎÄ¼ş¸Ä±ä");
-                        log.info("MapFile¹ØÓÚ±¾»úµÄ²¿·ÖÎª£º" + localMap.get(localAddress));
+                        log.info(Constants.MAP_FILE + "æ–‡ä»¶æ”¹å˜");
+                        log.info("MapFileå…³äºæœ¬æœºçš„éƒ¨åˆ†ä¸ºï¼š" + localMap.get(localAddress));
                     }
                 }
                 else {
                     if (!Constants.BASE_DIR.equals(grandpaDir)) {
-                        log.error("ÎŞĞ§µÄÎÄ¼ş½øÈë¼à¿ØÄ¿Â¼: " + realPath);
+                        log.error("æ— æ•ˆçš„æ–‡ä»¶è¿›å…¥ç›‘æ§ç›®å½•: " + realPath);
                         continue;
                     }
                     existFiles.put(realPath, System.currentTimeMillis());
                     if (log.isInfoEnabled()) {
-                        log.info(realPath + "ÎÄ¼ş±»Ìí¼Ó»ò¸üĞÂ");
+                        log.info(realPath + "æ–‡ä»¶è¢«æ·»åŠ æˆ–æ›´æ–°");
                     }
                 }
             }
@@ -353,29 +353,29 @@ public class LocalConfigInfoProcessor {
                 }
                 if (!Constants.BASE_DIR.equals(grandpaDir) && Constants.MAP_FILE.equals(eventPath.getName())) {
                     /**
-                     * µ±Constants.MAP_FILEÎÄ¼ş±»É¾³ıÊ±£¬É¾³ılocalMapµÄÓ³ÉäÎÄ¼ş,
+                     * å½“Constants.MAP_FILEæ–‡ä»¶è¢«åˆ é™¤æ—¶ï¼Œåˆ é™¤localMapçš„æ˜ å°„æ–‡ä»¶,
                      */
                     localMap = null;
                     if (log.isInfoEnabled()) {
-                        log.info(Constants.MAP_FILE + "ÎÄ¼ş±»É¾³ı");
+                        log.info(Constants.MAP_FILE + "æ–‡ä»¶è¢«åˆ é™¤");
                     }
                 }
                 else {
                     if (Constants.BASE_DIR.equals(grandpaDir)) {
-                        // É¾³ıµÄÊÇÎÄ¼ş
+                        // åˆ é™¤çš„æ˜¯æ–‡ä»¶
                         existFiles.remove(realPath);
                         if (log.isInfoEnabled()) {
-                            log.info(realPath + "ÎÄ¼ş±»±»É¾³ı");
+                            log.info(realPath + "æ–‡ä»¶è¢«è¢«åˆ é™¤");
                         }
                     }
                     else {
-                        // É¾³ıµÄÊÇÄ¿Â¼
+                        // åˆ é™¤çš„æ˜¯ç›®å½•
                         Set<String> keySet = new HashSet<String>(existFiles.keySet());
                         for (String filePath : keySet) {
                             if (filePath.startsWith(realPath)) {
                                 existFiles.remove(filePath);
                                 if (log.isInfoEnabled()) {
-                                    log.info(filePath + "ÎÄ¼ş±»É¾³ı");
+                                    log.info(filePath + "æ–‡ä»¶è¢«åˆ é™¤");
                                 }
                             }
                         }

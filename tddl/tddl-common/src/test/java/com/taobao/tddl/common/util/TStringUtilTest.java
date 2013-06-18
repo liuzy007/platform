@@ -1,9 +1,17 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.util;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.util;
 
 import org.junit.Test;
 
 /**
- * ¸÷ÖÖ²»Í¬ÊµÏÖµÄ±È½Ï²âÊÔ
+ * å„ç§ä¸åŒå®ç°çš„æ¯”è¾ƒæµ‹è¯•
  * 
  * @author linxuan
  *
@@ -18,7 +26,7 @@ public class TStringUtilTest {
 		int sz = str.length();
 		StringBuilder buffer = new StringBuilder(sz);
 
-		boolean isLastWhitespace = true; // È¥³ı¶àÓà¿Õ¸ñ
+		boolean isLastWhitespace = true; // å»é™¤å¤šä½™ç©ºæ ¼
 		for (int i = 0; i < sz; i++) {
 			if (!Character.isWhitespace(str.charAt(i))) {
 				buffer.append(str.charAt(i));
@@ -42,7 +50,7 @@ public class TStringUtilTest {
 		int sz = str.length();
 		StringBuilder buffer = new StringBuilder(sz);
 
-		boolean isLastWhitespace = true; // È¥³ı¶àÓà¿Õ¸ñ
+		boolean isLastWhitespace = true; // å»é™¤å¤šä½™ç©ºæ ¼
 		for (int i = 0; i < sz; i++) {
 			char c = str.charAt(i);
 			if (!Character.isWhitespace(c)) {
@@ -84,7 +92,7 @@ public class TStringUtilTest {
 
 			} else {
 				if (index0 == -1) {
-					index0 = index1 = i; //µÚÒ»¸ö¿Õ°×
+					index0 = index1 = i; //ç¬¬ä¸€ä¸ªç©ºç™½
 				} else {
 					index1 = i;
 				}
@@ -109,7 +117,7 @@ public class TStringUtilTest {
 
 	@Test
 	public void testFillTabWithSpace() {
-		if (true) { //ĞèÒª²âÊÔÊ±²Å´ò¿ª
+		if (true) { //éœ€è¦æµ‹è¯•æ—¶æ‰æ‰“å¼€
 			return;
 		}
 		String sql = "   select sum(rate)      from                                                                          feed_receive_0117                                                            t             where       RATED_UID=?     and RATER_UID=?     and suspended=0 and validscore=1      and rater_type=?     and trade_closingdate>=?     and trade_closingdate<?     and id<>?        and (IFNULL(IMPORT_FROM, 0)&8) = 0        #@#mysql_feel_01#@#EXECUTE_A_SQL_TIMEOUT#@#1#@#484#@#484#@#484";

@@ -110,9 +110,9 @@ public class PersistServiceUnitTest {
 		this.persistService.removeConfigInfo("test-dataId3", "test-group3");
 		configInfoFromDB = this.persistService.findConfigInfo("test-dataId3",
 				"test-group3");
-		assertNull(configInfoFromDB);// ÒÑ¾­±»É¾³ı
+		assertNull(configInfoFromDB);// å·²ç»è¢«åˆ é™¤
 
-		// ²âÊÔ¸ù¾İidÉ¾³ı
+		// æµ‹è¯•æ ¹æ®idåˆ é™¤
 		configInfo = new ConfigInfo("test-dataId3", "test-group3",
 				"test content");
 		this.persistService.addConfigInfo(this.getCurrentTime(), configInfo);
@@ -122,11 +122,11 @@ public class PersistServiceUnitTest {
 		this.persistService.removeConfigInfoByID(configInfoFromDB.getId());
 		configInfoFromDB = this.persistService.findConfigInfo("test-dataId3",
 				"test-group3");
-		assertNull(configInfoFromDB);// ÒÑ¾­±»É¾³ı
+		assertNull(configInfoFromDB);// å·²ç»è¢«åˆ é™¤
 	}
 
 	@Test
-	public void testRemoveConfigInfo_²»´æÔÚµÄ¼ÇÂ¼() {
+	public void testRemoveConfigInfo_ä¸å­˜åœ¨çš„è®°å½•() {
 		truncateTable();
 		this.persistService.removeConfigInfo("test-dataId4", "test-group4");
 	}

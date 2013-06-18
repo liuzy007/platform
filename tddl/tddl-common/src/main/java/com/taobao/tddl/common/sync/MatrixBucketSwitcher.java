@@ -1,10 +1,18 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.sync;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.sync;
 
 import com.taobao.tddl.common.sync.BucketSwitcher.BucketTaker;
 
 /**
  * 
- * 性能优先的非精确实现
+ * 鎬ц兘浼樺厛鐨勯潪绮剧‘瀹炵幇
  *   
  * @author guangxia
  *
@@ -67,7 +75,7 @@ public class MatrixBucketSwitcher<T> {
 	}
 
 	/**
-	 * 支持动态监控和调整bucketSize
+	 * 鏀寔鍔ㄦ�佺洃鎺у拰璋冩暣bucketSize
 	 */
 	public int getBucketSize() {
 		return bucketSize;

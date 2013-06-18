@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.dbselector;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.dbselector;
 
 import java.sql.SQLException;
 import java.util.HashMap;
@@ -43,7 +51,7 @@ public abstract class AbstractDBSelector implements DBSelector {
 	}
 	private DBType dbType = DBType.MYSQL;
 	protected ExceptionSorter exceptionSorter = exceptionSorters.get(dbType);
-	private String id = "undefined"; // idÖµÎ´Ê¹ÓÃ
+	private String id = "undefined"; // idå€¼æœªä½¿ç”¨
 
 	private static final int default_retryBadDbInterval = 2000; // milliseconds
 	protected static int retryBadDbInterval; // milliseconds
@@ -67,7 +75,7 @@ public abstract class AbstractDBSelector implements DBSelector {
 		this.readable = readable;
 	}
 
-	protected boolean isSupportRetry = true; // Ä¬ÈÏÇé¿öÏÂÖ§³ÖÖØÊÔ
+	protected boolean isSupportRetry = true; // é»˜è®¤æƒ…å†µä¸‹æ”¯æŒé‡è¯•
 
 	public boolean isSupportRetry() {
 		return isSupportRetry;
@@ -114,8 +122,8 @@ public abstract class AbstractDBSelector implements DBSelector {
 						- dsHolder.lastRetryTime > retryBadDbInterval;
 				if (toTry && dsHolder.lock.tryLock()) {
 					try {
-						T t = tryer.tryOnDataSource(dsHolder.dsw, args); // Í¬Ò»¸öÊ±¼äÖ»»áÓĞÒ»¸öÏß³Ì¼ÌĞøÊ¹ÓÃÕâ¸öÊı¾İÔ´¡£
-						dsHolder.isNotAvailable = false; // ÓÃÒ»¸öÏß³ÌÖØÊÔ£¬Ö´ĞĞ³É¹¦Ôò±ê¼ÇÎª¿ÉÓÃ£¬×Ô¶¯»Ö¸´
+						T t = tryer.tryOnDataSource(dsHolder.dsw, args); // åŒä¸€ä¸ªæ—¶é—´åªä¼šæœ‰ä¸€ä¸ªçº¿ç¨‹ç»§ç»­ä½¿ç”¨è¿™ä¸ªæ•°æ®æºã€‚
+						dsHolder.isNotAvailable = false; // ç”¨ä¸€ä¸ªçº¿ç¨‹é‡è¯•ï¼Œæ‰§è¡ŒæˆåŠŸåˆ™æ ‡è®°ä¸ºå¯ç”¨ï¼Œè‡ªåŠ¨æ¢å¤
 						return t;
 					} finally {
 						dsHolder.lastRetryTime = System.currentTimeMillis();
@@ -129,7 +137,7 @@ public abstract class AbstractDBSelector implements DBSelector {
 							args);
 				}
 			} else {
-				return tryer.tryOnDataSource(dsHolder.dsw, args); // ÓĞÒ»´Î³É¹¦Ö±½Ó·µ»Ø
+				return tryer.tryOnDataSource(dsHolder.dsw, args); // æœ‰ä¸€æ¬¡æˆåŠŸç›´æ¥è¿”å›
 			}
 		} catch (SQLException e) {
 			if (exceptionSorter.isExceptionFatal(e)) {
@@ -147,7 +155,7 @@ public abstract class AbstractDBSelector implements DBSelector {
 	public <T> T tryExecute(Map<DataSource, SQLException> failedDataSources,
 			DataSourceTryer<T> tryer, int times, Object... args)
 			throws SQLException {
-		// dataSourceIndex·ÅÔÚargs×îºóÒ»¸ö.ÒÔºó¸Ä¶¯Òª×¢Òâ
+		// dataSourceIndexæ”¾åœ¨argsæœ€åä¸€ä¸ª.ä»¥åæ”¹åŠ¨è¦æ³¨æ„
 		// local set dataSourceIndex was placed first
 		Integer dataSourceIndex = null;
 		if (args != null && args.length > 0) {
@@ -260,13 +268,13 @@ public abstract class AbstractDBSelector implements DBSelector {
 			}
 		}
 
-		// Èç¹ûÒµÎñ²ãÖ±½ÓÖ¸¶¨ÁËÒ»¸öÊı¾İÔ´£¬¾ÍÖ±½ÓÔÚÖ¸¶¨µÄÊı¾İÔ´ÉÏ½øĞĞ²éÑ¯¸üĞÂ²Ù×÷£¬Ê§°ÜÊ±²»ÔÙÖØÊÔ¡£
+		// å¦‚æœä¸šåŠ¡å±‚ç›´æ¥æŒ‡å®šäº†ä¸€ä¸ªæ•°æ®æºï¼Œå°±ç›´æ¥åœ¨æŒ‡å®šçš„æ•°æ®æºä¸Šè¿›è¡ŒæŸ¥è¯¢æ›´æ–°æ“ä½œï¼Œå¤±è´¥æ—¶ä¸å†é‡è¯•ã€‚
 		if (dataSourceIndex != null
 				&& dataSourceIndex != NOT_EXIST_USER_SPECIFIED_INDEX) {
 			DataSourceHolder dsHolder = findDataSourceWrapperByIndex(dataSourceIndex);
 			if (dsHolder == null) {
-				throw new IllegalArgumentException("ÕÒ²»µ½Ë÷Òı±àºÅÎª '"
-						+ dataSourceIndex + "'µÄÊı¾İÔ´");
+				throw new IllegalArgumentException("æ‰¾ä¸åˆ°ç´¢å¼•ç¼–å·ä¸º '"
+						+ dataSourceIndex + "'çš„æ•°æ®æº");
 			}
 			return tryOnDataSourceHolder(dsHolder, failedDataSources, tryer,
 					times, args);
@@ -291,7 +299,7 @@ public abstract class AbstractDBSelector implements DBSelector {
 	}
 
 	public final void setExceptionSorter(ExceptionSorter exceptionSorter) {
-		// add by shenxun:Ö÷Òª»¹ÊÇ·½±ã²âÊÔ¡£¡£¹¹ÔìÕû¸ödbSelector½á¹¹Ì«¸´ÔÓ
+		// add by shenxun:ä¸»è¦è¿˜æ˜¯æ–¹ä¾¿æµ‹è¯•ã€‚ã€‚æ„é€ æ•´ä¸ªdbSelectorç»“æ„å¤ªå¤æ‚
 		this.exceptionSorter = exceptionSorter;
 	}
 

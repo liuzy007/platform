@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	//package com.taobao.tddl.common.dbroute;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+//package com.taobao.tddl.common.dbroute;
 //
 //import java.util.regex.Matcher;
 //import java.util.regex.Pattern;
@@ -13,16 +21,16 @@
 //	private Pattern pattern;
 //
 //	/**
-//	 * ±»³ıÊı
+//	 * è¢«é™¤æ•°
 //	 */
 //	private int dividend = -100;
 //	/**
-//	 * Ä¿±êÓàÊı
+//	 * ç›®æ ‡ä½™æ•°
 //	 */
 //	private int remainder = -100;
 //
 //	/**
-//	 * ³õÊ¼»¯
+//	 * åˆå§‹åŒ–
 //	 */
 //	public DBRouteRule(String dbName, String ruleBaseName, String rule) {
 //		this.dbName = dbName;
@@ -32,12 +40,12 @@
 //	}
 //
 //	/**
-//	 * Ôö¼ÓÒ»Ìõ¹æÔò
+//	 * å¢åŠ ä¸€æ¡è§„åˆ™
 //	 * 
 //	 * @param ruleBaseName
-//	 *            Êı¾İ¿â½ÚµãµÄÃû³Æ
+//	 *            æ•°æ®åº“èŠ‚ç‚¹çš„åç§°
 //	 * @param rule
-//	 *            ¹æÔò,Ò»ÌõÕıÔò±í´ïÊ½
+//	 *            è§„åˆ™,ä¸€æ¡æ­£åˆ™è¡¨è¾¾å¼
 //	 */
 //	public void addRule(String ruleBaseName, String rule) {
 //		try {
@@ -52,7 +60,7 @@
 //	}
 //
 //	/**
-//	 * ÊÇ·ñÓëÖ¸¶¨µÄÕıÔò±í´ïÊ½Æ¥Åä
+//	 * æ˜¯å¦ä¸æŒ‡å®šçš„æ­£åˆ™è¡¨è¾¾å¼åŒ¹é…
 //	 * 
 //	 * @param ruleBaseName
 //	 * 
@@ -72,7 +80,7 @@
 //	}
 //
 //	/**
-//	 * ÊÇ·ñÓëÖ¸¶¨µÄÕıÔò±í´ïÊ½Æ¥Åä
+//	 * æ˜¯å¦ä¸æŒ‡å®šçš„æ­£åˆ™è¡¨è¾¾å¼åŒ¹é…
 //	 * 
 //	 * @param ruleBaseName
 //	 * 
@@ -94,7 +102,7 @@
 //	}
 //
 //	/**
-//	 * ·µ»ØÊı¾İ¿â½ÚµãµÄÃû³Æ
+//	 * è¿”å›æ•°æ®åº“èŠ‚ç‚¹çš„åç§°
 //	 * 
 //	 * @return
 //	 */
@@ -110,7 +118,7 @@
 //	}
 //
 //	/**
-//	 * ·µ»Ø¸Ã¹æÔòµÄ¹æÔòÃû³Æ
+//	 * è¿”å›è¯¥è§„åˆ™çš„è§„åˆ™åç§°
 //	 * 
 //	 * @return Returns
 //	 */
@@ -119,7 +127,7 @@
 //	}
 //
 //	/**
-//	 * ·µ»Ø¸Ã¹æÔò
+//	 * è¿”å›è¯¥è§„åˆ™
 //	 * 
 //	 * @return Returns
 //	 */
@@ -128,8 +136,8 @@
 //	}
 //
 //	private void init() {
-//		// modifid By ÉòÑ¯
-//		// ÏÈÕâÑùĞ´ÒÔºóÔÙÖØ¹¹ÒÔÊÊÓ¦¸ü¶àµÄÇé¿ö
+//		// modifid By æ²ˆè¯¢
+//		// å…ˆè¿™æ ·å†™ä»¥åå†é‡æ„ä»¥é€‚åº”æ›´å¤šçš„æƒ…å†µ
 //		boolean inited = false;
 //
 //		if (rule.contains(",")) {

@@ -1,16 +1,24 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	//Copyright(c) Taobao.com
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+//Copyright(c) Taobao.com
 package com.taobao.tddl.interact.rule.virtualnode;
 /**
  * @description
  * @author <a href="junyu@taobao.com">junyu</a> 
  * @version 1.0
  * @since 1.6
- * @date 2011-8-20…œŒÁ02:58:34
+ * @date 2011-8-20‰∏äÂçà02:58:34
  */
 public class WrappedLogic {
-	protected String valuePrefix; //Œﬁgetter/setter
-	protected String valueSuffix; //Œﬁgetter/setter
-	protected int valueAlignLen = 0; //Œﬁgetter/setter
+	protected String valuePrefix; //Êó†getter/setter
+	protected String valueSuffix; //Êó†getter/setter
+	protected int valueAlignLen = 0; //Êó†getter/setter
 	protected String tableSlotKeyFormat=null;
     
 	public void setTableSlotKeyFormat(String tableSlotKeyFormat) {
@@ -32,7 +40,7 @@ public class WrappedLogic {
 		}
 		this.valuePrefix = tableSlotKeyFormat.substring(0, index0);
 		this.valueSuffix = tableSlotKeyFormat.substring(index1 + 1);
-		this.valueAlignLen = index1 - index0 - 1; //{0000}÷–0µƒ∏ˆ ˝
+		this.valueAlignLen = index1 - index0 - 1; //{0000}‰∏≠0ÁöÑ‰∏™Êï∞
 	}
 	
 	protected String wrapValue(String value) {

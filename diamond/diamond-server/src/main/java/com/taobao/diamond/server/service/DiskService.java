@@ -32,7 +32,7 @@ import com.taobao.diamond.server.exception.ConfigServiceException;
 import com.taobao.diamond.server.utils.SystemConfig;
 
 /**
- * ´ÅÅÌ²Ù×÷·şÎñ
+ * ç£ç›˜æ“ä½œæœåŠ¡
  * 
  * @author boyan
  * @date 2010-5-4
@@ -48,7 +48,7 @@ public class DiskService {
 	}
 
 	/**
-	 * ĞŞ¸Ä±ê¼Ç»º´æ
+	 * ä¿®æ”¹æ ‡è®°ç¼“å­˜
 	 */
 	private final ConcurrentHashMap<String, Boolean> modifyMarkCache = new ConcurrentHashMap<String, Boolean>();
 
@@ -58,17 +58,17 @@ public class DiskService {
 
 	public void saveToDisk(ConfigInfo configInfo) throws IOException {
 		if (configInfo == null)
-			throw new IllegalArgumentException("configInfo²»ÄÜÎª¿Õ");
+			throw new IllegalArgumentException("configInfoä¸èƒ½ä¸ºç©º");
 		if (!StringUtils.hasLength(configInfo.getDataId())
 				|| StringUtils.containsWhitespace(configInfo.getDataId()))
-			throw new IllegalArgumentException("ÎŞĞ§µÄdataId");
+			throw new IllegalArgumentException("æ— æ•ˆçš„dataId");
 
 		if (!StringUtils.hasLength(configInfo.getGroup())
 				|| StringUtils.containsWhitespace(configInfo.getGroup()))
-			throw new IllegalArgumentException("ÎŞĞ§µÄgroup");
+			throw new IllegalArgumentException("æ— æ•ˆçš„group");
 
 		if (!StringUtils.hasLength(configInfo.getContent()))
-			throw new IllegalArgumentException("ÎŞĞ§µÄcontent");
+			throw new IllegalArgumentException("æ— æ•ˆçš„content");
 
 		final String basePath = WebUtils.getRealPath(servletContext,
 				Constants.BASE_DIR);
@@ -98,7 +98,7 @@ public class DiskService {
 			configInfo.dump(writer);
 			writer.flush();
 		} catch (Exception e) {
-			log.error("±£´æ´ÅÅÌÎÄ¼şÊ§°Ü, tempFile:" + tempFile + ",targetFile:"
+			log.error("ä¿å­˜ç£ç›˜æ–‡ä»¶å¤±è´¥, tempFile:" + tempFile + ",targetFile:"
 					+ targetFile, e);
 		} finally {
 			if (writer != null)
@@ -107,16 +107,16 @@ public class DiskService {
 
 		String cacheKey = generateCacheKey(configInfo.getGroup(),
 				configInfo.getDataId());
-		// ±ê¼Ç
+		// æ ‡è®°
 		if (this.modifyMarkCache.putIfAbsent(cacheKey, true) == null) {
 			try {
-				// ÎÄ¼şÄÚÈİ²»Ò»ÑùµÄÇé¿öÏÂ²Å½øĞĞ¿½±´
+				// æ–‡ä»¶å†…å®¹ä¸ä¸€æ ·çš„æƒ…å†µä¸‹æ‰è¿›è¡Œæ‹·è´
 				if (!FileUtils.contentEquals(tempFile, targetFile)) {
 					try {
-						// TODO ¿¼ÂÇÊ¹ÓÃ°æ±¾ºÅ, ±£Ö¤ÎÄ¼şÒ»¶¨Ğ´³É¹¦ , »òÕßÖªµÀÎÄ¼şÃ»ÓĞĞ´³É¹¦¡£
+						// TODO è€ƒè™‘ä½¿ç”¨ç‰ˆæœ¬å·, ä¿è¯æ–‡ä»¶ä¸€å®šå†™æˆåŠŸ , æˆ–è€…çŸ¥é“æ–‡ä»¶æ²¡æœ‰å†™æˆåŠŸã€‚
 						FileUtils.copyFile(tempFile, targetFile);
 					} catch (Throwable t) {
-						log.error("±£´æ´ÅÅÌÎÄ¼şÊ§°Ü, tempFile:" + tempFile
+						log.error("ä¿å­˜ç£ç›˜æ–‡ä»¶å¤±è´¥, tempFile:" + tempFile
 								+ ", targetFile:" + targetFile, t);
 						SystemConfig.system_pause();
 						throw new RuntimeException();
@@ -125,11 +125,11 @@ public class DiskService {
 				}
 				tempFile.delete();
 			} finally {
-				// Çå³ı±ê¼Ç
+				// æ¸…é™¤æ ‡è®°
 				this.modifyMarkCache.remove(cacheKey);
 			}
 		} else
-			throw new ConfigServiceException("ÅäÖÃĞÅÏ¢ÕıÔÚ±»ĞŞ¸Ä");
+			throw new ConfigServiceException("é…ç½®ä¿¡æ¯æ­£åœ¨è¢«ä¿®æ”¹");
 	}
 
 	public boolean isModified(String dataId, String group) {
@@ -141,7 +141,7 @@ public class DiskService {
     }
 
 	/**
-	 * Éú³É»º´ækey£¬ÓÃÓÚ±ê¼ÇÎÄ¼şÊÇ·ñÕıÔÚ±»ĞŞ¸Ä
+	 * ç”Ÿæˆç¼“å­˜keyï¼Œç”¨äºæ ‡è®°æ–‡ä»¶æ˜¯å¦æ­£åœ¨è¢«ä¿®æ”¹
 	 * 
 	 * @param group
 	 * @param dataId
@@ -156,11 +156,11 @@ public class DiskService {
 			throws IOException {
 		if (!StringUtils.hasLength(dataId)
 				|| StringUtils.containsWhitespace(dataId))
-			throw new IllegalArgumentException("ÎŞĞ§µÄdataId");
+			throw new IllegalArgumentException("æ— æ•ˆçš„dataId");
 
 		if (!StringUtils.hasLength(group)
 				|| StringUtils.containsWhitespace(group))
-			throw new IllegalArgumentException("ÎŞĞ§µÄgroup");
+			throw new IllegalArgumentException("æ— æ•ˆçš„group");
 
 		final String basePath = WebUtils.getRealPath(servletContext,
 				Constants.BASE_DIR);
@@ -171,7 +171,7 @@ public class DiskService {
 		if (!groupDir.exists()) {
 			return;
 		}
-		// ÕâÀï²¢Ã»ÓĞÈ¥ÅĞ¶ÏgroupÄ¿Â¼ÊÇ·ñÎª¿Õ²¢É¾³ı£¬Ò²¾ÍÊÇËµÄÄÅÂgroupÄ¿Â¼ÄÚÃ»ÓĞÈÎºÎdataIdÎÄ¼şÁËÒ²½«ÈÔÈ»±£ÁôÔÚ´ÅÅÌÉÏ
+		// è¿™é‡Œå¹¶æ²¡æœ‰å»åˆ¤æ–­groupç›®å½•æ˜¯å¦ä¸ºç©ºå¹¶åˆ é™¤ï¼Œä¹Ÿå°±æ˜¯è¯´å“ªæ€•groupç›®å½•å†…æ²¡æœ‰ä»»ä½•dataIdæ–‡ä»¶äº†ä¹Ÿå°†ä»ç„¶ä¿ç•™åœ¨ç£ç›˜ä¸Š
 		String fnDataId = SystemConfig.encodeDataIdForFNIfUnderWin(dataId);
 		final String dataPath = WebUtils.getRealPath(servletContext,
 				Constants.BASE_DIR + "/" + group + "/" + fnDataId);
@@ -180,16 +180,16 @@ public class DiskService {
 			return;
 		}
 		String cacheKey = generateCacheKey(group, dataId);
-		// ±ê¼Ç
+		// æ ‡è®°
 		if (this.modifyMarkCache.putIfAbsent(cacheKey, true) == null) {
 			try {
 				if (!dataFile.delete())
-					throw new ConfigServiceException("É¾³ıÅäÖÃÎÄ¼şÊ§°Ü");
+					throw new ConfigServiceException("åˆ é™¤é…ç½®æ–‡ä»¶å¤±è´¥");
 			} finally {
 				this.modifyMarkCache.remove(cacheKey);
 			}
 		} else
-			throw new ConfigServiceException("ÅäÖÃÎÄ¼şÕıÔÚ±»ĞŞ¸Ä");
+			throw new ConfigServiceException("é…ç½®æ–‡ä»¶æ­£åœ¨è¢«ä¿®æ”¹");
 	}
 
 	public void removeConfigInfo(ConfigInfo configInfo) throws IOException {
@@ -209,7 +209,7 @@ public class DiskService {
 			try {
 				file.createNewFile();
 			} catch (Exception e) {
-				log.error("´´½¨ÎÄ¼şÊ§°Ü, path=" + path, e);
+				log.error("åˆ›å»ºæ–‡ä»¶å¤±è´¥, path=" + path, e);
 			}
 		}
 		return file;

@@ -1,26 +1,34 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.rule.enumerator;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.rule.enumerator;
 
 import java.util.Set;
 
 /**
- * Ã¶¾ÙÆ÷£¬Ìá¹©ÁË¸ù¾ÝÃ¿²½×ÔÔöÊý ×ÔÔö»ñÈ¡ËùÓÐÃ¶¾ÙÖµµÄ²Ù×÷
- * Ö÷ÒªÊÇÓÃÓÚ½â¾öÒ»¸ö¹æÔòÒýÇæÖÐ×î´óµÄÄÑÌâ
- * sql Ìõ¼þ :id>100 and id < 200;
- * ÕâÖÖÌõ¼þÊÇÎÞ·¨Ö±½Ó´úÈë¹æÔòÒýÇæÖÐ½øÐÐ¼ÆËãÈ»ºó¼òµ¥µÄÈ¡½»¼¯À´¼ÆËãµÄ£¬¾ßÌåÇë²Î¼ûÏà¹ØÎÄµµµÄ½éÉÜ¡£
+ * æžšä¸¾å™¨ï¼Œæä¾›äº†æ ¹æ®æ¯æ­¥è‡ªå¢žæ•° è‡ªå¢žèŽ·å–æ‰€æœ‰æžšä¸¾å€¼çš„æ“ä½œ
+ * ä¸»è¦æ˜¯ç”¨äºŽè§£å†³ä¸€ä¸ªè§„åˆ™å¼•æ“Žä¸­æœ€å¤§çš„éš¾é¢˜
+ * sql æ¡ä»¶ :id>100 and id < 200;
+ * è¿™ç§æ¡ä»¶æ˜¯æ— æ³•ç›´æŽ¥ä»£å…¥è§„åˆ™å¼•æ“Žä¸­è¿›è¡Œè®¡ç®—ç„¶åŽç®€å•çš„å–äº¤é›†æ¥è®¡ç®—çš„ï¼Œå…·ä½“è¯·å‚è§ç›¸å…³æ–‡æ¡£çš„ä»‹ç»ã€‚
  * 
- * ËùÒÔ½â¾öµÄ·½·¨¾ÍÊÇ°Ñ100~200Ö®¼äµÄËùÓÐÖµ¶¼°´ÕÕatomicIncreatementValueµÄÉè¶¨Öµ½øÐÐÃ¶¾Ù¡£
- * Ã¶¾Ù³öµÄÖµ±»·ÅÈësetºó·µ»Ø¸øµ÷ÓÃÕß¡£
+ * æ‰€ä»¥è§£å†³çš„æ–¹æ³•å°±æ˜¯æŠŠ100~200ä¹‹é—´çš„æ‰€æœ‰å€¼éƒ½æŒ‰ç…§atomicIncreatementValueçš„è®¾å®šå€¼è¿›è¡Œæžšä¸¾ã€‚
+ * æžšä¸¾å‡ºçš„å€¼è¢«æ”¾å…¥setåŽè¿”å›žç»™è°ƒç”¨è€…ã€‚
  * 
  * @author shenxun
  *
  */
 public interface Enumerator {
 	/**
-	 * @param condition Ìõ¼þ
-	 * @param cumulativeTimes ÖµµÄ¸öÊý£¬¶ÔÓÚ²¿·ÖÁ¬ÐøµÄº¯ÊýÀ´Ëµ£¬ËûÍê³ÉÒ»ÂÖÀÛ¼ÓµÄ´ÎÊýÊÇÓÐÏÞµÄ£¬ÕâÀïÒªÇóÊäÈëÕâ¸ö´ÎÊý
-	 * @param atomIncrValue ÒýÆðÖµÓò·¢Éú×îÐ¡±ä¶¯µÄ¶¨ÒåÓòÔ­×ÓÔöÊýÖµ¡£ex:Èç¹û¶ÔÓÚdayofweekÕâÑùµÄº¯ÊýÀ´Ëµ£¬ÒýÆðÖµÓò
-	 * ·¢Éú±ä»¯µÄ¶¨ÒåÓòµÄ×îÐ¡±ä¶¯·¶Î§Îª1Ìì¡£
-	 * @param needMergeValueInCloseInterval ÊÇ·ñÐèÒª¶Ô> < >= <= ½øÐÐ¼ÆËã¡£
+	 * @param condition æ¡ä»¶
+	 * @param cumulativeTimes å€¼çš„ä¸ªæ•°ï¼Œå¯¹äºŽéƒ¨åˆ†è¿žç»­çš„å‡½æ•°æ¥è¯´ï¼Œä»–å®Œæˆä¸€è½®ç´¯åŠ çš„æ¬¡æ•°æ˜¯æœ‰é™çš„ï¼Œè¿™é‡Œè¦æ±‚è¾“å…¥è¿™ä¸ªæ¬¡æ•°
+	 * @param atomIncrValue å¼•èµ·å€¼åŸŸå‘ç”Ÿæœ€å°å˜åŠ¨çš„å®šä¹‰åŸŸåŽŸå­å¢žæ•°å€¼ã€‚ex:å¦‚æžœå¯¹äºŽdayofweekè¿™æ ·çš„å‡½æ•°æ¥è¯´ï¼Œå¼•èµ·å€¼åŸŸ
+	 * å‘ç”Ÿå˜åŒ–çš„å®šä¹‰åŸŸçš„æœ€å°å˜åŠ¨èŒƒå›´ä¸º1å¤©ã€‚
+	 * @param needMergeValueInCloseInterval æ˜¯å¦éœ€è¦å¯¹> < >= <= è¿›è¡Œè®¡ç®—ã€‚
 	 * @return
 	 */
 	@SuppressWarnings("rawtypes")

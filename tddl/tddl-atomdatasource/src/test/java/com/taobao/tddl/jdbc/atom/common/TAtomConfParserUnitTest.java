@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.atom.common;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.atom.common;
 
 import java.io.IOException;
 import java.security.InvalidKeyException;
@@ -20,7 +28,7 @@ import com.taobao.tddl.jdbc.atom.config.object.TAtomDsConfDO;
 public class TAtomConfParserUnitTest {
 
 	@Test
-	public void parserTAtomDsConfDO_Ω‚Œˆ»´æ÷≈‰÷√() throws IOException {
+	public void parserTAtomDsConfDO_Ëß£ÊûêÂÖ®Â±ÄÈÖçÁΩÆ() throws IOException {
 		String globaFile = "conf/oracle/globa.properties";
 		String globaStr = PropLoadTestUtil.loadPropFile2String(globaFile);
 		TAtomDsConfDO tAtomDsConfDO = TAtomConfParser.parserTAtomDsConfDO(globaStr, null);
@@ -33,7 +41,7 @@ public class TAtomConfParserUnitTest {
 	}
 
 	@Test
-	public void parserTAtomDsConfDO_Ω‚Œˆ”¶”√≈‰÷√() throws IOException {
+	public void parserTAtomDsConfDO_Ëß£ÊûêÂ∫îÁî®ÈÖçÁΩÆ() throws IOException {
 		String appFile = "conf/oracle/app.properties";
 		String appStr = PropLoadTestUtil.loadPropFile2String(appFile);
 		TAtomDsConfDO tAtomDsConfDO = TAtomConfParser.parserTAtomDsConfDO(null, appStr);
@@ -56,7 +64,7 @@ public class TAtomConfParserUnitTest {
 	}
 
 	@Test
-	public void parserPasswd_Ω‚Œˆ√‹¬Î() throws IOException, InvalidKeyException, NoSuchAlgorithmException,
+	public void parserPasswd_Ëß£ÊûêÂØÜÁ†Å() throws IOException, InvalidKeyException, NoSuchAlgorithmException,
 			NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException {
 		String passwdFile = "conf/oracle/psswd.properties";
 		String passwdStr = PropLoadTestUtil.loadPropFile2String(passwdFile);

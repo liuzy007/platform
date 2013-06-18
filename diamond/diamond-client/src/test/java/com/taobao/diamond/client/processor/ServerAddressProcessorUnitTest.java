@@ -19,9 +19,9 @@ import com.taobao.diamond.client.DiamondConfigure;
 public class ServerAddressProcessorUnitTest {
 
 	@Test
-	public void test_ÍøÂç»ñÈ¡²»µ½´Ó±¾µØ»ñÈ¡() throws Exception {
+	public void test_ç½‘ç»œè·å–ä¸åˆ°ä»æœ¬åœ°è·å–() throws Exception {
 		DiamondConfigure diamondConfigure = getDiamondConfig();
-		// ÉèÖÃ´íÎóµÄµØÖ·ºÍ¶Ë¿Ú£¬µ¼ÖÂ´ÓÍøÂç»ñÈ¡²»µ½
+		// è®¾ç½®é”™è¯¯çš„åœ°å€å’Œç«¯å£ï¼Œå¯¼è‡´ä»ç½‘ç»œè·å–ä¸åˆ°
 		diamondConfigure.setConfigServerAddress("localhost");
 		diamondConfigure.setConfigServerPort(8880);
 		File tmpFile = File.createTempFile("serverAddrProcess", "tmp");
@@ -32,7 +32,7 @@ public class ServerAddressProcessorUnitTest {
 		File serverAddressFile = new File(diamondConfigure.getFilePath(),
 				"ServerAddress");
 		Assert.assertTrue(!serverAddressFile.exists());
-		// ½¨Á¢²¢Ğ´Èë±¾µØÎÄ¼ş
+		// å»ºç«‹å¹¶å†™å…¥æœ¬åœ°æ–‡ä»¶
 		createAndWriteLocalFile(serverAddressFile, "server");
 		try {
 			processor.start();
@@ -51,9 +51,9 @@ public class ServerAddressProcessorUnitTest {
 	}
 
 	@Test
-	public void test_Æô¶¯Ê§°Ü() throws Exception {
+	public void test_å¯åŠ¨å¤±è´¥() throws Exception {
 		DiamondConfigure diamondConfigure = getDiamondConfig();
-		// ÉèÖÃ´íÎóµÄµØÖ·ºÍ¶Ë¿Ú£¬µ¼ÖÂ´ÓÍøÂç»ñÈ¡²»µ½
+		// è®¾ç½®é”™è¯¯çš„åœ°å€å’Œç«¯å£ï¼Œå¯¼è‡´ä»ç½‘ç»œè·å–ä¸åˆ°
 		diamondConfigure.setConfigServerAddress("localhost");
 		diamondConfigure.setConfigServerPort(8880);
 		File tmpFile = File.createTempFile("serverAddrProcess", "tmp");
@@ -61,7 +61,7 @@ public class ServerAddressProcessorUnitTest {
 		ServerAddressProcessor processor = new ServerAddressProcessor(
 				diamondConfigure, Executors.newSingleThreadScheduledExecutor());
 		processor.setClusterType("diamond");
-		// ±¾µØÃ»ÓĞ£¬getÓÖÊ§°Ü£¬Æô¶¯Ê§°Ü
+		// æœ¬åœ°æ²¡æœ‰ï¼Œgetåˆå¤±è´¥ï¼Œå¯åŠ¨å¤±è´¥
 		try {
 			processor.start();
 			Assert.fail();
@@ -75,7 +75,7 @@ public class ServerAddressProcessorUnitTest {
 	}
 
 	@Test
-	public void test_Í¬²½´ÓÍøÂç»ñÈ¡µØÖ·() throws Exception {
+	public void test_åŒæ­¥ä»ç½‘ç»œè·å–åœ°å€() throws Exception {
 		// diamond server address (ip)
 		String expectedServerAddress = "";
 
@@ -90,7 +90,7 @@ public class ServerAddressProcessorUnitTest {
 		Assert.assertTrue(!serverAddressFile.exists());
 		try {
 			processor.start();
-			// ´ÓÈÕ³£»·¾³»ñÈ¡µØÖ·ÁĞ±í
+			// ä»æ—¥å¸¸ç¯å¢ƒè·å–åœ°å€åˆ—è¡¨
 			processor.synAcquireServerAddress();
 
 			Assert.assertTrue(serverAddressFile.exists());
@@ -108,7 +108,7 @@ public class ServerAddressProcessorUnitTest {
 	}
 
 	@Test
-	public void test_Òì²½´ÓÍøÂç»ñÈ¡µØÖ·() throws Exception {
+	public void test_å¼‚æ­¥ä»ç½‘ç»œè·å–åœ°å€() throws Exception {
 		DiamondConfigure diamondConfigure = getDiamondConfig();
 		File tmpFile = File.createTempFile("serverAddrProcess", "tmp");
 		diamondConfigure.setFilePath(tmpFile.getParent());
@@ -128,7 +128,7 @@ public class ServerAddressProcessorUnitTest {
 			Assert.assertTrue(serverAddressFile.exists());
 			Assert.assertTrue(compareAddress(serverAddressFile, serverAddr));
 
-			// ¸Ä±äServerAddressµÄÄÚÈİ
+			// æ”¹å˜ServerAddressçš„å†…å®¹
 			modifyServerAddressFile(serverAddressFile);
 			Assert.assertFalse(compareAddress(serverAddressFile, serverAddr));
 
@@ -145,7 +145,7 @@ public class ServerAddressProcessorUnitTest {
 	}
 
 	@Test
-	public void testServerAddresses_´æÈëÎÄ¼ş¶ÁÈ¡ÎÄ¼ş() {
+	public void testServerAddresses_å­˜å…¥æ–‡ä»¶è¯»å–æ–‡ä»¶() {
 		DiamondConfigure diamondConfigure = getDiamondConfig();
 		diamondConfigure.addDomainName("serverAddress1");
 		ServerAddressProcessor processor = new ServerAddressProcessor(
@@ -172,7 +172,7 @@ public class ServerAddressProcessorUnitTest {
 	}
 
 	@Test
-	public void test_ÓÅÏÈ´Ó±¾µØ»ñÈ¡µØÖ·() throws Exception {
+	public void test_ä¼˜å…ˆä»æœ¬åœ°è·å–åœ°å€() throws Exception {
 		DiamondConfigure diamondConfigure = getDiamondConfig();
 		diamondConfigure.setLocalFirst(true);
 		File tmpFile = File.createTempFile("serverAddrProcess", "tmp");

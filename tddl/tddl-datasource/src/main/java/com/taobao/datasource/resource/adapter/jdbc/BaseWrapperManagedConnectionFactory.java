@@ -367,10 +367,10 @@ public abstract class BaseWrapperManagedConnectionFactory implements ManagedConn
 				try {
 					ClassLoader cl = Thread.currentThread().getContextClassLoader();
 					Class clazz = cl.loadClass(this.exceptionSorterClassName);
-					//反射准备
+					//鍙嶅皠鍑嗗
 					this.exceptionSorter = clazz.newInstance();
 					this.isExceptionFatalMethod = clazz.getMethod("isExceptionFatal", SQLException.class);
-					//反射判断
+					//鍙嶅皠鍒ゆ柇
 					return this.invokeIsExceptionFatal(e);
 				} catch (Exception e2) {
 					log.warn("exception trying to create exception sorter (disabling):", e2);

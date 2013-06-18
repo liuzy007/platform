@@ -1,6 +1,15 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.atom.common;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.atom.common;
 
-import java.io.ByteArrayInputStream;import java.io.IOException;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
@@ -9,10 +18,11 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
 import com.taobao.datasource.resource.security.SecureIdentityLoginModule;
-import com.taobao.tddl.common.util.TStringUtil;import com.taobao.tddl.jdbc.atom.config.object.TAtomDsConfDO;
+import com.taobao.tddl.common.util.TStringUtil;
+import com.taobao.tddl.jdbc.atom.config.object.TAtomDsConfDO;
 
 /**
- * TAtom数据源的推送配置解析类
+ * TAtom鏁版嵁婧愮殑鎺ㄩ�侀厤缃В鏋愮被
  * 
  * @author qihao
  *
@@ -36,15 +46,15 @@ public class TAtomConfParser {
 	public static final String PASSWD_ENC_PASSWD_KEY = "encPasswd";
 	public static final String PASSWD_ENC_KEY_KEY = "encKey";
 	/**
-	 * 写，次数限制
+	 * 鍐欙紝娆℃暟闄愬埗
 	 */
 	public static final String APP_WRITE_RESTRICT_TIMES = "writeRestrictTimes";
 	/**
-	 * 读，次数限制
+	 * 璇伙紝娆℃暟闄愬埗
 	 */
 	public static final String APP_READ_RESTRICT_TIMES = "readRestrictTimes";
 	/**
-	 * thread count 次数限制
+	 * thread count 娆℃暟闄愬埗
 	 */
 	public static final String APP_THREAD_COUNT_RESTRICT = "threadCountRestrict";
 	
@@ -169,7 +179,8 @@ public class TAtomConfParser {
 			}
 		}
 		return passwd;
-	}	
+	}
+	
 	private static Properties parserConfStr2Properties(String data) {
 		Properties prop = new Properties();
 		if (TStringUtil.isNotBlank(data)) {
@@ -180,7 +191,11 @@ public class TAtomConfParser {
 			} catch (IOException e) {
 				logger.error("parserConfStr2Properties Error", e);
 			} finally {
-				try {					byteArrayInputStream.close();				} catch (IOException e) {					logger.error("parserConfStr2Properties Error,can not close ByteArrayInputStream", e);				}
+				try {
+					byteArrayInputStream.close();
+				} catch (IOException e) {
+					logger.error("parserConfStr2Properties Error,can not close ByteArrayInputStream", e);
+				}
 			}
 		}
 		return prop;

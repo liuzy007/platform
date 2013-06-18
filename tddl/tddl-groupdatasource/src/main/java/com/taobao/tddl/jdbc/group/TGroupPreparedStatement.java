@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group;
 
 import java.io.InputStream;
 import java.io.Reader;
@@ -60,7 +68,7 @@ public class TGroupPreparedStatement extends TGroupStatement implements Prepared
 	private int[] columnIndexes;
 	private String[] columnNames;
 
-	//²ÎÊıÁĞ±íµ½²ÎÊıÉÏÏÂÎÄµÄÓ³Éä  Èç 1:name  2£º'2011-11-11'
+	//å‚æ•°åˆ—è¡¨åˆ°å‚æ•°ä¸Šä¸‹æ–‡çš„æ˜ å°„  å¦‚ 1:name  2ï¼š'2011-11-11'
 	protected Map<Integer, ParameterContext> parameterSettings = new HashMap<Integer, ParameterContext>();
 
 	public void clearParameters() throws SQLException {
@@ -77,13 +85,13 @@ public class TGroupPreparedStatement extends TGroupStatement implements Prepared
 			ps = conn.prepareStatement(sql, columnNames);
 		} else {
 			int resultSetHoldability = this.resultSetHoldability;
-			if (resultSetHoldability == -1) //Î´µ÷ÓÃ¹ısetResultSetHoldability
+			if (resultSetHoldability == -1) //æœªè°ƒç”¨è¿‡setResultSetHoldability
 				resultSetHoldability = conn.getHoldability();
 
 			ps = conn.prepareStatement(sql, this.resultSetType, this.resultSetConcurrency, resultSetHoldability);
 		}
 		setBaseStatement(ps);
-		ps.setQueryTimeout(queryTimeout); //Õâ¾ä¿ÉÄÜÅ×³öÒì³££¬ËùÒÔÒª·Åµ½setBaseStatementÖ®ºó
+		ps.setQueryTimeout(queryTimeout); //è¿™å¥å¯èƒ½æŠ›å‡ºå¼‚å¸¸ï¼Œæ‰€ä»¥è¦æ”¾åˆ°setBaseStatementä¹‹å
 	    ps.setFetchSize(fetchSize);
 	    ps.setMaxRows(maxRows);
 
@@ -109,7 +117,7 @@ public class TGroupPreparedStatement extends TGroupStatement implements Prepared
 	}
 
 	/* ========================================================================
-	 * executeQueryÂß¼­
+	 * executeQueryé€»è¾‘
 	 * ======================================================================*/
 	public ResultSet executeQuery() throws SQLException {
 		checkClosed();
@@ -122,7 +130,7 @@ public class TGroupPreparedStatement extends TGroupStatement implements Prepared
 			sql=GroupHintParser.removeTddlGroupHint(sql);
 			return executeQueryOnConnection(conn, sql);
 		}else{
-			// hintÓÅÏÈ
+			// hintä¼˜å…ˆ
 			Integer dataSourceIndex = GroupHintParser
 						.convertHint2Index(sql);
 			sql=GroupHintParser.removeTddlGroupHint(sql);
@@ -142,7 +150,7 @@ public class TGroupPreparedStatement extends TGroupStatement implements Prepared
 	}
 
 	/* ========================================================================
-	 * executeUpdateÂß¼­
+	 * executeUpdateé€»è¾‘
 	 * ======================================================================*/
 	public int executeUpdate() throws SQLException {
 		checkClosed();
@@ -157,7 +165,7 @@ public class TGroupPreparedStatement extends TGroupStatement implements Prepared
 			super.updateCount=updateCount;
 			return updateCount;
 		}else{
-			// hintÓÅÏÈ
+			// hintä¼˜å…ˆ
 			Integer dataSourceIndex = GroupHintParser
 						.convertHint2Index(sql);
 			sql=GroupHintParser.removeTddlGroupHint(sql);
@@ -194,7 +202,7 @@ public class TGroupPreparedStatement extends TGroupStatement implements Prepared
 	}
 
 	/* ========================================================================
-	 * setxxx SQL²ÎÊıÉèÖÃ
+	 * setxxx SQLå‚æ•°è®¾ç½®
 	 * ======================================================================*/
 	public void setArray(int i, Array x) throws SQLException {
 		parameterSettings.put(i, new ParameterContext(ParameterMethod.setArray, new Object[] { i, x }));
@@ -373,8 +381,8 @@ public class TGroupPreparedStatement extends TGroupStatement implements Prepared
 
 			if (conn != null) {
 				sql=GroupHintParser.removeTddlGroupHint(sql);
-				// Èç¹ûµ±Ç°ÒÑ¾­ÓĞÁ¬½Ó,Ôò²»×öÈÎºÎÖØÊÔ¡£¶ÔÓÚ¸üĞÂÀ´Ëµ£¬²»¹ÜÓĞÃ»ÓĞÊÂÎñ£¬
-				// ÓÃ»§×ÜÆÚÍûgetConnection»ñµÃÁ¬½ÓÖ®ºó£¬ºóĞøµÄÒ»ÏµÁĞ²Ù×÷¶¼ÔÚÕâÍ¬Ò»¸ö¿â£¬Í¬Ò»¸öÁ¬½ÓÉÏÖ´ĞĞ
+				// å¦‚æœå½“å‰å·²ç»æœ‰è¿æ¥,åˆ™ä¸åšä»»ä½•é‡è¯•ã€‚å¯¹äºæ›´æ–°æ¥è¯´ï¼Œä¸ç®¡æœ‰æ²¡æœ‰äº‹åŠ¡ï¼Œ
+				// ç”¨æˆ·æ€»æœŸæœ›getConnectionè·å¾—è¿æ¥ä¹‹åï¼Œåç»­çš„ä¸€ç³»åˆ—æ“ä½œéƒ½åœ¨è¿™åŒä¸€ä¸ªåº“ï¼ŒåŒä¸€ä¸ªè¿æ¥ä¸Šæ‰§è¡Œ
 				return executeBatchOnConnection(conn);
 			} else {
 				Integer dataSourceIndex = GroupHintParser
@@ -398,7 +406,7 @@ public class TGroupPreparedStatement extends TGroupStatement implements Prepared
 		}
 	};
 
-	//TODO ÖØÊÔÖĞStatementµÄ¹Ø±Õ
+	//TODO é‡è¯•ä¸­Statementçš„å…³é—­
 	private int[] executeBatchOnConnection(Connection conn) throws SQLException {
 		PreparedStatement ps = createPreparedStatementInternal(conn, sql);
 
@@ -418,7 +426,7 @@ public class TGroupPreparedStatement extends TGroupStatement implements Prepared
 	}
 
 	/* ========================================================================
-	 * ÎŞÂß¼­µÄgetter/setter
+	 * æ— é€»è¾‘çš„getter/setter
 	 * ======================================================================*/
 	public int getAutoGeneratedKeys() {
 		return autoGeneratedKeys;

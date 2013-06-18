@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.integration;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.integration;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -24,7 +32,7 @@ import com.taobao.tddl.jdbc.group.testutil.DBHelper;
 import com.taobao.tddl.jdbc.group.testutil.DataSourceFactory;
 
 /**
- * ²»Ê¹ÓÃTAtomDataSource£¬»ùÓÚorg.apache.commons.dbcp.BasicDataSource²âÊÔcrud
+ * ä¸ä½¿ç”¨TAtomDataSourceï¼ŒåŸºäºorg.apache.commons.dbcp.BasicDataSourceæµ‹è¯•crud
  * 
  * @author yangzhu
  *
@@ -32,7 +40,7 @@ import com.taobao.tddl.jdbc.group.testutil.DataSourceFactory;
 public class CRUDTest {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		//DBHelper.deleteAll(); //É¾³ıÈı¸ö¿âÖĞcrud±íµÄËùÓĞ¼ÇÂ¼
+		//DBHelper.deleteAll(); //åˆ é™¤ä¸‰ä¸ªåº“ä¸­crudè¡¨çš„æ‰€æœ‰è®°å½•
 	}
 
 	@AfterClass
@@ -46,14 +54,14 @@ public class CRUDTest {
 	}
 
 	@Test
-	public void µ¥¸öÊı¾İ¿â() throws Exception {
+	public void å•ä¸ªæ•°æ®åº“() throws Exception {
 		TGroupDataSource ds = new TGroupDataSource();
 		DataSourceWrapper dsw = new DataSourceWrapper("db1", "rw", DataSourceFactory.getMySQLDataSource(), DBType.MYSQL);
 		ds.init(dsw);
 		
 		Connection conn = ds.getConnection();
 
-		//²âÊÔStatementµÄcrud
+		//æµ‹è¯•Statementçš„crud
 		Statement stmt = conn.createStatement();
 		assertEquals(stmt.executeUpdate("insert into crud(f1,f2) values(10,'str')"), 1);
 		assertEquals(stmt.executeUpdate("update crud set f2='str2'"), 1);
@@ -65,7 +73,7 @@ public class CRUDTest {
 		rs.close();
 		stmt.close();
 
-		//²âÊÔPreparedStatementµÄcrud
+		//æµ‹è¯•PreparedStatementçš„crud
 		String sql = "insert into crud(f1,f2) values(?,?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, 10);
@@ -97,7 +105,7 @@ public class CRUDTest {
 	}
 	
 	@Test
-	public void ²âÊÔDataSourceWrapper() throws Exception {
+	public void æµ‹è¯•DataSourceWrapper() throws Exception {
 		List<DataSourceWrapper> dataSourceWrappers = new ArrayList<DataSourceWrapper>();
 		dataSourceWrappers.add(new DataSourceWrapper("dbKey1","rw", DataSourceFactory.getMySQLDataSource(1), DBType.MYSQL));
 		dataSourceWrappers.add(new DataSourceWrapper("dbKey2","r", DataSourceFactory.getMySQLDataSource(2), DBType.MYSQL));
@@ -108,7 +116,7 @@ public class CRUDTest {
 
 		Connection conn = ds.getConnection();
 
-		//²âÊÔStatementµÄcrud
+		//æµ‹è¯•Statementçš„crud
 		Statement stmt = conn.createStatement();
 		assertEquals(stmt.executeUpdate("insert into crud(f1,f2) values(10,'str')"), 1);
 		assertEquals(stmt.executeUpdate("update crud set f2='str2'"), 1);
@@ -120,7 +128,7 @@ public class CRUDTest {
 		rs.close();
 		stmt.close();
 
-		//²âÊÔPreparedStatementµÄcrud
+		//æµ‹è¯•PreparedStatementçš„crud
 		String sql = "insert into crud(f1,f2) values(?,?)";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		ps.setInt(1, 10);
@@ -153,13 +161,13 @@ public class CRUDTest {
 
 	//dbGroup: db1:r10w, db2:r20, db3:r30
 	@Test
-	public void Èı¸öÊı¾İ¿â_²âÊÔdb1¿É¶ÁĞ´_db2Óëdb3Ö»ÄÜ¶Á() throws Exception {
+	public void ä¸‰ä¸ªæ•°æ®åº“_æµ‹è¯•db1å¯è¯»å†™_db2ä¸db3åªèƒ½è¯»() throws Exception {
 		DataSource ds1 = DataSourceFactory.getMySQLDataSource(1);
 		DataSource ds2 = DataSourceFactory.getMySQLDataSource(2);
 		DataSource ds3 = DataSourceFactory.getMySQLDataSource(3);
 		
 		
-		//¶Á¿âÊ±×îÓĞ¿ÉÄÜ´Ódb3¶Á£¬È»ºóÊÇdb2£¬db1µÄÈ¨ÖØ×îĞ¡
+		//è¯»åº“æ—¶æœ€æœ‰å¯èƒ½ä»db3è¯»ï¼Œç„¶åæ˜¯db2ï¼Œdb1çš„æƒé‡æœ€å°
 		TGroupDataSource ds = new TGroupDataSource();
 		DataSourceWrapper dsw1 = new DataSourceWrapper("db1", "r10w", ds1, DBType.MYSQL);
 		DataSourceWrapper dsw2 = new DataSourceWrapper("db2", "r20", ds2, DBType.MYSQL);
@@ -168,7 +176,7 @@ public class CRUDTest {
 
 		Connection conn = ds.getConnection();
 
-		//²âÊÔStatementµÄcrud
+		//æµ‹è¯•Statementçš„crud
 		Statement stmt = conn.createStatement();
 		assertEquals(stmt.executeUpdate("insert into crud(f1,f2) values(10,'str')"), 1);
 		assertEquals(stmt.executeUpdate("update crud set f2='str2'"), 1);
@@ -180,7 +188,7 @@ public class CRUDTest {
 		rs.close();
 		stmt.close();
 
-		//²âÊÔPreparedStatementµÄcrud
+		//æµ‹è¯•PreparedStatementçš„crud
 		String sql = "insert into crud(f1,f2) values(10,'str')";
 		PreparedStatement ps = conn.prepareStatement(sql);
 		assertEquals(ps.executeUpdate(), 1);
@@ -210,12 +218,12 @@ public class CRUDTest {
 
 	//dbGroup: db1:w, db2:r20, db3:r30
 	@Test
-	public void ÔÚÖ»Ğ´¿âÉÏ¸üĞÂºóÔÙ²éÑ¯»áÖØÓÃĞ´¿âÉÏµÄÁ¬½Ó_¼´Ê¹ËüÊÇÒ»¸öÖ»Ğ´¿âÒ²²»¹Ü() throws Exception { //²»Ö§³ÖÕâÖÖÖ»ÄÜĞ´µÄÇé¿ö
+	public void åœ¨åªå†™åº“ä¸Šæ›´æ–°åå†æŸ¥è¯¢ä¼šé‡ç”¨å†™åº“ä¸Šçš„è¿æ¥_å³ä½¿å®ƒæ˜¯ä¸€ä¸ªåªå†™åº“ä¹Ÿä¸ç®¡() throws Exception { //ä¸æ”¯æŒè¿™ç§åªèƒ½å†™çš„æƒ…å†µ
 		DataSource ds1 = DataSourceFactory.getMySQLDataSource(1);
 		DataSource ds2 = DataSourceFactory.getMySQLDataSource(2);
 		DataSource ds3 = DataSourceFactory.getMySQLDataSource(3);
 		
-		//¶Á¿âÊ±×îÓĞ¿ÉÄÜ´Ódb3¶Á£¬È»ºóÊÇdb2£¬db1µÄÈ¨ÖØ×îĞ¡
+		//è¯»åº“æ—¶æœ€æœ‰å¯èƒ½ä»db3è¯»ï¼Œç„¶åæ˜¯db2ï¼Œdb1çš„æƒé‡æœ€å°
 		TGroupDataSource ds = new TGroupDataSource();
 		DataSourceWrapper dsw1 = new DataSourceWrapper("db1", "w", ds1, DBType.MYSQL);
 		DataSourceWrapper dsw2 = new DataSourceWrapper("db2", "r20", ds2, DBType.MYSQL);
@@ -226,9 +234,9 @@ public class CRUDTest {
 		Statement stmt = conn.createStatement();
 		assertEquals(stmt.executeUpdate("insert into crud(f1,f2) values(100,'str')"), 1);
 		
-		//ÔÚÖ»Ğ´¿âÉÏ¸üĞÂºó£¬»á±£ÁôĞ´Á¬½Ó£¬
-		//µ«ÊÇÒòÎªĞ´Á¬½Ó¶ÔÓ¦µÄÊı¾İÔ´±»ÅäÖÃ³ÉÖ»Ğ´£¬ËùÒÔ½ÓÏÂÀ´µÄ¶Á²Ù×÷²»ÔÊĞíÔÚĞ´Á¬½ÓÉÏ½øĞĞ
-		//ÒòÎªdb2,db3¶¼Ã»ÓĞÊı¾İ£¬ËùÒÔrs.next()·µ»Øfalse
+		//åœ¨åªå†™åº“ä¸Šæ›´æ–°åï¼Œä¼šä¿ç•™å†™è¿æ¥ï¼Œ
+		//ä½†æ˜¯å› ä¸ºå†™è¿æ¥å¯¹åº”çš„æ•°æ®æºè¢«é…ç½®æˆåªå†™ï¼Œæ‰€ä»¥æ¥ä¸‹æ¥çš„è¯»æ“ä½œä¸å…è®¸åœ¨å†™è¿æ¥ä¸Šè¿›è¡Œ
+		//å› ä¸ºdb2,db3éƒ½æ²¡æœ‰æ•°æ®ï¼Œæ‰€ä»¥rs.next()è¿”å›false
 		ResultSet rs = stmt.executeQuery("select f1,f2 from crud where f1=100");
 		assertFalse(rs.next());
 		rs.close();

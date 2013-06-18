@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.mockdatasource;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.mockdatasource;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -433,8 +441,8 @@ public class MockDataBaseMetaData implements DatabaseMetaData {
 	}
 
 	/**
-	 * Spring JdbcTemplateµÄbatchUpdateµÈ·½·¨»áµ÷ÓÃÕâ¸öÅĞ¶Ï£¬
-	 * ²¢ÇÒoracleºÍmysql¶¼Ö§³Ö£¨supportBatchUpdates·µ»Øtrue£©
+	 * Spring JdbcTemplateçš„batchUpdateç­‰æ–¹æ³•ä¼šè°ƒç”¨è¿™ä¸ªåˆ¤æ–­ï¼Œ
+	 * å¹¶ä¸”oracleå’Œmysqléƒ½æ”¯æŒï¼ˆsupportBatchUpdatesè¿”å›trueï¼‰
 	 */
 	public boolean supportsBatchUpdates() throws SQLException {
 		return true;

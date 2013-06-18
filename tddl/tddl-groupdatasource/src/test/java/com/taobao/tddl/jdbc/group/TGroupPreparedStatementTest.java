@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -102,7 +110,7 @@ public class TGroupPreparedStatementTest {
 	}
 
 	/**
-	 * 同一个Statement先更新后查询
+	 * 鍚屼竴涓猄tatement鍏堟洿鏂板悗鏌ヨ
 	 */
 	@Test
 	public void testExecuteSql() throws SQLException {
@@ -132,7 +140,7 @@ public class TGroupPreparedStatementTest {
 	}
 
 	/**
-	 * 同一个PreparedStatement先更新后查询
+	 * 鍚屼竴涓狿reparedStatement鍏堟洿鏂板悗鏌ヨ
 	 */
 	@Test
 	public void testExecute1() throws SQLException {
@@ -162,7 +170,7 @@ public class TGroupPreparedStatementTest {
 		}
 	}
 	/**
-	 * 同一个PreparedStatement先查询后更新
+	 * 鍚屼竴涓狿reparedStatement鍏堟煡璇㈠悗鏇存柊
 	 */
 	@Test
 	public void testExecute2() throws SQLException {

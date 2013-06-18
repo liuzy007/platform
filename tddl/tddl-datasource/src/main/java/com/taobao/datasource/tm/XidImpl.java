@@ -28,7 +28,7 @@ import javax.transaction.xa.Xid;
  *  This implementation is immutable and always serializable at runtime.
  *
  *  @see TransactionImpl
- *  @author <a href="mailto:rickard.oberg@telkel.com">Rickard �berg</a>
+ *  @author <a href="mailto:rickard.oberg@telkel.com">Rickard 锟絙erg</a>
  *  @author <a href="mailto:osh@sparre.dk">Ole Husgaard</a>
  *  @author <a href="reverbel@ime.usp.br">Francisco Reverbel</a>
  *  @version $Revision: 57208 $

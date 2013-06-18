@@ -55,7 +55,7 @@ import com.taobao.datasource.tm.integrity.TransactionIntegrity;
  *
  *  @see TxManager
  *
- *  @author <a href="mailto:rickard.oberg@telkel.com">Rickard Ãberg</a>
+ *  @author <a href="mailto:rickard.oberg@telkel.com">Rickard 脙聳berg</a>
  *  @author <a href="mailto:marc.fleury@telkel.com">Marc Fleury</a>
  *  @author <a href="mailto:osh@sparre.dk">Ole Husgaard</a>
  *  @author <a href="mailto:toby.allsopp@peace.com">Toby Allsopp</a>

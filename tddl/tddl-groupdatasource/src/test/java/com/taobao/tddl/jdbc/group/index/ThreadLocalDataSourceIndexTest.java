@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.index;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.index;
 
 import javax.sql.DataSource;
 
@@ -53,7 +61,7 @@ public class ThreadLocalDataSourceIndexTest {
 	}
 
 	@Test
-	public void test_²»Éèi() {
+	public void test_ä¸è®¾i() {
 		JdbcTemplate jt = new JdbcTemplate(createGroupDataSource("ds0:rw, ds1:r, ds2:r, ds3:r"));
 
 		MockDataSource.clearTrace();
@@ -70,7 +78,7 @@ public class ThreadLocalDataSourceIndexTest {
 	}
 
 	@Test
-	public void test_Éèµ¥¸öi²»¼ÓÊı×ÖµÈÍ¬ÓÚÃ»Éè() {
+	public void test_è®¾å•ä¸ªiä¸åŠ æ•°å­—ç­‰åŒäºæ²¡è®¾() {
 		JdbcTemplate jt = new JdbcTemplate(createGroupDataSource("ds0:rwi, ds1:ri, ds2:ri, ds3:ri"));
 
 		MockDataSource.clearTrace();
@@ -81,7 +89,7 @@ public class ThreadLocalDataSourceIndexTest {
 	}
 
 	@Test
-	public void test_Éèµ¥¸öin() {
+	public void test_è®¾å•ä¸ªin() {
 		JdbcTemplate jt = new JdbcTemplate(createGroupDataSource("ds0:rwi5, ds1:ri6, ds2:ri7, ds3:ri8"));
 
 		MockDataSource.clearTrace();
@@ -98,7 +106,7 @@ public class ThreadLocalDataSourceIndexTest {
 	}
 
 	@Test
-	public void test_Éè¶à¸öi·ÖÁ÷() {
+	public void test_è®¾å¤šä¸ªiåˆ†æµ() {
 		JdbcTemplate jt = new JdbcTemplate(createGroupDataSource("ds0:rwi0, ds1:ri0, ds2:ri1, ds3:ri1"));
 
 		MockDataSource.clearTrace();
@@ -115,7 +123,7 @@ public class ThreadLocalDataSourceIndexTest {
 	}
 
 	@Test
-	public void test_1¸ödsÉè¶à¸öi() {
+	public void test_1ä¸ªdsè®¾å¤šä¸ªi() {
 		JdbcTemplate jt = new JdbcTemplate(createGroupDataSource("ds0:rwi0, ds1:ri0i1, ds2:ri1, ds3:r, ds4:ri3"));
 
 		MockDataSource.clearTrace();

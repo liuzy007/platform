@@ -60,7 +60,7 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		final String content = "aaaaaaaaaaaaaaaaaaaaaaaaaa";
 		File file = new File(path + "/config-data/boyan/notify");
 		try {
-			// ²åÈëÅäÖÃĞÅÏ¢
+			// æ’å…¥é…ç½®ä¿¡æ¯
 			assertFalse(file.exists());
 			mockServletContext(dataId, group, content);
 			assertEquals("/admin/config/list", this.adminController.postConfig(
@@ -76,7 +76,7 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 			assertTrue(page.getPageItems().contains(
 					new ConfigInfo(dataId, group, content)));
 
-			// ²éÕÒÅäÖÃĞÅÏ¢
+			// æŸ¥æ‰¾é…ç½®ä¿¡æ¯
 			modelMap = new ModelMap();
 			assertEquals("/admin/config/edit",
 					this.adminController.getConfigInfo(request, response,
@@ -87,15 +87,15 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 			assertEquals(content, configInfo.getContent());
 			assertEquals(group, configInfo.getGroup());
 
-			// É¾³ıÅäÖÃĞÅÏ¢
+			// åˆ é™¤é…ç½®ä¿¡æ¯
 			long id = configInfo.getId();
 			modelMap = new ModelMap();
 
 			assertEquals("/admin/config/list",
 					this.adminController.deleteConfig(request, response, id,
 							modelMap));
-			assertEquals("É¾³ı³É¹¦!", modelMap.get("message"));
-			// È·ÈÏÎÄ¼ş²»´æÔÚ
+			assertEquals("åˆ é™¤æˆåŠŸ!", modelMap.get("message"));
+			// ç¡®è®¤æ–‡ä»¶ä¸å­˜åœ¨
 			file = new File(path + "/config-data/boyan/notify");
 			assertFalse(file.exists());
 
@@ -115,7 +115,7 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		final String content = "test delete";
 		File file = new File(path + "/config-data/leiwen/notify");
 		try {
-			// ²åÈëÅäÖÃĞÅÏ¢
+			// æ’å…¥é…ç½®ä¿¡æ¯
 			assertFalse(file.exists());
 			mockServletContext(dataId, group, content);
 			assertEquals("/admin/config/list", this.adminController.postConfig(
@@ -131,14 +131,14 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 			assertTrue(page.getPageItems().contains(
 					new ConfigInfo(dataId, group, content)));
 
-			// É¾³ıÅäÖÃĞÅÏ¢
+			// åˆ é™¤é…ç½®ä¿¡æ¯
 			modelMap = new ModelMap();
 
 			assertEquals("/admin/config/list",
 					this.adminController.deleteConfigByDataIdGroup(request,
 							response, dataId, group, modelMap));
-			assertEquals("É¾³ı³É¹¦!", modelMap.get("message"));
-			// È·ÈÏÎÄ¼ş²»´æÔÚ
+			assertEquals("åˆ é™¤æˆåŠŸ!", modelMap.get("message"));
+			// ç¡®è®¤æ–‡ä»¶ä¸å­˜åœ¨
 			file = new File(path + "/config-data/leiwen/notify");
 			assertFalse(file.exists());
 
@@ -158,7 +158,7 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		final String content = "test update";
 		File file = new File(path + "/config-data/leiwen/diamond");
 		try {
-			// ²åÈëÅäÖÃĞÅÏ¢
+			// æ’å…¥é…ç½®ä¿¡æ¯
 			assertFalse(file.exists());
 			mockServletContext(dataId, group, content);
 			assertEquals("/admin/config/list", this.adminController.postConfig(
@@ -174,14 +174,14 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 			assertTrue(page.getPageItems().contains(
 					new ConfigInfo(dataId, group, content)));
 
-			// ¸üĞÂÅäÖÃĞÅÏ¢
+			// æ›´æ–°é…ç½®ä¿¡æ¯
 			modelMap = new ModelMap();
 			final String newContent = "test update new";
 			assertEquals("/admin/config/list",
 					this.adminController.updateConfig(request, response,
 							dataId, group, newContent, modelMap));
-			assertEquals("Ìá½»³É¹¦!", modelMap.get("message"));
-			// È·ÈÏÎÄ¼şÄÚÈİÒÑ¸üĞÂ
+			assertEquals("æäº¤æˆåŠŸ!", modelMap.get("message"));
+			// ç¡®è®¤æ–‡ä»¶å†…å®¹å·²æ›´æ–°
 			file = new File(path + "/config-data/leiwen/diamond");
 			assertTrue(file.exists());
 			assertContent(newContent, file);
@@ -207,7 +207,7 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		assertContent("<root>hello</root>", file);
 		file.delete();
 
-		assertEquals("Ìá½»³É¹¦!", modelMap.get("message"));
+		assertEquals("æäº¤æˆåŠŸ!", modelMap.get("message"));
 
 	}
 
@@ -232,13 +232,13 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 	}
 
 	/**
-	 * ÅúÁ¿ĞÂÔö²âÊÔ, ÓÉÓÚmockServletContextÒÔgroup + dataIdÎªÁ£¶È, ËùÒÔÕâÀïÅúÁ¿´¦Àí¼ÇÂ¼µÄ¸öÊıÎª1,
-	 * ÕæÊµµÄÅúÁ¿²âÊÔÔÚsdkµÄµ¥Ôª²âÊÔÖĞ½øĞĞ
+	 * æ‰¹é‡æ–°å¢æµ‹è¯•, ç”±äºmockServletContextä»¥group + dataIdä¸ºç²’åº¦, æ‰€ä»¥è¿™é‡Œæ‰¹é‡å¤„ç†è®°å½•çš„ä¸ªæ•°ä¸º1,
+	 * çœŸå®çš„æ‰¹é‡æµ‹è¯•åœ¨sdkçš„å•å…ƒæµ‹è¯•ä¸­è¿›è¡Œ
 	 * 
-	 * Õâ¸öÓÃÀı²âÊÔÅúÁ¿ĞÂÔö³É¹¦, ¼´Êı¾İ¿âÖĞÔ­À´Ã»ÓĞÊı¾İ, ³É¹¦²åÈëÅúÁ¿ÇëÇóµÄÊı¾İ
+	 * è¿™ä¸ªç”¨ä¾‹æµ‹è¯•æ‰¹é‡æ–°å¢æˆåŠŸ, å³æ•°æ®åº“ä¸­åŸæ¥æ²¡æœ‰æ•°æ®, æˆåŠŸæ’å…¥æ‰¹é‡è¯·æ±‚çš„æ•°æ®
 	 */
 	@Test
-	public void testBatchAdd_³É¹¦() {
+	public void testBatchAdd_æˆåŠŸ() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		request.setRemoteAddr("0.0.0.0");
@@ -249,21 +249,21 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		String content = "batchAddSuccess";
 		String srcIp = "127.0.0.1";
 		String srcUser = "leiwen.zh";
-		// ¹¹ÔìdataIdºÍcontentµÄ×Ö·û´®
+		// æ„é€ dataIdå’Œcontentçš„å­—ç¬¦ä¸²
 		Map<String/* dataId */, String/* content */> dataId2ContentMap = new HashMap<String, String>();
 		for (int i = 0; i < 1; i++) {
 			dataId2ContentMap.put(dataId, content);
 		}
 		String allDataIdAndContent = this
 				.generateBatchOpString(dataId2ContentMap);
-		// ĞÂÔö
+		// æ–°å¢
 		mockServletContext(dataId, group, content);
 
 		assertEquals("/admin/config/batch_result",
 				this.adminController.batchAddOrUpdate(request, response,
 						allDataIdAndContent, group, srcIp, srcUser, modelMap));
 
-		// ·´ĞòÁĞ»¯, ÑéÖ¤½á¹û
+		// ååºåˆ—åŒ–, éªŒè¯ç»“æœ
 		String json = (String) modelMap.get("json");
 		Object resultObj = null;
 		try {
@@ -271,10 +271,10 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 					new TypeReference<List<ConfigInfoEx>>() {
 					});
 			if (!(resultObj instanceof List<?>)) {
-				throw new RuntimeException("·´ĞòÁĞ»¯Ê§°Ü, ÀàĞÍ²»ÊÇList");
+				throw new RuntimeException("ååºåˆ—åŒ–å¤±è´¥, ç±»å‹ä¸æ˜¯List");
 			}
 		} catch (Exception e) {
-			fail("·´ĞòÁĞ»¯Ê§°Ü, ÀàĞÍ²»ÊÇList");
+			fail("ååºåˆ—åŒ–å¤±è´¥, ç±»å‹ä¸æ˜¯List");
 		}
 		List<ConfigInfoEx> resultList = (List<ConfigInfoEx>) resultObj;
 		assertEquals(1, resultList.size());
@@ -288,10 +288,10 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 	}
 
 	/**
-	 * Õâ¸öÓÃÀı²âÊÔÅúÁ¿¸üĞÂ³É¹¦, ¼´Êı¾İ¿âÔ­À´ÓĞÊı¾İ, ¸üĞÂÊı¾İ
+	 * è¿™ä¸ªç”¨ä¾‹æµ‹è¯•æ‰¹é‡æ›´æ–°æˆåŠŸ, å³æ•°æ®åº“åŸæ¥æœ‰æ•°æ®, æ›´æ–°æ•°æ®
 	 */
 	@Test
-	public void testBatchUpdate_³É¹¦() throws Exception {
+	public void testBatchUpdate_æˆåŠŸ() throws Exception {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		request.setRemoteAddr("0.0.0.0");
@@ -304,12 +304,12 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		String srcIp = "127.0.0.1";
 		String srcUser = "leiwen.zh";
 
-		// ÏÈĞÂÔöÒ»´Î
+		// å…ˆæ–°å¢ä¸€æ¬¡
 		mockServletContext(dataId, group, content);
 		this.adminController.postConfig(request, response, dataId, group,
 				content, modelMap);
 
-		// ¹¹ÔìÅúÁ¿¸üĞÂµÄ×Ö·û´®
+		// æ„é€ æ‰¹é‡æ›´æ–°çš„å­—ç¬¦ä¸²
 		Map<String/* dataId */, String/* content */> dataId2ContentMap = new HashMap<String, String>();
 		for (int i = 0; i < 1; i++) {
 			dataId2ContentMap.put(dataId, newContent);
@@ -319,12 +319,12 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 
 		Thread.sleep(1000);
 
-		// ÅúÁ¿¸üĞÂ
+		// æ‰¹é‡æ›´æ–°
 		assertEquals("/admin/config/batch_result",
 				this.adminController.batchAddOrUpdate(request, response,
 						allDataIdAndContent, group, srcIp, srcUser, modelMap));
 
-		// ·´ĞòÁĞ»¯, ÑéÖ¤½á¹û
+		// ååºåˆ—åŒ–, éªŒè¯ç»“æœ
 		String json = (String) modelMap.get("json");
 		Object resultObj = null;
 		try {
@@ -332,10 +332,10 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 					new TypeReference<List<ConfigInfoEx>>() {
 					});
 			if (!(resultObj instanceof List<?>)) {
-				throw new RuntimeException("·´ĞòÁĞ»¯Ê§°Ü, ÀàĞÍ²»ÊÇList");
+				throw new RuntimeException("ååºåˆ—åŒ–å¤±è´¥, ç±»å‹ä¸æ˜¯List");
 			}
 		} catch (Exception e) {
-			fail("·´ĞòÁĞ»¯Ê§°Ü, ÀàĞÍ²»ÊÇList");
+			fail("ååºåˆ—åŒ–å¤±è´¥, ç±»å‹ä¸æ˜¯List");
 		}
 		List<ConfigInfoEx> resultList = (List<ConfigInfoEx>) resultObj;
 		assertEquals(1, resultList.size());
@@ -349,10 +349,10 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 	}
 
 	/**
-	 * Õâ¸öÓÃÀı²âÊÔÅúÁ¿²éÑ¯³É¹¦, ¼´Êı¾İ¿âÔ­À´ÓĞÊı¾İ
+	 * è¿™ä¸ªç”¨ä¾‹æµ‹è¯•æ‰¹é‡æŸ¥è¯¢æˆåŠŸ, å³æ•°æ®åº“åŸæ¥æœ‰æ•°æ®
 	 */
 	@Test
-	public void testBatchQuery_³É¹¦() {
+	public void testBatchQuery_æˆåŠŸ() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		request.setRemoteAddr("0.0.0.0");
@@ -362,22 +362,22 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		String group = "test";
 		String content = "batchQuerySuccess";
 
-		// ĞÂÔö
+		// æ–°å¢
 		mockServletContext(dataId, group, content);
 		this.adminController.postConfig(request, response, dataId, group,
 				content, modelMap);
 
-		// ¹¹ÔìÅúÁ¿²éÑ¯µÄdataId×Ö·û´®
+		// æ„é€ æ‰¹é‡æŸ¥è¯¢çš„dataIdå­—ç¬¦ä¸²
 		List<String> dataIdList = new LinkedList<String>();
 		dataIdList.add(dataId);
 		String dataIds = this.generateBatchQueryString(dataIdList);
 
-		// ÅúÁ¿²éÑ¯
+		// æ‰¹é‡æŸ¥è¯¢
 		assertEquals("/admin/config/batch_result",
 				this.adminController.batchQuery(request, response, dataIds,
 						group, modelMap));
 
-		// ·´ĞòÁĞ»¯, ÑéÖ¤½á¹û
+		// ååºåˆ—åŒ–, éªŒè¯ç»“æœ
 		String json = (String) modelMap.get("json");
 		Object resultObj = null;
 		try {
@@ -385,10 +385,10 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 					new TypeReference<List<ConfigInfoEx>>() {
 					});
 			if (!(resultObj instanceof List<?>)) {
-				throw new RuntimeException("·´ĞòÁĞ»¯Ê§°Ü, ÀàĞÍ²»ÊÇList");
+				throw new RuntimeException("ååºåˆ—åŒ–å¤±è´¥, ç±»å‹ä¸æ˜¯List");
 			}
 		} catch (Exception e) {
-			fail("·´ĞòÁĞ»¯Ê§°Ü, ÀàĞÍ²»ÊÇList");
+			fail("ååºåˆ—åŒ–å¤±è´¥, ç±»å‹ä¸æ˜¯List");
 		}
 		List<ConfigInfoEx> resultList = (List<ConfigInfoEx>) resultObj;
 		assertEquals(1, resultList.size());
@@ -402,10 +402,10 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 	}
 
 	/**
-	 * Õâ¸öÓÃÀı²âÊÔÅúÁ¿²éÑ¯Ê§°Ü, ¼´Êı¾İ¿âÖĞ²»´æÔÚÊı¾İ
+	 * è¿™ä¸ªç”¨ä¾‹æµ‹è¯•æ‰¹é‡æŸ¥è¯¢å¤±è´¥, å³æ•°æ®åº“ä¸­ä¸å­˜åœ¨æ•°æ®
 	 */
 	@Test
-	public void testBatchQuery_Ê§°Ü() {
+	public void testBatchQuery_å¤±è´¥() {
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		request.setRemoteAddr("0.0.0.0");
@@ -414,17 +414,17 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		String dataId = UUID.randomUUID().toString() + "-batchQueryDataId";
 		String group = "test";
 
-		// ¹¹ÔìÅúÁ¿²éÑ¯µÄdataId×Ö·û´®
+		// æ„é€ æ‰¹é‡æŸ¥è¯¢çš„dataIdå­—ç¬¦ä¸²
 		List<String> dataIdList = new LinkedList<String>();
 		dataIdList.add(dataId);
 		String dataIds = this.generateBatchQueryString(dataIdList);
 
-		// ÅúÁ¿²éÑ¯
+		// æ‰¹é‡æŸ¥è¯¢
 		assertEquals("/admin/config/batch_result",
 				this.adminController.batchQuery(request, response, dataIds,
 						group, modelMap));
 
-		// ·´ĞòÁĞ»¯, ÑéÖ¤½á¹û
+		// ååºåˆ—åŒ–, éªŒè¯ç»“æœ
 		String json = (String) modelMap.get("json");
 		Object resultObj = null;
 		try {
@@ -432,10 +432,10 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 					new TypeReference<List<ConfigInfoEx>>() {
 					});
 			if (!(resultObj instanceof List<?>)) {
-				throw new RuntimeException("·´ĞòÁĞ»¯Ê§°Ü, ÀàĞÍ²»ÊÇList");
+				throw new RuntimeException("ååºåˆ—åŒ–å¤±è´¥, ç±»å‹ä¸æ˜¯List");
 			}
 		} catch (Exception e) {
-			fail("·´ĞòÁĞ»¯Ê§°Ü, ÀàĞÍ²»ÊÇList");
+			fail("ååºåˆ—åŒ–å¤±è´¥, ç±»å‹ä¸æ˜¯List");
 		}
 		List<ConfigInfoEx> resultList = (List<ConfigInfoEx>) resultObj;
 		assertEquals(1, resultList.size());
@@ -467,7 +467,7 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 	@Test
 	public void testAddUser_listUser_changePassword_deleteUser()
 			throws Exception {
-		// ÖØ¸´Ìí¼Ó£¬Ê§°Ü
+		// é‡å¤æ·»åŠ ï¼Œå¤±è´¥
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		try {
@@ -475,7 +475,7 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 
 			assertEquals("/admin/user/list", this.adminController.addUser(
 					request, response, "admin", "admin", modelMap));
-			assertEquals("Ìí¼ÓÊ§°Ü!", modelMap.get("message"));
+			assertEquals("æ·»åŠ å¤±è´¥!", modelMap.get("message"));
 
 			Map<String, String> userMap = (Map<String, String>) modelMap
 					.get("userMap");
@@ -483,47 +483,47 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 			assertEquals("admin", userMap.get("admin"));
 			assertEquals(1, userMap.size());
 
-			// Ìí¼ÓĞÂÓÃ»§
+			// æ·»åŠ æ–°ç”¨æˆ·
 			modelMap = new ModelMap();
 			assertEquals("/admin/user/list", this.adminController.addUser(
 					request, response, "boyan", "boyan", modelMap));
-			assertEquals("Ìí¼Ó³É¹¦!", modelMap.get("message"));
+			assertEquals("æ·»åŠ æˆåŠŸ!", modelMap.get("message"));
 			userMap = (Map<String, String>) modelMap.get("userMap");
 			assertNotNull(userMap);
 			assertEquals("boyan", userMap.get("boyan"));
 			assertEquals(2, userMap.size());
 
-			// ĞŞ¸ÄÃÜÂë
-			// 1¡¢ĞŞ¸Ä²»´æÔÚµÄÓÃ»§ÃÜÂë
+			// ä¿®æ”¹å¯†ç 
+			// 1ã€ä¿®æ”¹ä¸å­˜åœ¨çš„ç”¨æˆ·å¯†ç 
 			modelMap = new ModelMap();
 			assertEquals("/admin/user/list",
 					this.adminController.changePassword(request, response,
 							"test", "newpass", modelMap));
-			assertEquals("¸ü¸ÄÊ§°Ü!", modelMap.get("message"));
+			assertEquals("æ›´æ”¹å¤±è´¥!", modelMap.get("message"));
 
-			// 2¡¢ĞŞ¸ÄboyanÃÜÂë
+			// 2ã€ä¿®æ”¹boyanå¯†ç 
 			modelMap = new ModelMap();
 			assertEquals("/admin/user/list",
 					this.adminController.changePassword(request, response,
 							"boyan", "newpass", modelMap));
-			assertEquals("¸ü¸Ä³É¹¦,ÏÂ´ÎµÇÂ¼ÇëÓÃĞÂÃÜÂë£¡", modelMap.get("message"));
+			assertEquals("æ›´æ”¹æˆåŠŸ,ä¸‹æ¬¡ç™»å½•è¯·ç”¨æ–°å¯†ç ï¼", modelMap.get("message"));
 			userMap = (Map<String, String>) modelMap.get("userMap");
 			assertNotNull(userMap);
 			assertEquals("newpass", userMap.get("boyan"));
 			assertEquals(2, userMap.size());
 
-			// É¾³ıÓÃ»§
-			// 1¡¢É¾³ı²»´æÔÚµÄÓÃ»§£¬Ê§°Ü
+			// åˆ é™¤ç”¨æˆ·
+			// 1ã€åˆ é™¤ä¸å­˜åœ¨çš„ç”¨æˆ·ï¼Œå¤±è´¥
 			modelMap = new ModelMap();
 			assertEquals("/admin/user/list", this.adminController.deleteUser(
 					request, response, "test", modelMap));
-			assertEquals("É¾³ıÊ§°Ü!", modelMap.get("message"));
+			assertEquals("åˆ é™¤å¤±è´¥!", modelMap.get("message"));
 
-			// 2¡¢É¾³ıboyan
+			// 2ã€åˆ é™¤boyan
 			modelMap = new ModelMap();
 			assertEquals("/admin/user/list", this.adminController.deleteUser(
 					request, response, "boyan", modelMap));
-			assertEquals("É¾³ı³É¹¦!", modelMap.get("message"));
+			assertEquals("åˆ é™¤æˆåŠŸ!", modelMap.get("message"));
 			userMap = (Map<String, String>) modelMap.get("userMap");
 			assertNotNull(userMap);
 			assertNull(userMap.get("boyan"));
@@ -546,22 +546,22 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		Map<String, String> allUserMap = this.adminController.getAdminService()
 				.getAllUsers();
 		assertEquals("admin", allUserMap.get("admin"));
-		assertEquals("¼ÓÔØ³É¹¦!", modelMap.get("message"));
+		assertEquals("åŠ è½½æˆåŠŸ!", modelMap.get("message"));
 	}
 
 	@Test
 	public void testSetRefuseRequstCount_GetRefuseRequestCount() {
 		ModelMap modelMap = new ModelMap();
-		// ÉèÖÃµÄ¼ÆÊıĞ¡ÓÚµÈÓÚ0
+		// è®¾ç½®çš„è®¡æ•°å°äºç­‰äº0
 		assertEquals("/admin/count",
 				this.adminController.setRefuseRequestCount(0, modelMap));
-		assertEquals("·Ç·¨µÄ¼ÆÊı", modelMap.get("message"));
+		assertEquals("éæ³•çš„è®¡æ•°", modelMap.get("message"));
 		assertNull(modelMap.get("count"));
 
 		modelMap = new ModelMap();
 		assertEquals("/admin/count",
 				this.adminController.setRefuseRequestCount(100, modelMap));
-		assertEquals("ÉèÖÃ³É¹¦!", modelMap.get("message"));
+		assertEquals("è®¾ç½®æˆåŠŸ!", modelMap.get("message"));
 		assertEquals(100L, modelMap.get("count"));
 
 		GlobalCounter.getCounter().set(0);
@@ -574,19 +574,19 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		ModelMap modelMap = new ModelMap();
 		assertEquals("/admin/config/new", this.adminController.postConfig(
 				request, response, "", "hello", "test", modelMap));
-		assertEquals("ÎŞĞ§µÄDataId", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„DataId", modelMap.get("message"));
 
 		response = new MockHttpServletResponse();
 		modelMap = new ModelMap();
 		assertEquals("/admin/config/new", this.adminController.postConfig(
 				request, response, "notify", "hello test", "test", modelMap));
-		assertEquals("ÎŞĞ§µÄ·Ö×é", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„åˆ†ç»„", modelMap.get("message"));
 
 		response = new MockHttpServletResponse();
 		modelMap = new ModelMap();
 		assertEquals("/admin/config/new", this.adminController.postConfig(
 				request, response, "notify", "hello", null, modelMap));
-		assertEquals("ÎŞĞ§µÄÄÚÈİ", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„å†…å®¹", modelMap.get("message"));
 
 	}
 
@@ -597,19 +597,19 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		ModelMap modelMap = new ModelMap();
 		assertEquals("/admin/config/edit", this.adminController.updateConfig(
 				request, response, "", "hello", "test", modelMap));
-		assertEquals("ÎŞĞ§µÄDataId", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„DataId", modelMap.get("message"));
 
 		response = new MockHttpServletResponse();
 		modelMap = new ModelMap();
 		assertEquals("/admin/config/edit", this.adminController.updateConfig(
 				request, response, "notify", "hello test", "test", modelMap));
-		assertEquals("ÎŞĞ§µÄ·Ö×é", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„åˆ†ç»„", modelMap.get("message"));
 
 		response = new MockHttpServletResponse();
 		modelMap = new ModelMap();
 		assertEquals("/admin/config/edit", this.adminController.updateConfig(
 				request, response, "notify", "hello", null, modelMap));
-		assertEquals("ÎŞĞ§µÄÄÚÈİ", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„å†…å®¹", modelMap.get("message"));
 	}
 
 	@Test
@@ -621,21 +621,21 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		ModelMap modelMap = new ModelMap();
 		assertEquals("/admin/config/upload", this.adminController.upload(
 				request, response, "", "hello", multipartFile, modelMap));
-		assertEquals("ÎŞĞ§µÄDataId", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„DataId", modelMap.get("message"));
 
 		response = new MockHttpServletResponse();
 		modelMap = new ModelMap();
 		assertEquals("/admin/config/upload", this.adminController.upload(
 				request, response, "notify", "hello test", multipartFile,
 				modelMap));
-		assertEquals("ÎŞĞ§µÄ·Ö×é", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„åˆ†ç»„", modelMap.get("message"));
 
 		response = new MockHttpServletResponse();
 		modelMap = new ModelMap();
 		multipartFile = new MockMultipartFile("test.xml", "".getBytes());
 		assertEquals("/admin/config/upload", this.adminController.upload(
 				request, response, "notify", "hello", multipartFile, modelMap));
-		assertEquals("ÎŞĞ§µÄÄÚÈİ", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„å†…å®¹", modelMap.get("message"));
 	}
 
 	@Test
@@ -647,21 +647,21 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		ModelMap modelMap = new ModelMap();
 		assertEquals("/admin/config/edit", this.adminController.reupload(
 				request, response, "", "hello", multipartFile, modelMap));
-		assertEquals("ÎŞĞ§µÄDataId", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„DataId", modelMap.get("message"));
 
 		response = new MockHttpServletResponse();
 		modelMap = new ModelMap();
 		assertEquals("/admin/config/edit", this.adminController.reupload(
 				request, response, "notify", "hello test", multipartFile,
 				modelMap));
-		assertEquals("ÎŞĞ§µÄ·Ö×é", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„åˆ†ç»„", modelMap.get("message"));
 
 		response = new MockHttpServletResponse();
 		modelMap = new ModelMap();
 		multipartFile = new MockMultipartFile("test.xml", "".getBytes());
 		assertEquals("/admin/config/edit", this.adminController.reupload(
 				request, response, "notify", "hello", multipartFile, modelMap));
-		assertEquals("ÎŞĞ§µÄÄÚÈİ", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„å†…å®¹", modelMap.get("message"));
 	}
 
 	@Test
@@ -671,12 +671,12 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		ModelMap modelMap = new ModelMap();
 		assertEquals("/admin/user/list", this.adminController.addUser(request,
 				response, "", "123", modelMap));
-		assertEquals("ÎŞĞ§µÄÓÃ»§Ãû", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„ç”¨æˆ·å", modelMap.get("message"));
 
 		modelMap = new ModelMap();
 		assertEquals("/admin/user/new", this.adminController.addUser(request,
 				response, "leiwen", "", modelMap));
-		assertEquals("ÎŞĞ§µÄÃÜÂë", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„å¯†ç ", modelMap.get("message"));
 	}
 
 	@Test
@@ -686,7 +686,7 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		ModelMap modelMap = new ModelMap();
 		assertEquals("/admin/user/list", this.adminController.deleteUser(
 				request, response, "", modelMap));
-		assertEquals("ÎŞĞ§µÄÓÃ»§Ãû", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„ç”¨æˆ·å", modelMap.get("message"));
 	}
 
 	@Test
@@ -696,17 +696,17 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 		ModelMap modelMap = new ModelMap();
 		assertEquals("/admin/user/list", this.adminController.changePassword(
 				request, response, "", "123", modelMap));
-		assertEquals("ÎŞĞ§µÄÓÃ»§Ãû", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„ç”¨æˆ·å", modelMap.get("message"));
 
 		modelMap = new ModelMap();
 		assertEquals("/admin/user/list", this.adminController.changePassword(
 				request, response, "leiwen", "", modelMap));
-		assertEquals("ÎŞĞ§µÄĞÂÃÜÂë", modelMap.get("message"));
+		assertEquals("æ— æ•ˆçš„æ–°å¯†ç ", modelMap.get("message"));
 	}
 
 	private void assertContent(final String content, File file)
 			throws FileNotFoundException, IOException {
-		// Ğ£ÑéÄÚÈİ
+		// æ ¡éªŒå†…å®¹
 		BufferedReader reader = new BufferedReader(new InputStreamReader(
 				new FileInputStream(file)));
 		String line = reader.readLine();
@@ -752,15 +752,15 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 
 		MockHttpServletResponse response = new MockHttpServletResponse();
 		MockHttpServletRequest request = new MockHttpServletRequest();
-		// Ã»ÓĞÉèÖÃ²éÑ¯Ìõ¼şµÄÇé¿ö
+		// æ²¡æœ‰è®¾ç½®æŸ¥è¯¢æ¡ä»¶çš„æƒ…å†µ
 		ModelMap modelMap = new ModelMap();
 		assertEquals("/admin/config/list", this.adminController.listConfigLike(
 				new MockHttpServletRequest(), response, null, null, 1, 100,
 				modelMap));
-		assertEquals("Ä£ºı²éÑ¯ÇëÖÁÉÙÉèÖÃÒ»¸ö²éÑ¯²ÎÊı", modelMap.get("message"));
+		assertEquals("æ¨¡ç³ŠæŸ¥è¯¢è¯·è‡³å°‘è®¾ç½®ä¸€ä¸ªæŸ¥è¯¢å‚æ•°", modelMap.get("message"));
 		assertNull(modelMap.get("page"));
 
-		// Ô¤ÏÈÌí¼Ó²¿·ÖÊı¾İ
+		// é¢„å…ˆæ·»åŠ éƒ¨åˆ†æ•°æ®
 		final String dataId = "test-dataId";
 		final String group = "test-group";
 		for (int i = 0; i < 10; i++) {
@@ -771,7 +771,7 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 			this.mocksControl.reset();
 		}
 
-		// Ä£ºı²éÑ¯
+		// æ¨¡ç³ŠæŸ¥è¯¢
 		modelMap = new ModelMap();
 		assertEquals("/admin/config/list", this.adminController.listConfigLike(
 				new MockHttpServletRequest(), response, dataId, group, 1, 100,
@@ -787,15 +787,15 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 	@Test
 	public void testListConfigInfoLikeJson() throws Exception {
 		MockHttpServletResponse response = new MockHttpServletResponse();
-		// Ã»ÓĞÉèÖÃ²éÑ¯Ìõ¼şµÄÇé¿ö
+		// æ²¡æœ‰è®¾ç½®æŸ¥è¯¢æ¡ä»¶çš„æƒ…å†µ
 		ModelMap modelMap = new ModelMap();
 		MockHttpServletRequest request = new MockHttpServletRequest();
 		assertEquals("/admin/config/list", this.adminController.listConfigLike(
 				request, response, null, null, 1, 100, modelMap));
-		assertEquals("Ä£ºı²éÑ¯ÇëÖÁÉÙÉèÖÃÒ»¸ö²éÑ¯²ÎÊı", modelMap.get("message"));
+		assertEquals("æ¨¡ç³ŠæŸ¥è¯¢è¯·è‡³å°‘è®¾ç½®ä¸€ä¸ªæŸ¥è¯¢å‚æ•°", modelMap.get("message"));
 		assertNull(modelMap.get("page"));
 
-		// Ô¤ÏÈÌí¼Ó²¿·ÖÊı¾İ
+		// é¢„å…ˆæ·»åŠ éƒ¨åˆ†æ•°æ®
 		final String dataId = "test-dataId";
 		final String group = "test-group";
 		for (int i = 0; i < 10; i++) {
@@ -806,7 +806,7 @@ public class AdminControllerUnitTest extends AbstractControllerUnitTest {
 			this.mocksControl.reset();
 		}
 
-		// Ä£ºı²éÑ¯
+		// æ¨¡ç³ŠæŸ¥è¯¢
 		modelMap = new ModelMap();
 		request.addHeader("Accept", "application/json");
 		assertEquals("/admin/config/list_json",

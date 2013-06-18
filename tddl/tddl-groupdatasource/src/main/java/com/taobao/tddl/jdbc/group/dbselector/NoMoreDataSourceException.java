@@ -1,9 +1,17 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.dbselector;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.dbselector;
 
 import java.sql.SQLException;
 
 /**
- * 当一组的数据库都试过，都不可用了，并且没有更多的数据源了，抛出该错误
+ * 褰撲竴缁勭殑鏁版嵁搴撻兘璇曡繃锛岄兘涓嶅彲鐢ㄤ簡锛屽苟涓旀病鏈夋洿澶氱殑鏁版嵁婧愪簡锛屾姏鍑鸿閿欒
  * 
  * @author linxuan
  * 

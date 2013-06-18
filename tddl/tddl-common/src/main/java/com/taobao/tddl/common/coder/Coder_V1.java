@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	//package com.taobao.tddl.common.coder;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+//package com.taobao.tddl.common.coder;
 //
 //import java.util.LinkedList;
 //import java.util.List;
@@ -8,8 +16,8 @@
 ///**
 // * @author huali
 // * 
-// *         Êı¾İ¿âÖ¸Áî±à½âÂëÆ÷µÄV1°æ±¾µÄÊµÏÖ Õâ¸ö°æ±¾ÊÇÒ»¸ö¼òµ¥µÄÊµÏÖ
-// *         °´ÕÕÃüÁîµÄË³Ğò£¬×ª»»ÃüÁî£¬Ò»ÌõÃüÁîÄÚµÄÔªËØÓÃ¹²Í¬µÄ·Ö¸ô·û·Ö¿ª£¬ÃüÁîÖ®¼äÓÃÁíÍâÒ»¸ö·Ö¸ô·û ÃüÁîµÄ¸ñÊ½ÊÇ I|U tableName
+// *         æ•°æ®åº“æŒ‡ä»¤ç¼–è§£ç å™¨çš„V1ç‰ˆæœ¬çš„å®ç° è¿™ä¸ªç‰ˆæœ¬æ˜¯ä¸€ä¸ªç®€å•çš„å®ç°
+// *         æŒ‰ç…§å‘½ä»¤çš„é¡ºåºï¼Œè½¬æ¢å‘½ä»¤ï¼Œä¸€æ¡å‘½ä»¤å†…çš„å…ƒç´ ç”¨å…±åŒçš„åˆ†éš”ç¬¦åˆ†å¼€ï¼Œå‘½ä»¤ä¹‹é—´ç”¨å¦å¤–ä¸€ä¸ªåˆ†éš”ç¬¦ å‘½ä»¤çš„æ ¼å¼æ˜¯ I|U tableName
 // *         columnName S|L value
 // */
 //public class Coder_V1 implements Coder {

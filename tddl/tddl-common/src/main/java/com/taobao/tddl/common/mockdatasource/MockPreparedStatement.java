@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.mockdatasource;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.mockdatasource;
 
 import java.io.InputStream;
 import java.io.Reader;
@@ -138,7 +146,7 @@ public class MockPreparedStatement extends MockStatement implements PreparedStat
 
 	private void changeParameters(Map<Integer, Object> changedParameters) {
 		for (Map.Entry<Integer, Object> entry : changedParameters.entrySet()) {
-			// ×¢Òâ£ºSQL½âÎöÄÇ±ß°ó¶¨²ÎÊı´Ó0¿ªÊ¼¼ÆÊı£¬Òò´ËĞèÒª¼Ó1¡£
+			// æ³¨æ„ï¼šSQLè§£æé‚£è¾¹ç»‘å®šå‚æ•°ä»0å¼€å§‹è®¡æ•°ï¼Œå› æ­¤éœ€è¦åŠ 1ã€‚
 			ParameterContext context = parameterSettings.get(entry.getKey() + 1);
 			if (context.getParameterMethod() != ParameterMethod.setNull1
 					&& context.getParameterMethod() != ParameterMethod.setNull2) {

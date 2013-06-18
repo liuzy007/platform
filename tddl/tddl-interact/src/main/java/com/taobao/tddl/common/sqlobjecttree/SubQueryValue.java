@@ -1,12 +1,20 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.sqlobjecttree;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.sqlobjecttree;
 
 import java.util.Map;
 
 /**
- * ÎªÁË½â¾öÕâÑùÒ»¸öÎÊÌâ£º
- * ¹æÔòÒıÇæ²»ÄÜÖ§³ÖÒ»¸ö=µÄcomparativeÖĞ°üº¬¶à¸öOrµÄ¹æÔòÆ¥Åä¡£
- * ËùÒÔÓĞĞ©ÌØÊâµÄÄÚÇ¶¿ÉÖ±½ÓÇó³öÖµµÄsubSelect»á¼Ì³ĞÕâ¸ö½Ó¿Ú£¬ÔÚ
- * ComparativeÖĞÓĞÒ»¸öhookÀ´×¨ÃÅ´¦ÀíÀàĞÍÖ®ÏÂµÄÊı¾İ
+ * ä¸ºäº†è§£å†³è¿™æ ·ä¸€ä¸ªé—®é¢˜ï¼š
+ * è§„åˆ™å¼•æ“ä¸èƒ½æ”¯æŒä¸€ä¸ª=çš„comparativeä¸­åŒ…å«å¤šä¸ªOrçš„è§„åˆ™åŒ¹é…ã€‚
+ * æ‰€ä»¥æœ‰äº›ç‰¹æ®Šçš„å†…åµŒå¯ç›´æ¥æ±‚å‡ºå€¼çš„subSelectä¼šç»§æ‰¿è¿™ä¸ªæ¥å£ï¼Œåœ¨
+ * Comparativeä¸­æœ‰ä¸€ä¸ªhookæ¥ä¸“é—¨å¤„ç†ç±»å‹ä¹‹ä¸‹çš„æ•°æ®
  * @author shenxun
  *
  */

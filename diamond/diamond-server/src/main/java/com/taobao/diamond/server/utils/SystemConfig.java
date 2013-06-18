@@ -51,12 +51,12 @@ public class SystemConfig {
 
 
 	/**
-     * Dump配置信息的时间间隔，默认10分钟
+     * Dump閰嶇疆淇℃伅鐨勬椂闂撮棿闅旓紝榛樿10鍒嗛挓
      */
     private static int dumpConfigInterval = 600;
 
     /**
-     * 加载分组信息时间间隔
+     * 鍔犺浇鍒嗙粍淇℃伅鏃堕棿闂撮殧
      */
     private static int loadGroupInterval = 300;
 
@@ -72,7 +72,7 @@ public class SystemConfig {
             loadGroupInterval = Integer.parseInt(props.getProperty("load_group_interval", "300"));
         }
         catch (IOException e) {
-            log.error("加载system.properties出错", e);
+            log.error("鍔犺浇system.properties鍑洪敊", e);
         }
         finally {
             if (in != null) {
@@ -80,7 +80,7 @@ public class SystemConfig {
                     in.close();
                 }
                 catch (IOException e) {
-                    log.error("关闭system.properties出错", e);
+                    log.error("鍏抽棴system.properties鍑洪敊", e);
                 }
             }
         }

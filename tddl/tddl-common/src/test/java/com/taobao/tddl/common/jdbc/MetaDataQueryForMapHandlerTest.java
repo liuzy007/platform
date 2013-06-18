@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.jdbc;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.jdbc;
 
 import java.util.Arrays;
 
@@ -26,14 +34,14 @@ public class MetaDataQueryForMapHandlerTest {
 
 	@Test
 	public void testQueryForMap() {
-		MockDataSource.addPreData("sku_id:0,item_id:65,seller_id:63,name:'≥ﬂ¬Î'");
+		MockDataSource.addPreData("sku_id:0,item_id:65,seller_id:63,name:'Â∞∫Á†Å'");
 		Object obj = handler.queryForMap(jt, "sku", null, "where item_id=?", new Object[]{5});
 		MockDataSource.showTrace();
 		Assert.assertTrue(MockDataSource.hasMethod("dbindex0", "ResultSet.getMetaData"));
 		System.out.println(obj);
 		
 		MockDataSource.clearTrace();
-		MockDataSource.addPreData("sku_id:0,item_id:65,seller_id:63,name:'≥ﬂ¬Î'");
+		MockDataSource.addPreData("sku_id:0,item_id:65,seller_id:63,name:'Â∞∫Á†Å'");
 		obj = handler.queryForMap(jt, "sku", null, "where item_id=?", new Object[]{5});
 		Assert.assertFalse(MockDataSource.hasMethod("dbindex0", "ResultSet.getMetaData"));
 		MockDataSource.showTrace();
@@ -42,7 +50,7 @@ public class MetaDataQueryForMapHandlerTest {
 
 	@Test
 	public void testGetTableMetaData() {
-		MockDataSource.addPreData("sku_id:0,item_id:65,seller_id:63,name:'≥ﬂ¬Î'");
+		MockDataSource.addPreData("sku_id:0,item_id:65,seller_id:63,name:'Â∞∫Á†Å'");
 		Object obj = handler.queryForMap(jt, "sku", null, "where item_id=?", new Object[]{5});
 		MockDataSource.showTrace();
 		Assert.assertTrue(MockDataSource.hasMethod("dbindex0", "ResultSet.getMetaData"));

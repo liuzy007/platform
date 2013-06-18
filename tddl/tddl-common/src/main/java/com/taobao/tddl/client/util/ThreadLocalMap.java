@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	/*
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+/*
  * 	This program is free software; you can redistribute it and/or modify it under the terms of 
  * the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, 
  * or (at your option) any later version. 
@@ -68,9 +76,9 @@ public class ThreadLocalMap{
     }
 	
 	/**
-     * È¡µÃthread context MapµÄÊµÀı¡£
+     * å–å¾—thread context Mapçš„å®ä¾‹ã€‚
      *
-     * @return thread context MapµÄÊµÀı
+     * @return thread context Mapçš„å®ä¾‹
      */
     protected static Map<Object,Object> getContextMap() {
         return (Map<Object,Object>) threadContext.get();
@@ -78,7 +86,7 @@ public class ThreadLocalMap{
 	
     
     /**
-     * ÇåÀíÏß³ÌËùÓĞ±»hold×¡µÄ¶ÔÏó¡£ÒÔ±ãÖØÓÃ£¡
+     * æ¸…ç†çº¿ç¨‹æ‰€æœ‰è¢«holdä½çš„å¯¹è±¡ã€‚ä»¥ä¾¿é‡ç”¨ï¼
      */
     
     public static void reset(){

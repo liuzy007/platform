@@ -1,15 +1,23 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.sqljep;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.sqljep;
 
 import java.util.Comparator;
 /**
- * AND½Úµã
- * ÔÚÊµ¼ÊµÄSQLÖĞ£¬Êµ¼ÊÉÏÊÇÀàËÆ
+ * ANDèŠ‚ç‚¹
+ * åœ¨å®é™…çš„SQLä¸­ï¼Œå®é™…ä¸Šæ˜¯ç±»ä¼¼
  * [Comparative]              [comparative]
  * 			\                  /
  * 			  \				  /
  *             [ComparativeOR]
  *             
- * ÀàËÆÕâÑùµÄ½Úµã³öÏÖ
+ * ç±»ä¼¼è¿™æ ·çš„èŠ‚ç‚¹å‡ºç°
  * 
  * @author shenxun
  *
@@ -30,7 +38,7 @@ public class ComparativeOR extends ComparativeBaseList{
 	}
 //	@SuppressWarnings("unchecked")
 //	public boolean intersect(int function,Comparable other,Comparator comparator){
-//		//ÕâÀïÓĞ¸öÎÊÌâ£¬
+//		//è¿™é‡Œæœ‰ä¸ªé—®é¢˜ï¼Œ
 //		for(Comparative source :list){
 //			if(source.intersect(function, other, comparator)){
 //				return true;

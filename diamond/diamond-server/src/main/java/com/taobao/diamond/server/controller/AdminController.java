@@ -40,7 +40,7 @@ import com.taobao.diamond.server.utils.GlobalCounter;
 import com.taobao.diamond.utils.JSONUtils;
 
 /**
- * ¹ÜÀí¿ØÖÆÆ÷
+ * ç®¡ç†æ§åˆ¶å™¨
  * 
  * @author boyan
  * @date 2010-5-6
@@ -62,7 +62,7 @@ public class AdminController {
 	private ConfigService configService;
 
 	/**
-	 * Ôö¼ÓĞÂµÄÅäÖÃĞÅÏ¢
+	 * å¢åŠ æ–°çš„é…ç½®ä¿¡æ¯
 	 * 
 	 * @param request
 	 * @param dataId
@@ -80,20 +80,20 @@ public class AdminController {
 		response.setCharacterEncoding("GBK");
 
 		boolean checkSuccess = true;
-		String errorMessage = "²ÎÊı´íÎó";
+		String errorMessage = "å‚æ•°é”™è¯¯";
 		if (!StringUtils.hasLength(dataId)
 				|| DiamondUtils.hasInvalidChar(dataId.trim())) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄDataId";
+			errorMessage = "æ— æ•ˆçš„DataId";
 		}
 		if (!StringUtils.hasLength(group)
 				|| DiamondUtils.hasInvalidChar(group.trim())) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄ·Ö×é";
+			errorMessage = "æ— æ•ˆçš„åˆ†ç»„";
 		}
 		if (!StringUtils.hasLength(content)) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄÄÚÈİ";
+			errorMessage = "æ— æ•ˆçš„å†…å®¹";
 		}
 		if (!checkSuccess) {
 			modelMap.addAttribute("message", errorMessage);
@@ -107,7 +107,7 @@ public class AdminController {
 
 		this.configService.addConfigInfo(dataId, group, content);
 
-		modelMap.addAttribute("message", "Ìá½»³É¹¦!");
+		modelMap.addAttribute("message", "æäº¤æˆåŠŸ!");
 		return listConfig(request, response, dataId, group, 1, 20, modelMap);
 	}
 
@@ -115,24 +115,24 @@ public class AdminController {
 	public String deleteConfig(HttpServletRequest request,
 			HttpServletResponse response, @RequestParam("id") long id,
 			ModelMap modelMap) {
-		// ¸ù¾İid²éÑ¯³ö¸ÃÌõÊı¾İ
+		// æ ¹æ®idæŸ¥è¯¢å‡ºè¯¥æ¡æ•°æ®
 		ConfigInfo configInfo = this.configService.getPersistService()
 				.findConfigInfoByID(id);
 		if (configInfo == null) {
-			deleteLog.warn("É¾³ıÊ§°Ü, ÒªÉ¾³ıµÄÊı¾İ²»´æÔÚ, id=" + id);
-			modelMap.addAttribute("message", "É¾³ıÊ§°Ü, ÒªÉ¾³ıµÄÊı¾İ²»´æÔÚ, id=" + id);
+			deleteLog.warn("åˆ é™¤å¤±è´¥, è¦åˆ é™¤çš„æ•°æ®ä¸å­˜åœ¨, id=" + id);
+			modelMap.addAttribute("message", "åˆ é™¤å¤±è´¥, è¦åˆ é™¤çš„æ•°æ®ä¸å­˜åœ¨, id=" + id);
 			return "/admin/config/list";
 		}
 		String dataId = configInfo.getDataId();
 		String group = configInfo.getGroup();
 		String content = configInfo.getContent();
 		String sourceIP = this.getRemoteIP(request);
-		// É¾³ıÊı¾İ
+		// åˆ é™¤æ•°æ®
 		this.configService.removeConfigInfo(id);
-		// ¼ÇÂ¼É¾³ıÈÕÖ¾, AOP·½Ê½µÄ¼ÇÂ¼²»»á¼ÇÂ¼dataIdµÈĞÅÏ¢, ËùÒÔÔÚÕâÀïÔÙ´Î¼ÇÂ¼
-		deleteLog.warn("Êı¾İÉ¾³ı³É¹¦\ndataId=" + dataId + "\ngroup=" + group
+		// è®°å½•åˆ é™¤æ—¥å¿—, AOPæ–¹å¼çš„è®°å½•ä¸ä¼šè®°å½•dataIdç­‰ä¿¡æ¯, æ‰€ä»¥åœ¨è¿™é‡Œå†æ¬¡è®°å½•
+		deleteLog.warn("æ•°æ®åˆ é™¤æˆåŠŸ\ndataId=" + dataId + "\ngroup=" + group
 				+ "\ncontent=\n" + content + "\nsrc ip=" + sourceIP);
-		modelMap.addAttribute("message", "É¾³ı³É¹¦!");
+		modelMap.addAttribute("message", "åˆ é™¤æˆåŠŸ!");
 
 		return "/admin/config/list";
 	}
@@ -143,29 +143,29 @@ public class AdminController {
 			@RequestParam("dataId") String dataId,
 			@RequestParam("group") String group, ModelMap modelMap) {
 
-		// ²é³öÊı¾İ,Ä¿µÄÊÇÔÚÈÕÖ¾ÖĞ¼ÇÂ¼Êı¾İÄÚÈİ
+		// æŸ¥å‡ºæ•°æ®,ç›®çš„æ˜¯åœ¨æ—¥å¿—ä¸­è®°å½•æ•°æ®å†…å®¹
 		ConfigInfo configInfo = this.configService
 				.findConfigInfo(dataId, group);
 		if (configInfo == null) {
-			deleteLog.warn("É¾³ıÊ§°Ü, ÒªÉ¾³ıµÄÊı¾İ²»´æÔÚ, dataId=" + dataId + ",group="
+			deleteLog.warn("åˆ é™¤å¤±è´¥, è¦åˆ é™¤çš„æ•°æ®ä¸å­˜åœ¨, dataId=" + dataId + ",group="
 					+ group);
-			modelMap.addAttribute("message", "É¾³ıÊ§°Ü, ÒªÉ¾³ıµÄÊı¾İ²»´æÔÚ, dataId="
+			modelMap.addAttribute("message", "åˆ é™¤å¤±è´¥, è¦åˆ é™¤çš„æ•°æ®ä¸å­˜åœ¨, dataId="
 					+ dataId + ",group=" + group);
 			return "/admin/config/list";
 		}
 		String content = configInfo.getContent();
 		String sourceIP = this.getRemoteIP(request);
-		// É¾³ıÊı¾İ
+		// åˆ é™¤æ•°æ®
 		this.configService.removeConfigInfo(dataId, group);
-		deleteLog.warn("Êı¾İÉ¾³ı³É¹¦\ndataId=" + dataId + "\ngroup=" + group
+		deleteLog.warn("æ•°æ®åˆ é™¤æˆåŠŸ\ndataId=" + dataId + "\ngroup=" + group
 				+ "\ncontent=\n" + content + "\nsrc ip=" + sourceIP);
-		modelMap.addAttribute("message", "É¾³ı³É¹¦!");
+		modelMap.addAttribute("message", "åˆ é™¤æˆåŠŸ!");
 
 		return "/admin/config/list";
 	}
 
 	/**
-	 * ÉÏ´«ÅäÖÃÎÄ¼ş
+	 * ä¸Šä¼ é…ç½®æ–‡ä»¶
 	 * 
 	 * @param request
 	 * @param dataId
@@ -188,21 +188,21 @@ public class AdminController {
 			remoteIp = request.getRemoteAddr();
 		}
 		boolean checkSuccess = true;
-		String errorMessage = "²ÎÊı´íÎó";
+		String errorMessage = "å‚æ•°é”™è¯¯";
 		if (!StringUtils.hasLength(dataId)
 				|| DiamondUtils.hasInvalidChar(dataId.trim())) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄDataId";
+			errorMessage = "æ— æ•ˆçš„DataId";
 		}
 		if (!StringUtils.hasLength(group)
 				|| DiamondUtils.hasInvalidChar(group.trim())) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄ·Ö×é";
+			errorMessage = "æ— æ•ˆçš„åˆ†ç»„";
 		}
 		String content = getContentFromFile(contentFile);
 		if (!StringUtils.hasLength(content)) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄÄÚÈİ";
+			errorMessage = "æ— æ•ˆçš„å†…å®¹";
 		}
 		if (!checkSuccess) {
 			modelMap.addAttribute("message", errorMessage);
@@ -210,12 +210,12 @@ public class AdminController {
 		}
 
 		this.configService.addConfigInfo(dataId, group, content);
-		modelMap.addAttribute("message", "Ìá½»³É¹¦!");
+		modelMap.addAttribute("message", "æäº¤æˆåŠŸ!");
 		return listConfig(request, response, dataId, group, 1, 20, modelMap);
 	}
 
 	/**
-	 * ÖØĞÂÉÏ´«ÅäÖÃÎÄ¼ş
+	 * é‡æ–°ä¸Šä¼ é…ç½®æ–‡ä»¶
 	 * 
 	 * @param request
 	 * @param dataId
@@ -236,22 +236,22 @@ public class AdminController {
 		String remoteIp = getRemoteIP(request);
 
 		boolean checkSuccess = true;
-		String errorMessage = "²ÎÊı´íÎó";
+		String errorMessage = "å‚æ•°é”™è¯¯";
 		String content = getContentFromFile(contentFile);
 		ConfigInfo configInfo = new ConfigInfo(dataId, group, content);
 		if (!StringUtils.hasLength(dataId)
 				|| DiamondUtils.hasInvalidChar(dataId.trim())) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄDataId";
+			errorMessage = "æ— æ•ˆçš„DataId";
 		}
 		if (!StringUtils.hasLength(group)
 				|| DiamondUtils.hasInvalidChar(group.trim())) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄ·Ö×é";
+			errorMessage = "æ— æ•ˆçš„åˆ†ç»„";
 		}
 		if (!StringUtils.hasLength(content)) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄÄÚÈİ";
+			errorMessage = "æ— æ•ˆçš„å†…å®¹";
 		}
 		if (!checkSuccess) {
 			modelMap.addAttribute("message", errorMessage);
@@ -259,13 +259,13 @@ public class AdminController {
 			return "/admin/config/edit";
 		}
 
-		// ²éÑ¯Êı¾İ, Ä¿µÄÊÇÔÚÈÕÖ¾ÖĞ¼ÇÂ¼±»¸üĞÂµÄÊı¾İµÄÄÚÈİ
+		// æŸ¥è¯¢æ•°æ®, ç›®çš„æ˜¯åœ¨æ—¥å¿—ä¸­è®°å½•è¢«æ›´æ–°çš„æ•°æ®çš„å†…å®¹
 		ConfigInfo oldConfigInfo = this.configService.findConfigInfo(dataId,
 				group);
 		if (oldConfigInfo == null) {
-			updateLog.warn("¸üĞÂÊı¾İ³ö´í,Òª¸üĞÂµÄÊı¾İ²»´æÔÚ,dataId=" + dataId + ",group="
+			updateLog.warn("æ›´æ–°æ•°æ®å‡ºé”™,è¦æ›´æ–°çš„æ•°æ®ä¸å­˜åœ¨,dataId=" + dataId + ",group="
 					+ group);
-			modelMap.addAttribute("message", "¸üĞÂÊı¾İ³ö´í,Òª¸üĞÂµÄÊı¾İ²»´æÔÚ,dataId="
+			modelMap.addAttribute("message", "æ›´æ–°æ•°æ®å‡ºé”™,è¦æ›´æ–°çš„æ•°æ®ä¸å­˜åœ¨,dataId="
 					+ dataId + ",group=" + group);
 			return listConfig(request, response, dataId, group, 1, 20, modelMap);
 		}
@@ -273,11 +273,11 @@ public class AdminController {
 
 		this.configService.updateConfigInfo(dataId, group, content);
 
-		// ¼ÇÂ¼¸üĞÂÈÕÖ¾
-		updateLog.warn("¸üĞÂÊı¾İ³É¹¦\ndataId=" + dataId + "\ngroup=" + group
+		// è®°å½•æ›´æ–°æ—¥å¿—
+		updateLog.warn("æ›´æ–°æ•°æ®æˆåŠŸ\ndataId=" + dataId + "\ngroup=" + group
 				+ "\noldContent=\n" + oldContent + "\nnewContent=\n" + content
 				+ "\nsrc ip=" + remoteIp);
-		modelMap.addAttribute("message", "¸üĞÂ³É¹¦!");
+		modelMap.addAttribute("message", "æ›´æ–°æˆåŠŸ!");
 		return listConfig(request, response, dataId, group, 1, 20, modelMap);
 	}
 
@@ -292,7 +292,7 @@ public class AdminController {
 	}
 
 	/**
-	 * ¸ü¸ÄÅäÖÃĞÅÏ¢
+	 * æ›´æ”¹é…ç½®ä¿¡æ¯
 	 * 
 	 * @param request
 	 * @param dataId
@@ -313,20 +313,20 @@ public class AdminController {
 
 		ConfigInfo configInfo = new ConfigInfo(dataId, group, content);
 		boolean checkSuccess = true;
-		String errorMessage = "²ÎÊı´íÎó";
+		String errorMessage = "å‚æ•°é”™è¯¯";
 		if (!StringUtils.hasLength(dataId)
 				|| DiamondUtils.hasInvalidChar(dataId.trim())) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄDataId";
+			errorMessage = "æ— æ•ˆçš„DataId";
 		}
 		if (!StringUtils.hasLength(group)
 				|| DiamondUtils.hasInvalidChar(group.trim())) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄ·Ö×é";
+			errorMessage = "æ— æ•ˆçš„åˆ†ç»„";
 		}
 		if (!StringUtils.hasLength(content)) {
 			checkSuccess = false;
-			errorMessage = "ÎŞĞ§µÄÄÚÈİ";
+			errorMessage = "æ— æ•ˆçš„å†…å®¹";
 		}
 		if (!checkSuccess) {
 			modelMap.addAttribute("message", errorMessage);
@@ -334,13 +334,13 @@ public class AdminController {
 			return "/admin/config/edit";
 		}
 
-		// ²éÊı¾İ,Ä¿µÄÊÇÎªÁËÔÚÈÕÖ¾ÖĞ¼ÇÂ¼±»¸üĞÂµÄÊı¾İµÄÄÚÈİ
+		// æŸ¥æ•°æ®,ç›®çš„æ˜¯ä¸ºäº†åœ¨æ—¥å¿—ä¸­è®°å½•è¢«æ›´æ–°çš„æ•°æ®çš„å†…å®¹
 		ConfigInfo oldConfigInfo = this.configService.findConfigInfo(dataId,
 				group);
 		if (oldConfigInfo == null) {
-			updateLog.warn("¸üĞÂÊı¾İ³ö´í,Òª¸üĞÂµÄÊı¾İ²»´æÔÚ, dataId=" + dataId + ",group="
+			updateLog.warn("æ›´æ–°æ•°æ®å‡ºé”™,è¦æ›´æ–°çš„æ•°æ®ä¸å­˜åœ¨, dataId=" + dataId + ",group="
 					+ group);
-			modelMap.addAttribute("message", "¸üĞÂÊı¾İ³ö´í, Òª¸üĞÂµÄÊı¾İ²»´æÔÚ, dataId="
+			modelMap.addAttribute("message", "æ›´æ–°æ•°æ®å‡ºé”™, è¦æ›´æ–°çš„æ•°æ®ä¸å­˜åœ¨, dataId="
 					+ dataId + ",group=" + group);
 			return listConfig(request, response, dataId, group, 1, 20, modelMap);
 		}
@@ -348,16 +348,16 @@ public class AdminController {
 
 		this.configService.updateConfigInfo(dataId, group, content);
 
-		// ¼ÇÂ¼¸üĞÂÈÕÖ¾
-		updateLog.warn("¸üĞÂÊı¾İ³É¹¦\ndataId=" + dataId + "\ngroup=" + group
+		// è®°å½•æ›´æ–°æ—¥å¿—
+		updateLog.warn("æ›´æ–°æ•°æ®æˆåŠŸ\ndataId=" + dataId + "\ngroup=" + group
 				+ "\noldContent=\n" + oldContent + "\nnewContent=\n" + content
 				+ "\nsrc ip=" + remoteIp);
-		modelMap.addAttribute("message", "Ìá½»³É¹¦!");
+		modelMap.addAttribute("message", "æäº¤æˆåŠŸ!");
 		return listConfig(request, response, dataId, group, 1, 20, modelMap);
 	}
 
 	/**
-	 * ²éÑ¯ÅäÖÃĞÅÏ¢
+	 * æŸ¥è¯¢é…ç½®ä¿¡æ¯
 	 * 
 	 * @param request
 	 * @param dataId
@@ -382,7 +382,7 @@ public class AdminController {
 				String json = JSONUtils.serializeObject(page);
 				modelMap.addAttribute("pageJson", json);
 			} catch (Exception e) {
-				log.error("ĞòÁĞ»¯page¶ÔÏó³ö´í", e);
+				log.error("åºåˆ—åŒ–pageå¯¹è±¡å‡ºé”™", e);
 			}
 			return "/admin/config/list_json";
 		} else {
@@ -394,7 +394,7 @@ public class AdminController {
 	}
 
 	/**
-	 * Ä£ºı²éÑ¯ÅäÖÃĞÅÏ¢
+	 * æ¨¡ç³ŠæŸ¥è¯¢é…ç½®ä¿¡æ¯
 	 * 
 	 * @param request
 	 * @param dataId
@@ -412,7 +412,7 @@ public class AdminController {
 			@RequestParam("pageNo") int pageNo,
 			@RequestParam("pageSize") int pageSize, ModelMap modelMap) {
 		if (!StringUtils.hasLength(dataId) && !StringUtils.hasLength(group)) {
-			modelMap.addAttribute("message", "Ä£ºı²éÑ¯ÇëÖÁÉÙÉèÖÃÒ»¸ö²éÑ¯²ÎÊı");
+			modelMap.addAttribute("message", "æ¨¡ç³ŠæŸ¥è¯¢è¯·è‡³å°‘è®¾ç½®ä¸€ä¸ªæŸ¥è¯¢å‚æ•°");
 			return "/admin/config/list";
 		}
 		Page<ConfigInfo> page = this.configService.findConfigInfoLike(pageNo,
@@ -423,7 +423,7 @@ public class AdminController {
 				String json = JSONUtils.serializeObject(page);
 				modelMap.addAttribute("pageJson", json);
 			} catch (Exception e) {
-				log.error("ĞòÁĞ»¯page¶ÔÏó³ö´í", e);
+				log.error("åºåˆ—åŒ–pageå¯¹è±¡å‡ºé”™", e);
 			}
 			return "/admin/config/list_json";
 		} else {
@@ -436,7 +436,7 @@ public class AdminController {
 	}
 
 	/**
-	 * ²é¿´ÅäÖÃĞÅÏ¢ÏêÇé
+	 * æŸ¥çœ‹é…ç½®ä¿¡æ¯è¯¦æƒ…
 	 * 
 	 * @param request
 	 * @param dataId
@@ -458,7 +458,7 @@ public class AdminController {
 	}
 
 	/**
-	 * Õ¹Ê¾ËùÓĞÓÃ»§
+	 * å±•ç¤ºæ‰€æœ‰ç”¨æˆ·
 	 * 
 	 * @param modelMap
 	 * @return
@@ -472,7 +472,7 @@ public class AdminController {
 	}
 
 	/**
-	 * Ìí¼ÓÓÃ»§
+	 * æ·»åŠ ç”¨æˆ·
 	 * 
 	 * @param modelMap
 	 * @return
@@ -484,23 +484,23 @@ public class AdminController {
 			@RequestParam("password") String password, ModelMap modelMap) {
 		if (!StringUtils.hasLength(userName)
 				|| DiamondUtils.hasInvalidChar(userName.trim())) {
-			modelMap.addAttribute("message", "ÎŞĞ§µÄÓÃ»§Ãû");
+			modelMap.addAttribute("message", "æ— æ•ˆçš„ç”¨æˆ·å");
 			return listUser(request, response, modelMap);
 		}
 		if (!StringUtils.hasLength(password)
 				|| DiamondUtils.hasInvalidChar(password.trim())) {
-			modelMap.addAttribute("message", "ÎŞĞ§µÄÃÜÂë");
+			modelMap.addAttribute("message", "æ— æ•ˆçš„å¯†ç ");
 			return "/admin/user/new";
 		}
 		if (this.adminService.addUser(userName, password))
-			modelMap.addAttribute("message", "Ìí¼Ó³É¹¦!");
+			modelMap.addAttribute("message", "æ·»åŠ æˆåŠŸ!");
 		else
-			modelMap.addAttribute("message", "Ìí¼ÓÊ§°Ü!");
+			modelMap.addAttribute("message", "æ·»åŠ å¤±è´¥!");
 		return listUser(request, response, modelMap);
 	}
 
 	/**
-	 * É¾³ıÓÃ»§
+	 * åˆ é™¤ç”¨æˆ·
 	 * 
 	 * @param modelMap
 	 * @return
@@ -511,19 +511,19 @@ public class AdminController {
 			@RequestParam("userName") String userName, ModelMap modelMap) {
 		if (!StringUtils.hasLength(userName)
 				|| DiamondUtils.hasInvalidChar(userName.trim())) {
-			modelMap.addAttribute("message", "ÎŞĞ§µÄÓÃ»§Ãû");
+			modelMap.addAttribute("message", "æ— æ•ˆçš„ç”¨æˆ·å");
 			return listUser(request, response, modelMap);
 		}
 		if (this.adminService.removeUser(userName)) {
-			modelMap.addAttribute("message", "É¾³ı³É¹¦!");
+			modelMap.addAttribute("message", "åˆ é™¤æˆåŠŸ!");
 		} else {
-			modelMap.addAttribute("message", "É¾³ıÊ§°Ü!");
+			modelMap.addAttribute("message", "åˆ é™¤å¤±è´¥!");
 		}
 		return listUser(request, response, modelMap);
 	}
 
 	/**
-	 * ¸ü¸ÄÃÜÂë
+	 * æ›´æ”¹å¯†ç 
 	 * 
 	 * @param userName
 	 * @param password
@@ -541,18 +541,18 @@ public class AdminController {
 
 		if (!StringUtils.hasLength(userName)
 				|| DiamondUtils.hasInvalidChar(userName.trim())) {
-			modelMap.addAttribute("message", "ÎŞĞ§µÄÓÃ»§Ãû");
+			modelMap.addAttribute("message", "æ— æ•ˆçš„ç”¨æˆ·å");
 			return listUser(request, response, modelMap);
 		}
 		if (!StringUtils.hasLength(password)
 				|| DiamondUtils.hasInvalidChar(password.trim())) {
-			modelMap.addAttribute("message", "ÎŞĞ§µÄĞÂÃÜÂë");
+			modelMap.addAttribute("message", "æ— æ•ˆçš„æ–°å¯†ç ");
 			return listUser(request, response, modelMap);
 		}
 		if (this.adminService.updatePassword(userName, password)) {
-			modelMap.addAttribute("message", "¸ü¸Ä³É¹¦,ÏÂ´ÎµÇÂ¼ÇëÓÃĞÂÃÜÂë£¡");
+			modelMap.addAttribute("message", "æ›´æ”¹æˆåŠŸ,ä¸‹æ¬¡ç™»å½•è¯·ç”¨æ–°å¯†ç ï¼");
 		} else {
-			modelMap.addAttribute("message", "¸ü¸ÄÊ§°Ü!");
+			modelMap.addAttribute("message", "æ›´æ”¹å¤±è´¥!");
 		}
 		return listUser(request, response, modelMap);
 	}
@@ -561,11 +561,11 @@ public class AdminController {
 	public String setRefuseRequestCount(@RequestParam("count") long count,
 			ModelMap modelMap) {
 		if (count <= 0) {
-			modelMap.addAttribute("message", "·Ç·¨µÄ¼ÆÊı");
+			modelMap.addAttribute("message", "éæ³•çš„è®¡æ•°");
 			return "/admin/count";
 		}
 		GlobalCounter.getCounter().set(count);
-		modelMap.addAttribute("message", "ÉèÖÃ³É¹¦!");
+		modelMap.addAttribute("message", "è®¾ç½®æˆåŠŸ!");
 		return getRefuseRequestCount(modelMap);
 	}
 
@@ -576,7 +576,7 @@ public class AdminController {
 	}
 
 	/**
-	 * ÖØĞÂ¼ÓÔØÓÃ»§ĞÅÏ¢
+	 * é‡æ–°åŠ è½½ç”¨æˆ·ä¿¡æ¯
 	 * 
 	 * @param modelMap
 	 * @return
@@ -585,7 +585,7 @@ public class AdminController {
 	public String reloadUser(HttpServletRequest request,
 			HttpServletResponse response, ModelMap modelMap) {
 		this.adminService.loadUsers();
-		modelMap.addAttribute("message", "¼ÓÔØ³É¹¦!");
+		modelMap.addAttribute("message", "åŠ è½½æˆåŠŸ!");
 		return listUser(request, response, modelMap);
 	}
 
@@ -605,7 +605,7 @@ public class AdminController {
 		this.configService = configService;
 	}
 
-	// =========================== ÅúÁ¿´¦Àí ============================== //
+	// =========================== æ‰¹é‡å¤„ç† ============================== //
 
 	@RequestMapping(params = "method=batchQuery", method = RequestMethod.POST)
 	public String batchQuery(HttpServletRequest request,
@@ -615,13 +615,13 @@ public class AdminController {
 
 		if (!StringUtils.hasLength(dataIds)
 				|| DiamondUtils.hasInvalidChar(dataIds)) {
-			throw new IllegalArgumentException("ÅúÁ¿²éÑ¯, ÎŞĞ§µÄdataIds");
+			throw new IllegalArgumentException("æ‰¹é‡æŸ¥è¯¢, æ— æ•ˆçš„dataIds");
 		}
 		if (!StringUtils.hasLength(group) || DiamondUtils.hasInvalidChar(group)) {
-			throw new IllegalArgumentException("ÅúÁ¿²éÑ¯, ÎŞĞ§µÄgroup");
+			throw new IllegalArgumentException("æ‰¹é‡æŸ¥è¯¢, æ— æ•ˆçš„group");
 		}
 
-		// ·Ö½âdataId
+		// åˆ†è§£dataId
 		String[] dataIdArray = dataIds.split(Constants.WORD_SEPARATOR);
 		group = group.trim();
 
@@ -631,24 +631,24 @@ public class AdminController {
 			configInfoEx.setDataId(dataId);
 			configInfoEx.setGroup(group);
 			try {
-				// ²éÑ¯Êı¾İ¿â
+				// æŸ¥è¯¢æ•°æ®åº“
 				ConfigInfo configInfo = this.configService.findConfigInfo(
 						dataId, group);
 				if (configInfo == null) {
-					// Ã»ÓĞÒì³£, ËµÃ÷²éÑ¯³É¹¦, µ«Êı¾İ²»´æÔÚ, ÉèÖÃ²»´æÔÚµÄ×´Ì¬Âë
+					// æ²¡æœ‰å¼‚å¸¸, è¯´æ˜æŸ¥è¯¢æˆåŠŸ, ä½†æ•°æ®ä¸å­˜åœ¨, è®¾ç½®ä¸å­˜åœ¨çš„çŠ¶æ€ç 
 					configInfoEx.setStatus(Constants.BATCH_QUERY_NONEXISTS);
 					configInfoEx.setMessage("query data does not exist");
 				} else {
-					// Ã»ÓĞÒì³£, ËµÃ÷²éÑ¯³É¹¦, ¶øÇÒÊı¾İ´æÔÚ, ÉèÖÃ´æÔÚµÄ×´Ì¬Âë
+					// æ²¡æœ‰å¼‚å¸¸, è¯´æ˜æŸ¥è¯¢æˆåŠŸ, è€Œä¸”æ•°æ®å­˜åœ¨, è®¾ç½®å­˜åœ¨çš„çŠ¶æ€ç 
 					String content = configInfo.getContent();
 					configInfoEx.setContent(content);
 					configInfoEx.setStatus(Constants.BATCH_QUERY_EXISTS);
 					configInfoEx.setMessage("query success");
 				}
 			} catch (Exception e) {
-				log.error("ÅúÁ¿²éÑ¯, ÔÚ²éÑ¯Õâ¸ödataIdÊ±³ö´í, dataId=" + dataId + ",group="
+				log.error("æ‰¹é‡æŸ¥è¯¢, åœ¨æŸ¥è¯¢è¿™ä¸ªdataIdæ—¶å‡ºé”™, dataId=" + dataId + ",group="
 						+ group, e);
-				// ³öÏÖÒì³£, ÉèÖÃÒì³£×´Ì¬Âë
+				// å‡ºç°å¼‚å¸¸, è®¾ç½®å¼‚å¸¸çŠ¶æ€ç 
 				configInfoEx.setStatus(Constants.BATCH_OP_ERROR);
 				configInfoEx.setMessage("query error: " + e.getMessage());
 			}
@@ -659,7 +659,7 @@ public class AdminController {
 		try {
 			json = JSONUtils.serializeObject(configInfoExList);
 		} catch (Exception e) {
-			log.error("ÅúÁ¿²éÑ¯½á¹ûĞòÁĞ»¯³ö´í, json=" + json, e);
+			log.error("æ‰¹é‡æŸ¥è¯¢ç»“æœåºåˆ—åŒ–å‡ºé”™, json=" + json, e);
 		}
 		modelMap.addAttribute("json", json);
 
@@ -676,10 +676,10 @@ public class AdminController {
 
 		if (!StringUtils.hasLength(allDataIdAndContent)
 				|| DiamondUtils.hasInvalidChar(allDataIdAndContent)) {
-			throw new IllegalArgumentException("ÅúÁ¿Ğ´²Ù×÷, ÎŞĞ§µÄallDataIdAndContent");
+			throw new IllegalArgumentException("æ‰¹é‡å†™æ“ä½œ, æ— æ•ˆçš„allDataIdAndContent");
 		}
 		if (!StringUtils.hasLength(group) || DiamondUtils.hasInvalidChar(group)) {
-			throw new IllegalArgumentException("ÅúÁ¿Ğ´²Ù×÷, ÎŞĞ§µÄgroup");
+			throw new IllegalArgumentException("æ‰¹é‡å†™æ“ä½œ, æ— æ•ˆçš„group");
 		}
 
 		String[] dataIdAndContentArray = allDataIdAndContent
@@ -698,27 +698,27 @@ public class AdminController {
 			configInfoEx.setContent(content);
 
 			try {
-				// ²éÑ¯Êı¾İ¿â
+				// æŸ¥è¯¢æ•°æ®åº“
 				ConfigInfo configInfo = this.configService.findConfigInfo(
 						dataId, group);
 				if (configInfo == null) {
-					// Êı¾İ²»´æÔÚ, ĞÂÔö
+					// æ•°æ®ä¸å­˜åœ¨, æ–°å¢
 					this.configService.addConfigInfo(dataId, group, content);
 
-					// ĞÂÔö³É¹¦, ÉèÖÃ×´Ì¬Âë
+					// æ–°å¢æˆåŠŸ, è®¾ç½®çŠ¶æ€ç 
 					configInfoEx.setStatus(Constants.BATCH_ADD_SUCCESS);
 					configInfoEx.setMessage("add success");
 				} else {
-					// Êı¾İ´æÔÚ, ¸üĞÂ
+					// æ•°æ®å­˜åœ¨, æ›´æ–°
 					this.configService.updateConfigInfo(dataId, group, content);
-					// ¸üĞÂ³É¹¦, ÉèÖÃ×´Ì¬Âë
+					// æ›´æ–°æˆåŠŸ, è®¾ç½®çŠ¶æ€ç 
 					configInfoEx.setStatus(Constants.BATCH_UPDATE_SUCCESS);
 					configInfoEx.setMessage("update success");
 				}
 			} catch (Exception e) {
-				log.error("ÅúÁ¿Ğ´ÕâÌõÊı¾İÊ±³ö´í, dataId=" + dataId + ",group=" + group
+				log.error("æ‰¹é‡å†™è¿™æ¡æ•°æ®æ—¶å‡ºé”™, dataId=" + dataId + ",group=" + group
 						+ ",content=" + content, e);
-				// ³öÏÖÒì³£, ÉèÖÃÒì³£×´Ì¬Âë
+				// å‡ºç°å¼‚å¸¸, è®¾ç½®å¼‚å¸¸çŠ¶æ€ç 
 				configInfoEx.setStatus(Constants.BATCH_OP_ERROR);
 				configInfoEx.setMessage("batch write error: " + e.getMessage());
 			}
@@ -729,7 +729,7 @@ public class AdminController {
 		try {
 			json = JSONUtils.serializeObject(configInfoExList);
 		} catch (Exception e) {
-			log.error("ÅúÁ¿Ğ´²Ù×÷½á¹ûĞòÁĞ»¯³ö´í, json=" + json, e);
+			log.error("æ‰¹é‡å†™æ“ä½œç»“æœåºåˆ—åŒ–å‡ºé”™, json=" + json, e);
 		}
 		modelMap.addAttribute("json", json);
 

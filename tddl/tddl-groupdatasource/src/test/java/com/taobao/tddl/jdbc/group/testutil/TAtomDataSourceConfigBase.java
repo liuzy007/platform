@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.group.testutil;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.group.testutil;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,19 +30,19 @@ public class TAtomDataSourceConfigBase {
 	public static final String dbKey3 = "db3";
 
 	public static void initConfig() throws Exception {
-		//³õÊ¼»¯³Ö¾ÃÅäÖÃÖĞĞÄÊı¾İ
+		//åˆå§‹åŒ–æŒä¹…é…ç½®ä¸­å¿ƒæ•°æ®
 		Map<String, String> dataMap = new HashMap<String, String>();
-		//È«¾ÖÅäÖÃ
+		//å…¨å±€é…ç½®
 		String globaStr = PropLoadTestUtil.loadPropFile2String("conf/group_test1/globa.properties");
 		dataMap.put(TAtomConstants.getGlobalDataId(dbKey1), globaStr);
 
-		//Ó¦ÓÃÅäÖÃ
+		//åº”ç”¨é…ç½®
 		String appStr = PropLoadTestUtil.loadPropFile2String("conf/group_test1/app.properties");
 		dataMap.put(TAtomConstants.getAppDataId(appName, dbKey1), appStr);
 
-		//½âÎöÅäÖÃ
+		//è§£æé…ç½®
 		TAtomDsConfDO tAtomDsConfDO = TAtomConfParser.parserTAtomDsConfDO(globaStr, appStr);
-		//ÃÜÂëÅäÖÃ
+		//å¯†ç é…ç½®
 		String passwdStr = PropLoadTestUtil.loadPropFile2String("conf/group_test1/psswd.properties");
 		dataMap.put(TAtomConstants.getPasswdDataId(tAtomDsConfDO.getDbName(), tAtomDsConfDO.getDbType(), tAtomDsConfDO
 				.getUserName()), passwdStr);

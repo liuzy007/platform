@@ -73,7 +73,7 @@ public class LocalConfigInfoProcessorUnitTest {
             localMapField = LocalConfigInfoProcessor.class.getDeclaredField("localMap");
         }
         catch (Exception e) {
-            // ¼ÇÂ¼ÈÕÖ¾»ò´òÓ¡Êä³ö
+            // è®°å½•æ—¥å¿—æˆ–æ‰“å°è¾“å‡º
         }
         localMapField.setAccessible(true);
         Map<String, Map<String, String>> localMap = new HashMap<String, Map<String, String>>();

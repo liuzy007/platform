@@ -1,12 +1,20 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	//package com.taobao.tddl.common.exception.sqlexceptionwrapper;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+//package com.taobao.tddl.common.exception.sqlexceptionwrapper;
 //
 //import java.sql.SQLException;
 //import java.util.ArrayList;
 //import java.util.List;
 //
 ///**
-// * ±¾ÒâÊÇÒ»¸öSQLexception Á´±í£¬ÎªÁË½«Ò»¶Ô¶àÊı¾İÔ´ÖĞ²úÉúµÄÒì³£½øĞĞÇ±°ü×°£¬È»ºó±äÎªÒ»¸öÓÉcause×é³ÉµÄSQLExceptionList
-// * ·µ»Ø¸øÒµÎñÓ¦ÓÃ£¬ÕâÑù¾Í¿ÉÒÔÍ¨¹ı±È½ÏÖ±¹ÛµÄ·½Ê½½«ËùÓĞÓĞÎÊÌâµÄÒì³£·µ»Ø»ØÈ¥¡£
+// * æœ¬æ„æ˜¯ä¸€ä¸ªSQLexception é“¾è¡¨ï¼Œä¸ºäº†å°†ä¸€å¯¹å¤šæ•°æ®æºä¸­äº§ç”Ÿçš„å¼‚å¸¸è¿›è¡Œæ½œåŒ…è£…ï¼Œç„¶åå˜ä¸ºä¸€ä¸ªç”±causeç»„æˆçš„SQLExceptionList
+// * è¿”å›ç»™ä¸šåŠ¡åº”ç”¨ï¼Œè¿™æ ·å°±å¯ä»¥é€šè¿‡æ¯”è¾ƒç›´è§‚çš„æ–¹å¼å°†æ‰€æœ‰æœ‰é—®é¢˜çš„å¼‚å¸¸è¿”å›å›å»ã€‚
 // * 
 // * @author shenxun
 // *

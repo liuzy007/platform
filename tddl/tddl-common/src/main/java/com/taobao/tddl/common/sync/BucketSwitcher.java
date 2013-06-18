@@ -1,12 +1,20 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.sync;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.sync;
 
 import java.util.Collection;
 import java.util.concurrent.ExecutorService;
 
 /**
- * Éú²úÕßÏû·ÑÕßÄ£Ê½Ö®£º×¢Ë®½ÓË®Ä£Ê½£¬Áã´æÕûÈ¡Ä£Ê½£¬»ıÀÛÅúÁ¿Ä£Ê½
- * Ë®¹ÜÀï²»¶ÏÓĞË®Á÷³ö£¬Á¬Ğø»òÊ±¶ÏÊ±Ğø¡£
- * ½ÓË®ÕßµÈÒ»Í°Ë®ÂúÁËºó£¬²ÅÈ¡×ßÊ¹ÓÃ
+ * ç”Ÿäº§è€…æ¶ˆè´¹è€…æ¨¡å¼ä¹‹ï¼šæ³¨æ°´æ¥æ°´æ¨¡å¼ï¼Œé›¶å­˜æ•´å–æ¨¡å¼ï¼Œç§¯ç´¯æ‰¹é‡æ¨¡å¼
+ * æ°´ç®¡é‡Œä¸æ–­æœ‰æ°´æµå‡ºï¼Œè¿ç»­æˆ–æ—¶æ–­æ—¶ç»­ã€‚
+ * æ¥æ°´è€…ç­‰ä¸€æ¡¶æ°´æ»¡äº†åï¼Œæ‰å–èµ°ä½¿ç”¨
  * 
  * @author linxuan
  *
@@ -14,16 +22,16 @@ import java.util.concurrent.ExecutorService;
  */
 public interface BucketSwitcher<T> {
 	/**
-	 * ×¢Ë®Õß×¢ÈëË®¡£
-	 * Í¨¹ı¸Ã·½·¨²»¶ÏµØ¼ÓÈëÈÎÎñ¡¢¶ÔÏó¡£¡£¡£
-	 * ¾ÍÏñË®¹ÜÀï²»¶ÏÓĞË®Á÷µ½Ë®Í°Àï¡£
-	 * Ë®Í°ÂúÁË£¬×Ô¶¯ÇĞ»»¡£×¢Ë®Õß(ÓÃ»§µÄÒ»¸ö»ò¶à¸öÏß³Ì)²»±Ø¹ØĞÄË®¹ÜÁ÷µ½µÄÊÇÄÇ¸öÍ°
+	 * æ³¨æ°´è€…æ³¨å…¥æ°´ã€‚
+	 * é€šè¿‡è¯¥æ–¹æ³•ä¸æ–­åœ°åŠ å…¥ä»»åŠ¡ã€å¯¹è±¡ã€‚ã€‚ã€‚
+	 * å°±åƒæ°´ç®¡é‡Œä¸æ–­æœ‰æ°´æµåˆ°æ°´æ¡¶é‡Œã€‚
+	 * æ°´æ¡¶æ»¡äº†ï¼Œè‡ªåŠ¨åˆ‡æ¢ã€‚æ³¨æ°´è€…(ç”¨æˆ·çš„ä¸€ä¸ªæˆ–å¤šä¸ªçº¿ç¨‹)ä¸å¿…å…³å¿ƒæ°´ç®¡æµåˆ°çš„æ˜¯é‚£ä¸ªæ¡¶
 	 */
 	void pourin(T task);
 
 	/**
-	 * ÉèÖÃ½ÓË®Õß¡£
-	 * Èç¹ûÉèÖÃÁË½ÓË®Õß£¬Ò»Í¨Ë®Âúºó»á×Ô¶¯ÒÆ×ß£¬²¢ÄÃ¸ø½ÓË®Õß¡£
+	 * è®¾ç½®æ¥æ°´è€…ã€‚
+	 * å¦‚æœè®¾ç½®äº†æ¥æ°´è€…ï¼Œä¸€é€šæ°´æ»¡åä¼šè‡ªåŠ¨ç§»èµ°ï¼Œå¹¶æ‹¿ç»™æ¥æ°´è€…ã€‚
 	 */
 	abstract class BucketTaker<T> {
 		private final ExecutorService executor;

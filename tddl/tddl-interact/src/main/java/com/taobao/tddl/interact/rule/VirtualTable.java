@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.interact.rule;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.interact.rule;
 
 import java.util.Arrays;
 import java.util.Collection;
@@ -21,7 +29,7 @@ import com.taobao.tddl.interact.rule.virtualnode.DBTableMap;
 import com.taobao.tddl.interact.rule.virtualnode.TableSlotMap;
 
 /**
- * Ò»¸öÂß¼­±íÔõÑù·Ö¿â·Ö±í
+ * ä¸€ä¸ªé€»è¾‘è¡¨æ€æ ·åˆ†åº“åˆ†è¡¨
  * 
  * @author linxuan
  * 
@@ -31,7 +39,7 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 
 	protected String virtualTbName;
 	private Map<String, Set<String>> actualTopology;
-	//private String[] dbIndexes; //ÓÃÀ´Ğ£Ñé¿â¹æÔò²úÉúµÄ¿âÊÇ·ñÈçÔ¤ÆÚ
+	//private String[] dbIndexes; //ç”¨æ¥æ ¡éªŒåº“è§„åˆ™äº§ç”Ÿçš„åº“æ˜¯å¦å¦‚é¢„æœŸ
 
 	protected String dbNamePattern; //item_{0000}_dbkey
 	protected String tbNamePattern; //item_{0000}
@@ -39,42 +47,42 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 	protected List<Rule<String>> dbShardRules;
 	protected List<Rule<String>> tbShardRules;
 	
-	//add by junyu:Ö§³Ö×Ô¶¨Òåº¯Êıpackage
+	//add by junyu:æ”¯æŒè‡ªå®šä¹‰å‡½æ•°package
     protected static String extraPackagesStr;
     
 	private Object outerContext;
 
 	private DBType dbType = null; //Oracle|MySql
-	private boolean allowReverseOutput; //ÊÇ·ñÔÊĞí·´ÏòÊä³ö
-	private boolean allowFullTableScan; //ÊÇ·ñÔÊĞíÈ«±íÉ¨Ãè
-	private boolean disableFullTableScan = true; // ÊÇ·ñ¹Ø±ÕÈ«±íÉ¨Ãè
+	private boolean allowReverseOutput; //æ˜¯å¦å…è®¸åå‘è¾“å‡º
+	private boolean allowFullTableScan; //æ˜¯å¦å…è®¸å…¨è¡¨æ‰«æ
+	private boolean disableFullTableScan = true; // æ˜¯å¦å…³é—­å…¨è¡¨æ‰«æ
 	
 	/**
-	 * ĞéÄâ½ÚµãÓ³Éä
+	 * è™šæ‹ŸèŠ‚ç‚¹æ˜ å°„
 	 */
 	protected TableSlotMap tableSlotMap;
 	protected DBTableMap dbTableMap;
 	protected String tableSlotKeyFormat;
 
 	/**
-	 * ÊÇ·ñĞèÒªĞĞ¸´ÖÆ¡£ÈôTDataSource¹ÒÁËĞĞ¸´ÖÆ£¬»áÔÚ³õÊ¼»¯Ê±½«¸ÃÖµÉèÖÃÎªtrue
+	 * æ˜¯å¦éœ€è¦è¡Œå¤åˆ¶ã€‚è‹¥TDataSourceæŒ‚äº†è¡Œå¤åˆ¶ï¼Œä¼šåœ¨åˆå§‹åŒ–æ—¶å°†è¯¥å€¼è®¾ç½®ä¸ºtrue
 	 */
 	private boolean needRowCopy = false;
 
 	/**
-	 * ÓÃÔÚĞĞ¸´ÖÆÖĞ£¬ÈôTDataSource¹ÒÁËĞĞ¸´ÖÆ£¬Ôò³õÊ¼»¯Ê±»á¸ù¾İ¸´ÖÆÅäÖÃÉèÖÃÕâ¸öÊôĞÔ¡£
+	 * ç”¨åœ¨è¡Œå¤åˆ¶ä¸­ï¼Œè‹¥TDataSourceæŒ‚äº†è¡Œå¤åˆ¶ï¼Œåˆ™åˆå§‹åŒ–æ—¶ä¼šæ ¹æ®å¤åˆ¶é…ç½®è®¾ç½®è¿™ä¸ªå±æ€§ã€‚
 	 * 
-	 * Î¨Ò»¼üÊÇÓĞÓÅÏÈ¼¶µÄ¡£ÓÅÏÈ¼¶¸ßµÄ£¬ÅÅÔÚListÖĞÇ°Ãæ Ã¿¸ö¼¶±ğµÄÎ¨Ò»¼ü£¬Ö§³Ö¶à¸ö£¬ÀàËÆÁªºÏÖ÷¼üµÄ¸ÅÄî¡£µ«ÊÇ£¬ºóĞøÆäËû¹ØÁª´¦Àí£¬Ä¿Ç°²»¿¼ÂÇ¶à¸öÎ¨Ò»¼ü
-	 * ËùÓĞListÖĞµÄÃ¿¸öSetÏÖÔÚÖ»ÄÜÓĞÒ»¸öÔªËØ¡£¼´Ã¿¸ö¼¶±ğÒ»¸öÎ¨Ò»¼ü
+	 * å”¯ä¸€é”®æ˜¯æœ‰ä¼˜å…ˆçº§çš„ã€‚ä¼˜å…ˆçº§é«˜çš„ï¼Œæ’åœ¨Listä¸­å‰é¢ æ¯ä¸ªçº§åˆ«çš„å”¯ä¸€é”®ï¼Œæ”¯æŒå¤šä¸ªï¼Œç±»ä¼¼è”åˆä¸»é”®çš„æ¦‚å¿µã€‚ä½†æ˜¯ï¼Œåç»­å…¶ä»–å…³è”å¤„ç†ï¼Œç›®å‰ä¸è€ƒè™‘å¤šä¸ªå”¯ä¸€é”®
+	 * æ‰€æœ‰Listä¸­çš„æ¯ä¸ªSetç°åœ¨åªèƒ½æœ‰ä¸€ä¸ªå…ƒç´ ã€‚å³æ¯ä¸ªçº§åˆ«ä¸€ä¸ªå”¯ä¸€é”®
 	 * 
-	 * µ±Ò»¸öSQLµ½´ïÊ±£¬°´ÓÅÏÈ¼¶±éÀú¸Ãlist£¬µÚÒ»¸öÔÚsqlÖĞ¶¼°üº¬µÄ¼¶±ğ£¬Æä¶ÔÓ¦Î¨Ò»¼ü±»·µ»Ø×÷Îª½âÎöºóµÄÎ¨Ò»¼ü£¨Ö÷¼ü£©£¬ÓÃÀ´ÔÚĞĞ¸´ÖÆÖĞ²éÑ¯Ö÷¿â
+	 * å½“ä¸€ä¸ªSQLåˆ°è¾¾æ—¶ï¼ŒæŒ‰ä¼˜å…ˆçº§éå†è¯¥listï¼Œç¬¬ä¸€ä¸ªåœ¨sqlä¸­éƒ½åŒ…å«çš„çº§åˆ«ï¼Œå…¶å¯¹åº”å”¯ä¸€é”®è¢«è¿”å›ä½œä¸ºè§£æåçš„å”¯ä¸€é”®ï¼ˆä¸»é”®ï¼‰ï¼Œç”¨æ¥åœ¨è¡Œå¤åˆ¶ä¸­æŸ¥è¯¢ä¸»åº“
 	 */
 	private List<String> uniqueKeys;
 
 	public void init() {
 		if (tbShardRules == null || tbShardRules.size() == 0) {
 			if (this.tbNamePattern == null) {
-				//±í¹æÔòÃ»ÓĞ£¬tbKeyPatternÎª¿Õ
+				//è¡¨è§„åˆ™æ²¡æœ‰ï¼ŒtbKeyPatternä¸ºç©º
 				this.tbNamePattern = this.virtualTbName;
 			}
 		}
@@ -100,16 +108,16 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 
 	public void initActualTopology() {
 		if (actualTopology != null) {
-			//½«¶ººÅ·Ö¸ôµÄ±íÃû×ª»»ÎªSet
-			for (Map.Entry<String/*¿â*/, Set<String/*±í*/>> e : this.actualTopology.entrySet()) {
-				if (e.getValue().size() == 1) { //Èç¹ûÖ»ÓĞÒ»¸öÔªËØ£¬Ôò»³ÒÉÎª¶ººÅ·Ö¸ôµÄ
+			//å°†é€—å·åˆ†éš”çš„è¡¨åè½¬æ¢ä¸ºSet
+			for (Map.Entry<String/*åº“*/, Set<String/*è¡¨*/>> e : this.actualTopology.entrySet()) {
+				if (e.getValue().size() == 1) { //å¦‚æœåªæœ‰ä¸€ä¸ªå…ƒç´ ï¼Œåˆ™æ€€ç–‘ä¸ºé€—å·åˆ†éš”çš„
 					Set<String> tables = new LinkedHashSet<String>();
 					tables.addAll(Arrays.asList(e.getValue().iterator().next().split(tableNameSepInSpring)));
 					e.setValue(tables);
 				}
 			}
 			showTopology(false);
-			return; //ÓÃ»§ÏÔÊ½ÉèÖÃµÄÓÅÏÈ
+			return; //ç”¨æˆ·æ˜¾å¼è®¾ç½®çš„ä¼˜å…ˆ
 		}
 		actualTopology = new TreeMap<String, Set<String>>();
 		
@@ -117,13 +125,13 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 			Set<String> tbs = new TreeSet<String>();
 			tbs.add(this.tbNamePattern);
 			actualTopology.put(this.dbNamePattern, tbs);
-		} else if (dbShardRules == null || dbShardRules.size() == 0) { //Ã»ÓĞ¿â¹æÔò
+		} else if (dbShardRules == null || dbShardRules.size() == 0) { //æ²¡æœ‰åº“è§„åˆ™
 			Set<String> tbs = new TreeSet<String>();
 			for (Rule<String> tbRule : tbShardRules) {
 				tbs.addAll(vbvRule(tbRule, getEnumerates(tbRule)));
 			}
 			actualTopology.put(this.dbNamePattern, tbs);
-		} else if (tbShardRules == null || tbShardRules.size() == 0) {//Ã»ÓĞ±í¹æÔò
+		} else if (tbShardRules == null || tbShardRules.size() == 0) {//æ²¡æœ‰è¡¨è§„åˆ™
 			Set<String> tbs = new TreeSet<String>();
 			tbs.add(this.tbNamePattern);
 			for (Rule<String> dbRule : dbShardRules) {
@@ -131,7 +139,7 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 					actualTopology.put(dbIndex, tbs);
 				}
 			}
-		} else { //¿â±í¹æÔò¶¼ÓĞ
+		} else { //åº“è¡¨è§„åˆ™éƒ½æœ‰
 			for (Rule<String> dbRule : dbShardRules) {
 				for (Rule<String> tbRule : tbShardRules) {
 					if(this.tableSlotMap!=null&&this.dbTableMap!=null){
@@ -177,15 +185,15 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 	}
 
 	private static void valuebyvalue(Map<String, Set<String>> topology, Rule<String> dbRule, Rule<String> tbRule,boolean isVnode) {
-		Map<String/*ÁĞÃû*/, Set<Object>> dbEnumerates = getEnumerates(dbRule);
-		Map<String/*ÁĞÃû*/, Set<Object>> tbEnumerates = getEnumerates(tbRule);
+		Map<String/*åˆ—å*/, Set<Object>> dbEnumerates = getEnumerates(dbRule);
+		Map<String/*åˆ—å*/, Set<Object>> tbEnumerates = getEnumerates(tbRule);
 		//Samples dbSamples = new Samples(dbEnumerates);
 		//Samples tbSamples = new Samples(tbEnumerates);
 
 		Set<AdvancedParameter> params = cast(tbRule.getRuleColumnSet());
 		for (AdvancedParameter tbap : params) {
 			if (dbEnumerates.containsKey(tbap.key)) {
-				//¿â±í¹æÔòµÄ¹«¹²ÁĞÃû£¬±íÃ¶¾ÙÖµÒªº­¸ÇËùÓĞ¿âÃ¶¾ÙÖµ¿çÔ½µÄ·¶Î§= =!
+				//åº“è¡¨è§„åˆ™çš„å…¬å…±åˆ—åï¼Œè¡¨æšä¸¾å€¼è¦æ¶µç›–æ‰€æœ‰åº“æšä¸¾å€¼è·¨è¶Šçš„èŒƒå›´= =!
 				Set<Object> tbValuesBasedONdbValue = new HashSet<Object>();
 				for (Object dbValue : dbEnumerates.get(tbap.key)) {
 					tbValuesBasedONdbValue.addAll(tbap.enumerateRange(dbValue));
@@ -196,7 +204,7 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 			}
 		}
         
-		//ÓĞĞéÄâ½ÚµãµÄ»°°´ÕÕĞéÄâ½Úµã¼ÆËã
+		//æœ‰è™šæ‹ŸèŠ‚ç‚¹çš„è¯æŒ‰ç…§è™šæ‹ŸèŠ‚ç‚¹è®¡ç®—
         if(isVnode){
         	Samples tabSamples = new Samples(tbEnumerates);
         	Set<String> tbs = new TreeSet<String>();
@@ -221,9 +229,9 @@ public class VirtualTable implements VirtualTableRule<String, String> {
         	return;
 		}
 
-        //Ã»ÓĞĞéÄâ½Úµã°´Õı³£×ß
-		Map<String, Samples> dbs = vbvTrace(dbRule, dbEnumerates);//¿â¼ÆËã½á¹û£¬ÓëµÃµ½½á¹ûµÄÊäÈëÖµ¼¯ºÏ
-		for (Map.Entry<String/*¿âÖµ*/, Samples> e : dbs.entrySet()) {
+        //æ²¡æœ‰è™šæ‹ŸèŠ‚ç‚¹æŒ‰æ­£å¸¸èµ°
+		Map<String, Samples> dbs = vbvTrace(dbRule, dbEnumerates);//åº“è®¡ç®—ç»“æœï¼Œä¸å¾—åˆ°ç»“æœçš„è¾“å…¥å€¼é›†åˆ
+		for (Map.Entry<String/*åº“å€¼*/, Samples> e : dbs.entrySet()) {
 			Set<String> tbs = topology.get(e.getKey());
 			if (tbs == null) {
 				tbs = vbvRule(tbRule, e.getValue());
@@ -235,12 +243,12 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 	}
 
 	/**
-	 * ¸ù¾İ#id,1,32|512_64#ÖĞµÚÈı¶Î¶¨ÒåµÄ±éÀúÖµ·¶Î§£¬Ã¶¾Ù¹æÔòÖĞÃ¿¸öÁĞµÄ±éÀúÖµ
+	 * æ ¹æ®#id,1,32|512_64#ä¸­ç¬¬ä¸‰æ®µå®šä¹‰çš„éå†å€¼èŒƒå›´ï¼Œæšä¸¾è§„åˆ™ä¸­æ¯ä¸ªåˆ—çš„éå†å€¼
 	 */
 	@SuppressWarnings("rawtypes")
-	private static Map<String/*ÁĞÃû*/, Set<Object>/*ÁĞÖµ*/> getEnumerates(Rule rule) {
+	private static Map<String/*åˆ—å*/, Set<Object>/*åˆ—å€¼*/> getEnumerates(Rule rule) {
 		Set<AdvancedParameter> params = cast(rule.getRuleColumnSet());
-		Map<String/*ÁĞÃû*/, Set<Object>/*ÁĞÖµ*/> enumerates = new HashMap<String, Set<Object>>(params.size());
+		Map<String/*åˆ—å*/, Set<Object>/*åˆ—å€¼*/> enumerates = new HashMap<String, Set<Object>>(params.size());
 		for (AdvancedParameter ap : params) {
 			enumerates.put(ap.key, ap.enumerateRange());
 		}
@@ -257,11 +265,11 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 				maxcolsPerRow = colsPerRow;
 			}
 			if (e.getKey().length() > maxdbnlen) {
-				maxdbnlen = e.getKey().length(); //dbIndex×î´ó³¤¶È
+				maxdbnlen = e.getKey().length(); //dbIndexæœ€å¤§é•¿åº¦
 			}
 			for (String tbn : e.getValue()) {
 				if (tbn.length() > maxtbnlen) {
-					maxtbnlen = tbn.length(); //tableName×î´ó³¤¶È
+					maxtbnlen = tbn.length(); //tableNameæœ€å¤§é•¿åº¦
 				}
 			}
 		}
@@ -269,7 +277,7 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 		endIndex = crossIndex + (maxtbnlen + 1) * maxcolsPerRow + 1;
 		StringBuilder sb = new StringBuilder("The topology of the virtual table " + this.virtualTbName);
 		addLine(sb, crossIndex, endIndex);
-		for (Map.Entry<String/*¿â*/, Set<String/*±í*/>> e : this.actualTopology.entrySet()) {
+		for (Map.Entry<String/*åº“*/, Set<String/*è¡¨*/>> e : this.actualTopology.entrySet()) {
 			sb.append("\n|");
 			sb.append(fillAfter(e.getKey(), maxdbnlen)).append("|");
 			int i = 0, n = e.getValue().size();
@@ -277,7 +285,7 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 				sb.append(fillAfter(tb, maxtbnlen)).append(",");
 				i++;
 				if (i % maxcolsPerRow == 0 && i < n) {
-					sb.append("|\n|").append(fillAfter(" ", maxdbnlen)).append("|");//ÕÛĞĞºó°Ñ¿âÁĞÊä³ö
+					sb.append("|\n|").append(fillAfter(" ", maxdbnlen)).append("|");//æŠ˜è¡ŒåæŠŠåº“åˆ—è¾“å‡º
 				}
 			}
 			if (i % maxcolsPerRow != 0) {
@@ -299,7 +307,7 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 		sb.append(this.virtualTbName + "'s TableRule bean in the rule file\n\n");
 		sb.append("        <property name=\"actualTopology\">\n");
 		sb.append("          <map>\n");
-		for (Map.Entry<String/*¿â*/, Set<String/*±í*/>> e : this.actualTopology.entrySet()) {
+		for (Map.Entry<String/*åº“*/, Set<String/*è¡¨*/>> e : this.actualTopology.entrySet()) {
 			sb.append("            <entry key=\"").append(e.getKey()).append("\" value=\"");
 			for (String table : e.getValue()) {
 				sb.append(table).append(tableNameSepInSpring);
@@ -319,13 +327,13 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 		if (n <= maxColPerRow) {
 			return n;
 		}
-		int maxfiti = maxColPerRow; //²»ÄÜÕû³ıµÄÇé¿öÏÂ£¬ÈÃ×îºóÒ»ĞĞ¿Õ°××îÉÙµÄÄÇ¸öi
-		int minblank = maxColPerRow; //²»ÄÜÕû³ıµÄÇé¿öÏÂ£¬×îºóÒ»ĞĞµÄ¿Õ°×¸öÊı
+		int maxfiti = maxColPerRow; //ä¸èƒ½æ•´é™¤çš„æƒ…å†µä¸‹ï¼Œè®©æœ€åä¸€è¡Œç©ºç™½æœ€å°‘çš„é‚£ä¸ªi
+		int minblank = maxColPerRow; //ä¸èƒ½æ•´é™¤çš„æƒ…å†µä¸‹ï¼Œæœ€åä¸€è¡Œçš„ç©ºç™½ä¸ªæ•°
 		for (int i = maxColPerRow; i > 0; i--) {
 			int mod = n % i;
 			if (mod == 0) {
 				if (n / i <= i) {
-					return i; //ĞĞÊı²»ÄÜ´óÓÚÁĞÊı
+					return i; //è¡Œæ•°ä¸èƒ½å¤§äºåˆ—æ•°
 				} else {
 					break;
 				}
@@ -391,7 +399,7 @@ public class VirtualTable implements VirtualTableRule<String, String> {
 	}
 
 	/**
-	 * ÎŞÂß¼­µÄgetter/setter
+	 * æ— é€»è¾‘çš„getter/setter
 	 */
 	public void setDbNamePattern(String dbKeyPattern) {
 		this.dbNamePattern = dbKeyPattern;

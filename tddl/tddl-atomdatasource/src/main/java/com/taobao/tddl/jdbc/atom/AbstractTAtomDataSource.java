@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.atom;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.atom;
 
 import java.io.PrintWriter;
 import java.sql.Connection;
@@ -8,8 +16,8 @@ import javax.sql.DataSource;
 
 import com.taobao.tddl.common.util.TDDLMBeanServer;
 
-/**抽象的TAtomDataSource 定义，实现了DataSource接口
- * 并且定义了自己的接口抽象方法
+/**鎶借薄鐨凾AtomDataSource 瀹氫箟锛屽疄鐜颁簡DataSource鎺ュ彛
+ * 骞朵笖瀹氫箟浜嗚嚜宸辩殑鎺ュ彛鎶借薄鏂规硶
  * @author qihao
  *
  */

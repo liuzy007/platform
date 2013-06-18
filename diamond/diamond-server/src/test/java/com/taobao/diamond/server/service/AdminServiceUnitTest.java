@@ -44,7 +44,7 @@ public class AdminServiceUnitTest {
         Properties props = new Properties();
         props.load(in);
         in.close();
-        // È·ÈÏ´æÈëÎÄ¼ş
+        // ç¡®è®¤å­˜å…¥æ–‡ä»¶
         assertTrue(props.containsKey(userName));
         assertEquals(password, props.get(userName));
 
@@ -90,7 +90,7 @@ public class AdminServiceUnitTest {
         in.close();
         assertNull(props.get("hello"));
         
-        //×îºóÒ»¸ö²»ÄÜÉ¾³ı
+        //æœ€åä¸€ä¸ªä¸èƒ½åˆ é™¤
         assertFalse(this.adminService.removeUser("admin"));
     }
 

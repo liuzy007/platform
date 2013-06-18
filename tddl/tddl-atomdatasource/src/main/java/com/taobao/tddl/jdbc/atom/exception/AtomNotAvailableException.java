@@ -1,11 +1,19 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.atom.exception;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.atom.exception;
 
 import java.sql.SQLException;
 
 /**
- * Atom²ãÍ¨¹ıExceptionSorter¼ì²âµ½Êı¾İÔ´²»¿ÉÓÃÊ±Å×³ö£¬
- * »òÕßÊı¾İ¿â²»¿ÉÓÃ£¬Í¬Ê±Ã»ÓĞtrylockµ½ÖØÊÔ»ú»áÊ±Ò²Å×³ö
- * ±ãÓÚgroup²ãÖØÊÔ
+ * Atomå±‚é€šè¿‡ExceptionSorteræ£€æµ‹åˆ°æ•°æ®æºä¸å¯ç”¨æ—¶æŠ›å‡ºï¼Œ
+ * æˆ–è€…æ•°æ®åº“ä¸å¯ç”¨ï¼ŒåŒæ—¶æ²¡æœ‰trylockåˆ°é‡è¯•æœºä¼šæ—¶ä¹ŸæŠ›å‡º
+ * ä¾¿äºgroupå±‚é‡è¯•
  * 
  * 
  * @author linxuan

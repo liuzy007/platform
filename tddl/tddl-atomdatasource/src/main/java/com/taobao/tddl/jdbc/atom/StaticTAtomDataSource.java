@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.atom;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.atom;
 
 import java.sql.SQLException;
 import java.util.Map;
@@ -15,8 +23,8 @@ import com.taobao.tddl.jdbc.atom.config.object.TAtomDsConfDO;
 import com.taobao.tddl.jdbc.atom.exception.AtomAlreadyInitException;
 
 /**
- * ¾²Ì¬°şÀëµÄjbossÊı¾İÔ´£¬²»Ö§³Ö¶¯Ì¬¸Ä²ÎÊı
- * Ö÷ÒªÓÃÀ´·½±ã²âÊÔ
+ * é™æ€å‰¥ç¦»çš„jbossæ•°æ®æºï¼Œä¸æ”¯æŒåŠ¨æ€æ”¹å‚æ•°
+ * ä¸»è¦ç”¨æ¥æ–¹ä¾¿æµ‹è¯•
  * @author qihao
  *
  */
@@ -24,12 +32,12 @@ public class StaticTAtomDataSource extends AbstractTAtomDataSource {
 
 	private static Log logger = LogFactory.getLog(StaticTAtomDataSource.class);
 	/**
-	 * Êı¾İÔ´ÅäÖÃĞÅÏ¢
+	 * æ•°æ®æºé…ç½®ä¿¡æ¯
 	 */
 	private TAtomDsConfDO confDO = new TAtomDsConfDO();
 
 	/**
-	 * JbossÊı¾İÔ´Í¨¹ıinit³õÊ¼»¯
+	 * Jbossæ•°æ®æºé€šè¿‡initåˆå§‹åŒ–
 	 */
 	private LocalTxDataSource jbossDataSource;
 

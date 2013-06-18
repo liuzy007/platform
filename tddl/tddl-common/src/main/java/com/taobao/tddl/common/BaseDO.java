@@ -1,4 +1,12 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	/*
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+/*
  * Created on 2005-1-13
  *
  */
@@ -10,7 +18,7 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 
 /**
- * 基本路由基类
+ * 鍩烘湰璺敱鍩虹被
  * @author xingdian
  * @version $Id: BaseDO.java,v 1.2 2005/06/14 10:20:07 shenyu Exp $
  */

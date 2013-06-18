@@ -48,7 +48,7 @@ public abstract class DelayLoadListener extends ManagerListenerAdapter {
 
 
     private void delayReceive(final String configInfo, long delay) {
-        // Ê×ÏÈÈ¡ÏûÇ°Ò»´ÎµÄ¶¨Ê±ÈÎÎñ
+        // é¦–å…ˆå–æ¶ˆå‰ä¸€æ¬¡çš„å®šæ—¶ä»»åŠ¡
         if (previousTask != null) {
             previousTask.cancel(false);
         }
@@ -74,8 +74,8 @@ public abstract class DelayLoadListener extends ManagerListenerAdapter {
 
     /**
      * <pre>
-     * ÔÚÅäÖÃÖĞÈç¹û°üº¬ÁËĞÎÈç diamond-config-effective-time="2010-07-10 10:29:01"µÄ×Ö·û´®
-     * È¡³öºóÃæµÄÊ±¼ä×÷ÎªÅäÖÃµÄÉúĞ§Ê±¼ä£¬¼õÈ¥µ±Ç°Ê±¼ä¾ÍÊÇÑÓ³ÙÊ±¼ä
+     * åœ¨é…ç½®ä¸­å¦‚æœåŒ…å«äº†å½¢å¦‚ diamond-config-effective-time="2010-07-10 10:29:01"çš„å­—ç¬¦ä¸²
+     * å–å‡ºåé¢çš„æ—¶é—´ä½œä¸ºé…ç½®çš„ç”Ÿæ•ˆæ—¶é—´ï¼Œå‡å»å½“å‰æ—¶é—´å°±æ˜¯å»¶è¿Ÿæ—¶é—´
      * </pre>
      * 
      * @param configInfo

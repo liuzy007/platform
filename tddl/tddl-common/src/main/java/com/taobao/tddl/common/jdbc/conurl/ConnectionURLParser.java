@@ -1,7 +1,16 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.common.jdbc.conurl;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.common.jdbc.conurl;
 
-import com.taobao.tddl.common.util.TStringUtil;
-/**Êı¾İÔ´Á¬½ÓµØÖ·½âÎöÀà
+import com.taobao.tddl.common.util.TStringUtil;
+
+/**æ•°æ®æºè¿æ¥åœ°å€è§£æç±»
  * @author qihao
  *
  */
@@ -41,7 +50,7 @@ public abstract class ConnectionURLParser {
 						oracleConUrl.setDbName(TStringUtil.substringBefore(TStringUtil.substringAfter(url, "SERVICE_NAME="), ")"));
 					}
 				}else{
-					//jdbc:oracle:oci:@SID£¬ÕâÖÖ·½Ê½ÎŞ·¨»ñµÃIPºÍ¶Ë¿Ú
+					//jdbc:oracle:oci:@SIDï¼Œè¿™ç§æ–¹å¼æ— æ³•è·å¾—IPå’Œç«¯å£
 					oracleConUrl.setDbName(TStringUtil.substringAfterLast(url, "@"));
 					oracleConUrl.setConType(OracleConnectionURL.OCI_SID_TYPE);
 				}
@@ -51,11 +60,11 @@ public abstract class ConnectionURLParser {
 			//jdbc:mysql://hostname:port/dbname?param1=value1&m2=value2
 			MySqlConnectionURL mySqlConURL=new MySqlConnectionURL();
 			mySqlConURL.setPramStr(TStringUtil.substringAfter(url, "?"));
-			//½ØÈ¡DBName
+			//æˆªå–DBName
 			String dbInfoString=TStringUtil.substringBefore(url, "?");
 			String dbName=TStringUtil.substringAfterLast(dbInfoString, "/");
 			mySqlConURL.setDbName(dbName);
-			//½ØÈ¡IPºÍPORT
+			//æˆªå–IPå’ŒPORT
 			String hostString=TStringUtil.substringBeforeLast(dbInfoString, "/");
 			hostString=TStringUtil.substringAfterLast(hostString, MYSQL_FIX);
 			String[] ipAndPort=TStringUtil.splitm(hostString,":");

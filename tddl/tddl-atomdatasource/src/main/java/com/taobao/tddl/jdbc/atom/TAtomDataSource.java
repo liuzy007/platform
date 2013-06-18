@@ -1,8 +1,32 @@
-/*(C) 2007-2012 Alibaba Group Holding Limited.	 *This program is free software; you can redistribute it and/or modify	*it under the terms of the GNU General Public License version 2 as	* published by the Free Software Foundation.	* Authors:	*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	*/	package com.taobao.tddl.jdbc.atom;
+/*(C) 2007-2012 Alibaba Group Holding Limited.	
+ *This program is free software; you can redistribute it and/or modify	
+*it under the terms of the GNU General Public License version 2 as	
+* published by the Free Software Foundation.	
+* Authors:	
+*   junyu <junyu@taobao.com> , shenxun <shenxun@taobao.com>,	
+*   linxuan <linxuan@taobao.com> ,qihao <qihao@taobao.com> 	
+*/	
+package com.taobao.tddl.jdbc.atom;
 
-import java.sql.SQLException;import java.util.HashMap;import java.util.List;import java.util.Map;import javax.sql.DataSource;import org.apache.commons.logging.Log;import org.apache.commons.logging.LogFactory;import com.taobao.tddl.common.util.TStringUtil;import com.taobao.tddl.jdbc.atom.common.TAtomConstants;import com.taobao.tddl.jdbc.atom.config.object.AtomDbStatusEnum;import com.taobao.tddl.jdbc.atom.config.object.AtomDbTypeEnum;import com.taobao.tddl.jdbc.atom.exception.AtomAlreadyInitException;import com.taobao.tddl.jdbc.atom.listener.TAtomDbStatusListener;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
+
+import com.taobao.tddl.common.util.TStringUtil;
+import com.taobao.tddl.jdbc.atom.common.TAtomConstants;
+import com.taobao.tddl.jdbc.atom.config.object.AtomDbStatusEnum;
+import com.taobao.tddl.jdbc.atom.config.object.AtomDbTypeEnum;
+import com.taobao.tddl.jdbc.atom.exception.AtomAlreadyInitException;
+import com.taobao.tddl.jdbc.atom.listener.TAtomDbStatusListener;
+
 /**
- * ¶¯Ì¬Êı¾İÔ´£¬Ö§³ÖÊı¾İÔ´²ÎÊı¶¯Ì¬ĞŞ¸Ä
+ * åŠ¨æ€æ•°æ®æºï¼Œæ”¯æŒæ•°æ®æºå‚æ•°åŠ¨æ€ä¿®æ”¹
  * 
  * @author qihao
  * 
@@ -20,7 +44,7 @@ public class TAtomDataSource extends AbstractTAtomDataSource {
 		synchronized (cacheConfHandleMap) {
 			TAtomDsConfHandle cacheConfHandle = cacheConfHandleMap.get(dbName);
 			if (null == cacheConfHandle) {
-				//³õÊ¼»¯configµÄ¹ÜÀíÆ÷
+				//åˆå§‹åŒ–configçš„ç®¡ç†å™¨
 				this.dsConfHandle.init();
 				cacheConfHandleMap.put(dbName, dsConfHandle);
 				logger.info("create new TAtomDsConfHandle dbName : " + dbName);
@@ -32,7 +56,7 @@ public class TAtomDataSource extends AbstractTAtomDataSource {
 	}
 
 	/**
-	 * Çå³ıµôËùÓĞÊı¾İÔ´
+	 * æ¸…é™¤æ‰æ‰€æœ‰æ•°æ®æº
 	 */
 	public static void cleanAllDataSource() {
 		synchronized (cacheConfHandleMap) {
@@ -49,13 +73,13 @@ public class TAtomDataSource extends AbstractTAtomDataSource {
 	}
 
 	/**
-	 * Ë¢ĞÂÊı¾İÔ´
+	 * åˆ·æ–°æ•°æ®æº
 	 */
 	public void flushDataSource() {
 		this.dsConfHandle.flushDataSource();
 	}
 
-	/**Ïú»ÙÊı¾İÔ´£¬É÷ÓÃ
+	/**é”€æ¯æ•°æ®æºï¼Œæ…ç”¨
 	 * @throws Exception 
 	 */
 	public void destroyDataSource() throws Exception {
@@ -94,7 +118,7 @@ public class TAtomDataSource extends AbstractTAtomDataSource {
 		this.dsConfHandle.setSingleInGroup(isSingleInGroup);
 	}
 
-	/**=======ÒÔÏÂÊÇÉèÖÃ±¾µØÓÅÏÈµÄÅäÖÃÊôĞÔ£¬Èç¹ûÉèÖÃÁË»áºöÂÔÍÆËÍµÄÅäÖÃ¶øÊ¹ÓÃ±¾µØµÄÅäÖÃ=======*/
+	/**=======ä»¥ä¸‹æ˜¯è®¾ç½®æœ¬åœ°ä¼˜å…ˆçš„é…ç½®å±æ€§ï¼Œå¦‚æœè®¾ç½®äº†ä¼šå¿½ç•¥æ¨é€çš„é…ç½®è€Œä½¿ç”¨æœ¬åœ°çš„é…ç½®=======*/
 	public void setPasswd(String passwd) throws AtomAlreadyInitException {
 		this.dsConfHandle.setLocalPasswd(passwd);
 	}
