@@ -1,0 +1,60 @@
+2010-06-30
+* tair opensourced
+
+2011-12-20
+version 2.3.1.2
+* feature: 
+* 1. support read from all replicas in c++ client:
+* tair_handle->set_randread(true)
+* 2. check tmpfs size and slab_mem_size in dataserver.conf when exec tair.sh
+* start_ds 
+* 3. add _accept_strategy in group.conf config item. default value is 0. if
+* it set to 1, configserver will auto accept dataserver when dataserver
+* connect to cs. (no touch group.conf!)
+
+* fixbug: 
+* 1. expire items once in one period
+
+2012-04-19
+version 2.3.1.3
+* fixbug:
+* 1. 去除客户端中的assert，避免core.
+
+2012-05-21
+version 2.3.1.4
+* feature:
+* 1.
+增加前缀key功能：可以把具有相同前缀的key放到同一台ds上，并能做到一定的事务功能。
+* 2. 增加invalid功能：支持双机房容灾。删数据需要使用invalid，而不是delete。
+* 3. 增加hide功能：提供数据隐藏功能，正常get无法读取到，且支持双机房。
+
+2012-06-27
+version 2.3.1.5
+* feature:
+* 1. 增加localmode模式: 客户端直连data server进行数据读写。
+* 2. 完成了客户端工具中-s参数，使用-s参数可以直连data server。
+
+2012-07-27
+version 2.3.1.6
+* feature:
+* 1. 增加了限流功能, 对超出阈值的namespace进行限流。
+* 2. 对mdb增加了lazy clear namespace功能。
+* 3. uic 2.3升级支持的功能：
+*** 3.1 增加build表因子，初次启动bucket随机分布。
+*** 3.2 Ds宕机后加入集群需要重新reset。
+
+2012-08-01
+version 2.3.1.7
+* feature:
+* 1. 合并ldb_with_bloomfilter分支
+* 2. 增加ldb get_range功能，可以对prefixPut的数据进行范围查询
+
+2012-08-06
+version 2.3.2.0
+* feuture:
+* 1. C++客户端增加压缩功能(编译时添加--with-compress可以使用)
+* 2. 去掉ds的proxy机制
+* 3. 增加expire接口设置超时时间
+* 4. put时设置expire为负数不改变之前的超时时间
+* fixbug:
+* 1. 修复mget时返回key_count为0时全部失败的bug。
