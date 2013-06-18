@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans 
+        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+        http://www.springframework.org/schema/aop 
+        http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context-2.5.xsd"
+	default-autowire="byName">
+
+	<aop:aspectj-autoproxy />
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:/jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+		<property name="url" value="${db.url}">
+		</property>
+		<property name="username" value="${db.user}"></property>
+		<property name="password" value="${db.password}"></property>
+		<!-- 连接信息 -->
+		<property name="initialSize" value="${db.initialSize}" />
+		<property name="maxActive" value="${db.maxActive}" />
+		<property name="maxIdle" value="${db.maxIdle}" />
+		<property name="maxWait" value="${db.maxWait}" />
+		<property name="poolPreparedStatements" value="${db.poolPreparedStatements}" />
+	</bean>
+
+	<bean id="servletContext"
+		class="org.springframework.web.context.support.ServletContextFactoryBean" />
+
+	<bean id="persistService" class="com.taobao.diamond.server.service.DBPersistService">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="notifyService" class="com.taobao.diamond.server.service.NotifyService"
+		init-method="loadNodes">
+	</bean>
+
+	<bean id="diskService" class="com.taobao.diamond.server.service.DiskService">
+	</bean>
+
+	<bean id="adminService" class="com.taobao.diamond.server.service.AdminService">
+	</bean>
+
+	<bean id="configService" class="com.taobao.diamond.server.service.ConfigService">
+	</bean>
+
+	<bean id="timerTaskService" class="com.taobao.diamond.server.service.TimerTaskService"
+		init-method="init" destroy-method="despose">
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping" />
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+
+	<context:component-scan
+		base-package="com.taobao.diamond.server.controller,com.taobao.diamond.server.aop" />
+
+</beans>
