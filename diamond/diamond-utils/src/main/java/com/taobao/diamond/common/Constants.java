@@ -91,9 +91,9 @@ public class Constants {
 
 	public static final String DEFAULT_DIAMOND_CLUSTER = "diamond";
 
-	public static final String DEFAULT_USERNAME = "user";
+	public static final String DEFAULT_USERNAME = "diamond";
 
-	public static final String DEFAULT_PASSWORD = "123";
+	public static final String DEFAULT_PASSWORD = "diamond";
 
 	public static final String STAT_CLIENT_SUCCESS = "success";
 
