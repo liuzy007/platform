@@ -16,8 +16,6 @@
 > **git-plugin** : http://download.eclipse.org/egit/updates-1.3
 >
 > **maven-plugin** : http://download.eclipse.org/technology/m2e/releases
->
-> **subersion-plugin** : http://subclipse.tigris.org/update_1.8.x
 
 
 [eclipse-jee-indigo-SR2-win32.zip]: http://www.eclipse.org/downloads/packages/release/indigo/sr2
