@@ -68,14 +68,20 @@ public class Constants {
 	public static final int RECV_WAIT_TIMEOUT = ONCE_TIMEOUT * 5;// 毫秒
 
 	public static final String BASE_URI = "/diamond-server";
-
-	public static final String CONFIG_HTTP_URI_FILE = "/diamond-server/config.co";
-
-	public static final String HTTP_URI_LOGIN = "/diamond-server/login.do";
+	
+    public static final String HTTP_URI_FILE = "/diamond-server/config.co";
+	
+//	public static final String CONFIG_HTTP_URI_FILE = "/diamond-server/config.co";
+	public static final String CONFIG_HTTP_URI_FILE = "/diamond-server/diamond";
+	
+//	public static final String HTTP_URI_LOGIN = "/diamond-server/login.do";
+	public static final String HTTP_URI_LOGIN = "/diamond-server/login.do?method=login";
+    
 
 	public static final String HTTP_URI_ACK = "/diamond-server/client.ack";
 
-	public static final String ENCODE = "GBK";
+//	public static final String ENCODE = "GBK";
+	public static final String ENCODE = "UTF-8";
 
 	public static final String MAP_FILE = "map-file.js";
 
