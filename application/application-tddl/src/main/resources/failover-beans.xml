@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!--TDDL 
+	<bean id="datasource" class="com.taobao.tddl.jdbc.group.TGroupDataSource"
+		init-method="init">
+		<property name="appName" value="CRM_MJR_APP" />
+		<property name="dbGroupKey" value="MANJUSHRI_MANJUSHRI_GROUP" />
+	</bean>
+	-->
+	<bean id="master_tddl_ds" class="com.taobao.tddl.client.jdbc.TDataSource"
+		init-method="init">
+		<property name="appRuleFile" value="tddl-rule.xml" />
+		<property name="appName" value="CBU_ATAS_APP" />
+		<property name="useLocalConfig" value="true" />
+	</bean>
+	
+	<bean id="tddlDS" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref bean="master_tddl_ds" />
+		</property>
+	</bean>
+	<!-- 
+	<bean id="druidDS" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
+	
+		<property name="url" value="jdbc:oracle:thin:@//10.250.4.116:1521/alifindev" />
+		<property name="username" value="killkill" />
+		<property name="password" value="yaya" />
+	 
+	 	<property name="filters" value="config" />
+	 	<property name="connectionProperties" value="config.file=C:/druid.conf.txt" />	
+	</bean>
+	-->
+</beans>
