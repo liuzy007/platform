@@ -248,6 +248,37 @@
 				<artifactId>google-collections</artifactId>
 				<version>1.0</version>
 			</dependency>
+			<dependency>
+				<groupId>jetty</groupId>
+				<artifactId>jetty</artifactId>
+				<version>6.0.2</version>
+			</dependency>
+			<dependency>
+				<groupId>jetty</groupId>
+				<artifactId>jetty-management</artifactId>
+				<version>6.0.2</version>
+			</dependency>
+			<dependency>
+				<groupId>jetty</groupId>
+				<artifactId>jetty-util</artifactId>
+				<version>6.0.2</version>
+			</dependency>
+			<dependency>
+				<groupId>tomcat</groupId>
+				<artifactId>jasper-compiler</artifactId>
+				<version>5.5.15</version>
+			</dependency>
+			<dependency>
+				<groupId>tomcat</groupId>
+				<artifactId>jasper-compiler-jdt</artifactId>
+				<version>5.5.15</version>
+			</dependency>
+			<dependency>
+				<groupId>tomcat</groupId>
+				<artifactId>jasper-runtime</artifactId>
+				<version>5.5.15</version>
+			</dependency>
+				
 		</dependencies>
 	</dependencyManagement>
 

@@ -27,11 +27,11 @@ public class Constants {
 
 	public static final String APPNAME = "AppName";
 
-	public static final String DEFAULT_DOMAINNAME = "a.b.c";
+	public static final String DEFAULT_DOMAINNAME = "127.0.0.1";
 
-	public static final String DAILY_DOMAINNAME = "d.e.f";
+	public static final String DAILY_DOMAINNAME = DEFAULT_DOMAINNAME;
 
-	public static final int DEFAULT_PORT = 8080;
+	public static final int DEFAULT_PORT = 8000;
 
 	public static final String NULL = "";
 
@@ -69,16 +69,16 @@ public class Constants {
 
 	public static final String BASE_URI = "/diamond-server";
 	
-    public static final String HTTP_URI_FILE = "/diamond-server/config.co";
+    public static final String HTTP_URI_FILE = BASE_URI+"/config.co";
 	
-//	public static final String CONFIG_HTTP_URI_FILE = "/diamond-server/config.co";
-	public static final String CONFIG_HTTP_URI_FILE = "/diamond-server/diamond";
+//	public static final String CONFIG_HTTP_URI_FILE = BASE_URI+"/config.co";
+	public static final String CONFIG_HTTP_URI_FILE = BASE_URI+"/diamond";
 	
-//	public static final String HTTP_URI_LOGIN = "/diamond-server/login.do";
-	public static final String HTTP_URI_LOGIN = "/diamond-server/login.do?method=login";
+//	public static final String HTTP_URI_LOGIN = BASE_URI+"/login.do";
+	public static final String HTTP_URI_LOGIN = BASE_URI+"/login.do?method=login";
     
 
-	public static final String HTTP_URI_ACK = "/diamond-server/client.ack";
+	public static final String HTTP_URI_ACK = BASE_URI+"/client.ack";
 
 //	public static final String ENCODE = "GBK";
 	public static final String ENCODE = "UTF-8";
