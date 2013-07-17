@@ -1,7 +1,9 @@
-## java
 *.class
+
+# Package Files #
 *.jar
 *.war
 *.ear
-## maven
+
+# maven #
 target/
