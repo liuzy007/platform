@@ -170,10 +170,10 @@ public class TAtomConfParser {
 		String passwd = null;
 		Properties passwdProp = TAtomConfParser.parserConfStr2Properties(passwdStr);
 		String encPasswd = passwdProp.getProperty(TAtomConfParser.PASSWD_ENC_PASSWD_KEY);
-		String encKe1y =   passwdProp.getProperty(TAtomConfParser.PASSWD_ENC_KEY_KEY);
-		if ( encKe1y.equals(encPasswd) ) {
-			return encPasswd;
-		}
+//		String encKe1y =   passwdProp.getProperty(TAtomConfParser.PASSWD_ENC_KEY_KEY);
+//		if ( encKe1y.equals(encPasswd) ) {
+//			return encPasswd;
+//		}
 
 		if (TStringUtil.isNotBlank(encPasswd)) {
 			String encKey = passwdProp.getProperty(TAtomConfParser.PASSWD_ENC_KEY_KEY);
