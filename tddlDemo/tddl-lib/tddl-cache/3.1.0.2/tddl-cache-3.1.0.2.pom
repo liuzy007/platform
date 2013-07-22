@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<parent>
+		<artifactId>tddl-all</artifactId>
+		<groupId>com.taobao.tddl</groupId>
+		<version>3.1.0.2</version>
+	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>tddl-cache</artifactId>
+	<name>tddl-cache v${project.version}</name>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.taobao.common.tair</groupId>
+			<artifactId>common-tair</artifactId>
+			<exclusions>
+                <exclusion>
+                    <groupId>com.taobao.messenger</groupId>
+                    <artifactId>messenger-common</artifactId>
+                </exclusion>
+            </exclusions>
+		</dependency>
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.toolkit.common.lang</groupId>
+			<artifactId>lang</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+			<version>2.0.7</version>
+			<scope>test</scope>
+		</dependency><dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>tddl-common</artifactId>
+		</dependency>
+	</dependencies>
+</project>

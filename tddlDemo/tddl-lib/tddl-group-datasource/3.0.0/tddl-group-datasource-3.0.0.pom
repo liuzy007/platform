@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<project>
+	<parent>
+		<artifactId>tddl-all</artifactId>
+		<groupId>com.taobao.tddl</groupId>
+		<version>3.0.0</version>
+	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>tddl-group-datasource</artifactId>
+	<name>tddl-group-datasource v${project.version}</name>
+	
+	<dependencies>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>tddl-common</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>tddl-parser</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>tddl-rule</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>${pom.groupId}</groupId>
+			<artifactId>tddl-atom-datasource</artifactId>
+		</dependency>
+        <!-- <dependency>
+			<groupId>com.taobao.configserver</groupId>
+			<artifactId>config-client</artifactId>
+		</dependency>-->
+		<!-- <dependency>
+			<groupId>com.taobao.diamond</groupId>
+			<artifactId>diamond-client</artifactId>
+		</dependency> -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-logging</groupId>
+			<artifactId>commons-logging</artifactId>
+		</dependency>
+	</dependencies>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8
+		</project.build.sourceEncoding>
+	</properties>
+</project>

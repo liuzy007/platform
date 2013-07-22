@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Maven Project Configuration.  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <groupId>com.alibaba</groupId>
+        <artifactId>alifi</artifactId>
+        <version>2</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.platform</groupId>
+    <artifactId>tddl</artifactId>
+    <name>TDDL Demo</name>
+    <packaging>pom</packaging>
+    <version>1.0.0-SNAPSHOT</version>
+    <properties>
+        <java.version>1.6</java.version>
+        <java.encoding>UTF-8</java.encoding>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <webx3_version>3.0.6</webx3_version>
+        <dubbo_version>2.5.1</dubbo_version>
+        <galaxy_version>2.2.0</galaxy_version>
+        <headquarters_version>1.2-cn-share</headquarters_version>
+        <service_version>1.0.0-SNAPSHOT</service_version>
+        <dragoon_version>2.7.1</dragoon_version>
+    </properties>
+    <build>
+		<finalName>tddlDemo</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <encoding>${java.encoding}</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                    </includes>
+                    <argLine>-Xmx256m</argLine>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>1.2</version>
+            </plugin>
+        </plugins>
+    </build>
+    
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- ================================================= -->
+            <!-- Webx框架依赖                                       -->
+            <!-- ================================================= -->
+            <dependency>
+                <groupId>com.alibaba.platform.shared</groupId>
+                <artifactId>webx3.core</artifactId>
+                <version>${webx3_version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba.external</groupId>
+                        <artifactId>jakarta.log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- ================================================= -->
+            <!-- 日志及相关依赖                                      -->
+            <!-- ================================================= -->
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>org.slf4j.slf4j-api</artifactId>
+                <version>1.5.11</version>
+            </dependency>
+            <!-- 将现有的jakarta commons logging的调用转换成lsf4j的调用。 -->
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>org.slf4j.jcl-over-slf4j</artifactId>
+                <version>1.5.11</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>org.slf4j.slf4j-log4j12</artifactId>
+                <version>1.5.11</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>log4j</groupId>
+                <artifactId>log4j</artifactId>
+                <version>1.2.15</version>
+                <scope>runtime</scope>
+            </dependency>
+            <!-- ======================================== -->
+            <!-- 其它第三方依赖                             -->
+            <!-- ======================================== -->
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>java.servlet</artifactId>
+                <version>2.5</version>
+                <scope>provided</scope>
+            </dependency>
+            <!-- ================================================= -->
+            <!-- Dubbo Framework                                   -->
+            <!-- ================================================= -->
+            <dependency>
+                <groupId>com.alibaba.platform.shared</groupId>
+                <artifactId>dubbo.all</artifactId>
+                <version>${dubbo_version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba.external</groupId>
+                        <artifactId>jakarta.log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- Galaxy -->
+            <dependency>
+                <groupId>com.alifi.shared</groupId>
+                <artifactId>galaxy.common.result</artifactId>
+                <version>${galaxy_version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alifi.shared</groupId>
+                <artifactId>galaxy.biz.model</artifactId>
+                <version>1.0.2</version>
+            </dependency>
+                 
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>test.junit</artifactId>
+                <scope>test</scope>
+                <version>4.8.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>test.mockito-all</artifactId>
+                <scope>test</scope>
+                <version>1.8.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>sourceforge.ibatis</artifactId>
+                <version>2.3.4</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>jakarta.commons.chain</artifactId>
+                <version>1.2</version>
+            </dependency>
+
+            <dependency>
+                 <groupId>com.alibaba.external</groupId>
+                 <artifactId>jakarta.commons.httpclient</artifactId>
+                 <version>4.1.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>jakarta.commons.httpcore</artifactId>
+                <version>4.1.2</version>
+            </dependency>
+		
+            <dependency>
+                <groupId>com.alibaba.platform.shared</groupId>
+                <artifactId>alipool</artifactId>
+                <version>0.1.1</version>
+            </dependency>
+
+            <dependency>
+               <groupId>com.alibaba.platform.shared</groupId>
+               <artifactId>circe.client</artifactId>
+               <version>2.0.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>whalin.memcached</artifactId>
+                <version>2.0.1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.platform.shared</groupId>
+                <artifactId>dragoon-common</artifactId>
+                <version>${dragoon_version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>sourceforge.spring</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba.external</groupId>
+                        <artifactId>objectweb.asm</artifactId>
+                    </exclusion>
+                </exclusions>
+                <version>2.5.6</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>jdbc.oracle</artifactId>
+                <version>10.2.0.2</version>
+                <scope>runtime</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.platform.shared</groupId>
+                <artifactId>syslog-appender</artifactId>
+                <version>1.0.1</version>
+                <scope>runtime</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>com.alibaba.external</groupId>
+                        <artifactId>jakarta.log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.1.26</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.directory.studio</groupId>
+                <artifactId>org.apache.commons.codec</artifactId>
+                <version>1.6</version>
+            </dependency>
+
+            <dependency>
+                <groupId>apache-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>1.7.0</version>
+            </dependency>
+
+            <dependency>
+              <groupId>com.alibaba.external</groupId>
+              <artifactId>jakarta.commons.io</artifactId>
+              <version>2.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>groovy</groupId>
+                <artifactId>groovy</artifactId>
+                <version>1.1-rc-1</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.external</groupId>
+                <artifactId>jakarta.commons.dbcp</artifactId>
+                <version>1.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>5.1.20</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alifi.shared</groupId>
+                <artifactId>superadapter.service</artifactId>
+                <version>${service_version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alifi.shared</groupId>
+                <artifactId>signature.service</artifactId>
+                <version>1.2.6</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.taobao.tddl</groupId>
+                <artifactId>tddl-client</artifactId>
+                <version>3.1.0.2</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>slf4j-log4j12</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>test.junit</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>test.mockito-all</artifactId>
+        </dependency>
+
+        <!-- ================================================= -->
+        <!-- 日志及相关依赖                                      -->
+        <!-- ================================================= -->
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>org.slf4j.slf4j-api</artifactId>
+        </dependency>
+        <!-- 将现有的jakarta commons logging的调用转换成lsf4j的调用。 -->
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>org.slf4j.jcl-over-slf4j</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.external</groupId>
+            <artifactId>org.slf4j.slf4j-log4j12</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+    </dependencies>
+
+    <modules>
+        <module>dal</module>
+        <module>web</module>
+    </modules>
+</project>
+
+
+
+
