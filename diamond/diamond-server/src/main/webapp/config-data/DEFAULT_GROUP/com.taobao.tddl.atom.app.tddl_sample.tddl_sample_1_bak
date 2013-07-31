@@ -1,0 +1,7 @@
+userName=tddl
+minPoolSize=3
+maxPoolSize=6
+idleTimeout=60
+blockingTimeout=10000
+preparedStatementCacheSize=50
+connectionProperties=connectTimeout=1000;characterEncoding=utf8;autoReconnect=true;failOverReadOnly=false;socketTimeout=12000;rewriteBatchedStatements=true

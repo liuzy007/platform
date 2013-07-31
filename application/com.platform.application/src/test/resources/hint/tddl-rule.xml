@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<!-- 请先阅读README.txt! -->
+	<bean id="root" class="com.taobao.tddl.common.config.beans.AppRule" init-method="init">
+		<property name="readwriteRule" ref="readwriteRule" />
+	</bean>
+    <bean id="readwriteRule" class="com.taobao.tddl.common.config.beans.ShardRule">
+		<property name="dbtype" value="ORACLE" />
+		<property name="tableRules">
+			<map>
+				<entry key="modDBTab" value-ref="modDBTab" />
+				<entry key="modTab" value-ref="modTab" />
+				<entry key="modDBTab" value-ref="modDBTab" />
+			</map>
+		</property>
+	</bean>
+	<bean id="modDBTab"  init-method="init"
+		class="com.taobao.tddl.common.config.beans.TableRule">
+		<!-- 数据库组index号,咨询dba可以获取当前逻辑表具体在哪些数据库上。  -->
+		<property name="dbIndexes" value="sample_group_0,sample_group_1" />
+		<!--分库规则-->
+		<property name="dbRuleArray" value="(#pk,1,4#.longValue() % 4).intdiv(2)"/>
+		<!--分表规则,需要注意的是，因为taobao目前dba的要求是所有库内的表名必须完全不同，因此这里多加了一个映射的关系
+			简单来说，分表规则只会算表的key.
+			俩库4表: db1(tab1+tab2) db2(tab3+tab4)
+			db1 == key: 0 value tab1
+			       key: 1 value tab2
+			
+			db2 == key: 0 value tab3
+			       key: 1 value tab4
+		-->
+		<property name="tbRuleArray" value="#pk,1,4#.longValue() % 4 % 2"/>
+		<property name="tbSuffix" value="throughAllDB:[_0000-_0004]" />
+	</bean>
+	<bean id="modTab"  init-method="init"
+		class="com.taobao.tddl.common.config.beans.TableRule">
+		<property name="dbIndexes" value="sample_group_0" />
+		<!-- 按照sql字段中的pk进行分表 -->
+		<property name="tbRuleArray" value="#pk#.longValue() % 4"/>
+		<property name="tbSuffix" value="throughAllDB:[_0000-_0004]" />
+	</bean>
+	<bean id="gmtTab"  init-method="init"
+		class="com.taobao.tddl.common.config.beans.TableRule">
+		<property name="dbIndexes" value="sample_group_0" />
+		<!-- 按照sql字段中的gmt进行分表 -->
+		<property name="tbRuleArray" value="dayofweek(#gmt,1,7#)"/>
+		<property name="tbSuffix" value="throughAllDB:[_0000-_0006]" />
+	</bean>
+	
+</beans>

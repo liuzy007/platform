@@ -1,0 +1,5 @@
+ip=10.20.149.14
+port=3306
+dbName=atas
+dbType=mysql
+dbStatus=RW

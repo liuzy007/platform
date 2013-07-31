@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="root" class="com.taobao.tddl.common.config.beans.AppRule">
+		<property name="masterRule" ref="masterRule" />
+	</bean>
+
+	<bean id="masterRule" class="com.taobao.tddl.common.config.beans.ShardRule">
+		<!--标识当前Datasource所管理的数据源是oracle还是mysql-->
+		<property name="dbtype" value="ORACLE" />
+		<property name="tableRules">
+			<map>
+				<entry key="feed_msg" value-ref="feed_msg" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="feed_msg" init-method="init" class="com.taobao.tddl.common.config.beans.TableRule">
+        <property name="dbIndexes" value="master_0,master_1,master_2,master_3"/>
+        <!--为了保证以后数据库数据量很大以后，纵切不会引起rehash的问题，所以使用类似consistent hash的方式，扩容2倍  放在一个表里。   -->
+        <property name="dbRules"  value="(#pk#.longValue() % 128).intdiv(32)"/>
+        <property name="tbRules" value="#pk#.longValue() % 128 % 32"/>
+        <property name="tbSuffix" value="throughAllDB:[_000-_127]"/>
+        <!-- <property name="needRowCopy" value="true"/> --><!--不需要行复制可以不指定-->
+		<!-- <property name="disableFullTableScan" value="true"/> --><!-- 默认false -->
+	</bean>
+</beans>
