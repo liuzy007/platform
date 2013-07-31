@@ -1,0 +1,1365 @@
+2013-07-31 15:01:29,596 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.jdbc.group_V2.4.1_sample_group_0&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.jdbc.group_V2.4.1_sample_group_0&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:01:29,606 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+Content-Length: 138
+Cache-Control: max-age=0
+Origin: http://127.0.0.1:8080
+Content-Type: application/x-www-form-urlencoded
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.jdbc.group_V2.4.1_sample_group_0,DEFAULT_GROUP,tddl_sample_0:r10w10p0,tddl_sample_0_bak:r10w0p0,{message=提交成功!, dataId=com.taobao.tddl.jdbc.group_V2.4.1_sample_group_0, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@1b29f80}], ip:127.0.0.1
+2013-07-31 15:01:48,359 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.jdbc.group_V2.4.1_sample_group_1&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.jdbc.group_V2.4.1_sample_group_1&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:01:48,367 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+Content-Length: 138
+Cache-Control: max-age=0
+Origin: http://127.0.0.1:8080
+Content-Type: application/x-www-form-urlencoded
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.jdbc.group_V2.4.1_sample_group_1,DEFAULT_GROUP,tddl_sample_1:r10w10p0,tddl_sample_1_bak:r10w0p0,{message=提交成功!, dataId=com.taobao.tddl.jdbc.group_V2.4.1_sample_group_1, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@15863e4}], ip:127.0.0.1
+2013-07-31 15:03:51,204 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.qatest_normal_0.mysql.tddl&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.qatest_normal_0.mysql.tddl&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.removeConfigInfo(ConfigService.java:123)
+	at com.taobao.diamond.server.controller.AdminController.deleteConfig(AdminController.java:131)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.deleteConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:721)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:509)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:03:51,205 WARN  deleteLog - 数据删除成功
+dataId=com.taobao.tddl.atom.passwd.qatest_normal_0.mysql.tddl
+group=DEFAULT_GROUP
+content=
+encPasswd=5a826c8121945c969bf9844437e00e28
+src ip=null
+2013-07-31 15:03:51,210 WARN  deleteLog - 用户:diamond,执行:deleteConfig，参数为：[GET /diamond-server/admin.do?method=deleteConfig&id=4 HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Referer: http://127.0.0.1:8080/diamond-server/admin.do?dataId=&group=&pageNo=1&method=listConfig&pageSize=15
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,4,{message=删除成功!}], ip:127.0.0.1
+2013-07-31 15:03:58,303 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.global.qatest_normal_0&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.global.qatest_normal_0&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.removeConfigInfo(ConfigService.java:123)
+	at com.taobao.diamond.server.controller.AdminController.deleteConfig(AdminController.java:131)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.deleteConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:721)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:509)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:03:58,304 WARN  deleteLog - 数据删除成功
+dataId=com.taobao.tddl.atom.global.qatest_normal_0
+group=DEFAULT_GROUP
+content=
+ip=127.0.0.1
+port=3306
+dbName=qatest_normal_0
+dbType=mysql
+dbStatus=RW
+src ip=null
+2013-07-31 15:03:58,305 WARN  deleteLog - 用户:diamond,执行:deleteConfig，参数为：[GET /diamond-server/admin.do?method=deleteConfig&id=2 HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Referer: http://127.0.0.1:8080/diamond-server/admin.do?dataId=&group=&pageNo=1&method=listConfig&pageSize=15
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,2,{message=删除成功!}], ip:127.0.0.1
+2013-07-31 15:04:08,220 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.app.tddl_sample.qatest_normal_0&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.app.tddl_sample.qatest_normal_0&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.removeConfigInfo(ConfigService.java:123)
+	at com.taobao.diamond.server.controller.AdminController.deleteConfig(AdminController.java:131)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.deleteConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:501)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:707)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.headerComplete(HttpConnection.java:721)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:509)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:04:08,221 WARN  deleteLog - 数据删除成功
+dataId=com.taobao.tddl.atom.app.tddl_sample.qatest_normal_0
+group=DEFAULT_GROUP
+content=
+userName=tddl
+minPoolSize=1
+maxPoolSize=2
+idleTimeout=10
+blockingTimeout=5
+preparedStatementCacheSize=15
+connectionProperties=characterEncoding=gbk
+src ip=null
+2013-07-31 15:04:08,221 WARN  deleteLog - 用户:diamond,执行:deleteConfig，参数为：[GET /diamond-server/admin.do?method=deleteConfig&id=3 HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Referer: http://127.0.0.1:8080/diamond-server/admin.do?dataId=&group=&pageNo=1&method=listConfig&pageSize=15
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,3,{message=删除成功!}], ip:127.0.0.1
+2013-07-31 15:13:58,643 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.global.tddl_sample_0&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.global.tddl_sample_0&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:13:58,646 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 175
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.global.tddl_sample_0,DEFAULT_GROUP,ip=127.0.0.1
+port=3306
+dbName=tddl_sample_0
+dbType=mysql
+dbStatus=RW,{message=提交成功!, dataId=com.taobao.tddl.atom.global.tddl_sample_0, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@183d260}], ip:127.0.0.1
+2013-07-31 15:14:02,803 WARN  servlet.PageNotFound - No matching handler method found for servlet request: path '/admin.do', method 'GET', parameters map['method' -> array<String>['listGroup']]
+2013-07-31 15:14:42,639 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.global.tddl_sample_0_bak&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.global.tddl_sample_0_bak&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:14:42,644 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 182
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.global.tddl_sample_0_bak,DEFAULT_GROUP,ip=127.0.0.1
+port=3306
+dbName=tddl_sample_0_bak
+dbType=mysql
+dbStatus=R,{message=提交成功!, dataId=com.taobao.tddl.atom.global.tddl_sample_0_bak, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@f546f8}], ip:127.0.0.1
+2013-07-31 15:15:11,240 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.global.tddl_sample_1&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.global.tddl_sample_1&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:15:11,250 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 175
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.global.tddl_sample_1,DEFAULT_GROUP,ip=127.0.0.1
+port=3306
+dbName=tddl_sample_1
+dbType=mysql
+dbStatus=RW,{message=提交成功!, dataId=com.taobao.tddl.atom.global.tddl_sample_1, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@b4faeb}], ip:127.0.0.1
+2013-07-31 15:15:26,337 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.global.tddl_sample_1_bak&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.global.tddl_sample_1_bak&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:15:26,341 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 182
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.global.tddl_sample_1_bak,DEFAULT_GROUP,ip=127.0.0.1
+port=3306
+dbName=tddl_sample_1_bak
+dbType=mysql
+dbStatus=R,{message=提交成功!, dataId=com.taobao.tddl.atom.global.tddl_sample_1_bak, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@1517e5e}], ip:127.0.0.1
+2013-07-31 15:18:01,079 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:18:01,085 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 422
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0,DEFAULT_GROUP,userName=tddl
+minPoolSize=3
+maxPoolSize=6
+idleTimeout=60
+blockingTimeout=10000
+preparedStatementCacheSize=50
+connectionProperties=connectTimeout=1000;characterEncoding=utf8;autoReconnect=true;failOverReadOnly=false;socketTimeout=12000;rewriteBatchedStatements=true
+,{message=提交成功!, dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@1570f5c}], ip:127.0.0.1
+2013-07-31 15:18:11,448 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0_bak&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0_bak&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:18:11,451 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 426
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0_bak,DEFAULT_GROUP,userName=tddl
+minPoolSize=3
+maxPoolSize=6
+idleTimeout=60
+blockingTimeout=10000
+preparedStatementCacheSize=50
+connectionProperties=connectTimeout=1000;characterEncoding=utf8;autoReconnect=true;failOverReadOnly=false;socketTimeout=12000;rewriteBatchedStatements=true
+,{message=提交成功!, dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0_bak, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@6f19d5}], ip:127.0.0.1
+2013-07-31 15:18:20,144 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:18:20,148 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 422
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1,DEFAULT_GROUP,userName=tddl
+minPoolSize=3
+maxPoolSize=6
+idleTimeout=60
+blockingTimeout=10000
+preparedStatementCacheSize=50
+connectionProperties=connectTimeout=1000;characterEncoding=utf8;autoReconnect=true;failOverReadOnly=false;socketTimeout=12000;rewriteBatchedStatements=true
+,{message=提交成功!, dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@bb6255}], ip:127.0.0.1
+2013-07-31 15:18:28,030 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1_bak&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1_bak&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:18:28,033 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 426
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1_bak,DEFAULT_GROUP,userName=tddl
+minPoolSize=3
+maxPoolSize=6
+idleTimeout=60
+blockingTimeout=10000
+preparedStatementCacheSize=50
+connectionProperties=connectTimeout=1000;characterEncoding=utf8;autoReconnect=true;failOverReadOnly=false;socketTimeout=12000;rewriteBatchedStatements=true
+,{message=提交成功!, dataId=com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1_bak, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@ce3b62}], ip:127.0.0.1
+2013-07-31 15:22:39,922 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.tddl_sample_0.mysql.tddl&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.tddl_sample_0.mysql.tddl&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:22:39,930 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 132
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.passwd.tddl_sample_0.mysql.tddl,DEFAULT_GROUP,encPasswd=5a826c8121945c969bf9844437e00e28,{message=提交成功!, dataId=com.taobao.tddl.atom.passwd.tddl_sample_0.mysql.tddl, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@d297c0}], ip:127.0.0.1
+2013-07-31 15:22:48,117 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.tddl_sample_0_bak.mysql.tddl&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.tddl_sample_0_bak.mysql.tddl&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:22:48,121 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 136
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.passwd.tddl_sample_0_bak.mysql.tddl,DEFAULT_GROUP,encPasswd=5a826c8121945c969bf9844437e00e28,{message=提交成功!, dataId=com.taobao.tddl.atom.passwd.tddl_sample_0_bak.mysql.tddl, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@1906df}], ip:127.0.0.1
+2013-07-31 15:22:56,302 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:22:56,306 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 132
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl,DEFAULT_GROUP,encPasswd=5a826c8121945c969bf9844437e00e28,{message=提交成功!, dataId=com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@69695f}], ip:127.0.0.1
+2013-07-31 15:23:03,975 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.tddl_sample_1_bak.mysql.tddl&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.tddl_sample_1_bak.mysql.tddl&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.addConfigInfo(ConfigService.java:163)
+	at com.taobao.diamond.server.controller.AdminController.postConfig(AdminController.java:108)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.postConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:23:03,978 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond-server/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Content-Length: 136
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8080
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8080/diamond-server/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.passwd.tddl_sample_1_bak.mysql.tddl,DEFAULT_GROUP,encPasswd=5a826c8121945c969bf9844437e00e28,{message=提交成功!, dataId=com.taobao.tddl.atom.passwd.tddl_sample_1_bak.mysql.tddl, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@449afc}], ip:127.0.0.1
+2013-07-31 15:49:00,251 ERROR service.NotifyService - http调用失败,url=127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl&group=DEFAULT_GROUP
+java.net.MalformedURLException: no protocol: 127.0.0.1:8000?method=notifyConfigInfo&dataId=com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl&group=DEFAULT_GROUP
+	at java.net.URL.<init>(URL.java:567)
+	at java.net.URL.<init>(URL.java:464)
+	at java.net.URL.<init>(URL.java:413)
+	at com.taobao.diamond.server.service.NotifyService.invokeURL(NotifyService.java:176)
+	at com.taobao.diamond.server.service.NotifyService.notifyConfigInfoChange(NotifyService.java:116)
+	at com.taobao.diamond.server.service.ConfigService.updateConfigInfo(ConfigService.java:192)
+	at com.taobao.diamond.server.controller.AdminController.updateConfig(AdminController.java:349)
+	at com.taobao.diamond.server.controller.AdminController$$FastClassByCGLIB$$7a5e8d57.invoke(<generated>)
+	at net.sf.cglib.proxy.MethodProxy.invoke(MethodProxy.java:149)
+	at org.springframework.aop.framework.Cglib2AopProxy$CglibMethodInvocation.invokeJoinpoint(Cglib2AopProxy.java:700)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:149)
+	at org.springframework.aop.framework.adapter.AfterReturningAdviceInterceptor.invoke(AfterReturningAdviceInterceptor.java:50)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:89)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:171)
+	at org.springframework.aop.framework.Cglib2AopProxy$DynamicAdvisedInterceptor.intercept(Cglib2AopProxy.java:635)
+	at com.taobao.diamond.server.controller.AdminController$$EnhancerByCGLIB$$826e51cd.updateConfig(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)
+	at java.lang.reflect.Method.invoke(Method.java:597)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.doInvokeMethod(HandlerMethodInvoker.java:421)
+	at org.springframework.web.bind.annotation.support.HandlerMethodInvoker.invokeHandlerMethod(HandlerMethodInvoker.java:136)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.invokeHandlerMethod(AnnotationMethodHandlerAdapter.java:326)
+	at org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter.handle(AnnotationMethodHandlerAdapter.java:313)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:875)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:807)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:571)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:511)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:727)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:820)
+	at org.mortbay.jetty.servlet.ServletHolder.handle(ServletHolder.java:459)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1054)
+	at com.taobao.diamond.server.listener.AuthorizationFilter.doFilter(AuthorizationFilter.java:50)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:96)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:76)
+	at org.mortbay.jetty.servlet.ServletHandler$CachedChain.doFilter(ServletHandler.java:1045)
+	at org.mortbay.jetty.servlet.ServletHandler.handle(ServletHandler.java:358)
+	at org.mortbay.jetty.security.SecurityHandler.handle(SecurityHandler.java:185)
+	at org.mortbay.jetty.servlet.SessionHandler.handle(SessionHandler.java:231)
+	at org.mortbay.jetty.handler.ContextHandler.handle(ContextHandler.java:629)
+	at org.mortbay.jetty.webapp.WebAppContext.handle(WebAppContext.java:453)
+	at org.mortbay.jetty.handler.HandlerWrapper.handle(HandlerWrapper.java:141)
+	at org.mortbay.jetty.Server.handle(Server.java:303)
+	at org.mortbay.jetty.HttpConnection.handleRequest(HttpConnection.java:452)
+	at org.mortbay.jetty.HttpConnection$RequestHandler.content(HttpConnection.java:735)
+	at org.mortbay.jetty.HttpParser.parseNext(HttpParser.java:636)
+	at org.mortbay.jetty.HttpParser.parseAvailable(HttpParser.java:209)
+	at org.mortbay.jetty.HttpConnection.handle(HttpConnection.java:349)
+	at org.mortbay.io.nio.SelectChannelEndPoint.run(SelectChannelEndPoint.java:320)
+	at org.mortbay.thread.BoundedThreadPool$PoolThread.run(BoundedThreadPool.java:475)
+2013-07-31 15:49:00,251 WARN  updateLog - 更新数据成功
+dataId=com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl
+group=DEFAULT_GROUP
+oldContent=
+encPasswd=5a826c8121945c969bf9844437e00e28
+newContent=
+encPasswd=5a826c8121945c969bf9844437e00e28
+src ip=null
+2013-07-31 15:49:00,256 WARN  updateLog - 用户:diamond,执行:updateConfig，参数为：[POST /diamond-server/admin.do?method=updateConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Referer: http://127.0.0.1:8080/diamond-server/admin.do?method=detailConfig&group=DEFAULT_GROUP&dataId=com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+Content-Length: 132
+Cache-Control: max-age=0
+Origin: http://127.0.0.1:8080
+Content-Type: application/x-www-form-urlencoded
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl,DEFAULT_GROUP,encPasswd=5a826c8121945c969bf9844437e00e28,{message=提交成功!, dataId=com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@1a05bdb}], ip:127.0.0.1

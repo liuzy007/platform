@@ -1,0 +1,1058 @@
+14:41:42,689  INFO ClassPathXmlApplicationContext:411 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6: display name [org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6]; startup date [Wed Jul 31 14:41:42 CST 2013]; root of context hierarchy
+14:41:42,810  INFO XmlBeanDefinitionReader:323 - Loading XML bean definitions from class path resource [basecrud/spring-context.xml]
+14:42:20,799  INFO ClassPathXmlApplicationContext:411 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6: display name [org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6]; startup date [Wed Jul 31 14:42:20 CST 2013]; root of context hierarchy
+14:42:20,850  INFO XmlBeanDefinitionReader:323 - Loading XML bean definitions from class path resource [basecrud/spring-context.xml]
+14:42:20,865 DEBUG DefaultDocumentLoader:72 - Using JAXP provider [org.apache.xerces.jaxp.DocumentBuilderFactoryImpl]
+14:42:21,104 DEBUG BeansDtdResolver:72 - Found beans DTD [http://www.springframework.org/dtd/spring-beans.dtd] in classpath: spring-beans.dtd
+14:42:21,129 DEBUG DefaultBeanDefinitionDocumentReader:86 - Loading bean definitions
+14:42:21,181 DEBUG XmlBeanDefinitionReader:185 - Loaded 2 bean definitions from location pattern [classpath:basecrud/spring-context.xml]
+14:42:21,181  INFO ClassPathXmlApplicationContext:426 - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6]: org.springframework.beans.factory.support.DefaultListableBeanFactory@16b13c7
+14:42:21,181 DEBUG ClassPathXmlApplicationContext:430 - 2 beans defined in org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6: display name [org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6]; startup date [Wed Jul 31 14:42:20 CST 2013]; root of context hierarchy
+14:42:21,222 DEBUG ClassPathXmlApplicationContext:648 - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@17471e0]
+14:42:21,224 DEBUG ClassPathXmlApplicationContext:672 - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@169ca65]
+14:42:21,225  INFO DefaultListableBeanFactory:414 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@16b13c7: defining beans [master_tddl_ds,tddlDS]; root of factory hierarchy
+14:42:21,226 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'master_tddl_ds'
+14:42:21,227 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'master_tddl_ds'
+14:42:21,382  WARN Monitor:140 - 不指定TDDL以外的appName则不订阅
+14:42:21,393  WARN StatMonitor:175 - StatMonitor start...
+14:42:21,425 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'master_tddl_ds' to allow for resolving potential circular references
+14:42:21,468 DEBUG DefaultListableBeanFactory:1410 - Invoking init method  'init' on bean with name 'master_tddl_ds'
+14:42:21,468  INFO TDataSourceConfig:226 - Resolving file: classpath:basecrud/tddl-rule.xml --> file:/D:/repository/workspaces/platform_github_java/com.platform.application/bin/basecrud/tddl-rule.xml
+14:42:21,469  INFO FileSystemXmlApplicationContext:411 - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@1630ab9: display name [org.springframework.context.support.FileSystemXmlApplicationContext@1630ab9]; startup date [Wed Jul 31 14:42:21 CST 2013]; root of context hierarchy
+14:42:21,471  INFO XmlBeanDefinitionReader:323 - Loading XML bean definitions from URL [file:/D:/repository/workspaces/platform_github_java/com.platform.application/bin/basecrud/tddl-rule.xml]
+14:42:21,472 DEBUG DefaultDocumentLoader:72 - Using JAXP provider [org.apache.xerces.jaxp.DocumentBuilderFactoryImpl]
+14:42:21,474 DEBUG BeansDtdResolver:72 - Found beans DTD [http://www.springframework.org/dtd/spring-beans.dtd] in classpath: spring-beans.dtd
+14:42:21,481 DEBUG DefaultBeanDefinitionDocumentReader:86 - Loading bean definitions
+14:42:21,484 DEBUG XmlBeanDefinitionReader:185 - Loaded 5 bean definitions from location pattern [file:/D:/repository/workspaces/platform_github_java/com.platform.application/bin/basecrud/tddl-rule.xml]
+14:42:21,485  INFO FileSystemXmlApplicationContext:426 - Bean factory for application context [org.springframework.context.support.FileSystemXmlApplicationContext@1630ab9]: org.springframework.beans.factory.support.DefaultListableBeanFactory@1c9b9ca
+14:42:21,485 DEBUG FileSystemXmlApplicationContext:430 - 5 beans defined in org.springframework.context.support.FileSystemXmlApplicationContext@1630ab9: display name [org.springframework.context.support.FileSystemXmlApplicationContext@1630ab9]; startup date [Wed Jul 31 14:42:21 CST 2013]; root of context hierarchy
+14:42:21,512 DEBUG FileSystemXmlApplicationContext:648 - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@1319c]
+14:42:21,513 DEBUG FileSystemXmlApplicationContext:672 - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@6025e7]
+14:42:21,513  INFO DefaultListableBeanFactory:414 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@1c9b9ca: defining beans [root,readwriteRule,modDBTab,modTab,gmtTab]; root of factory hierarchy
+14:42:21,514 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'root'
+14:42:21,514 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'root'
+14:42:21,515 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'root' to allow for resolving potential circular references
+14:42:21,515 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'readwriteRule'
+14:42:21,515 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'readwriteRule'
+14:42:21,516 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'readwriteRule' to allow for resolving potential circular references
+14:42:21,519 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'modDBTab'
+14:42:21,520 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'modDBTab'
+14:42:21,544 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'modDBTab' to allow for resolving potential circular references
+14:42:21,558 DEBUG DefaultListableBeanFactory:1410 - Invoking init method  'init' on bean with name 'modDBTab'
+14:42:21,626 DEBUG GroovyListRuleEngine:119 - import static com.taobao.tddl.rule.groovy.staticmethod.GroovyStaticMethod.*;import com.taobao.tddl.interact.rule.bean.ExtraParameterContext;public class RULE {public Object eval(Map map,ExtraParameterContext extraParameterContext){return ((map.get("PK")).longValue() % 4).intdiv(2);};}
+14:42:22,503 DEBUG GroovyListRuleEngine:119 - import static com.taobao.tddl.rule.groovy.staticmethod.GroovyStaticMethod.*;import com.taobao.tddl.interact.rule.bean.ExtraParameterContext;public class RULE {public Object eval(Map map,ExtraParameterContext extraParameterContext){return (map.get("PK")).longValue() % 4 % 2;};}
+14:42:22,531 DEBUG LogicTable:103 - subShared element is null ,use sharedElement generated by database shared element map provider.
+14:42:22,532  WARN ListSharedElement:79 - 请删除在tddl规则中，bean class 为com.taobao.tddl.common.config.beans.TableRule 的规则的bean 中的init-method方法。 目前可兼容，但最好删除
+14:42:22,532  WARN ListSharedElement:79 - 请删除在tddl规则中，bean class 为com.taobao.tddl.common.config.beans.TableRule 的规则的bean 中的init-method方法。 目前可兼容，但最好删除
+14:42:22,533 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, com.taobao.tddl.rule.bean.RuleChainImp@2e637879]] inited;
+14:42:22,533 DEBUG DefaultListableBeanFactory:411 - Finished creating instance of bean 'modDBTab'
+14:42:22,533 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'modTab'
+14:42:22,534 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'modTab'
+14:42:22,534 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'modTab' to allow for resolving potential circular references
+14:42:22,535 DEBUG DefaultListableBeanFactory:1410 - Invoking init method  'init' on bean with name 'modTab'
+14:42:22,535 DEBUG GroovyListRuleEngine:119 - import static com.taobao.tddl.rule.groovy.staticmethod.GroovyStaticMethod.*;import com.taobao.tddl.interact.rule.bean.ExtraParameterContext;public class RULE {public Object eval(Map map,ExtraParameterContext extraParameterContext){return (map.get("PK")).longValue() % 4;};}
+14:42:22,552 DEBUG LogicTable:103 - subShared element is null ,use sharedElement generated by database shared element map provider.
+14:42:22,552  WARN ListSharedElement:181 - NONE stragety ,current element has only one SubElement,use full table stragety! subElement is {0=Database [dataSourceKey=sample_group_0, defaultListResult=null, defaultListResultStragety=null, listResultRule=null, subSharedElement={}]}
+14:42:22,553 DEBUG ListSharedElement:207 - use full table stragety, default keys are :
+14:42:22,553 DEBUG ListSharedElement:213 - 0|
+14:42:22,553  WARN ListSharedElement:79 - 请删除在tddl规则中，bean class 为com.taobao.tddl.common.config.beans.TableRule 的规则的bean 中的init-method方法。 目前可兼容，但最好删除
+14:42:22,554 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@1546660b]] inited;
+14:42:22,554 DEBUG DefaultListableBeanFactory:411 - Finished creating instance of bean 'modTab'
+14:42:22,556 DEBUG DefaultListableBeanFactory:411 - Finished creating instance of bean 'readwriteRule'
+14:42:22,562 DEBUG DefaultListableBeanFactory:1410 - Invoking init method  'init' on bean with name 'root'
+14:42:22,562  WARN TDDLRoot:32 - logic Table is starting :moddbtab
+14:42:22,563 DEBUG LogicTable:106 - subSharedElement is not null,putAll current subSharedElement to generated sharedElement
+14:42:22,563 DEBUG LogicTable:111 - sub shared element is {1=Database [dataSourceKey=sample_group_1, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={}], 0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={}]}
+14:42:22,564 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, com.taobao.tddl.rule.bean.RuleChainImp@2e637879]] inited;
+14:42:22,564  WARN TDDLRoot:44 - logic Table inited :SimpleLogicTable [databaseRuleStringList=[(#pk#.longValue() % 4).intdiv(2)], databases=sample_group_0,sample_group_1, isSimpleTableMapPropertiesChanged=true, shardingKey=null, simpleDatabaseMapProvider=com.taobao.tddl.rule.bean.SimpleListDatabaseMapProvider@c16b18, simpleTableMapProvider=com.taobao.tddl.rule.bean.SimpleTableMapProvider@5e222e, tableRuleStringList=[#pk#.longValue() % 4 % 2], useAutoGeneratingRule=true, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@2e637879, subSharedElement={1=Database [dataSourceKey=sample_group_1, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0003, 0=table:moddbtab_0002}], 0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0001, 0=table:moddbtab_0000}]}]
+14:42:22,565  WARN TDDLRoot:32 - logic Table is starting :modtab
+14:42:22,565 DEBUG LogicTable:106 - subSharedElement is not null,putAll current subSharedElement to generated sharedElement
+14:42:22,565 DEBUG LogicTable:111 - sub shared element is {0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={}]}
+14:42:22,565  WARN ListSharedElement:181 - NONE stragety ,current element has only one SubElement,use full table stragety! subElement is {0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={}]}
+14:42:22,566 DEBUG ListSharedElement:207 - use full table stragety, default keys are :
+14:42:22,566 DEBUG ListSharedElement:213 - 0|
+14:42:22,566 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@1546660b]] inited;
+14:42:22,567  WARN TDDLRoot:44 - logic Table inited :SimpleLogicTable [databaseRuleStringList=null, databases=sample_group_0, isSimpleTableMapPropertiesChanged=true, shardingKey=null, simpleDatabaseMapProvider=com.taobao.tddl.rule.bean.SimpleListDatabaseMapProvider@120540c, simpleTableMapProvider=com.taobao.tddl.rule.bean.SimpleTableMapProvider@16de067, tableRuleStringList=[#pk#.longValue() % 4], useAutoGeneratingRule=true, defaultListResult=[0], defaultListResultStragety=NONE, listResultRule=null, subSharedElement={0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={3=table:modtab_0003, 2=table:modtab_0002, 1=table:modtab_0001, 0=table:modtab_0000, 4=table:modtab_0004}]}]
+14:42:22,567 DEBUG DefaultListableBeanFactory:411 - Finished creating instance of bean 'root'
+14:42:22,567 DEBUG DefaultListableBeanFactory:214 - Returning cached instance of singleton bean 'readwriteRule'
+14:42:22,567 DEBUG DefaultListableBeanFactory:214 - Returning cached instance of singleton bean 'modDBTab'
+14:42:22,567 DEBUG DefaultListableBeanFactory:214 - Returning cached instance of singleton bean 'modTab'
+14:42:22,568 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'gmtTab'
+14:42:22,568 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'gmtTab'
+14:42:22,568 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'gmtTab' to allow for resolving potential circular references
+14:42:22,569 DEBUG DefaultListableBeanFactory:1410 - Invoking init method  'init' on bean with name 'gmtTab'
+14:42:22,570 DEBUG GroovyListRuleEngine:119 - import static com.taobao.tddl.rule.groovy.staticmethod.GroovyStaticMethod.*;import com.taobao.tddl.interact.rule.bean.ExtraParameterContext;public class RULE {public Object eval(Map map,ExtraParameterContext extraParameterContext){return dayofweek((map.get("GMT")));};}
+14:42:22,586 DEBUG LogicTable:103 - subShared element is null ,use sharedElement generated by database shared element map provider.
+14:42:22,586  WARN ListSharedElement:181 - NONE stragety ,current element has only one SubElement,use full table stragety! subElement is {0=Database [dataSourceKey=sample_group_0, defaultListResult=null, defaultListResultStragety=null, listResultRule=null, subSharedElement={}]}
+14:42:22,587 DEBUG ListSharedElement:207 - use full table stragety, default keys are :
+14:42:22,587 DEBUG ListSharedElement:213 - 0|
+14:42:22,587  WARN ListSharedElement:79 - 请删除在tddl规则中，bean class 为com.taobao.tddl.common.config.beans.TableRule 的规则的bean 中的init-method方法。 目前可兼容，但最好删除
+14:42:22,587 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@1b6a9f45]] inited;
+14:42:22,588 DEBUG DefaultListableBeanFactory:411 - Finished creating instance of bean 'gmtTab'
+14:42:22,588 DEBUG DefaultListableBeanFactory:214 - Returning cached instance of singleton bean 'root'
+14:42:22,718  WARN TDDLRoot:32 - logic Table is starting :moddbtab
+14:42:22,719 DEBUG LogicTable:106 - subSharedElement is not null,putAll current subSharedElement to generated sharedElement
+14:42:22,720 DEBUG LogicTable:111 - sub shared element is {1=Database [dataSourceKey=sample_group_1, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0003, 0=table:moddbtab_0002}], 0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0001, 0=table:moddbtab_0000}]}
+14:42:22,721 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, com.taobao.tddl.rule.bean.RuleChainImp@2e637879]] inited;
+14:42:22,721  WARN TDDLRoot:44 - logic Table inited :SimpleLogicTable [databaseRuleStringList=[(#pk#.longValue() % 4).intdiv(2)], databases=sample_group_0,sample_group_1, isSimpleTableMapPropertiesChanged=true, shardingKey=null, simpleDatabaseMapProvider=com.taobao.tddl.rule.bean.SimpleListDatabaseMapProvider@c16b18, simpleTableMapProvider=com.taobao.tddl.rule.bean.SimpleTableMapProvider@1aa2c23, tableRuleStringList=[#pk#.longValue() % 4 % 2], useAutoGeneratingRule=true, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@2e637879, subSharedElement={1=Database [dataSourceKey=sample_group_1, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0003, 0=table:moddbtab_0002}], 0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0001, 0=table:moddbtab_0000}]}]
+14:42:22,722  WARN TDDLRoot:32 - logic Table is starting :modtab
+14:42:22,723 DEBUG LogicTable:106 - subSharedElement is not null,putAll current subSharedElement to generated sharedElement
+14:42:22,723 DEBUG LogicTable:111 - sub shared element is {0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={3=table:modtab_0003, 2=table:modtab_0002, 1=table:modtab_0001, 0=table:modtab_0000, 4=table:modtab_0004}]}
+14:42:22,724  WARN ListSharedElement:181 - NONE stragety ,current element has only one SubElement,use full table stragety! subElement is {0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={3=table:modtab_0003, 2=table:modtab_0002, 1=table:modtab_0001, 0=table:modtab_0000, 4=table:modtab_0004}]}
+14:42:22,724 DEBUG ListSharedElement:207 - use full table stragety, default keys are :
+14:42:22,725 DEBUG ListSharedElement:213 - 0|
+14:42:22,725 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@1546660b]] inited;
+14:42:22,725  WARN TDDLRoot:44 - logic Table inited :SimpleLogicTable [databaseRuleStringList=null, databases=sample_group_0, isSimpleTableMapPropertiesChanged=true, shardingKey=null, simpleDatabaseMapProvider=com.taobao.tddl.rule.bean.SimpleListDatabaseMapProvider@120540c, simpleTableMapProvider=com.taobao.tddl.rule.bean.SimpleTableMapProvider@137d4a4, tableRuleStringList=[#pk#.longValue() % 4], useAutoGeneratingRule=true, defaultListResult=[0], defaultListResultStragety=NONE, listResultRule=null, subSharedElement={0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={3=table:modtab_0003, 2=table:modtab_0002, 1=table:modtab_0001, 0=table:modtab_0000, 4=table:modtab_0004}]}]
+14:42:22,737  WARN TDataSourceConfig:477 - doesn't specfic datasource Matrix creator, use default 
+14:42:22,763  WARN DataSourceMatrixCreatorImp:56 - receive a ds keys,follow will add to map tddl_sample
+14:42:22,766  INFO DefaultConfigDataHandlerFactory:101 - Trying to load 'com.taobao.tddl.common.config.diamond.DiamondConfigDataHandler
+14:42:22,836  WARN LoggerInit:84 - 成功为DiamondConfigDataLog添加Appender. 输出路径:D:\repository\workspaces\platform_github_java\com.platform.application\diamond_config_data.log
+14:42:22,866  INFO AppNameUtils:88 - The classpath is /D:/repository/workspaces/platform_github_java/com.platform.application/bin/
+14:42:22,867  WARN AppNameUtils:29 - 没找到任何后缀名为“.ear”、“.spring”或“.war”的包
+14:42:22,891  WARN DefaultDiamondSubscriber:1456 - diamond client start:2013-07-31 14:42:22
+14:42:22,893  WARN DefaultDiamondSubscriber:1476 - add DataID[com.taobao.tddl.v1_tddl_sample_dbgroups], Group:DEFAULT_GROUP
+14:42:22,893  WARN DefaultDiamondSubscriber:234 - start initializing diamond subscriber ...
+14:42:22,922 DEBUG LocalConfigInfoProcessor:154 - >>>>>>start monitoring directory<<<<<<
+14:42:22,960 DEBUG DefaultHttpParams:151 - Set parameter http.useragent = Jakarta Commons-HttpClient/3.1
+14:42:22,962 DEBUG DefaultHttpParams:151 - Set parameter http.protocol.version = HTTP/1.1
+14:42:22,963 DEBUG DefaultHttpParams:151 - Set parameter http.connection-manager.class = class com.taobao.diamond.commons.httpclient.SimpleHttpConnectionManager
+14:42:22,966 DEBUG DefaultHttpParams:151 - Set parameter http.protocol.cookie-policy = default
+14:42:22,966 DEBUG DefaultHttpParams:151 - Set parameter http.protocol.element-charset = US-ASCII
+14:42:22,967 DEBUG DefaultHttpParams:151 - Set parameter http.protocol.content-charset = ISO-8859-1
+14:42:22,980 DEBUG DefaultHttpParams:151 - Set parameter http.method.retry-handler = com.taobao.diamond.commons.httpclient.DefaultHttpMethodRetryHandler@d72200
+14:42:22,980 DEBUG DefaultHttpParams:151 - Set parameter http.dateparser.patterns = [EEE, dd MMM yyyy HH:mm:ss zzz, EEEE, dd-MMM-yy HH:mm:ss zzz, EEE MMM d HH:mm:ss yyyy, EEE, dd-MMM-yyyy HH:mm:ss z, EEE, dd-MMM-yyyy HH-mm-ss z, EEE, dd MMM yy HH:mm:ss z, EEE dd-MMM-yyyy HH:mm:ss z, EEE dd MMM yyyy HH:mm:ss z, EEE dd-MMM-yyyy HH-mm-ss z, EEE dd-MMM-yy HH:mm:ss z, EEE dd MMM yy HH:mm:ss z, EEE,dd-MMM-yy HH:mm:ss z, EEE,dd-MMM-yyyy HH:mm:ss z, EEE, dd-MM-yyyy HH:mm:ss z]
+14:42:22,982 DEBUG DefaultHttpParams:151 - Set parameter http.connection.stalecheck = true
+14:42:22,983 DEBUG DefaultHttpParams:151 - Set parameter http.connection.timeout = 2000
+14:42:22,984 DEBUG HttpClient:73 - Java version: 1.6.0_22
+14:42:22,985 DEBUG HttpClient:74 - Java vendor: Sun Microsystems Inc.
+14:42:22,985 DEBUG HttpClient:75 - Java class path: D:\repository\workspaces\platform_github_java\com.platform.application\bin;D:\repository\workspaces\platform_github_java\com.platform.application\lib\activation-1.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\ant-1.7.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\ant-launcher-1.7.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\antlr-3.1.3.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\antlr-runtime-3.1.3.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\avalon-framework-4.1.3.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\bcel-5.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\common-monitor-1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\common-tair-2.2.4.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\commons-beanutils-1.8.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\commons-dbcp-1.2.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\commons-lang-2.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\commons-logging-1.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\commons-pool-1.3.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\diamond-client-2.0.5.9.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\diamond-utils-2.0.5.8.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\dom4j-1.6.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\druid-0.2.7.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\eagleeye-core-1.1.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\groovy-all-1.6.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\hsf.notify.spring-1.3.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\icu4j-2.6.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jakarta.commons.logging-0.0.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jaxen-1.1.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jboss-common-1.2.1.GA.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jboss-j2ee-4.2.2.GA.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jdom-1.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jline-0.9.94.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jms-1.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jmxri-1.2.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jmxtools-1.2.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\json-2.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\junit-4.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\lang-1.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\log4j-1.2.15.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\logkit-1.0.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\logstat-client-1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\logstat-common-1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\mail-1.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\mysql-connector-java-5.1.20.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\objectweb.asm.attrs-0.0.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\ojdbc14-10.2.0.3.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\org.slf4j.jcl-over-slf4j-1.5.11.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\org.slf4j.slf4j-api-1.5.11.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\org.slf4j.slf4j-log4j12-1.5.11.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\regexp-1.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\servlet-api-2.3.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\sourceforge.cglib-0.0.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\sourceforge.ibatis-2.3.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\sourceforge.spring-2.5.6.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\sourceforge.spring.modules.webmvc-2.5.6.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\spring-2.5.6.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\stringtemplate-3.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tagsoup-0.9.7.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tbdatasource-2.0.3-20121030.100854-4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-atom-datasource-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-cache-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-client-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-common-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-druid-datasource-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-group-datasource-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-interact-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-parser-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-rule-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-rule-le-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-sequence-3.0.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\xalan-2.6.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\xercesImpl-2.6.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\xml-apis-1.0.b2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\xmlParserAPIs-2.6.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\xom-1.0b3.jar
+14:42:22,986 DEBUG HttpClient:76 - Operating system name: Windows 7
+14:42:22,986 DEBUG HttpClient:77 - Operating system architecture: x86
+14:42:22,986 DEBUG HttpClient:78 - Operating system version: 6.1
+14:42:23,060 DEBUG HttpClient:83 - SUN 1.6: SUN (DSA key/parameter generation; DSA signing; SHA-1, MD5 digests; SecureRandom; X.509 certificates; JKS keystore; PKIX CertPathValidator; PKIX CertPathBuilder; LDAP, Collection CertStores, JavaPolicy Policy; JavaLoginConfig Configuration)
+14:42:23,060 DEBUG HttpClient:83 - SunRsaSign 1.5: Sun RSA signature provider
+14:42:23,061 DEBUG HttpClient:83 - SunJSSE 1.6: Sun JSSE provider(PKCS12, SunX509 key/trust factories, SSLv3, TLSv1)
+14:42:23,061 DEBUG HttpClient:83 - SunJCE 1.6: SunJCE Provider (implements RSA, DES, Triple DES, AES, Blowfish, ARCFOUR, RC2, PBE, Diffie-Hellman, HMAC)
+14:42:23,061 DEBUG HttpClient:83 - SunJGSS 1.0: Sun (Kerberos v5, SPNEGO)
+14:42:23,061 DEBUG HttpClient:83 - SunSASL 1.5: Sun SASL provider(implements client mechanisms for: DIGEST-MD5, GSSAPI, EXTERNAL, PLAIN, CRAM-MD5; server mechanisms for: DIGEST-MD5, GSSAPI, CRAM-MD5)
+14:42:23,061 DEBUG HttpClient:83 - XMLDSig 1.0: XMLDSig (DOM XMLSignatureFactory; DOM KeyInfoFactory)
+14:42:23,062 DEBUG HttpClient:83 - SunPCSC 1.6: Sun PC/SC provider
+14:42:23,062 DEBUG HttpClient:83 - SunMSCAPI 1.6: Sun's Microsoft Crypto API provider
+14:42:23,085 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:42:23,097 DEBUG HttpConnection:693 - Open connection to diamondserver.tbsite.net:8080
+14:42:35,153 DEBUG HttpMethodDirector:405 - Closing the connection.
+14:42:35,154 DEBUG HttpMethodDirector:435 - Method retry handler returned false. Automatic recovery will not be attempted
+14:42:35,155 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:42:35,156  WARN ServerAddressProcessor:344 - get diamond server address exception, domain:diamondserver.tbsite.net, error msg:diamondserver.tbsite.net
+14:42:35,157 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:42:35,158 DEBUG HttpConnection:693 - Open connection to commonconfig.config-host.taobao.com:8080
+14:42:37,159 DEBUG HttpMethodDirector:405 - Closing the connection.
+14:42:37,160 DEBUG HttpMethodDirector:435 - Method retry handler returned false. Automatic recovery will not be attempted
+14:42:37,161 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:42:37,162  WARN ServerAddressProcessor:344 - get diamond server address exception, domain:commonconfig.config-host.taobao.com, error msg:The host did not accept the connection within timeout of 2000 ms
+14:42:37,164 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:42:37,165 DEBUG HttpConnection:693 - Open connection to commonconfig.taobao.net:8080
+14:42:37,658 DEBUG header:71 - >> "GET /diamond-server/diamond HTTP/1.1[\r][\n]"
+14:42:37,660 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:42:37,708 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:42:37,709 DEBUG header:71 - >> "Host: commonconfig.taobao.net:8080[\r][\n]"
+14:42:37,710 DEBUG header:71 - >> "[\r][\n]"
+14:42:37,783 DEBUG header:71 - << "HTTP/1.1 404 Not Found[\r][\n]"
+14:42:37,784 DEBUG header:71 - << "HTTP/1.1 404 Not Found[\r][\n]"
+14:42:37,787 DEBUG header:71 - << "Transfer-Encoding: chunked[\r][\n]"
+14:42:37,788 DEBUG header:71 - << "Date: Wed, 31 Jul 2013 06:42:36 GMT[\r][\n]"
+14:42:37,789 DEBUG header:71 - << "Server: RS WEB SERVER 2.013[\r][\n]"
+14:42:37,790 DEBUG header:71 - << "[\r][\n]"
+14:42:37,798  WARN ServerAddressProcessor:339 - no available new diamond server address, domain:commonconfig.taobao.net, http status:404
+14:42:37,799 DEBUG content:85 - << "0"
+14:42:37,800 DEBUG content:85 - << "[\r]"
+14:42:37,801 DEBUG content:71 - << "[\n]"
+14:42:37,802 DEBUG content:85 - << "[\r]"
+14:42:37,802 DEBUG content:71 - << "[\n]"
+14:42:37,803 DEBUG header:71 - << "[\r][\n]"
+14:42:37,804 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:42:37,805 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:42:37,813 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:42:37,813  WARN ServerAddressProcessor:352 - fail to get diamond server address from remote address server, use local address file
+14:42:37,815  WARN ServerAddressProcessor:163 - acquire diamond server address from local 'ServerAddress' file
+14:42:37,825 DEBUG IdleConnectionHandler:109 - Checking for connections, idleTimeout: 1375252897825
+14:42:37,826 DEBUG DefaultHttpParams:151 - Set parameter http.connection.stalecheck = true
+14:42:37,826 DEBUG DefaultHttpParams:151 - Set parameter http.connection-manager.max-per-host = {HostConfiguration[host=http://127.0.0.1:8080]=1}
+14:42:37,827 DEBUG DefaultHttpParams:151 - Set parameter http.connection-manager.max-total = 20
+14:42:37,827 DEBUG DefaultHttpParams:151 - Set parameter http.connection.timeout = 2000
+14:42:37,827 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 60000
+14:42:37,828  WARN DefaultDiamondSubscriber:260 - diamond server address：[127.0.0.1]
+14:42:37,829  WARN DefaultDiamondSubscriber:234 - start initializing diamond subscriber ...
+14:42:37,844  WARN DefaultDiamondSubscriber:234 - start initializing diamond subscriber ...
+14:42:37,844  WARN DefaultDiamondSubscriber:724 - get diamond data url: /diamond-server/config.co?dataId=com.taobao.tddl.v1_tddl_sample_dbgroups&group=DEFAULT_GROUP
+14:42:37,844  INFO DefaultDiamondSubscriber:731 - get data retry count：214748364
+14:42:37,845  INFO DefaultDiamondSubscriber:742 - get diamond data, try count:1, waitTime:0
+14:42:37,845 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:42:37,846 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:42:37,847 DEBUG MultiThreadedHttpConnectionManager:761 - Allocating new connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:42:37,849 DEBUG HttpConnection:693 - Open connection to 127.0.0.1:8080
+14:42:38,852 DEBUG HttpMethodDirector:405 - Closing the connection.
+14:42:38,853  INFO HttpMethodDirector:440 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+14:42:38,855 DEBUG HttpMethodDirector:444 - Connection refused: connect
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:249)
+	at com.taobao.diamond.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:80)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$1.doit(ControllerThreadSocketFactory.java:91)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$SocketTask.run(ControllerThreadSocketFactory.java:158)
+	at java.lang.Thread.run(Thread.java:662)
+14:42:38,858  INFO HttpMethodDirector:446 - Retrying request
+14:42:38,859 DEBUG HttpConnection:693 - Open connection to 127.0.0.1:8080
+14:42:39,862 DEBUG HttpMethodDirector:405 - Closing the connection.
+14:42:39,863  INFO HttpMethodDirector:440 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+14:42:39,864 DEBUG HttpMethodDirector:444 - Connection refused: connect
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:249)
+	at com.taobao.diamond.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:80)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$1.doit(ControllerThreadSocketFactory.java:91)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$SocketTask.run(ControllerThreadSocketFactory.java:158)
+	at java.lang.Thread.run(Thread.java:662)
+14:42:39,866  INFO HttpMethodDirector:446 - Retrying request
+14:42:39,867 DEBUG HttpConnection:693 - Open connection to 127.0.0.1:8080
+14:42:40,871 DEBUG HttpMethodDirector:405 - Closing the connection.
+14:42:40,872  INFO HttpMethodDirector:440 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+14:42:40,873 DEBUG HttpMethodDirector:444 - Connection refused: connect
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:249)
+	at com.taobao.diamond.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:80)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$1.doit(ControllerThreadSocketFactory.java:91)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$SocketTask.run(ControllerThreadSocketFactory.java:158)
+	at java.lang.Thread.run(Thread.java:662)
+14:42:40,875  INFO HttpMethodDirector:446 - Retrying request
+14:42:40,875 DEBUG HttpConnection:693 - Open connection to 127.0.0.1:8080
+14:42:41,878 DEBUG HttpMethodDirector:405 - Closing the connection.
+14:42:41,879 DEBUG HttpMethodDirector:435 - Method retry handler returned false. Automatic recovery will not be attempted
+14:42:41,879 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:42:41,880 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:42:41,880 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375252961880
+14:42:41,881 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:42:41,887 ERROR DefaultDiamondSubscriber:794 - get config info io exceptionjava.net.ConnectException: Connection refused: connect
+14:42:41,887  WARN DefaultDiamondSubscriber:1246 - rotate to DiamondServer：127.0.0.1
+14:42:41,888  INFO DefaultDiamondSubscriber:742 - get diamond data, try count:2, waitTime:2000
+14:42:41,888 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:42:41,889 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:42:41,889 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:42:41,890 DEBUG HttpConnection:693 - Open connection to 127.0.0.1:8080
+14:42:42,894 DEBUG HttpMethodDirector:405 - Closing the connection.
+14:42:42,895  INFO HttpMethodDirector:440 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+14:42:42,896 DEBUG HttpMethodDirector:444 - Connection refused: connect
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:249)
+	at com.taobao.diamond.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:80)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$1.doit(ControllerThreadSocketFactory.java:91)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$SocketTask.run(ControllerThreadSocketFactory.java:158)
+	at java.lang.Thread.run(Thread.java:662)
+14:42:42,898  INFO HttpMethodDirector:446 - Retrying request
+14:42:42,899 DEBUG HttpConnection:693 - Open connection to 127.0.0.1:8080
+14:42:43,902 DEBUG HttpMethodDirector:405 - Closing the connection.
+14:42:43,903  INFO HttpMethodDirector:440 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+14:42:43,904 DEBUG HttpMethodDirector:444 - Connection refused: connect
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:249)
+	at com.taobao.diamond.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:80)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$1.doit(ControllerThreadSocketFactory.java:91)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$SocketTask.run(ControllerThreadSocketFactory.java:158)
+	at java.lang.Thread.run(Thread.java:662)
+14:42:43,907  INFO HttpMethodDirector:446 - Retrying request
+14:42:43,907 DEBUG HttpConnection:693 - Open connection to 127.0.0.1:8080
+14:42:44,930 DEBUG HttpMethodDirector:405 - Closing the connection.
+14:42:44,931  INFO HttpMethodDirector:440 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused: connect
+14:42:44,932 DEBUG HttpMethodDirector:444 - Connection refused: connect
+java.net.ConnectException: Connection refused: connect
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.PlainSocketImpl.doConnect(PlainSocketImpl.java:333)
+	at java.net.PlainSocketImpl.connectToAddress(PlainSocketImpl.java:195)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:182)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:366)
+	at java.net.Socket.connect(Socket.java:529)
+	at java.net.Socket.connect(Socket.java:478)
+	at java.net.Socket.<init>(Socket.java:375)
+	at java.net.Socket.<init>(Socket.java:249)
+	at com.taobao.diamond.commons.httpclient.protocol.DefaultProtocolSocketFactory.createSocket(DefaultProtocolSocketFactory.java:80)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$1.doit(ControllerThreadSocketFactory.java:91)
+	at com.taobao.diamond.commons.httpclient.protocol.ControllerThreadSocketFactory$SocketTask.run(ControllerThreadSocketFactory.java:158)
+	at java.lang.Thread.run(Thread.java:662)
+14:42:44,934  INFO HttpMethodDirector:446 - Retrying request
+14:42:44,935 DEBUG HttpConnection:693 - Open connection to 127.0.0.1:8080
+14:47:54,327  INFO ClassPathXmlApplicationContext:411 - Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6: display name [org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6]; startup date [Wed Jul 31 14:47:54 CST 2013]; root of context hierarchy
+14:47:54,378  INFO XmlBeanDefinitionReader:323 - Loading XML bean definitions from class path resource [basecrud/spring-context.xml]
+14:47:54,381 DEBUG DefaultDocumentLoader:72 - Using JAXP provider [org.apache.xerces.jaxp.DocumentBuilderFactoryImpl]
+14:47:54,499 DEBUG BeansDtdResolver:72 - Found beans DTD [http://www.springframework.org/dtd/spring-beans.dtd] in classpath: spring-beans.dtd
+14:47:54,514 DEBUG DefaultBeanDefinitionDocumentReader:86 - Loading bean definitions
+14:47:54,538 DEBUG XmlBeanDefinitionReader:185 - Loaded 2 bean definitions from location pattern [classpath:basecrud/spring-context.xml]
+14:47:54,538  INFO ClassPathXmlApplicationContext:426 - Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6]: org.springframework.beans.factory.support.DefaultListableBeanFactory@16b13c7
+14:47:54,538 DEBUG ClassPathXmlApplicationContext:430 - 2 beans defined in org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6: display name [org.springframework.context.support.ClassPathXmlApplicationContext@1a457b6]; startup date [Wed Jul 31 14:47:54 CST 2013]; root of context hierarchy
+14:47:54,551 DEBUG ClassPathXmlApplicationContext:648 - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@17471e0]
+14:47:54,553 DEBUG ClassPathXmlApplicationContext:672 - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@169ca65]
+14:47:54,554  INFO DefaultListableBeanFactory:414 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@16b13c7: defining beans [master_tddl_ds,tddlDS]; root of factory hierarchy
+14:47:54,554 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'master_tddl_ds'
+14:47:54,555 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'master_tddl_ds'
+14:47:54,583  WARN Monitor:140 - 不指定TDDL以外的appName则不订阅
+14:47:54,589  WARN StatMonitor:175 - StatMonitor start...
+14:47:54,603 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'master_tddl_ds' to allow for resolving potential circular references
+14:47:54,629 DEBUG DefaultListableBeanFactory:1410 - Invoking init method  'init' on bean with name 'master_tddl_ds'
+14:47:54,630  INFO TDataSourceConfig:226 - Resolving file: classpath:basecrud/tddl-rule.xml --> file:/D:/repository/workspaces/platform_github_java/com.platform.application/bin/basecrud/tddl-rule.xml
+14:47:54,630  INFO FileSystemXmlApplicationContext:411 - Refreshing org.springframework.context.support.FileSystemXmlApplicationContext@1551f60: display name [org.springframework.context.support.FileSystemXmlApplicationContext@1551f60]; startup date [Wed Jul 31 14:47:54 CST 2013]; root of context hierarchy
+14:47:54,632  INFO XmlBeanDefinitionReader:323 - Loading XML bean definitions from URL [file:/D:/repository/workspaces/platform_github_java/com.platform.application/bin/basecrud/tddl-rule.xml]
+14:47:54,633 DEBUG DefaultDocumentLoader:72 - Using JAXP provider [org.apache.xerces.jaxp.DocumentBuilderFactoryImpl]
+14:47:54,635 DEBUG BeansDtdResolver:72 - Found beans DTD [http://www.springframework.org/dtd/spring-beans.dtd] in classpath: spring-beans.dtd
+14:47:54,642 DEBUG DefaultBeanDefinitionDocumentReader:86 - Loading bean definitions
+14:47:54,644 DEBUG XmlBeanDefinitionReader:185 - Loaded 5 bean definitions from location pattern [file:/D:/repository/workspaces/platform_github_java/com.platform.application/bin/basecrud/tddl-rule.xml]
+14:47:54,645  INFO FileSystemXmlApplicationContext:426 - Bean factory for application context [org.springframework.context.support.FileSystemXmlApplicationContext@1551f60]: org.springframework.beans.factory.support.DefaultListableBeanFactory@c4aad3
+14:47:54,645 DEBUG FileSystemXmlApplicationContext:430 - 5 beans defined in org.springframework.context.support.FileSystemXmlApplicationContext@1551f60: display name [org.springframework.context.support.FileSystemXmlApplicationContext@1551f60]; startup date [Wed Jul 31 14:47:54 CST 2013]; root of context hierarchy
+14:47:54,651 DEBUG FileSystemXmlApplicationContext:648 - Unable to locate MessageSource with name 'messageSource': using default [org.springframework.context.support.DelegatingMessageSource@6025e7]
+14:47:54,651 DEBUG FileSystemXmlApplicationContext:672 - Unable to locate ApplicationEventMulticaster with name 'applicationEventMulticaster': using default [org.springframework.context.event.SimpleApplicationEventMulticaster@587c94]
+14:47:54,652  INFO DefaultListableBeanFactory:414 - Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@c4aad3: defining beans [root,readwriteRule,modDBTab,modTab,gmtTab]; root of factory hierarchy
+14:47:54,652 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'root'
+14:47:54,653 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'root'
+14:47:54,653 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'root' to allow for resolving potential circular references
+14:47:54,653 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'readwriteRule'
+14:47:54,654 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'readwriteRule'
+14:47:54,655 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'readwriteRule' to allow for resolving potential circular references
+14:47:54,657 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'modDBTab'
+14:47:54,658 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'modDBTab'
+14:47:54,667 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'modDBTab' to allow for resolving potential circular references
+14:47:54,680 DEBUG DefaultListableBeanFactory:1410 - Invoking init method  'init' on bean with name 'modDBTab'
+14:47:54,702 DEBUG GroovyListRuleEngine:119 - import static com.taobao.tddl.rule.groovy.staticmethod.GroovyStaticMethod.*;import com.taobao.tddl.interact.rule.bean.ExtraParameterContext;public class RULE {public Object eval(Map map,ExtraParameterContext extraParameterContext){return ((map.get("PK")).longValue() % 4).intdiv(2);};}
+14:47:55,243 DEBUG GroovyListRuleEngine:119 - import static com.taobao.tddl.rule.groovy.staticmethod.GroovyStaticMethod.*;import com.taobao.tddl.interact.rule.bean.ExtraParameterContext;public class RULE {public Object eval(Map map,ExtraParameterContext extraParameterContext){return (map.get("PK")).longValue() % 4 % 2;};}
+14:47:55,267 DEBUG LogicTable:103 - subShared element is null ,use sharedElement generated by database shared element map provider.
+14:47:55,268  WARN ListSharedElement:79 - 请删除在tddl规则中，bean class 为com.taobao.tddl.common.config.beans.TableRule 的规则的bean 中的init-method方法。 目前可兼容，但最好删除
+14:47:55,268  WARN ListSharedElement:79 - 请删除在tddl规则中，bean class 为com.taobao.tddl.common.config.beans.TableRule 的规则的bean 中的init-method方法。 目前可兼容，但最好删除
+14:47:55,269 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, com.taobao.tddl.rule.bean.RuleChainImp@2e637879]] inited;
+14:47:55,269 DEBUG DefaultListableBeanFactory:411 - Finished creating instance of bean 'modDBTab'
+14:47:55,269 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'modTab'
+14:47:55,270 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'modTab'
+14:47:55,270 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'modTab' to allow for resolving potential circular references
+14:47:55,271 DEBUG DefaultListableBeanFactory:1410 - Invoking init method  'init' on bean with name 'modTab'
+14:47:55,271 DEBUG GroovyListRuleEngine:119 - import static com.taobao.tddl.rule.groovy.staticmethod.GroovyStaticMethod.*;import com.taobao.tddl.interact.rule.bean.ExtraParameterContext;public class RULE {public Object eval(Map map,ExtraParameterContext extraParameterContext){return (map.get("PK")).longValue() % 4;};}
+14:47:55,288 DEBUG LogicTable:103 - subShared element is null ,use sharedElement generated by database shared element map provider.
+14:47:55,288  WARN ListSharedElement:181 - NONE stragety ,current element has only one SubElement,use full table stragety! subElement is {0=Database [dataSourceKey=sample_group_0, defaultListResult=null, defaultListResultStragety=null, listResultRule=null, subSharedElement={}]}
+14:47:55,288 DEBUG ListSharedElement:207 - use full table stragety, default keys are :
+14:47:55,289 DEBUG ListSharedElement:213 - 0|
+14:47:55,289  WARN ListSharedElement:79 - 请删除在tddl规则中，bean class 为com.taobao.tddl.common.config.beans.TableRule 的规则的bean 中的init-method方法。 目前可兼容，但最好删除
+14:47:55,290 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@1546660b]] inited;
+14:47:55,290 DEBUG DefaultListableBeanFactory:411 - Finished creating instance of bean 'modTab'
+14:47:55,292 DEBUG DefaultListableBeanFactory:411 - Finished creating instance of bean 'readwriteRule'
+14:47:55,298 DEBUG DefaultListableBeanFactory:1410 - Invoking init method  'init' on bean with name 'root'
+14:47:55,298  WARN TDDLRoot:32 - logic Table is starting :moddbtab
+14:47:55,299 DEBUG LogicTable:106 - subSharedElement is not null,putAll current subSharedElement to generated sharedElement
+14:47:55,299 DEBUG LogicTable:111 - sub shared element is {1=Database [dataSourceKey=sample_group_1, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={}], 0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={}]}
+14:47:55,300 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, com.taobao.tddl.rule.bean.RuleChainImp@2e637879]] inited;
+14:47:55,301  WARN TDDLRoot:44 - logic Table inited :SimpleLogicTable [databaseRuleStringList=[(#pk#.longValue() % 4).intdiv(2)], databases=sample_group_0,sample_group_1, isSimpleTableMapPropertiesChanged=true, shardingKey=null, simpleDatabaseMapProvider=com.taobao.tddl.rule.bean.SimpleListDatabaseMapProvider@c16b18, simpleTableMapProvider=com.taobao.tddl.rule.bean.SimpleTableMapProvider@5e222e, tableRuleStringList=[#pk#.longValue() % 4 % 2], useAutoGeneratingRule=true, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@2e637879, subSharedElement={1=Database [dataSourceKey=sample_group_1, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0003, 0=table:moddbtab_0002}], 0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0001, 0=table:moddbtab_0000}]}]
+14:47:55,301  WARN TDDLRoot:32 - logic Table is starting :modtab
+14:47:55,301 DEBUG LogicTable:106 - subSharedElement is not null,putAll current subSharedElement to generated sharedElement
+14:47:55,302 DEBUG LogicTable:111 - sub shared element is {0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={}]}
+14:47:55,302  WARN ListSharedElement:181 - NONE stragety ,current element has only one SubElement,use full table stragety! subElement is {0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={}]}
+14:47:55,302 DEBUG ListSharedElement:207 - use full table stragety, default keys are :
+14:47:55,303 DEBUG ListSharedElement:213 - 0|
+14:47:55,303 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@1546660b]] inited;
+14:47:55,303  WARN TDDLRoot:44 - logic Table inited :SimpleLogicTable [databaseRuleStringList=null, databases=sample_group_0, isSimpleTableMapPropertiesChanged=true, shardingKey=null, simpleDatabaseMapProvider=com.taobao.tddl.rule.bean.SimpleListDatabaseMapProvider@120540c, simpleTableMapProvider=com.taobao.tddl.rule.bean.SimpleTableMapProvider@16de067, tableRuleStringList=[#pk#.longValue() % 4], useAutoGeneratingRule=true, defaultListResult=[0], defaultListResultStragety=NONE, listResultRule=null, subSharedElement={0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={3=table:modtab_0003, 2=table:modtab_0002, 1=table:modtab_0001, 0=table:modtab_0000, 4=table:modtab_0004}]}]
+14:47:55,304 DEBUG DefaultListableBeanFactory:411 - Finished creating instance of bean 'root'
+14:47:55,304 DEBUG DefaultListableBeanFactory:214 - Returning cached instance of singleton bean 'readwriteRule'
+14:47:55,304 DEBUG DefaultListableBeanFactory:214 - Returning cached instance of singleton bean 'modDBTab'
+14:47:55,304 DEBUG DefaultListableBeanFactory:214 - Returning cached instance of singleton bean 'modTab'
+14:47:55,304 DEBUG DefaultListableBeanFactory:214 - Creating shared instance of singleton bean 'gmtTab'
+14:47:55,305 DEBUG DefaultListableBeanFactory:383 - Creating instance of bean 'gmtTab'
+14:47:55,305 DEBUG DefaultListableBeanFactory:459 - Eagerly caching bean 'gmtTab' to allow for resolving potential circular references
+14:47:55,305 DEBUG DefaultListableBeanFactory:1410 - Invoking init method  'init' on bean with name 'gmtTab'
+14:47:55,307 DEBUG GroovyListRuleEngine:119 - import static com.taobao.tddl.rule.groovy.staticmethod.GroovyStaticMethod.*;import com.taobao.tddl.interact.rule.bean.ExtraParameterContext;public class RULE {public Object eval(Map map,ExtraParameterContext extraParameterContext){return dayofweek((map.get("GMT")));};}
+14:47:55,326 DEBUG LogicTable:103 - subShared element is null ,use sharedElement generated by database shared element map provider.
+14:47:55,327  WARN ListSharedElement:181 - NONE stragety ,current element has only one SubElement,use full table stragety! subElement is {0=Database [dataSourceKey=sample_group_0, defaultListResult=null, defaultListResultStragety=null, listResultRule=null, subSharedElement={}]}
+14:47:55,327 DEBUG ListSharedElement:207 - use full table stragety, default keys are :
+14:47:55,327 DEBUG ListSharedElement:213 - 0|
+14:47:55,328  WARN ListSharedElement:79 - 请删除在tddl规则中，bean class 为com.taobao.tddl.common.config.beans.TableRule 的规则的bean 中的init-method方法。 目前可兼容，但最好删除
+14:47:55,328 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@1b6a9f45]] inited;
+14:47:55,329 DEBUG DefaultListableBeanFactory:411 - Finished creating instance of bean 'gmtTab'
+14:47:55,329 DEBUG DefaultListableBeanFactory:214 - Returning cached instance of singleton bean 'root'
+14:47:55,335  WARN TDDLRoot:32 - logic Table is starting :moddbtab
+14:47:55,336 DEBUG LogicTable:106 - subSharedElement is not null,putAll current subSharedElement to generated sharedElement
+14:47:55,336 DEBUG LogicTable:111 - sub shared element is {1=Database [dataSourceKey=sample_group_1, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0003, 0=table:moddbtab_0002}], 0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0001, 0=table:moddbtab_0000}]}
+14:47:55,336 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, com.taobao.tddl.rule.bean.RuleChainImp@2e637879]] inited;
+14:47:55,337  WARN TDDLRoot:44 - logic Table inited :SimpleLogicTable [databaseRuleStringList=[(#pk#.longValue() % 4).intdiv(2)], databases=sample_group_0,sample_group_1, isSimpleTableMapPropertiesChanged=true, shardingKey=null, simpleDatabaseMapProvider=com.taobao.tddl.rule.bean.SimpleListDatabaseMapProvider@c16b18, simpleTableMapProvider=com.taobao.tddl.rule.bean.SimpleTableMapProvider@1aa2c23, tableRuleStringList=[#pk#.longValue() % 4 % 2], useAutoGeneratingRule=true, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@2e637879, subSharedElement={1=Database [dataSourceKey=sample_group_1, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0003, 0=table:moddbtab_0002}], 0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@44fe7f, subSharedElement={1=table:moddbtab_0001, 0=table:moddbtab_0000}]}]
+14:47:55,337  WARN TDDLRoot:32 - logic Table is starting :modtab
+14:47:55,337 DEBUG LogicTable:106 - subSharedElement is not null,putAll current subSharedElement to generated sharedElement
+14:47:55,337 DEBUG LogicTable:111 - sub shared element is {0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={3=table:modtab_0003, 2=table:modtab_0002, 1=table:modtab_0001, 0=table:modtab_0000, 4=table:modtab_0004}]}
+14:47:55,338  WARN ListSharedElement:181 - NONE stragety ,current element has only one SubElement,use full table stragety! subElement is {0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={3=table:modtab_0003, 2=table:modtab_0002, 1=table:modtab_0001, 0=table:modtab_0000, 4=table:modtab_0004}]}
+14:47:55,338 DEBUG ListSharedElement:207 - use full table stragety, default keys are :
+14:47:55,338 DEBUG ListSharedElement:213 - 0|
+14:47:55,338 DEBUG LogicTable:156 - rule chain set [[com.taobao.tddl.rule.bean.RuleChainImp@1546660b]] inited;
+14:47:55,338  WARN TDDLRoot:44 - logic Table inited :SimpleLogicTable [databaseRuleStringList=null, databases=sample_group_0, isSimpleTableMapPropertiesChanged=true, shardingKey=null, simpleDatabaseMapProvider=com.taobao.tddl.rule.bean.SimpleListDatabaseMapProvider@120540c, simpleTableMapProvider=com.taobao.tddl.rule.bean.SimpleTableMapProvider@137d4a4, tableRuleStringList=[#pk#.longValue() % 4], useAutoGeneratingRule=true, defaultListResult=[0], defaultListResultStragety=NONE, listResultRule=null, subSharedElement={0=Database [dataSourceKey=sample_group_0, defaultListResult=[], defaultListResultStragety=NONE, listResultRule=com.taobao.tddl.rule.bean.RuleChainImp@1546660b, subSharedElement={3=table:modtab_0003, 2=table:modtab_0002, 1=table:modtab_0001, 0=table:modtab_0000, 4=table:modtab_0004}]}]
+14:47:55,340  WARN TDataSourceConfig:477 - doesn't specfic datasource Matrix creator, use default 
+14:47:55,342  WARN DataSourceMatrixCreatorImp:56 - receive a ds keys,follow will add to map tddl_sample
+14:47:55,344  INFO DefaultConfigDataHandlerFactory:101 - Trying to load 'com.taobao.tddl.common.config.diamond.DiamondConfigDataHandler
+14:47:55,361  WARN LoggerInit:84 - 成功为DiamondConfigDataLog添加Appender. 输出路径:D:\repository\workspaces\platform_github_java\com.platform.application\diamond_config_data.log
+14:47:55,369  INFO AppNameUtils:88 - The classpath is /D:/repository/workspaces/platform_github_java/com.platform.application/bin/
+14:47:55,370  WARN AppNameUtils:29 - 没找到任何后缀名为“.ear”、“.spring”或“.war”的包
+14:47:55,382  WARN DefaultDiamondSubscriber:1456 - diamond client start:2013-07-31 14:47:55
+14:47:55,384  WARN DefaultDiamondSubscriber:1476 - add DataID[com.taobao.tddl.v1_tddl_sample_dbgroups], Group:DEFAULT_GROUP
+14:47:55,384  WARN DefaultDiamondSubscriber:234 - start initializing diamond subscriber ...
+14:47:55,395 DEBUG LocalConfigInfoProcessor:154 - >>>>>>start monitoring directory<<<<<<
+14:47:55,403 DEBUG DefaultHttpParams:151 - Set parameter http.useragent = Jakarta Commons-HttpClient/3.1
+14:47:55,404 DEBUG DefaultHttpParams:151 - Set parameter http.protocol.version = HTTP/1.1
+14:47:55,405 DEBUG DefaultHttpParams:151 - Set parameter http.connection-manager.class = class com.taobao.diamond.commons.httpclient.SimpleHttpConnectionManager
+14:47:55,408 DEBUG DefaultHttpParams:151 - Set parameter http.protocol.cookie-policy = default
+14:47:55,408 DEBUG DefaultHttpParams:151 - Set parameter http.protocol.element-charset = US-ASCII
+14:47:55,409 DEBUG DefaultHttpParams:151 - Set parameter http.protocol.content-charset = ISO-8859-1
+14:47:55,410 DEBUG DefaultHttpParams:151 - Set parameter http.method.retry-handler = com.taobao.diamond.commons.httpclient.DefaultHttpMethodRetryHandler@c0a9f9
+14:47:55,411 DEBUG DefaultHttpParams:151 - Set parameter http.dateparser.patterns = [EEE, dd MMM yyyy HH:mm:ss zzz, EEEE, dd-MMM-yy HH:mm:ss zzz, EEE MMM d HH:mm:ss yyyy, EEE, dd-MMM-yyyy HH:mm:ss z, EEE, dd-MMM-yyyy HH-mm-ss z, EEE, dd MMM yy HH:mm:ss z, EEE dd-MMM-yyyy HH:mm:ss z, EEE dd MMM yyyy HH:mm:ss z, EEE dd-MMM-yyyy HH-mm-ss z, EEE dd-MMM-yy HH:mm:ss z, EEE dd MMM yy HH:mm:ss z, EEE,dd-MMM-yy HH:mm:ss z, EEE,dd-MMM-yyyy HH:mm:ss z, EEE, dd-MM-yyyy HH:mm:ss z]
+14:47:55,412 DEBUG DefaultHttpParams:151 - Set parameter http.connection.stalecheck = true
+14:47:55,413 DEBUG DefaultHttpParams:151 - Set parameter http.connection.timeout = 2000
+14:47:55,414 DEBUG HttpClient:73 - Java version: 1.6.0_22
+14:47:55,414 DEBUG HttpClient:74 - Java vendor: Sun Microsystems Inc.
+14:47:55,415 DEBUG HttpClient:75 - Java class path: D:\repository\workspaces\platform_github_java\com.platform.application\bin;D:\repository\workspaces\platform_github_java\com.platform.application\lib\activation-1.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\ant-1.7.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\ant-launcher-1.7.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\antlr-3.1.3.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\antlr-runtime-3.1.3.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\avalon-framework-4.1.3.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\bcel-5.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\common-monitor-1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\common-tair-2.2.4.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\commons-beanutils-1.8.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\commons-dbcp-1.2.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\commons-lang-2.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\commons-logging-1.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\commons-pool-1.3.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\diamond-client-2.0.5.9.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\diamond-utils-2.0.5.8.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\dom4j-1.6.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\druid-0.2.7.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\eagleeye-core-1.1.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\groovy-all-1.6.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\hsf.notify.spring-1.3.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\icu4j-2.6.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jakarta.commons.logging-0.0.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jaxen-1.1.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jboss-common-1.2.1.GA.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jboss-j2ee-4.2.2.GA.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jdom-1.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jline-0.9.94.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jms-1.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jmxri-1.2.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\jmxtools-1.2.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\json-2.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\junit-4.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\lang-1.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\log4j-1.2.15.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\logkit-1.0.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\logstat-client-1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\logstat-common-1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\mail-1.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\mysql-connector-java-5.1.20.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\objectweb.asm.attrs-0.0.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\ojdbc14-10.2.0.3.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\org.slf4j.jcl-over-slf4j-1.5.11.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\org.slf4j.slf4j-api-1.5.11.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\org.slf4j.slf4j-log4j12-1.5.11.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\regexp-1.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\servlet-api-2.3.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\sourceforge.cglib-0.0.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\sourceforge.ibatis-2.3.4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\sourceforge.spring-2.5.6.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\sourceforge.spring.modules.webmvc-2.5.6.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\spring-2.5.6.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\stringtemplate-3.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tagsoup-0.9.7.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tbdatasource-2.0.3-20121030.100854-4.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-atom-datasource-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-cache-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-client-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-common-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-druid-datasource-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-group-datasource-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-interact-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-parser-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-rule-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-rule-le-3.1.0.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\tddl-sequence-3.0.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\xalan-2.6.0.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\xercesImpl-2.6.2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\xml-apis-1.0.b2.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\xmlParserAPIs-2.6.1.jar;D:\repository\workspaces\platform_github_java\com.platform.application\lib\xom-1.0b3.jar
+14:47:55,415 DEBUG HttpClient:76 - Operating system name: Windows 7
+14:47:55,415 DEBUG HttpClient:77 - Operating system architecture: x86
+14:47:55,415 DEBUG HttpClient:78 - Operating system version: 6.1
+14:47:55,452 DEBUG HttpClient:83 - SUN 1.6: SUN (DSA key/parameter generation; DSA signing; SHA-1, MD5 digests; SecureRandom; X.509 certificates; JKS keystore; PKIX CertPathValidator; PKIX CertPathBuilder; LDAP, Collection CertStores, JavaPolicy Policy; JavaLoginConfig Configuration)
+14:47:55,452 DEBUG HttpClient:83 - SunRsaSign 1.5: Sun RSA signature provider
+14:47:55,453 DEBUG HttpClient:83 - SunJSSE 1.6: Sun JSSE provider(PKCS12, SunX509 key/trust factories, SSLv3, TLSv1)
+14:47:55,453 DEBUG HttpClient:83 - SunJCE 1.6: SunJCE Provider (implements RSA, DES, Triple DES, AES, Blowfish, ARCFOUR, RC2, PBE, Diffie-Hellman, HMAC)
+14:47:55,453 DEBUG HttpClient:83 - SunJGSS 1.0: Sun (Kerberos v5, SPNEGO)
+14:47:55,453 DEBUG HttpClient:83 - SunSASL 1.5: Sun SASL provider(implements client mechanisms for: DIGEST-MD5, GSSAPI, EXTERNAL, PLAIN, CRAM-MD5; server mechanisms for: DIGEST-MD5, GSSAPI, CRAM-MD5)
+14:47:55,453 DEBUG HttpClient:83 - XMLDSig 1.0: XMLDSig (DOM XMLSignatureFactory; DOM KeyInfoFactory)
+14:47:55,454 DEBUG HttpClient:83 - SunPCSC 1.6: Sun PC/SC provider
+14:47:55,454 DEBUG HttpClient:83 - SunMSCAPI 1.6: Sun's Microsoft Crypto API provider
+14:47:55,472 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:47:55,481 DEBUG HttpConnection:693 - Open connection to diamondserver.tbsite.net:8080
+14:48:07,497 DEBUG HttpMethodDirector:405 - Closing the connection.
+14:48:07,497 DEBUG HttpMethodDirector:435 - Method retry handler returned false. Automatic recovery will not be attempted
+14:48:07,498 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:48:07,498  WARN ServerAddressProcessor:344 - get diamond server address exception, domain:diamondserver.tbsite.net, error msg:diamondserver.tbsite.net
+14:48:07,498 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:48:07,498 DEBUG HttpConnection:693 - Open connection to commonconfig.config-host.taobao.com:8080
+14:48:09,499 DEBUG HttpMethodDirector:405 - Closing the connection.
+14:48:09,500 DEBUG HttpMethodDirector:435 - Method retry handler returned false. Automatic recovery will not be attempted
+14:48:09,501 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:48:09,502  WARN ServerAddressProcessor:344 - get diamond server address exception, domain:commonconfig.config-host.taobao.com, error msg:The host did not accept the connection within timeout of 2000 ms
+14:48:09,502 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:48:09,503 DEBUG HttpConnection:693 - Open connection to commonconfig.taobao.net:8080
+14:48:09,581 DEBUG header:71 - >> "GET /diamond-server/diamond HTTP/1.1[\r][\n]"
+14:48:09,583 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:48:09,597 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:48:09,598 DEBUG header:71 - >> "Host: commonconfig.taobao.net:8080[\r][\n]"
+14:48:09,599 DEBUG header:71 - >> "[\r][\n]"
+14:48:09,662 DEBUG header:71 - << "HTTP/1.1 404 Not Found[\r][\n]"
+14:48:09,663 DEBUG header:71 - << "HTTP/1.1 404 Not Found[\r][\n]"
+14:48:09,666 DEBUG header:71 - << "Transfer-Encoding: chunked[\r][\n]"
+14:48:09,668 DEBUG header:71 - << "Date: Wed, 31 Jul 2013 06:48:08 GMT[\r][\n]"
+14:48:09,669 DEBUG header:71 - << "Server: RS WEB SERVER 2.013[\r][\n]"
+14:48:09,670 DEBUG header:71 - << "[\r][\n]"
+14:48:09,677  WARN ServerAddressProcessor:339 - no available new diamond server address, domain:commonconfig.taobao.net, http status:404
+14:48:09,677 DEBUG content:85 - << "0"
+14:48:09,678 DEBUG content:85 - << "[\r]"
+14:48:09,679 DEBUG content:71 - << "[\n]"
+14:48:09,680 DEBUG content:85 - << "[\r]"
+14:48:09,681 DEBUG content:71 - << "[\n]"
+14:48:09,681 DEBUG header:71 - << "[\r][\n]"
+14:48:09,682 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:48:09,683 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:48:09,690 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:48:09,692  WARN ServerAddressProcessor:352 - fail to get diamond server address from remote address server, use local address file
+14:48:09,693  WARN ServerAddressProcessor:163 - acquire diamond server address from local 'ServerAddress' file
+14:48:09,703 DEBUG IdleConnectionHandler:109 - Checking for connections, idleTimeout: 1375253229703
+14:48:09,704 DEBUG DefaultHttpParams:151 - Set parameter http.connection.stalecheck = true
+14:48:09,704 DEBUG DefaultHttpParams:151 - Set parameter http.connection-manager.max-per-host = {HostConfiguration[host=http://127.0.0.1:8080]=1}
+14:48:09,704 DEBUG DefaultHttpParams:151 - Set parameter http.connection-manager.max-total = 20
+14:48:09,705 DEBUG DefaultHttpParams:151 - Set parameter http.connection.timeout = 2000
+14:48:09,705 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 60000
+14:48:09,705  WARN DefaultDiamondSubscriber:260 - diamond server address：[127.0.0.1]
+14:48:09,706  WARN DefaultDiamondSubscriber:234 - start initializing diamond subscriber ...
+14:48:09,707  WARN DefaultDiamondSubscriber:234 - start initializing diamond subscriber ...
+14:48:09,707  WARN DefaultDiamondSubscriber:724 - get diamond data url: /diamond-server/config.co?dataId=com.taobao.tddl.v1_tddl_sample_dbgroups&group=DEFAULT_GROUP
+14:48:09,708  INFO DefaultDiamondSubscriber:731 - get data retry count：214748364
+14:48:09,708  INFO DefaultDiamondSubscriber:742 - get diamond data, try count:1, waitTime:0
+14:48:09,708 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:48:09,708 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:48:09,709 DEBUG MultiThreadedHttpConnectionManager:761 - Allocating new connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:48:09,711 DEBUG HttpConnection:693 - Open connection to 127.0.0.1:8080
+14:48:09,713 DEBUG header:71 - >> "GET /diamond-server/config.co?dataId=com.taobao.tddl.v1_tddl_sample_dbgroups&group=DEFAULT_GROUP HTTP/1.1[\r][\n]"
+14:48:09,713 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:48:09,714 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:48:09,714 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:48:09,714 DEBUG header:71 - >> "Accept-Encoding: gzip,deflate[\r][\n]"
+14:48:09,715 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:48:09,715 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:48:09,715 DEBUG header:71 - >> "[\r][\n]"
+14:48:09,752 DEBUG header:71 - << "HTTP/1.1 404 jsp404jsp[\r][\n]"
+14:48:09,753 DEBUG header:71 - << "HTTP/1.1 404 jsp404jsp[\r][\n]"
+14:48:09,753 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:48:09,753 DEBUG header:71 - << "Content-Length: 1406[\r][\n]"
+14:48:09,753 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:48:09,753 DEBUG header:71 - << "[\r][\n]"
+14:48:09,754  WARN DefaultDiamondSubscriber:769 - diamond data not found, dataId=com.taobao.tddl.v1_tddl_sample_dbgroups, group=DEFAULT_GROUP
+14:48:09,783 DEBUG content:71 - << "<html>[\n]"
+14:48:09,783 DEBUG content:71 - << "<head>[\n]"
+14:48:09,784 DEBUG content:71 - << "<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>[\n]"
+14:48:09,784 DEBUG content:71 - << "<title>Error 404 </title>[\n]"
+14:48:09,784 DEBUG content:71 - << "</head>[\n]"
+14:48:09,784 DEBUG content:71 - << "<body><h2>HTTP ERROR: 404</h2><pre>/jsp/404.jsp</pre>[\n]"
+14:48:09,785 DEBUG content:71 - << "<p>RequestURI=/diamond-server/jsp/404.jsp</p><p><i><small><a href="http://jetty.mortbay.org/">Powered by Jetty://</a></small></i></p><br/>                                                [\n]"
+14:48:09,785 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,787 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,788 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,788 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,788 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,788 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,788 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,789 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,789 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,789 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,789 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,789 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,790 DEBUG content:85 - << "<br/>        "
+14:48:09,790 DEBUG content:71 - << "                                        [\n]"
+14:48:09,790 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,790 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,790 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,791 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,791 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,791 DEBUG content:71 - << "<br/>                                                [\n]"
+14:48:09,791 DEBUG content:71 - << "[\n]"
+14:48:09,791 DEBUG content:71 - << "</body>[\n]"
+14:48:09,792 DEBUG content:71 - << "</html>[\n]"
+14:48:09,792 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:48:09,792 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:48:09,792 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:48:09,792 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:48:09,793 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253289793
+14:48:09,793 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:48:09,794  INFO DefaultListableBeanFactory:421 - Destroying singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@16b13c7: defining beans [master_tddl_ds,tddlDS]; root of factory hierarchy
+14:49:09,746 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:49:09,748 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:49:09,749 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:49:09,754 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:49:09,755 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:49:09,756 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:49:09,759 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:49:09,760 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:49:09,761 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:49:09,761 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:49:09,762 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:49:09,763 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:49:09,763 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:49:09,764 DEBUG header:71 - >> "[\r][\n]"
+14:49:09,765 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:49:09,766 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:49:10,231 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:49:10,232 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:49:10,232 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:49:10,232 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:49:10,232 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:49:10,232 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:49:10,235 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:49:10,235 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:49:10,235 DEBUG header:71 - << "Set-Cookie: JSESSIONID=1mob8a594kqql;path=/diamond-server[\r][\n]"
+14:49:10,235 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:49:10,235 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:49:10,236 DEBUG header:71 - << "[\r][\n]"
+14:49:10,236 DEBUG HttpMethodBase:1652 - Cookie accepted: "$Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server"
+14:49:10,237 DEBUG HttpMethodBase:686 - Buffering response body
+14:49:10,237 DEBUG content:71 - << "OK[\r][\n]"
+14:49:10,237 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:49:10,237 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:49:10,237 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:49:10,237 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:49:10,238 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253350238
+14:49:10,238 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:49:10,238 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:49:25,240 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:49:25,241 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:49:25,242 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:49:25,243 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:49:25,243 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:49:25,244 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:49:25,245 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:49:25,246 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:49:25,247 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:49:25,247 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:49:25,248 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:49:25,248 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:49:25,249 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:49:25,250 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:49:25,251 DEBUG header:71 - >> "[\r][\n]"
+14:49:25,251 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:49:25,252 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:49:25,260 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:49:25,261 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:49:25,262 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:49:25,262 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:49:25,263 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:49:25,264 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:49:25,264 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:49:25,265 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:49:25,266 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:49:25,267 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:49:25,267 DEBUG header:71 - << "[\r][\n]"
+14:49:25,268 DEBUG HttpMethodBase:686 - Buffering response body
+14:49:25,268 DEBUG content:71 - << "OK[\r][\n]"
+14:49:25,269 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:49:25,270 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:49:25,270 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:49:25,271 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:49:25,271 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253365271
+14:49:25,271 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:49:25,271 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:49:40,273 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:49:40,274 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:49:40,274 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:49:40,276 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:49:40,277 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:49:40,277 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:49:40,278 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:49:40,279 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:49:40,280 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:49:40,280 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:49:40,281 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:49:40,281 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:49:40,282 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:49:40,282 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:49:40,283 DEBUG header:71 - >> "[\r][\n]"
+14:49:40,284 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:49:40,285 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:49:40,289 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:49:40,290 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:49:40,290 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:49:40,291 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:49:40,295 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:49:40,296 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:49:40,297 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:49:40,297 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:49:40,298 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:49:40,298 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:49:40,299 DEBUG header:71 - << "[\r][\n]"
+14:49:40,300 DEBUG HttpMethodBase:686 - Buffering response body
+14:49:40,300 DEBUG content:71 - << "OK[\r][\n]"
+14:49:40,301 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:49:40,301 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:49:40,301 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:49:40,301 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:49:40,302 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253380302
+14:49:40,302 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:49:40,302 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:49:55,304 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:49:55,305 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:49:55,306 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:49:55,307 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:49:55,307 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:49:55,308 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:49:55,309 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:49:55,310 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:49:55,311 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:49:55,311 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:49:55,312 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:49:55,312 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:49:55,313 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:49:55,313 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:49:55,314 DEBUG header:71 - >> "[\r][\n]"
+14:49:55,315 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:49:55,315 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:49:55,320 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:49:55,321 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:49:55,321 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:49:55,322 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:49:55,322 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:49:55,323 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:49:55,324 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:49:55,324 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:49:55,325 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:49:55,326 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:49:55,326 DEBUG header:71 - << "[\r][\n]"
+14:49:55,327 DEBUG HttpMethodBase:686 - Buffering response body
+14:49:55,327 DEBUG content:71 - << "OK[\r][\n]"
+14:49:55,328 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:49:55,328 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:49:55,329 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:49:55,329 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:49:55,330 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253395330
+14:49:55,330 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:49:55,331 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:50:10,333 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:50:10,334 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:50:10,334 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:50:10,336 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:50:10,336 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:50:10,337 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:50:10,338 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:50:10,339 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:50:10,339 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:50:10,340 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:50:10,340 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:50:10,341 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:50:10,342 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:50:10,342 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:50:10,343 DEBUG header:71 - >> "[\r][\n]"
+14:50:10,343 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:50:10,344 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:50:10,349 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:50:10,349 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:50:10,351 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:50:10,352 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:50:10,352 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:50:10,356 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:50:10,356 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:50:10,357 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:50:10,357 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:50:10,358 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:50:10,358 DEBUG header:71 - << "[\r][\n]"
+14:50:10,359 DEBUG HttpMethodBase:686 - Buffering response body
+14:50:10,359 DEBUG content:71 - << "OK[\r][\n]"
+14:50:10,360 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:50:10,360 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:50:10,361 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:50:10,361 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:50:10,361 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253410361
+14:50:10,361 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:50:10,362 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:50:25,362 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:50:25,363 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:50:25,364 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:50:25,366 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:50:25,367 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:50:25,367 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:50:25,368 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:50:25,369 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:50:25,369 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:50:25,370 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:50:25,371 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:50:25,371 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:50:25,372 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:50:25,372 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:50:25,373 DEBUG header:71 - >> "[\r][\n]"
+14:50:25,373 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:50:25,374 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:50:25,379 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:50:25,380 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:50:25,381 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:50:25,381 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:50:25,383 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:50:25,384 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:50:25,385 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:50:25,385 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:50:25,386 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:50:25,387 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:50:25,388 DEBUG header:71 - << "[\r][\n]"
+14:50:25,388 DEBUG HttpMethodBase:686 - Buffering response body
+14:50:25,389 DEBUG content:71 - << "OK[\r][\n]"
+14:50:25,389 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:50:25,390 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:50:25,390 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:50:25,390 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:50:25,391 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253425391
+14:50:25,391 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:50:25,392 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:50:40,393 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:50:40,394 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:50:40,394 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:50:40,396 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:50:40,396 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:50:40,397 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:50:40,398 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:50:40,399 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:50:40,399 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:50:40,400 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:50:40,400 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:50:40,401 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:50:40,402 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:50:40,402 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:50:40,403 DEBUG header:71 - >> "[\r][\n]"
+14:50:40,403 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:50:40,404 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:50:40,408 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:50:40,409 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:50:40,410 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:50:40,410 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:50:40,411 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:50:40,414 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:50:40,415 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:50:40,415 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:50:40,416 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:50:40,416 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:50:40,417 DEBUG header:71 - << "[\r][\n]"
+14:50:40,418 DEBUG HttpMethodBase:686 - Buffering response body
+14:50:40,418 DEBUG content:71 - << "OK[\r][\n]"
+14:50:40,419 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:50:40,419 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:50:40,420 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:50:40,420 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:50:40,420 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253440420
+14:50:40,421 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:50:40,421 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:50:55,423 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:50:55,424 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:50:55,425 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:50:55,426 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:50:55,427 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:50:55,427 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:50:55,428 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:50:55,429 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:50:55,429 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:50:55,430 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:50:55,430 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:50:55,431 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:50:55,432 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:50:55,432 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:50:55,433 DEBUG header:71 - >> "[\r][\n]"
+14:50:55,433 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:50:55,434 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:50:55,438 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:50:55,439 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:50:55,440 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:50:55,440 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:50:55,441 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:50:55,441 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:50:55,442 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:50:55,442 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:50:55,443 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:50:55,444 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:50:55,444 DEBUG header:71 - << "[\r][\n]"
+14:50:55,445 DEBUG HttpMethodBase:686 - Buffering response body
+14:50:55,445 DEBUG content:71 - << "OK[\r][\n]"
+14:50:55,446 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:50:55,446 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:50:55,447 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:50:55,447 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:50:55,448 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253455448
+14:50:55,448 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:50:55,449 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:51:10,451 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:51:10,452 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:51:10,453 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:51:10,454 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:51:10,454 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:51:10,455 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:51:10,456 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:51:10,457 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:51:10,457 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:51:10,458 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:51:10,458 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:51:10,459 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:51:10,460 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:51:10,460 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:51:10,461 DEBUG header:71 - >> "[\r][\n]"
+14:51:10,461 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:51:10,462 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:51:10,466 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:51:10,466 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:51:10,467 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:51:10,467 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:51:10,468 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:51:10,468 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:51:10,472 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:51:10,472 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:51:10,473 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:51:10,473 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:51:10,474 DEBUG header:71 - << "[\r][\n]"
+14:51:10,474 DEBUG HttpMethodBase:686 - Buffering response body
+14:51:10,475 DEBUG content:71 - << "OK[\r][\n]"
+14:51:10,475 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:51:10,476 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:51:10,476 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:51:10,477 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:51:10,477 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253470477
+14:51:10,478 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:51:10,479 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:51:25,481 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:51:25,482 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:51:25,482 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:51:25,484 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:51:25,485 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:51:25,485 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:51:25,486 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:51:25,487 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:51:25,487 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:51:25,488 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:51:25,488 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:51:25,489 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:51:25,489 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:51:25,490 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:51:25,491 DEBUG header:71 - >> "[\r][\n]"
+14:51:25,491 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:51:25,492 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:51:25,495 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:51:25,496 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:51:25,497 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:51:25,497 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:51:25,498 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:51:25,498 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:51:25,499 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:51:25,499 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:51:25,500 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:51:25,501 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:51:25,501 DEBUG header:71 - << "[\r][\n]"
+14:51:25,502 DEBUG HttpMethodBase:686 - Buffering response body
+14:51:25,502 DEBUG content:71 - << "OK[\r][\n]"
+14:51:25,503 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:51:25,503 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:51:25,504 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:51:25,504 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:51:25,505 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253485505
+14:51:25,505 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:51:25,506 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:51:40,508 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:51:40,509 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:51:40,509 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:51:40,511 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:51:40,511 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:51:40,512 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:51:40,513 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:51:40,514 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:51:40,515 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:51:40,515 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:51:40,516 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:51:40,516 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:51:40,517 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:51:40,517 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:51:40,518 DEBUG header:71 - >> "[\r][\n]"
+14:51:40,519 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:51:40,519 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:51:40,524 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:51:40,525 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:51:40,526 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:51:40,526 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:51:40,527 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:51:40,527 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:51:40,531 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:51:40,531 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:51:40,532 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:51:40,532 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:51:40,533 DEBUG header:71 - << "[\r][\n]"
+14:51:40,533 DEBUG HttpMethodBase:686 - Buffering response body
+14:51:40,534 DEBUG content:71 - << "OK[\r][\n]"
+14:51:40,534 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:51:40,535 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:51:40,535 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:51:40,536 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:51:40,536 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253500536
+14:51:40,537 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:51:40,537 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:51:55,540 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:51:55,541 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:51:55,542 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:51:55,543 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:51:55,543 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:51:55,544 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:51:55,545 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:51:55,546 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:51:55,546 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:51:55,547 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:51:55,548 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:51:55,548 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:51:55,549 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:51:55,549 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:51:55,550 DEBUG header:71 - >> "[\r][\n]"
+14:51:55,550 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:51:55,551 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:51:55,556 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:51:55,556 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:51:55,557 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:51:55,557 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:51:55,558 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:51:55,559 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:51:55,559 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:51:55,560 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:51:55,560 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:51:55,561 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:51:55,561 DEBUG header:71 - << "[\r][\n]"
+14:51:55,562 DEBUG HttpMethodBase:686 - Buffering response body
+14:51:55,562 DEBUG content:71 - << "OK[\r][\n]"
+14:51:55,563 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:51:55,563 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:51:55,564 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:51:55,564 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:51:55,565 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253515565
+14:51:55,565 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:51:55,566 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+
+14:52:10,567 DEBUG DefaultHttpParams:151 - Set parameter http.socket.timeout = 2000
+14:52:10,567 DEBUG MultiThreadedHttpConnectionManager:413 - HttpConnectionManager.getConnection:  config = HostConfiguration[host=http://127.0.0.1:8080], timeout = 0
+14:52:10,567 DEBUG MultiThreadedHttpConnectionManager:840 - Getting free connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:52:10,569 DEBUG header:71 - >> "POST /diamond-server/config.co HTTP/1.1[\r][\n]"
+14:52:10,569 DEBUG HttpMethodBase:1353 - Adding Host request header
+14:52:10,569 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:52:10,570 DEBUG HttpMethodBase:2343 - Default charset used: ISO-8859-1
+14:52:10,570 DEBUG header:71 - >> "AppName: null[\r][\n]"
+14:52:10,570 DEBUG header:71 - >> "Client-Version: 2.0.5[\r][\n]"
+14:52:10,571 DEBUG header:71 - >> "User-Agent: Jakarta Commons-HttpClient/3.1[\r][\n]"
+14:52:10,571 DEBUG header:71 - >> "Host: 127.0.0.1:8080[\r][\n]"
+14:52:10,571 DEBUG header:71 - >> "Cookie: $Version=0; JSESSIONID=1mob8a594kqql; $Path=/diamond-server[\r][\n]"
+14:52:10,571 DEBUG header:71 - >> "Content-Length: 82[\r][\n]"
+14:52:10,571 DEBUG header:71 - >> "Content-Type: application/x-www-form-urlencoded[\r][\n]"
+14:52:10,572 DEBUG header:71 - >> "[\r][\n]"
+14:52:10,572 DEBUG content:85 - >> "Probe-Modify-Request=com.taobao.tddl.v1_tddl_sample_dbgroups%02DEFAULT_GROUP%02%01"
+14:52:10,572 DEBUG EntityEnclosingMethod:509 - Request body sent
+14:52:10,574 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:52:10,574 DEBUG header:71 - << "HTTP/1.1 200 jsp404jsp[\r][\n]"
+14:52:10,575 DEBUG header:71 - << "Content-Type: text/html; charset=ISO-8859-1[\r][\n]"
+14:52:10,575 DEBUG header:71 - << "Pragma: no-cache[\r][\n]"
+14:52:10,575 DEBUG header:71 - << "Expires: Thu, 01 Jan 1970 00:00:00 GMT[\r][\n]"
+14:52:10,575 DEBUG header:71 - << "Cache-Control: no-cache,no-store[\r][\n]"
+14:52:10,576 DEBUG header:71 - << "Probe-Modify-Response-New: [\r][\n]"
+14:52:10,577 DEBUG header:71 - << "Probe-Modify-Response: [\r][\n]"
+14:52:10,577 DEBUG header:71 - << "Content-Length: 4[\r][\n]"
+14:52:10,578 DEBUG header:71 - << "Server: Jetty(6.0.2)[\r][\n]"
+14:52:10,578 DEBUG header:71 - << "[\r][\n]"
+14:52:10,578 DEBUG HttpMethodBase:686 - Buffering response body
+14:52:10,578 DEBUG content:71 - << "OK[\r][\n]"
+14:52:10,579 DEBUG HttpMethodBase:1025 - Resorting to protocol version default close connection policy
+14:52:10,579 DEBUG HttpMethodBase:1029 - Should NOT close connection, using HTTP/1.1
+14:52:10,579 DEBUG HttpConnection:1179 - Releasing connection back to connection manager.
+14:52:10,579 DEBUG MultiThreadedHttpConnectionManager:980 - Freeing connection, hostConfig=HostConfiguration[host=http://127.0.0.1:8080]
+14:52:10,580 DEBUG IdleConnectionHandler:77 - Adding connection at: 1375253530580
+14:52:10,580 DEBUG MultiThreadedHttpConnectionManager:962 - Notifying no-one, there are no waiting threads
+14:52:10,580 DEBUG DefaultDiamondSubscriber:1397 - probe result:OK
+

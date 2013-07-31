@@ -1,0 +1,67 @@
+2013-07-17 16:13:19,315 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8000
+Connection: keep-alive
+Content-Length: 179
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8000
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8000/diamond/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Cookie: JSESSIONID=rgfthc11ojmg
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.global.qatest_normal_0,DEFAULT_GROUP,ip=127.0.0.1
+port=3306
+dbName=qatest_normal_0
+dbType=mysql
+dbStatus=RW,{message=提交成功!, dataId=com.taobao.tddl.atom.global.qatest_normal_0, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@c26c8f}], ip:127.0.0.1
+2013-07-17 16:13:42,113 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8000
+Connection: keep-alive
+Content-Length: 281
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8000
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8000/diamond/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Cookie: JSESSIONID=rgfthc11ojmg
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.app.tddl_sample.qatest_normal_0,DEFAULT_GROUP,userName=tddl
+minPoolSize=1
+maxPoolSize=2
+idleTimeout=10
+blockingTimeout=5
+preparedStatementCacheSize=15
+connectionProperties=characterEncoding=gbk,{message=提交成功!, dataId=com.taobao.tddl.atom.app.tddl_sample.qatest_normal_0, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@5539d8}], ip:127.0.0.1
+2013-07-17 16:14:48,029 INFO  opLog - 用户:diamond,执行:postConfig，参数为：[POST /diamond/admin.do?method=postConfig HTTP/1.1
+Host: 127.0.0.1:8000
+Connection: keep-alive
+Content-Length: 134
+Cache-Control: max-age=0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Origin: http://127.0.0.1:8000
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31
+Content-Type: application/x-www-form-urlencoded
+Referer: http://127.0.0.1:8000/diamond/jsp/admin/config/new.jsp
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Cookie: JSESSIONID=rgfthc11ojmg
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.passwd.qatest_normal_0.mysql.tddl,DEFAULT_GROUP,encPasswd=5a826c8121945c969bf9844437e00e28,{message=提交成功!, dataId=com.taobao.tddl.atom.passwd.qatest_normal_0.mysql.tddl, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@15291cd}], ip:127.0.0.1

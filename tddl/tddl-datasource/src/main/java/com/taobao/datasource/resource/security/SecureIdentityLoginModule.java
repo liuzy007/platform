@@ -111,7 +111,9 @@ public class SecureIdentityLoginModule {
 	}
 
 	public static void main(String[] args) throws Exception {
-		System.out.println("Encoded password: " + new String(SecureIdentityLoginModule.encode("tddl")));
-		System.out.println("decoded password: " + new String(SecureIdentityLoginModule.decode("5a826c8121945c969bf9844437e00e28")));
+//		System.out.println("Encoded password: " + new String(SecureIdentityLoginModule.encode("tddl")));
+//		System.out.println("decoded password: " + new String(SecureIdentityLoginModule.decode("5a826c8121945c969bf9844437e00e28")));
+		System.out.println("decoded password: " + new String(SecureIdentityLoginModule.decode("This is a finger","5a826c8121945c969bf9844437e00e28")));
+		
 	}
 }

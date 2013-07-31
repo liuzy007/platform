@@ -1,0 +1,26 @@
+2013-07-31 15:49:00,251 WARN  updateLog - 更新数据成功
+dataId=com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl
+group=DEFAULT_GROUP
+oldContent=
+encPasswd=5a826c8121945c969bf9844437e00e28
+newContent=
+encPasswd=5a826c8121945c969bf9844437e00e28
+src ip=null
+2013-07-31 15:49:00,256 WARN  updateLog - 用户:diamond,执行:updateConfig，参数为：[POST /diamond-server/admin.do?method=updateConfig HTTP/1.1
+Host: 127.0.0.1:8080
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.72 Safari/537.36
+Referer: http://127.0.0.1:8080/diamond-server/admin.do?method=detailConfig&group=DEFAULT_GROUP&dataId=com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Cookie: JSESSIONID=1skt97pgxx7nr
+Content-Length: 132
+Cache-Control: max-age=0
+Origin: http://127.0.0.1:8080
+Content-Type: application/x-www-form-urlencoded
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl,DEFAULT_GROUP,encPasswd=5a826c8121945c969bf9844437e00e28,{message=提交成功!, dataId=com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl, group=DEFAULT_GROUP, page=com.taobao.diamond.domain.Page@1a05bdb}], ip:127.0.0.1

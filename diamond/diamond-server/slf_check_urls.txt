@@ -1,0 +1,3 @@
+DEFAULT_GROUP	com.taobao.tddl.atom.global.qatest_normal_0
+DEFAULT_GROUP	com.taobao.tddl.atom.app.tddl_sample.qatest_normal_0
+DEFAULT_GROUP	com.taobao.tddl.atom.passwd.qatest_normal_0.mysql.tddl

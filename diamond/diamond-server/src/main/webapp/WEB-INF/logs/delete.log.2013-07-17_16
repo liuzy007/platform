@@ -1,0 +1,21 @@
+2013-07-17 16:15:04,884 WARN  deleteLog - 数据删除成功
+dataId=4565
+group=DEFAULT_GROUP
+content=
+5766546
+src ip=null
+2013-07-17 16:15:04,885 WARN  deleteLog - 用户:diamond,执行:deleteConfig，参数为：[GET /diamond/admin.do?method=deleteConfig&id=1 HTTP/1.1
+Host: 127.0.0.1:8000
+Connection: keep-alive
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31
+Referer: http://127.0.0.1:8000/diamond/admin.do?dataId=&group=&pageNo=1&method=listConfig&pageSize=15
+Accept-Encoding: gzip,deflate,sdch
+Accept-Language: en-US,en;q=0.8
+Accept-Charset: ISO-8859-1,utf-8;q=0.7,*;q=0.3
+Cookie: JSESSIONID=rgfthc11ojmg
+
+,HTTP/1.1 200 
+Connection: keep-alive
+
+,1,{message=删除成功!}], ip:127.0.0.1
