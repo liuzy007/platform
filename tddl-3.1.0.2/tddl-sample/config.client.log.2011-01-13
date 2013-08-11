@@ -1,0 +1,14 @@
+2011-01-13 19:42:45,812 INFO  - [Global] Logger is initialized along the root file appender: D:\source\tddl-trunk\tddl_sample\config.client.log
+
+2011-01-13 19:42:45,860 INFO  - [Global] Deliverer thread is starting...
+
+2011-01-13 19:42:45,860 INFO  - [Global] Connecting to servers...
+
+2011-01-13 19:42:45,891 INFO  - [Cache] Cache file is not created yet.
+
+2011-01-13 19:42:45,891 INFO  - [Global] Connecting to commonconfig.config-host.taobao.com:9600?priority=0...
+
+2011-01-13 19:42:46,547 INFO  - [Global] Connecting to commonconfig.taobao.net:9600?priority=-1...
+
+2011-01-13 19:42:46,609 INFO  - [Global] Successfully connected to server: commonconfig.taobao.net:9600?priority=-1
+

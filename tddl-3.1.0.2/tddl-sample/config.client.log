@@ -1,0 +1,297 @@
+2011-05-27 14:29:10,815 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 14:29:10,848 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 14:29:10,851 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 14:29:10,859 INFO  ConfigClientWorker-Default       - [Cache] Cache file is not created yet.
+2011-05-27 14:29:10,861 INFO  ConfigClientWorker-Default       - [Global] Connecting to commonconfig.config-host.taobao.com:9600?priority=0...
+2011-05-27 14:29:11,525 INFO  ConfigClientWorker-Default       - [Global] Connecting to commonconfig.taobao.net:9600?priority=-1...
+2011-05-27 14:29:11,551 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: commonconfig.taobao.net:9600?priority=-1
+2011-05-27 14:29:13,785 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.1 for com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:13,785 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:13,787 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 14:29:13,787 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.1 for com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 14:29:13,787 INFO  ConfigClientWorker-Default       - [Message] ClientInformationElement packed.
+2011-05-27 14:29:15,821 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.2 for com.taobao.tddl.jdbc.group_V2.4.1_sample_group_1.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,821 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.5 for com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,821 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.10 for com.taobao.tddl.atom.global.tddl_sample_0.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,821 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.12 for com.taobao.tddl.atom.passwd.tddl_sample_0.mysql.tddl.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,822 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.9 for com.taobao.tddl.jdbc.group_V2.4.1_sample_group_0.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,822 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.15 for com.taobao.tddl.atom.passwd.tddl_sample_0_bac.mysql.tddl.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,822 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.config.serverlist, Revision: 1, Count: 2, String[0]: remoting://10.232.16.8:9600?priority=0)
+2011-05-27 14:29:15,823 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.13 for com.taobao.tddl.atom.global.tddl_sample_0_bac.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,823 INFO  ConfigClientWorker-Default       - [Success] Registration of Cacheable Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) is accepted.
+2011-05-27 14:29:15,823 INFO  ConfigClientNotifier             - [Notifier] Notify Cacheable Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 14:29:15,823 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.7 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1_bac.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,823 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 14:29:15,823 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.17 for com.taobao.tddl.v1_tddl_sample_tddlconfig.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,823 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.16 for com.taobao.tddl.jdbc.client.sqlexecutor.tddl_sample.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,823 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.4 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,823 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.6 for com.taobao.tddl.atom.global.tddl_sample_1_bac.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,823 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.11 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,824 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.3 for com.taobao.tddl.atom.global.tddl_sample_1.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,824 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.14 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0_bac.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,824 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.8 for com.taobao.tddl.atom.passwd.tddl_sample_1_bac.mysql.tddl.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:29:15,824 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.jdbc.group_V2.4.1_sample_group_1.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,824 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.2 for com.taobao.tddl.jdbc.group_V2.4.1_sample_group_1.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 14:29:15,824 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1_bac.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,824 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.global.tddl_sample_1_bac.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,824 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.7 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1_bac.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 14:29:15,824 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.global.tddl_sample_1.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,825 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.jdbc.client.sqlexecutor.tddl_sample.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,825 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.6 for com.taobao.tddl.atom.global.tddl_sample_1_bac.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (1 pending notifications)
+2011-05-27 14:29:15,825 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.passwd.tddl_sample_0_bac.mysql.tddl.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,825 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0_bac.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,825 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.3 for com.taobao.tddl.atom.global.tddl_sample_1.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (2 pending notifications)
+2011-05-27 14:29:15,825 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.global.tddl_sample_0_bac.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,825 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.global.tddl_sample_0.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,825 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.16 for com.taobao.tddl.jdbc.client.sqlexecutor.tddl_sample.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (3 pending notifications)
+2011-05-27 14:29:15,825 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,825 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,825 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.15 for com.taobao.tddl.atom.passwd.tddl_sample_0_bac.mysql.tddl.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (4 pending notifications)
+2011-05-27 14:29:15,826 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.jdbc.group_V2.4.1_sample_group_0.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,826 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.passwd.tddl_sample_0.mysql.tddl.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,826 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.14 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0_bac.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (5 pending notifications)
+2011-05-27 14:29:15,826 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.v1_tddl_sample_tddlconfig.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,826 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,826 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.13 for com.taobao.tddl.atom.global.tddl_sample_0_bac.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (6 pending notifications)
+2011-05-27 14:29:15,826 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.passwd.tddl_sample_1_bac.mysql.tddl.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:29:15,826 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.10 for com.taobao.tddl.atom.global.tddl_sample_0.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (7 pending notifications)
+2011-05-27 14:29:15,827 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.11 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (6 pending notifications)
+2011-05-27 14:29:15,827 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.5 for com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (5 pending notifications)
+2011-05-27 14:29:15,827 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.9 for com.taobao.tddl.jdbc.group_V2.4.1_sample_group_0.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (4 pending notifications)
+2011-05-27 14:29:15,827 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.12 for com.taobao.tddl.atom.passwd.tddl_sample_0.mysql.tddl.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (3 pending notifications)
+2011-05-27 14:29:15,827 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.17 for com.taobao.tddl.v1_tddl_sample_tddlconfig.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (2 pending notifications)
+2011-05-27 14:29:15,828 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.4 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (1 pending notifications)
+2011-05-27 14:29:15,828 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.8 for com.taobao.tddl.atom.passwd.tddl_sample_1_bac.mysql.tddl.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 14:30:55,997 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 14:30:55,999 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 14:30:56,030 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 14:30:56,032 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 14:30:56,045 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 14:30:56,047 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 14:30:56,048 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 14:30:56,048 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 14:30:56,048 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 14:30:56,051 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 14:30:56,051 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 14:30:56,053 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.8:9600?priority=0...
+2011-05-27 14:30:56,221 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.8:9600?priority=0
+2011-05-27 14:30:58,449 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.1 for com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:30:58,450 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:30:58,450 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.1 for com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 14:30:58,450 INFO  ConfigClientWorker-Default       - [Message] ClientInformationElement packed.
+2011-05-27 14:31:47,837 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 14:31:47,839 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 14:31:47,869 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 14:31:47,872 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 14:31:47,884 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 14:31:47,887 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 14:31:47,890 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 14:31:47,890 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 14:31:47,890 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 14:31:47,890 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 14:31:47,890 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 14:31:47,892 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.8:9600?priority=0...
+2011-05-27 14:31:48,046 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.8:9600?priority=0
+2011-05-27 14:32:30,530 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 14:32:30,533 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 14:32:30,571 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 14:32:30,573 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 14:32:30,586 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 14:32:30,588 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 14:32:30,591 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 14:32:30,591 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 14:32:30,591 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 14:32:30,591 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 14:32:30,592 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 14:32:30,593 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.9:9600?priority=0...
+2011-05-27 14:32:30,734 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.9:9600?priority=0
+2011-05-27 14:32:32,800 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.1 for com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 14:32:32,801 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime, Revision: 1, Empty)
+2011-05-27 14:32:32,801 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.1 for com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 14:32:32,801 INFO  ConfigClientWorker-Default       - [Message] ClientInformationElement packed.
+2011-05-27 14:33:19,924 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 14:33:19,926 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 14:33:19,956 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 14:33:19,959 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 14:33:19,972 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 14:33:19,974 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 14:33:19,977 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 14:33:19,978 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 14:33:19,978 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 14:33:19,978 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 14:33:19,978 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 14:33:19,980 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.9:9600?priority=0...
+2011-05-27 14:33:20,146 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.9:9600?priority=0
+2011-05-27 14:34:29,240 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 14:34:29,242 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 14:34:29,284 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 14:34:29,286 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 14:34:29,302 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 14:34:29,307 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 14:34:29,307 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 14:34:29,307 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 14:34:29,308 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 14:34:29,309 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 14:34:29,309 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 14:34:29,309 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.8:9600?priority=0...
+2011-05-27 14:34:29,475 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.8:9600?priority=0
+2011-05-27 15:13:35,792 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 15:13:35,794 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 15:13:35,826 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 15:13:35,828 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 15:13:35,839 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 15:13:35,844 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 15:13:35,844 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 15:13:35,845 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 15:13:35,845 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 15:13:35,845 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 15:13:35,845 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 15:13:35,848 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.8:9600?priority=0...
+2011-05-27 15:13:35,993 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.8:9600?priority=0
+2011-05-27 15:16:40,844 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 15:16:40,847 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 15:16:40,879 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 15:16:40,882 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 15:16:40,897 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 15:16:40,900 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 15:16:40,900 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 15:16:40,900 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 15:16:40,900 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 15:16:40,902 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.8:9600?priority=0...
+2011-05-27 15:16:40,902 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 15:16:40,902 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 15:16:41,036 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.8:9600?priority=0
+2011-05-27 15:17:03,851 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 15:17:03,853 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 15:17:03,886 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 15:17:03,889 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 15:17:03,899 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 15:17:03,901 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 15:17:03,901 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 15:17:03,902 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 15:17:03,902 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 15:17:03,902 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 15:17:03,902 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 15:17:03,904 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.9:9600?priority=0...
+2011-05-27 15:17:04,068 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.9:9600?priority=0
+2011-05-27 15:18:06,070 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 15:18:06,073 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 15:18:06,104 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 15:18:06,107 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 15:18:06,122 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 15:18:06,124 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 15:18:06,124 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 15:18:06,125 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 15:18:06,125 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 15:18:06,125 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 15:18:06,125 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 15:18:06,127 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.8:9600?priority=0...
+2011-05-27 15:18:06,269 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.8:9600?priority=0
+2011-05-27 15:21:09,643 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 15:21:09,646 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 15:21:09,695 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 15:21:09,705 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 15:21:09,721 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 15:21:09,728 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 15:21:09,729 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 15:21:09,729 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 15:21:09,730 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 15:21:09,731 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 15:21:09,731 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 15:21:09,735 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.8:9600?priority=0...
+2011-05-27 15:21:10,083 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.8:9600?priority=0
+2011-05-27 15:21:12,389 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.1 for com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:12,400 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:12,401 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.1 for com.taobao.tddl.v1_tddl_sample_dbgroups.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:12,405 INFO  ConfigClientWorker-Default       - [Message] ClientInformationElement packed.
+2011-05-27 15:21:14,471 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.3 for com.taobao.tddl.atom.global.tddl_sample_1.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,471 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.config.serverlist, Revision: 1, Count: 2, String[0]: remoting://10.232.16.8:9600?priority=0)
+2011-05-27 15:21:14,471 INFO  ConfigClientWorker-Default       - [Success] Registration of Cacheable Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) is accepted.
+2011-05-27 15:21:14,471 INFO  ConfigClientNotifier             - [Notifier] Notify Cacheable Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 15:21:14,471 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.2 for com.taobao.tddl.jdbc.group_V2.4.1_sample_group_1.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,472 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 15:21:14,472 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.4 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,472 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.14 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0_bac.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,472 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.17 for com.taobao.tddl.v1_tddl_sample_tddlconfig.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,472 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.12 for com.taobao.tddl.atom.passwd.tddl_sample_0.mysql.tddl.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,472 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.5 for com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,472 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.11 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,472 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.10 for com.taobao.tddl.atom.global.tddl_sample_0.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,473 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.13 for com.taobao.tddl.atom.global.tddl_sample_0_bac.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,473 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.9 for com.taobao.tddl.jdbc.group_V2.4.1_sample_group_0.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,473 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.15 for com.taobao.tddl.atom.passwd.tddl_sample_0_bac.mysql.tddl.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,473 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.8 for com.taobao.tddl.atom.passwd.tddl_sample_1_bac.mysql.tddl.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,473 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.6 for com.taobao.tddl.atom.global.tddl_sample_1_bac.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,473 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.16 for com.taobao.tddl.jdbc.client.sqlexecutor.tddl_sample.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,473 INFO  ConfigClientWorker-Default       - [Success] Registration of Subscriber (diamondRealTime.7 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1_bac.diamondRealTime) in group diamondRealTime is accepted.
+2011-05-27 15:21:14,473 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.jdbc.group_V2.4.1_sample_group_1.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,474 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.2 for com.taobao.tddl.jdbc.group_V2.4.1_sample_group_1.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,474 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1_bac.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,474 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.7 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1_bac.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,474 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.global.tddl_sample_1_bac.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,474 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.6 for com.taobao.tddl.atom.global.tddl_sample_1_bac.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,474 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.global.tddl_sample_1.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,474 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.3 for com.taobao.tddl.atom.global.tddl_sample_1.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,474 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.jdbc.client.sqlexecutor.tddl_sample.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,475 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.16 for com.taobao.tddl.jdbc.client.sqlexecutor.tddl_sample.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,475 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.passwd.tddl_sample_0_bac.mysql.tddl.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,475 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.15 for com.taobao.tddl.atom.passwd.tddl_sample_0_bac.mysql.tddl.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,475 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0_bac.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,475 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.14 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0_bac.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,475 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.global.tddl_sample_0_bac.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,476 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.13 for com.taobao.tddl.atom.global.tddl_sample_0_bac.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,476 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.global.tddl_sample_0.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,476 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.10 for com.taobao.tddl.atom.global.tddl_sample_0.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,476 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,476 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.11 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_0.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,476 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,477 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.jdbc.group_V2.4.1_sample_group_0.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,477 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.5 for com.taobao.tddl.atom.passwd.tddl_sample_1.mysql.tddl.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,477 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.passwd.tddl_sample_0.mysql.tddl.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,477 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.9 for com.taobao.tddl.jdbc.group_V2.4.1_sample_group_0.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:21:14,479 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.v1_tddl_sample_tddlconfig.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,479 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,479 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.12 for com.taobao.tddl.atom.passwd.tddl_sample_0.mysql.tddl.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (1 pending notifications)
+2011-05-27 15:21:14,479 INFO  ConfigClientWorker-Default       - [Data] Received. (ID: com.taobao.tddl.atom.passwd.tddl_sample_1_bac.mysql.tddl.diamondRealTime, Revision: 1, Empty)
+2011-05-27 15:21:14,479 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.17 for com.taobao.tddl.v1_tddl_sample_tddlconfig.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (1 pending notifications)
+2011-05-27 15:21:14,479 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.4 for com.taobao.tddl.atom.app.tddl_sample.tddl_sample_1.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1> (1 pending notifications)
+2011-05-27 15:21:14,480 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (diamondRealTime.8 for com.taobao.tddl.atom.passwd.tddl_sample_1_bac.mysql.tddl.diamondRealTime) in group diamondRealTime <class com.taobao.diamond.client.impl.DefaultDiamondSubscriber$1>
+2011-05-27 15:23:01,009 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 15:23:01,011 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 15:23:01,043 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 15:23:01,045 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 15:23:01,058 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 15:23:01,060 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 15:23:01,060 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 15:23:01,060 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 15:23:01,061 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 15:23:01,062 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.8:9600?priority=0...
+2011-05-27 15:23:01,062 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 15:23:01,063 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 15:23:01,196 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.8:9600?priority=0
+2011-05-27 15:23:29,052 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 15:23:29,055 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 15:23:29,087 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 15:23:29,091 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 15:23:29,107 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 15:23:29,109 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 15:23:29,109 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 15:23:29,110 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 15:23:29,110 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 15:23:29,111 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 15:23:29,111 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 15:23:29,154 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.8:9600?priority=0...
+2011-05-27 15:23:29,260 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.8:9600?priority=0
+2011-05-27 15:24:26,547 INFO  main                             - [Global] Logger is initialized.
+2011-05-27 15:24:26,550 INFO  main                             - [Global] Logger is attached to the folder of root file appender.
+2011-05-27 15:24:26,583 INFO  ConfigClientWorker-Default       - [Global] Deliverer thread is starting...
+2011-05-27 15:24:26,585 INFO  ConfigClientWorker-Default       - [Global] Connecting to servers...
+2011-05-27 15:24:26,598 INFO  ConfigClientWorker-Default       - [Global] Persistent cache is loaded successfully. (1 entries)
+2011-05-27 15:24:26,603 INFO  ConfigClientWorker-Default       - [Notifier] Notifier thread is starting...
+2011-05-27 15:24:26,603 INFO  ConfigClientNotifier             - [Notifier] Notify Subscriber (com.taobao.config.client.ServerListSynchronizer.1 for com.taobao.config.serverlist) <class com.taobao.config.client.ServerListSynchronizer$1>
+2011-05-27 15:24:26,603 INFO  ConfigClientNotifier             - [Cluster] Server list received: 2 entries.
+2011-05-27 15:24:26,604 INFO  ConfigClientWorker-Default       - [Cluster] Server list is updated. (2 servers)
+2011-05-27 15:24:26,604 INFO  ConfigClientWorker-Default       - [Cluster] Server 1: 10.232.16.8:9600?priority=0
+2011-05-27 15:24:26,604 INFO  ConfigClientWorker-Default       - [Cluster] Server 2: 10.232.16.9:9600?priority=0
+2011-05-27 15:24:26,606 INFO  ConfigClientWorker-Default       - [Global] Connecting to 10.232.16.8:9600?priority=0...
+2011-05-27 15:24:26,757 INFO  ConfigClientWorker-Default       - [Global] Successfully connected to server: 10.232.16.8:9600?priority=0

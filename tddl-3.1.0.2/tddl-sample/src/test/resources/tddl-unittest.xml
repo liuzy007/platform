@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	<bean id="root" class="com.taobao.tddl.common.config.beans.AppRule" init-method="init">
+		<property name="readwriteRule" ref="readwriteRule" />
+	</bean>
+	<!-- ============================================================================ -->
+	<!-- == 只有一个库，一个dbindex对应到一个数据库组包含读写库的分库方法  == -->
+	<!-- ============================================================================ -->
+	<bean id="readwriteRule" class="com.taobao.tddl.common.config.beans.ShardRule">
+		<!--标识当前datasource是被mysql使用的-->
+		<property name="dbtype" value="MYSQL" />
+		<property name="tableRules">
+            <map><!--虚拟表名 to 分表规则的映射-->
+                <entry key="mod" value-ref="mod" />
+				<entry key="mod_judge" value-ref="mod_judge"/>
+				<entry key="collect_item" value-ref="collect_item"/>
+				<entry key="gmt_single" value-ref="gmt_single"/>
+				<entry key="rightconv" value-ref="rightconv"/>
+				<entry key="gmt" value-ref="gmt"/>
+				<!--<entry key="mappingStrId" value-ref="mappingStrId"/>-->
+				<entry key="collect_tag" value-ref="collect_tag"/>
+				<entry key="comment_count" value-ref="comment_count"/>
+				<entry key="comments" value-ref="comments"/>
+				<entry key="collect_clear_ctl" value-ref="collect_clear_ctl"/>
+            </map>
+		</property>
+		<property name="defaultDbIndex" value="dbgroup_common"/>
+	</bean>
+	<!-- 所有规则的公共规则 -->
+    <bean id="commonTableRule1024" abstract="true" init-method="init" class="com.taobao.tddl.common.config.beans.TableRule">
+		<property name="dbIndexPrefix" value="dbgroup"/>
+		<property name="dbIndexCount" value="16"/>
+		<property name="tbNumForEachDb" value="64"/>
+		<property name="tbSuffixWidth" value="1"/>
+		<property name="tbSuffixPadding" value="_"/>
+		<property name="dbRules" value="(Long.valueOf(#id#.longValue()) % 1024).intdiv(64)"/>
+		<property name="tbRules" value="Long.valueOf(#id#.longValue()) % 64"/>
+    </bean>
+    <!--使用公共规则的表规则配置，取模，分16个库 64个表-->
+	<bean id="mod"  parent="commonTableRule1024"/>
+
+	<!--独立的使用id进行取模分表的规则-->
+	<bean id="mod_judge" init-method="init" class="com.taobao.tddl.common.config.beans.TableRule">
+		<property name="dbIndexes" value="dbgroup00"/>
+		<property name="tbSuffixWidth" value="1"/>
+		<property name="tbSuffixPadding" value="_"/>
+		<property name="tbNumForEachDb" value="64"/>
+		<property name="tbRules" value="Long.valueOf(#id#.longValue()) % 64"/>
+    </bean>
+
+	
+	<!--分库规则取右边两位，分16个库，16张表。-->
+	<bean id="rightconv" init-method="init" class="com.taobao.tddl.common.config.beans.TableRule">
+		<property name="dbIndexPrefix" value="dbgroup"/>
+		<property name="dbIndexCount" value="16"/>
+		<property name="tbNumForEachDb" value="16"/>
+		<property name="tbSuffixWidth" value="4"/>
+		<property name="dbRules" value="(Integer.valueOf(right(#id#,2),16) % 256 ).intdiv(16)"/>
+		<property name="tbRules" value="Integer.valueOf(right(#id#,2),16) % 16"/>
+    </bean>
+    <!--独立的使用collect_item进行分16个库每个库16张表的规则-->
+	<bean id="collect_item" init-method="init" class="com.taobao.tddl.common.config.beans.TableRule">
+		<property name="dbIndexPrefix" value="dbgroup"/>
+		<property name="dbIndexCount" value="16"/>
+		<property name="tbNumForEachDb" value="16"/>
+		<property name="tbSuffixWidth" value="4"/>
+		<property name="dbRules" value="(#collect_item_id# % 256).intdiv(16)"/>
+		<property name="tbRules" value=" #collect_item_id# % 16"/>
+    </bean>
+    
+	<!--使用id分库，使用gmt_create进行dayofweek分表的规则-->
+    <bean id="gmt" init-method="init" class="com.taobao.tddl.common.config.beans.TableRule">
+		<property name="dbIndexPrefix" value="dbgroup"/>
+		<property name="dbIndexCount" value="16"/>
+		<property name="tbSuffix" value="resetForEachDB:[_0-_6]"/>
+		<property name="tbSuffixWidth" value="1"/>
+		<property name="tbSuffixPadding" value="_"/>
+		<property name="dbRules" value="(Long.valueOf(#id#.longValue()) % 1024).intdiv(64)"/>
+		<property name="tbRules" value="dayofweek(#gmt,1,7#)"/>
+    </bean>
+    
+ 	 <!--独立的使用gmt_create进行dayofweek分表的规则-->
+    <bean id="gmt_single" init-method="init" class="com.taobao.tddl.common.config.beans.TableRule">
+		<property name="dbIndexes" value="dbgroup00"/>
+		<property name="tbSuffix" value="resetForEachDB:[_0-_6]"/>
+		<property name="tbSuffixWidth" value="1"/>
+		<property name="tbSuffixPadding" value="_"/>
+		<property name="tbRules" value="dayofweek(#gmt#)"/>
+    </bean>
+    <!--不需要分表的规则-->
+    <bean id="noshardTableRule" abstract="true" init-method="init" class="com.taobao.tddl.common.config.beans.TableRule"/>
+	<bean id="forbidden_collect_item" parent="noshardTableRule">  
+        <property name="dbIndexes" value="dbgroup_COMM"/>
+    </bean>
+	<bean id="collect_tag" parent="noshardTableRule">
+	    <property name="dbIndexes" value="dbgroup_TAG" />
+    </bean>
+	<bean id="comment_count" parent="noshardTableRule">
+	    <property name="dbIndexes" value="dbgroup_COMMENT" />
+    </bean>
+	<bean id="comments" parent="comment_count"/>
+	<bean id="collect_clear_ctl" parent="noshardTableRule">
+	    <property name="dbIndexes" value="dbgroup_COMM" />
+    </bean>
+  
+</beans>

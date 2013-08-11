@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+	 <bean id="vtabroot" class="com.taobao.tddl.rule.VirtualTableRoot"
+      init-method="init">
+      <property name="dbType" value="MYSQL" />
+      <property name="tableRules">
+         <map>
+            <entry key="modDBTab" value-ref="modDBTab_bean" />
+         </map>
+      </property>
+   </bean>
+
+   <bean id="modDBTab_bean" class="com.taobao.tddl.rule.config.TableRule">
+      <property name="dbNamePattern" value="sample_group_{0}" />
+      <property name="tbNamePattern" value="modDBTab_{0000}" />
+      <property name="tbRuleArray">
+         <value>#pk,1,4#.longValue() % 4</value>
+      </property>
+      <property name="dbRuleArray">
+          <value>(#pk,1,4#.longValue() % 4).intdiv(2)</value>
+      </property>
+   </bean>
+</beans>
