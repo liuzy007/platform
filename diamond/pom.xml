@@ -95,9 +95,9 @@
 
 		</plugins>
 
-		<filters>
-			<filter>${user.home}/antx.properties</filter>
-		</filters>
+<!-- 		<filters> -->
+<!-- 			<filter>${user.home}/antx.properties</filter> -->
+<!-- 		</filters> -->
 
 		<resources>
 			<resource>
