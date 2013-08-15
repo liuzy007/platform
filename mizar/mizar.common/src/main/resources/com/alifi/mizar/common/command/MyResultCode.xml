@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="GB2312"?>
+<resource-bundle name="MyResultCode">
+    <message id="SHIT_HAPPENS">
+        <data>踩大便了！</data>
+    </message>
+</resource-bundle>

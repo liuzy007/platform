@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:services="http://www.alibaba.com/schema/services"
+    xmlns:mapping-rules="http://www.alibaba.com/schema/services/mapping-rules"
+    xmlns:pull-factories="http://www.alibaba.com/schema/services/pull/factories"
+    xmlns:request-contexts="http://www.alibaba.com/schema/services/request-contexts"
+    xmlns:session-encoders="http://www.alibaba.com/schema/services/request-contexts/session/encoders"
+    xmlns:model-encoders="http://www.alibaba.com/schema/services/request-contexts/session/model-encoders"
+    xmlns:session-idgens="http://www.alibaba.com/schema/services/request-contexts/session/idgens"
+    xmlns:session-stores="http://www.alibaba.com/schema/services/request-contexts/session/stores"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+        http://www.alibaba.com/schema/services http://localhost:8080/schema/services.xsd
+        http://www.alibaba.com/schema/services/mapping-rules http://localhost:8080/schema/services-mapping-rules.xsd
+        http://www.alibaba.com/schema/services/pull/factories http://localhost:8080/schema/services-pull-factories.xsd
+        http://www.alibaba.com/schema/services/request-contexts http://localhost:8080/schema/services-request-contexts.xsd
+        http://www.alibaba.com/schema/services/request-contexts/session/encoders http://localhost:8080/schema/services-request-contexts-session-encoders.xsd
+        http://www.alibaba.com/schema/services/request-contexts/session/idgens http://localhost:8080/schema/services-request-contexts-session-idgens.xsd
+        http://www.alibaba.com/schema/services/request-contexts/session/stores http://localhost:8080/schema/services-request-contexts-session-stores.xsd
+        http://www.alibaba.com/schema/services/request-contexts/session/model-encoders http://localhost:8080/schema/services-request-contexts-session-model-encoders.xsd
+        http://www.springframework.org/schema/beans http://localhost:8080/schema/www.springframework.org/schema/beans/spring-beans.xsd
+    ">
+
+    <!-- 基础配置。 -->
+    <beans:import resource="common/webx-root.xml" />
+
+    <!-- 资源装载。 -->
+    <beans:import resource="common/resources.xml" />
+
+    <!-- URI生成。 -->
+    <beans:import resource="common/uris.xml" />
+    
+    <!-- Mizar Business Configuration -->
+	<beans:import resource="spring/mizar-dubbo.xml" />
+	<beans:import resource="spring/mizar-dubbo-reference.xml" />
+	<beans:import resource="spring/mizar-datasource.xml" />
+	<beans:import resource="spring/mizar-service-local.xml" />
+	<beans:import resource="spring/mizar-beans.xml" /> 
+	<beans:import resource="spring/mizar-dao.xml" /> 
+	<beans:import resource="spring/mizar-biz.xml" />  
+	<beans:import resource="spring/mizar-chain.xml" />
+
+    <!-- 综合设置。 -->
+    <services:webx-configuration>
+        <!-- 默认将productionMode设为true，建议在jetty插件中设置-DproductionMode=false。 -->
+        <services:productionMode>${productionMode:true}</services:productionMode>
+        <services:components defaultComponent="gateway" />
+    </services:webx-configuration>
+
+    <!-- 设置request/response/session。 -->
+    <services:request-contexts xmlns="http://www.alibaba.com/schema/services/request-contexts">
+        <basic />
+        <buffered />
+        <lazy-commit />
+        <parser />
+        <set-locale defaultLocale="zh_CN" defaultCharset="UTF-8" />
+        <session>
+            <id>
+                <cookie path="/" maxAge="0" httpOnly="true" />
+            </id>
+            <stores>
+                <session-stores:cookie-store id="temporaryCookie">
+                    <session-stores:cookie name="tmp" />
+                </session-stores:cookie-store>
+            </stores>
+            <store-mappings>
+                <match name="*" store="temporaryCookie" />
+            </store-mappings>
+        </session>
+        <rewrite>
+        	<rule pattern="/api/json2/1/ali.aliloan/gateway">
+        		<substitution uri="/gateway.do" flags="QSA">
+        			<parameter key="format" value="json" />
+        		</substitution>
+        	</rule>
+        	<rule pattern="/api/xml2/1/ali.aliloan/gateway">
+        		<substitution uri="/gateway.do" flags="QSA">
+        			<parameter key="format" value="xml" />
+        		</substitution>
+        	</rule>
+        	<rule pattern="/api/http/1/ali.aliloan/receiveComplaint">
+        		<substitution uri="/receiveComplaint.do" flags="QSA"/>
+        	</rule>
+        	<rule pattern="/api/http/1/ali.aliloan/handleNotification">
+        		<substitution uri="/alipayNotification.do" flags="QSA"/>
+        	</rule>
+        	<rule pattern="/api/hessian/1/alifi\.napoli/sender\.to\.venus">
+        		<substitution uri="/hessian.do" flags="QSA"/>
+        	</rule>
+        </rewrite>
+    </services:request-contexts>
+
+    <!-- 支持上传文件。 -->
+    <services:upload sizeMax="500M" />
+
+    <!-- 将beans暴露给模板。这里定义的tools可被所有components之间共享。 -->
+    <services:pull xmlns="http://www.alibaba.com/schema/services/pull/factories">
+        <page-tool />
+    </services:pull>
+    
+    <services:reload-config/>
+
+</beans:beans>

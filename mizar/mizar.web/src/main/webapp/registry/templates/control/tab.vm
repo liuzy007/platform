@@ -1,0 +1,45 @@
+            #if($tab == 'edit')
+            <div class="tab mb">
+                <ul>
+                    <li#if($active == 'info') class="active"#end>
+                        <a href="$registryLink.setTarget('servicesEdit.vm').addQueryData('serviceId', $!serviceId)"><span>编辑基本信息</span></a>
+                    </li>		
+                    <li#if($active == 'inputParam') class="active"#end>
+                        <a href="$registryLink.setTarget('addInputParam.vm').addQueryData('serviceId', $!serviceId)"><span>增加参数</span></a>
+                    </li>
+                    	
+					          #if($active == 'info')
+                      <li class="f-r">
+                        <a href="$registryLink.setTarget('servicesInfo.vm').addQueryData('serviceId', $!serviceId)"><span>查看</span></a>
+                      </li>
+					          #end
+					          #if($active == 'inputParam')
+                      <li class="f-r">
+                        <a href="$registryLink.setTarget('inputParams.vm').addQueryData('serviceId', $!serviceId)"><span>查看</span></a>
+                      </li>
+					          #end
+                </ul>
+            </div>
+            #else
+              <div class="tab">
+                <ul>    
+                    <li#if($active == 'info') class="active"#end>
+                        <a href="$registryLink.setTarget('servicesInfo.vm').addQueryData('serviceId', $!serviceId)"><span>基本信息</span></a>
+                    </li>
+                    <li#if($active == 'inputParam') class="active"#end>
+                        <a href="$registryLink.setTarget('inputParams.vm').addQueryData('serviceId', $!serviceId)"><span>参数列表</span></a>
+                    </li>
+
+					          #if($active == 'info')
+                      <li class="f-r">
+                        <a href="$registryLink.setTarget('servicesEdit.vm').addQueryData('serviceId', $!serviceId)"><span>编辑</span></a>
+                      </li>
+					          #end
+					          #if($active == 'inputParam')
+                      <li class="f-r">
+                        <a href="$registryLink.setTarget('addInputParam.vm').addQueryData('serviceId', $!serviceId)"><span>增加</span></a>
+                      </li>
+					          #end	
+                </ul>
+              </div>
+            #end

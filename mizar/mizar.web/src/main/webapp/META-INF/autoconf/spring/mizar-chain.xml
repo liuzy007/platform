@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+http://www.springframework.org/schema/util
+http://www.springframework.org/schema/util/spring-util-2.5.xsd">
+ 
+	<bean name="gatewayChain" class="org.apache.commons.chain.impl.ChainBase">
+		<constructor-arg>
+			<util:list>
+				<ref bean="checkNecessaryParamsCommand" />
+				<ref bean="checkPartnerTypeCommand" />
+				<ref bean="validatePartnerPermissionCommand" />
+				<ref bean="validateSignCommand" />
+				<ref bean="validateInputParamsCommand"/>
+				<ref bean="invokeServiceCommand" />
+                <ref bean="addSignCommand" />
+			</util:list>
+		</constructor-arg>
+	</bean>
+ 	
+ 	<bean name="checkNecessaryParamsCommand" class="com.alifi.mizar.chain.CheckNecessaryParamsCommand">
+		<property name="necessaryParams">
+			<list>
+				<value>service</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean name="checkPartnerTypeCommand" class="com.alifi.mizar.chain.CheckPartnerTypeCommand">
+		<property name="allowedTypes" value="${mizar_partner_allowed_types}" />
+	</bean>
+ 
+	<bean name="validateInputParamsCommand" class="com.alifi.mizar.chain.ValidateInputParamsCommand" />
+	
+	<bean name="invokeServiceCommand" class="com.alifi.mizar.chain.InvokeServiceCommand" />
+	
+	<bean name="validatePartnerPermissionCommand" class="com.alifi.mizar.chain.ValidatePartnerPermissionCommand" />
+	
+	<bean name="validateSignCommand" class="com.alifi.mizar.chain.ValidateSignCommand" />
+
+    <bean name="addSignCommand" class="com.alifi.mizar.chain.AddSignCommand" />
+</beans>

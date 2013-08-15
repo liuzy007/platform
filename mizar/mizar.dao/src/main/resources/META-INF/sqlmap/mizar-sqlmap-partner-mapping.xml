@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="partner">
+	<typeAlias alias="partner" type="com.alifi.mizar.common.vo.Partner" />
+	<!-- object to table mapper -->
+	<resultMap id="Partner" class="partner">
+		<result property="id" column="id" />
+		<result property="username" column="username" />
+		<result property="password" column="password" />
+		<result property="description" column="description" />
+		<result property="type" column="type" />
+	</resultMap>
+	
+    <insert id="insert" parameterClass="Partner">
+    	<selectKey resultClass="int" keyProperty="id" >
+            SELECT SEQ_MIZAR_PARTNER.NEXTVAL AS ID FROM dual
+        </selectKey> 
+    	INSERT INTO MIZAR_PARTNER(
+    		ID, 
+    		GMT_CREATED, 
+    		GMT_MODIFIED, 
+    		USERNAME, 
+    		PASSWORD, 
+   			ROLE, 
+   			DESCRIPTION,
+   			TYPE
+   		) VALUES (
+   			#id#,
+   			SYSDATE,
+   			SYSDATE,
+   			#username#,
+   			#password#,
+   			#role#,
+   			#description#,
+   			#type#
+   		)
+    </insert>
+    
+    <select id="list" resultMap="Partner">
+    	SELECT
+    		id,
+    		username,
+    		password,
+    		description,
+    		type
+    	FROM
+    		mizar_partner
+    </select>
+    
+    <select id="queryById" parameterClass="java.lang.Integer" resultMap="Partner">
+    	SELECT
+    		id,
+    		username,
+    		password,
+    		description,
+    		type
+    	FROM
+    		mizar_partner
+        WHERE
+            id=#value#
+    </select>
+    
+    <delete id="deleteById" parameterClass="java.lang.Integer">
+    	DELETE FROM 
+    		mizar_partner
+    	WHERE
+    		id=#value#
+    </delete>
+</sqlMap>

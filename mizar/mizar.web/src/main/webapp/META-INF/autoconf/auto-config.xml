@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="gb2312"?>
+<config description="自动配置">
+	<group name="mizar.dubbo">
+		<property name="mizar.dubbo.registry.address" defaultValue="10.20.148.2:9090" description="dubbo注册中心地址"/>
+		<property name="mizar.dubbo.monitor.address" defaultValue="10.20.130.231:12080" description="dubbo监测中心地址" />
+		<property name="mizar.dubbo.logging.root" defaultValue="." description="日志根目录" />
+		<property name="mizar.dubbo.service.server.port" defaultValue="20880" description="dubbo服务端口" />
+		<property name="mizar.dubbo.service.console.port" defaultValue="30880" description="console port" />
+		<property name="mizar.dubbo.logging.level" defaultValue="DEBUG" description="日志等级" />
+		<property name="mizar.dubbo.service.allow.no.provider" defaultValue="true" description="是否允许在服务没有启动的情况下启动客户端" />
+		<property name="mizar.dubbo.service.max.retry.times" defaultValue="1" description="最大重试次数" />
+		<property name="mizar.dubbo.service.max.retry.providers" defaultValue="1" description="重试服务器数量" />
+		<property name="mizar.dubbo.service.invoke.timeout" defaultValue="3000" description="默认超时时间" />
+		<property name="mizar.dubbo.service.server.weight" defaultValue="10" description="服务器权重" />
+		<property name="mizar.dubbo.service.min.thread.pool.size" defaultValue="200" description="最小线程数" />
+		<property name="mizar.dubbo.service.max.thread.pool.size" defaultValue="200" description="最大线程数" />
+		<property name="mizar.dubbo.service.thread.keep.alive.seconds" defaultValue="300" description="thread.keep.alive.seconds" />
+		<property name="mizar.dubbo.service.shutdown.wait.seconds" defaultValue="10" description="shutdown.wait.seconds" />
+		<property name="mizar.dubbo.logging.file" defaultValue="dubbo.log" description="日志名称" />
+		<property name="mizar.dubbo.application.name" description="dubbo显示应用名"/>
+	</group>
+	<group name="mizar.datasource">
+	    <property name="mizar.driver.className" defaultValue="oracle.jdbc.driver.OracleDriver" description="数据库驱动" />
+	    <property name="mizar.database.url" defaultValue="jdbc:oracle:thin:@10.250.4.116:1521:alifindev" description="数据库连接字符串"/>
+	    <property name="mizar.username" defaultValue="cifdev" description="数据库用户名"/>
+	    <property name="mizar.decryptPasswd" defaultValue="decryptPasswdKey" description="数据库连接密码加密密钥"/>
+	    <property name="mizar.accessPasswd" defaultValue="accessPasswdKey" description="数据库连接密码存储密钥"/>
+	    <property name="mizar.db.minpoolsize" defaultValue="3" description="数据库连接池最小连接数" />
+	    <property name="mizar.db.maxpoolsize" defaultValue="6" description="数据库连接池最大连接数" />
+	</group>
+	<group name="mizar.log">
+		<property name="mizar.log.charset" description="mizar打印日志的编码格式" />
+		<property name="mizar.log.path" description="mizar日志输出目录" />
+		<property name="mizar.log.max.days" description="mizar日志保存天数" />
+		<property name="mizar.log.jar.level" description="mizar部分依赖包的日志级别" />
+		<property name="mizar.log.root.level" description="mizar主日志的级别" />
+	</group>
+	<group name="mizar.circe">
+	    <property name="mizar.circe.server.address" description="Circe服务端Service的地址" />
+	    <property name="mizar.circe.namespace" description="Circe中创建的应用名称" />
+	    <property name="mizar.circe.token" description="Circe中创建的应用的token" />
+	</group>
+	<group name="mizar.memcached">
+		<property name="mizar.memcached.servers" description="memCached服务器地址，格式如：ip:port，多台之间用','分隔" />
+		<property name="mizar.memcached.weights" description="memCached服务器的权重，用数字大小区分，多个权重之间用','分隔" />
+		<property name="mizar.memcached.failover" description="是否在一台服务器当掉后自动连到另外一台服务器" defaultValue="true" />
+		<property name="mizar.memcached.failback" description="在failover去另外一台服务器后，是否监视原服务器是否可用" defaultValue="true" />
+		<property name="mizar.memcached.initconn" description="初始连接数" defaultValue="5" />
+		<property name="mizar.memcached.minconn" description="最小连接数" defaultValue="5" />
+		<property name="mizar.memcached.maxconn" description="最大连接数" defaultValue="250" />
+		<property name="mizar.memcached.maxidle" description="连接最大空闲时间，用毫秒数表示" defaultValue="21600000" />
+		<property name="mizar.memcached.maintsleep" description="连接池的维持线程休眠时间，每隔x秒唤醒该线程，以维持线程池大小" defaultValue="30" />
+		<property name="mizar.memcached.nagle" description="是否启用nagle算法" defaultValue="false" />
+		<property name="mizar.memcached.socketto" description="socket读取超时时间，用毫秒数表示" defaultValue="3000" />
+		<property name="mizar.memcached.socketconnectto" description="socket连接超时时间，用毫秒数表示" defaultValue="0" />
+	</group>
+	<group name="mizar.napoli">
+		<property name="mizar.napoli.address" description="napoli服务器地址" />
+		<property name="mizar.napoli.store.path" description="napoli发送失败记录存储地址" />
+		<property name="mizar.napoli.interval" description="去服务器抓取最新配置的时间间隔" defaultValue="120000" />
+	</group>
+	<group name="mizar.syslog">
+		<property name="mizar.syslog.host" description="syslog服务器地址" defaultValue="syslog.aliloan.com"/>
+		<property name="mizar.syslog.facility" description="syslog设备地址" defaultValue="local2"/>
+	</group>
+	<group name="mizar.upload">
+		<property name="mizar.upload.napoli.queue" description="上传成功后发送消息的napoli队列" defaultValue="ADMINPORTAL_MIZAR_EPIBOLY_DATA_FILE" />
+		<property name="mizar.upload.oss.bucket" description="oss bucket" defaultValue="adminPortal" />
+		<property name="mizar.upload.oss.endpoint" description="oss endpoint" defaultValue="http://oss-internal.aliyuncs.com" />
+		<property name="mizar.upload.oss.accessKey" description="oss accessKey" />
+		<property name="mizar.upload.oss.accessSecret" description="oss accessSecret" />
+	</group>
+	
+	<group name="mizar.partner">
+		<property name="mizar.partner.allowed.types" description="该环境允许访问的ISV类型，默认为0-集团合作" defaultValue="0" /> 
+	</group>
+
+    <script>
+        <generate template="spring/mizar-dubbo.xml" destfile="WEB-INF/spring/mizar-dubbo.xml" charset="GBK" />
+        <generate template="spring/mizar-dubbo-reference.xml" destfile="WEB-INF/spring/mizar-dubbo-reference.xml" charset="GBK" />  
+        <generate template="spring/mizar-datasource.xml" destfile="WEB-INF/spring/mizar-datasource.xml" charset="GBK" />
+        <generate template="spring/mizar-beans.xml" destfile="WEB-INF/spring/mizar-beans.xml" charset="GBK"/>
+        <generate template="spring/mizar-dao.xml" destfile="WEB-INF/spring/mizar-dao.xml" charset="GBK"/>
+        <generate template="spring/mizar-biz.xml" destfile="WEB-INF/spring/mizar-biz.xml" charset="GBK"/>
+        <generate template="spring/mizar-service-local.xml" destfile="WEB-INF/spring/mizar-service-local.xml" charset="GBK"/> 
+        <generate template="spring/mizar-chain.xml" destfile="WEB-INF/spring/mizar-chain.xml" charset="GBK"/> 
+        
+        <generate template="log4j.dtd" destfile="WEB-INF/log4j.dtd" charset="UTF-8" /> 
+        <generate template="log4j.xml" destfile="WEB-INF/log4j.xml" charset="UTF-8" />
+	</script>
+</config>

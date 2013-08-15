@@ -1,0 +1,15 @@
+<projectDescription>
+  <name>mizar.dao-2.3.1-SNAPSHOT</name>
+  <comment>Mizar dao Stuffs</comment>
+  <projects>
+    <project>mizar.common-2.3.1-SNAPSHOT</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>

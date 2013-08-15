@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="partnerPermission">
+	<typeAlias alias="partnerPermission" type="com.alifi.mizar.common.vo.PartnerPermission" />
+	<resultMap id="PartnerPermission" class="partnerPermission">
+		<result property="partnerId" column="PARTNER_ID" />
+		<result property="serviceId" column="SERVICE_ID" />
+	</resultMap>
+	
+    <insert id="insert" parameterClass="PartnerPermission">
+    	<selectKey resultClass="int" keyProperty="id" >
+            SELECT SEQ_MIZAR_PARTNER_SRV_REF.NEXTVAL AS ID FROM dual
+        </selectKey> 
+    	INSERT INTO MIZAR_PARTNER_SRV_REF(
+    		ID,
+    		PARTNER_ID,
+    		SERVICE_ID
+    	) VALUES (
+    		#id#,
+    		#partnerId#,
+    		#serviceId#
+    	)
+    </insert>
+    
+    <select id="listByPartnerId" parameterClass="java.lang.Integer" resultMap="PartnerPermission">
+    	SELECT
+    		partner_id,
+    		service_id
+    	FROM
+    		mizar_partner_srv_ref
+    	WHERE
+    		partner_id = #value#
+    </select>
+    
+    <select id="queryById" parameterClass="java.lang.Integer" resultMap="PartnerPermission">
+    	SELECT 
+    		id,
+    		partner_id,
+    		service_id
+    	FROM
+    		mizar_partner_srv_ref
+    	WHERE
+    		id = #value#
+    </select>
+    
+    <delete id="deleteByPartnerIdAndServiceId" parameterClass="PartnerPermission">
+    	DELETE FROM 
+    		MIZAR_PARTNER_SRV_REF
+    	WHERE
+    		partner_id = #partnerId#
+    	AND
+    		service_id = #serviceId#
+    </delete>
+    
+    <delete id="deleteByServiceId" parameterClass="java.lang.Integer">
+        DELETE FROM 
+    		mizar_partner_srv_ref
+    	WHERE
+    		service_id=#value#
+    </delete>
+
+    <delete id="deleteByPartnerId" parameterClass="java.lang.Integer">
+        DELETE FROM 
+    		mizar_partner_srv_ref
+    	WHERE
+    		partner_id=#value#
+    </delete>
+    
+</sqlMap>

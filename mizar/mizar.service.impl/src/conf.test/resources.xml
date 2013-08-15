@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="GB2312"?>
+<!DOCTYPE resources PUBLIC "-//ALIBABA//DTD Resource Service Configuration V1.0//EN"
+    "http://toolkit.alibaba-inc.com/dtd/toolkit/service/resource.dtd">
+<resources>
+    <resource-alias pattern="/" name="/classpath/" />
+    <resource pattern="/mizar.dao">
+        <file-loader>
+            <path>../../../mizar.dao/src/test/resources/META-INF/</path>
+            <path>../../../mizar.dao/src/main/resources/META-INF/</path>
+        </file-loader>
+    </resource>
+   <resource pattern="/mizar.service.impl">
+        <file-loader>
+            <path>../../../mizar.service.impl/src/main/resources/META-INF/</path>
+            <path>../../../mizar.service.impl/src/test/resources/META-INF/</path>
+        </file-loader>
+    </resource>
+	<resource pattern="/mizar.web">
+    	<file-loader>
+    		<path>../../../mizar.web/src/main/resources/META-INF/autoconf/</path>
+    	</file-loader>
+    </resource>
+</resources>

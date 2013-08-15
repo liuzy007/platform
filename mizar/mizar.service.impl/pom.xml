@@ -1,0 +1,43 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>mizar</artifactId>
+		<groupId>com.alifi.app</groupId>
+		<version>2.3.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>mizar.service.impl</artifactId>
+	<version>${parent.version}</version>
+	<packaging>jar</packaging>
+	<name>Mizar Service Implement Stuffs</name>
+	<description>Mizar Service Implement Stuffs</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.alifi.app</groupId>
+			<artifactId>mizar.service</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alifi.app</groupId>
+			<artifactId>mizar.biz</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+        <dependency>
+            <groupId>com.alifi.shared</groupId>
+            <artifactId>agds.scout.service</artifactId>
+        </dependency>
+
+	    <dependency>
+            <groupId>com.alibaba.platform.shared</groupId>
+            <artifactId>napoli.client</artifactId>
+        </dependency>
+
+        <dependency>
+			<groupId>com.aliyun.openservices</groupId>
+			<artifactId>aliyun-openservices</artifactId>
+        </dependency>
+
+
+	</dependencies>
+</project>

@@ -1,0 +1,19 @@
+<projectDescription>
+  <name>mizar.web-2.3.1-SNAPSHOT</name>
+  <comment>Mizar Web Stuffs</comment>
+  <projects>
+    <project>mizar.biz-2.3.1-SNAPSHOT</project>
+    <project>mizar.common-2.3.1-SNAPSHOT</project>
+    <project>mizar.dao-2.3.1-SNAPSHOT</project>
+    <project>mizar.service-2.3.1-SNAPSHOT</project>
+    <project>mizar.service.impl-2.3.1-SNAPSHOT</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>

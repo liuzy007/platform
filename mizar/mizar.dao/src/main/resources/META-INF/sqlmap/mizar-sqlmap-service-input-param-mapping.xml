@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="serviceInputParam">
+    <typeAlias alias="gatewayInParam" type="com.alifi.mizar.common.vo.GatewayInParam" />
+    <!-- object to table mapper -->
+    <resultMap id="GatewayInParam" class="gatewayInParam">
+		<result property="id" column="ID" />
+		<result property="serviceId" column="service_id" />
+		<result property="paramName" column="param_name" />
+		<result property="paramType" column="param_type" />
+		<result property="nullable" column="is_nullable" />
+		<result property="index" column="param_index" />
+	</resultMap>
+	
+	<insert id="insertInputParam" parameterClass="GatewayInParam">
+    	<selectKey resultClass="int" keyProperty="id" >
+            SELECT SEQ_MIZAR_SRV_INPUT_PARAM.NEXTVAL AS ID FROM dual
+        </selectKey> 
+    	INSERT INTO MIZAR_SRV_INPUT_PARAM(
+    		ID, 
+    		CREATER, 
+    		MODIFIER, 
+    		GMT_CREATED, 
+    		GMT_MODIFIED, 
+    		SERVICE_ID, 
+    		PARAM_NAME, 
+   			PARAM_TYPE, 
+   			IS_NULLABLE, 
+   			PARAM_INDEX
+   		) VALUES (
+    		#id#,
+    		#creater#,
+    		#modifier#,
+    		SYSDATE,
+    		SYSDATE,
+    		#serviceId#,
+    		#paramName#,
+    		#paramType#,
+    		#nullable#,
+    		#index#
+    	)
+    </insert>
+    
+    <select id="listParamByServiceId" parameterClass="java.lang.Integer"
+		resultMap="GatewayInParam">
+		SELECT
+			msip.id,
+			msip.service_id,
+			msip.param_name,
+			msip.param_type,
+			msip.param_index,
+			msip.is_nullable
+		FROM 
+			mizar_srv_input_param msip
+		WHERE 
+			msip.service_id = #serviceId#
+		ORDER BY 
+			param_index 
+		ASC
+    </select>
+    
+    <delete id="deleteInputParamById" parameterClass="java.lang.Integer">
+    	DELETE FROM 
+    		mizar_srv_input_param
+    	WHERE
+    		id=#value#
+    </delete>
+    
+    
+    
+    <!--
+    ***************************************************************************
+    * 服务删除(1/3)
+    ***************************************************************************
+    -->
+    <delete id="deleteInputParamByServiceId" parameterClass="java.lang.Integer">		
+        DELETE FROM 
+    		mizar_srv_input_param
+    	WHERE
+    		service_id=#value#
+    </delete>
+    
+    
+    
+    <!--
+    ***************************************************************************
+    * 根据ID查询输入参数
+    ***************************************************************************
+    -->
+    <select id="getInputParamById" parameterClass="java.lang.Integer"
+		resultMap="GatewayInParam">
+		SELECT
+			msip.id,
+			msip.service_id,
+			msip.param_name,
+			msip.param_type,
+			msip.param_index,
+			msip.is_nullable
+		FROM 
+			mizar_srv_input_param msip
+		WHERE 
+			msip.id = #id#
+    </select>
+    
+</sqlMap>

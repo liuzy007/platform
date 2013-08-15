@@ -1,0 +1,134 @@
+#define($nativeHeadCode)
+<script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/mizar-form.js')" charset="utf-8"></script>
+<script language="javascript" type="text/javascript">
+<!--
+jQuery(function() {
+    var fm = Alib.FormUtil;
+    
+    // 表单验证配置
+    var formCfg = {
+        
+    };
+    // 表单验证事件绑定/默认提示设置/表单提交事件绑定
+    fm.bindEvent(formCfg);
+});
+-->
+</script>
+#end
+
+<!-- 导航开始 -->
+$control.setTemplate("nav.vm").setParameter("active", "service")
+<!-- 导航结束 -->
+</div>
+<!-- 页头结束 -->
+
+<div class="bd">
+
+<!-- 面包屑导航开始 -->
+<div class="crumb-nav">
+  <span class="tip">您所在的位置：</span>
+  <span><a href="$registryLink.setTarget('services.vm')">服务列表</a></span>
+  <span class="arrow">>></span>
+  <span class="active">编辑</span>
+</div>
+<!-- 面包屑导航结束 -->
+
+<!-- TAB页开始 -->
+$control.setTemplate("tab.vm").setParameter("tab", "edit").setParameter("active", "info").setParameter("serviceId", $!serviceInfo.id)
+<!-- TAB页结束 -->
+
+#set ($group = $form.service.defaultInstance)
+$group.mapTo($serviceInfo)
+
+  #if (!$group.serviceName.valid)
+  <p>$group.serviceName.message</p>
+  #end
+
+  #if (!$group.invokeInterface.valid)
+  <p>$group.invokeInterface.message</p>
+  #end
+  
+  #if (!$group.invokeMethod.valid)
+  <p>$group.invokeMethod.message</p>
+  #end
+  
+  #if (!$group.version.valid)
+  <p>$group.version.message</p>
+  #end
+
+<!-- 表单开始 --> 
+<form method="post" id="main-form" action="$registryLink.setTarget('servicesEdit.vm').addQueryData('serviceId', $group.id.value)">
+  $csrfToken.hiddenField
+  <input type="hidden" name="action" value="ServiceAction"/>
+  <input type="hidden" name="event_submit_do_edit" value="true"/>
+  <input type="hidden" id="id" name="$group.id.key" value="$group.id.value" />
+  <div class="fm-wrap">
+    
+  <div class="fm-item">
+    <label class="fm-lab"><span class="fm-required">*</span>$group.serviceName.displayName：</label>
+    <input type="text" id="serviceName" name="$group.serviceName.key" value="$!group.serviceName.value" class="fm-ipt w18" />
+    <div class="fm-tip"></div>
+  </div>
+  
+  <div class="fm-item">
+    <label class="fm-lab"><span class="fm-required">*</span>$group.invokeInterface.displayName：</label>
+    <input type="text" id="invokeInterface" name="$group.invokeInterface.key" value="$!group.invokeInterface.value" class="fm-ipt w18" />
+    <div class="fm-tip"></div>
+  </div>
+    
+  <div class="fm-item">
+    <label class="fm-lab"><span class="fm-required">*</span>$group.invokeMethod.displayName：</label>
+    <input type="text" id="invokeMethod" name="$group.invokeMethod.key" value="$!group.invokeMethod.value" class="fm-ipt w18" />
+    <div class="fm-tip"></div>
+  </div>
+    
+  <div class="fm-item">
+    <label class="fm-lab"><span class="fm-required">*</span>$group.version.displayName：</label>
+    <input type="text" id="version" name="$group.version.key" value="$!group.version.value" class="fm-ipt w18" />
+    <div class="fm-tip"></div>
+  </div>
+  
+  <div class="fm-item">
+      <label class="fm-lab">$group.status.displayName：</label>
+      <input type="radio" id="statusO" name="$group.status.key" value="O" class="fm-radio" #if($group.status.value == "O")checked#end />
+      <label class="fm-lab-val m2r" for="statusO">正常</label>
+      <input type="radio" id="statusN" name="$group.status.key" value="N" class="fm-radio" #if($group.status.value == "N")checked#end />
+      <label class="fm-lab-val m2r" for="statusN">未启用</label>
+      <input type="radio" id="statusS" name="$group.status.key" value="S" class="fm-radio" #if($group.status.value == "S")checked#end />
+      <label class="fm-lab-val m2r" for="statusS">暂停</label>
+      <input type="radio" id="statusI" name="$group.status.key" value="I" class="fm-radio" #if($group.status.value == "I")checked#end />
+      <label class="fm-lab-val m2r" for="statusI">过期</label>
+      <div class="fm-tip"></div>
+    </div>
+    
+    <div class="fm-item">
+      <label class="fm-lab">$group.validateSignIn.displayName：</label>
+      <input type="radio" id="statusT" name="$group.validateSignIn.key" value="true" class="fm-radio" #if($group.validateSignIn.value == "true")checked#end />
+      <label class="fm-lab-val m2r" for="statusT">是</label>
+      <input type="radio" id="statusF" name="$group.validateSignIn.key" value="false" class="fm-radio" #if($group.validateSignIn.value == "false")checked#end />
+      <label class="fm-lab-val m2r" for="statusF">否</label>
+    </div>
+    
+    <div class="fm-item">
+      <label class="fm-lab">$group.endorseSignOut.displayName：</label>
+      <input type="radio" id="statusTT" name="$group.endorseSignOut.key" value="true" class="fm-radio" #if($group.endorseSignOut.value == "true")checked#end />
+      <label class="fm-lab-val m2r" for="statusTT">是</label>
+      <input type="radio" id="statusFF" name="$group.endorseSignOut.key" value="false" class="fm-radio" #if($group.endorseSignOut.value == "false")checked#end />
+      <label class="fm-lab-val m2r" for="statusFF">否</label>
+    </div>
+    
+    <div class="fm-item">
+      <label class="fm-lab">$group.public.displayName：</label>
+      <input type="radio" id="statusTTT" name="$group.public.key" value="true" class="fm-radio" #if($group.public.value == "true")checked#end />
+      <label class="fm-lab-val m2r" for="statusTTT">是</label>
+      <input type="radio" id="statusFFF" name="$group.public.key" value="false" class="fm-radio" #if($group.public.value == "false")checked#end />
+      <label class="fm-lab-val m2r" for="statusFFF">否</label>
+    </div>
+                    
+  <div class="fm-btn-banner">
+    <a href="javascript:void(0);" id="form-submit" class="btn btn-main"><span>更新</span></a>
+  </div>
+  </div> 
+</form> 
+<!-- 表单结束 -->
+

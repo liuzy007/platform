@@ -1,0 +1,58 @@
+#define($nativeHeadCode)
+<script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/mizar-grid.js')" charset="utf-8"></script>
+<script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/search.js')" charset="utf-8"></script>
+#end
+
+<!-- 导航开始 -->
+$control.setTemplate("nav.vm").setParameter("active", "service")
+<!-- 导航结束 -->
+</div>
+<!-- 页头结束 -->
+
+<div class="bd">
+
+<!-- 面包屑导航开始 -->
+<div class="crumb-nav">
+  <span class="tip">您所在的位置：</span>
+  <span><a href="$registryLink.setTarget('services.vm')">服务列表</a></span>
+  <span class="arrow">>></span>
+  <span>参数列表</span>
+  <span class="arrow">>></span>
+  <span class="active">查看</span>
+</div>
+<!-- 面包屑导航结束 -->
+
+<!-- TAB页开始 -->
+$control.setTemplate("tab.vm").setParameter("tab", "view").setParameter("active", "inputParam").setParameter("serviceId", $!serviceInfo.id)
+<!-- TAB页结束 -->
+
+<div class="grid grid-highlight">
+<table>
+	<thead>
+	<tr>
+		<th>参数顺序</th>
+		<th>参数名称</th>
+		<th>参数类型</th>
+		<th>是否允许为空</th>
+		<th>操作</th>
+	</tr>
+  </thead>
+
+  <tbody>
+  #foreach ($inputParam in $inputParams)
+	<tr>
+		<td>$inputParam.index</td>
+		<td>$inputParam.paramName</td>
+		<td>$inputParam.paramType</td>
+		<td>$inputParam.nullable</td>
+		<td><a href="$registryLink.setTarget('delete_input_param.do').addQueryData('id', $inputParam.id).addQueryData('service_id', $serviceId)">删除</a></td>
+	</tr>
+  #end
+  </tbody>
+</table>
+
+</div>
+
+<!--
+<a href="$registryLink.setTarget('add_input_param.vm').addQueryData('service_id', $serviceId)">添加</a>
+-->

@@ -1,0 +1,90 @@
+#define($nativeHeadCode)
+<script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/mizar-form.js')" charset="utf-8"></script>
+<script language="javascript" type="text/javascript">
+<!--
+jQuery(function() {
+    var fm = Alib.FormUtil;
+    
+    // 表单验证配置
+    var formCfg = {
+        
+    };
+    // 表单验证事件绑定/默认提示设置/表单提交事件绑定
+    fm.bindEvent(formCfg);
+});
+-->
+</script>
+
+#end
+
+<!-- 导航开始 -->
+$control.setTemplate("nav.vm").setParameter("active", "partner")
+<!-- 导航结束 -->
+</div>
+<!-- 页头结束 -->
+
+<div class="bd">
+
+<!-- 面包屑导航开始 -->
+<div class="crumb-nav">
+  <span class="tip">您所在的位置：</span>
+  <span><a href="$registryLink.setTarget('partners.vm')">合作伙伴列表</a></span>
+  <span class="arrow">>></span>
+  <span class="active">增加合作伙伴</span>
+</div>
+<!-- 面包屑导航结束 -->
+
+<form id="main-form" action="$registryLink.setTarget('addPartner.vm')" method="post">
+  $csrfToken.hiddenField
+  
+  #set ($group = $form.partner.defaultInstance)
+
+  <input type="hidden" name="action" value="PartnerAction"/>
+  <input type="hidden" name="event_submit_do_add" value="true"/>
+
+  #if (!$group.username.valid)
+  <p>$group.username.message</p>
+  #end
+  
+  #if (!$group.password.valid)
+  <p>$group.password.message</p>
+  #end
+  
+  #if (!$group.description.valid)
+  <p>$group.description.message</p>
+  #end
+  
+  <div class="fm-wrap">
+  	<div class="fm-item">
+      <label class="fm-lab"><span class="fm-required">*</span>$group.username.displayName：</label>
+      <input type="text" id="username" name="$group.username.key" value="$!group.username.value" class="fm-ipt w9" />
+      <div class="fm-tip"></div>
+    </div>
+    
+    <div class="fm-item">
+      <label class="fm-lab"><span class="fm-required">*</span>$group.password.displayName：</label>
+      <input type="text" id="password" name="$group.password.key" value="$!group.password.value" class="fm-ipt w9" />
+      <div class="fm-tip"></div>
+    </div>
+    
+    <div class="fm-item">
+      <label class="fm-lab"><span class="fm-required">*</span>$group.description.displayName：</label>
+      <input type="text" id="password" name="$group.description.key" value="$!group.description.value" class="fm-ipt w9" />
+      <div class="fm-tip"></div>
+    </div>
+
+    <div class="fm-item">
+      <label class="fm-lab"><span class="fm-required">*</span>$group.type.displayName：</label>
+      <input type="radio" id="type" name="$group.type.key" value="0" checked />集团合作
+      <input type="radio" id="type" name="$group.type.key" value="1" />外部客户
+      <div class="fm-tip"></div>
+    </div>
+  </div>
+  
+  <div class="fm-btn-banner">
+    <a href="javascript:void(0);" id="form-submit" class="btn btn-main"><span>提交</span></a>
+  </div>
+  
+</form>
+
+</div>

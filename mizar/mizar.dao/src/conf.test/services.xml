@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <services>
+        <service name="ResourceLoaderService" class="com.alibaba.service.resource.DefaultResourceLoaderService">
+            <property name="resource.descriptors">
+                <value>resources.xml</value>
+            </property>
+        </service>
+
+        <service name="BeanFactoryService" class="com.alibaba.service.spring.DefaultBeanFactoryService">
+            <property name="bean.descriptors">
+                <value>/mizar.dao/spring/data-loader.xml</value>
+                <value>/mizar.dao/spring/data-source.xml</value>
+                <value>/mizar.web/spring/mizar-dao.xml</value>
+             </property>
+        </service>
+    </services>
+</configuration>

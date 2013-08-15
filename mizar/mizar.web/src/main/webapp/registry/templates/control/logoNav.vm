@@ -1,0 +1,7 @@
+            <div class="logo-nav clearfix">
+                <a class="logo" href="${homeLink}">Mizar</a>
+                <div class="explain">
+                    <p>°¢Àï°Í°Í½ðÈÚ</p>
+                    <p>Mizar</p>
+                </div>
+            </div>

@@ -1,0 +1,79 @@
+#define($nativeHeadCode)
+<script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/mizar-grid.js')" charset="utf-8"></script>
+<script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/search.js')" charset="utf-8"></script>
+#end
+
+<!-- 导航开始 -->
+$control.setTemplate("nav.vm").setParameter("active", "service")
+<!-- 导航结束 -->
+</div>
+<!-- 页头结束 -->
+
+<div class="bd">
+
+<!-- 面包屑导航开始 -->
+<div class="crumb-nav">
+  <span class="tip">您所在的位置：</span>
+  <span class="active">服务列表</span>
+</div>
+<!-- 面包屑导航结束 -->
+
+<!-- 查询条件开始 -->
+<div class="query clearfix">
+  <form id="query-form" action="$registryLink.setTarget('services.vm').addQueryData($csrfToken.key, $csrfToken)" method="get">
+    <input type="hidden" id="pageSize" name="pageSize" value="#getParameter('pageSize')" />
+    <label class="query-lab ml">服务名(区分大小写)</label>
+    <input type="text" id="serviceName" name="serviceName" value="#getParameter('serviceName')" class="query-ipt w6"/>
+    <a href="javascript:void(0);" id="btn-query" class="btn btn-query"><span>查询</span></a>
+  </form>
+</div>
+<!-- 查询条件结束 -->
+
+<!-- 操作栏开始 -->
+<div class="handle">            
+  <a href="$registryLink.setTarget('add_service.vm')">增加服务 >></a>               
+</div>
+<!-- 操作栏结束 -->
+
+<!-- 表格开始 -->
+<div class="grid grid-highlight">
+
+<table>
+
+	<thead>
+	  <tr>
+		  <th>服务名</th>
+		  <th>调用接口</th>
+		  <th>调用方法</td>
+		  <th>调用版本</th>
+		  <th>状态</th>
+		  <th>是否需要验签</th>
+		  <th>是否需要加签</th>
+		  <th>是否开放</th>
+		  <th>操作</th>
+	  </tr>
+	</thead>
+  
+  <tbody>
+    #foreach ($service in $paging.getPageElements())
+	  <tr dataid="$!service.id">
+		  <td><a href="servicesInfo.htm?service_id=$service.id">$service.serviceName</a></td>
+		  <td>$service.invokeInterface</td>
+		  <td>$service.invokeMethod</td>
+		  <td>$service.version</td>
+		  <td>$service.status</td>
+		  <td>$service.validateSignIn</td>
+		  <td>$service.endorseSignOut</td>
+		  <td>$service.public</td>
+		  <td><a href="deleteService.do?serviceId=$service.id">删除</a></td>
+	  </tr>
+    #end
+  </tbody>
+  
+</table>
+
+</div>
+$control.setTemplate("paging.vm").setParameter("url", "$registryLink.setTarget('services.vm')")
+<!-- 表格结束 -->
+
+</div>

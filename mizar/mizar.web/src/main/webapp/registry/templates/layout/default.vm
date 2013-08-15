@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+    #showHead ("Mizar Registry")
+    $control.setTemplate("htmlHead.vm")
+    #nonescape($nativeHeadCode)
+    </head>
+  
+    <body>
+        
+        <!-- 页头开始 -->
+        <div class="hd">
+            <!-- LOGO开始 -->
+            $control.setTemplate("logoNav.vm")
+            <!-- LOGO结束 -->
+            
+        
+        <!-- 页面主体开始 -->
+        $screen_placeholder
+        <!-- 页面主体结束 -->
+
+        <!-- 页脚开始 -->
+        $control.setTemplate("footer.vm")
+        <!-- 页脚结束 -->
+    
+    <!--
+    <hr/>
+    <p>[<a href="$homeLink.setTarget("index")">Home</a>]</p>
+    -->
+    
+    </body>
+ 
+</html>

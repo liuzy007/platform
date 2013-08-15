@@ -1,0 +1,78 @@
+#define($nativeHeadCode)
+<script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/mizar-form.js')" charset="utf-8"></script>
+#end
+
+<!-- 导航开始 -->
+$control.setTemplate("nav.vm").setParameter("active", "service")
+<!-- 导航结束 -->
+</div>
+<!-- 页头结束 -->
+
+<div class="bd">
+
+<!-- 面包屑导航开始 -->
+<div class="crumb-nav">
+  <span class="tip">您所在的位置：</span>
+  <span><a href="$registryLink.setTarget('services.vm')">服务列表</a></span>
+  <span class="arrow">>></span>
+  <span class="active">查看</span>
+</div>
+<!-- 面包屑导航结束 -->
+
+<!-- TAB页开始 -->
+$control.setTemplate("tab.vm").setParameter("tab", "view").setParameter("active", "info").setParameter("serviceId", $!serviceInfo.id)
+<!-- TAB页结束 -->
+
+<!-- 表单开始 --> 
+            <div class="fm-wrap">
+                
+                <div class="fm-item">
+                    <label class="fm-lab">服务名：</label>
+                    <span class="fm-txt">$!serviceInfo.serviceName</span>
+                </div>
+                
+                <div class="fm-item">
+                    <label class="fm-lab">调用接口类型：</label>
+                    <span class="fm-txt">$!serviceInfo.invokeInterface</span>
+                </div>
+                
+                <div class="fm-item">
+                    <label class="fm-lab">调用方法：</label>
+                    <span class="fm-txt">$!serviceInfo.invokeMethod</span>
+                </div>
+                
+                <div class="fm-item">
+                    <label class="fm-lab">调用接口版本号：</label>
+                    <span class="fm-txt">$!serviceInfo.version</span>
+                </div>
+                
+                <div class="fm-item">
+                    <label class="fm-lab">服务状态：</label>
+                    <span class="fm-txt">#if($serviceInfo.status == "O")正常#end</span>
+                    <span class="fm-txt">#if($serviceInfo.status == "N")未起用#end</span>
+                    <span class="fm-txt">#if($serviceInfo.status == "S")暂停#end</span>
+                    <span class="fm-txt">#if($serviceInfo.status == "I")过期#end</span>
+                </div>
+                
+                <div class="fm-item">
+                    <label class="fm-lab">是否需要验签：</label>
+                    <span class="fm-txt">#if($serviceInfo.ValidateSignIn == "true")是#end</span>
+                    <span class="fm-txt">#if($serviceInfo.ValidateSignIn == "false")否#end</span>
+                </div>
+                
+                <div class="fm-item">
+                    <label class="fm-lab">是否需要对返回参数加签：</label>
+                    <span class="fm-txt">#if($serviceInfo.endorseSignOut == "true")是#end</span>
+                    <span class="fm-txt">#if($serviceInfo.endorseSignOut == "false")否#end</span>
+                </div>
+                
+                <div class="fm-item">
+                    <label class="fm-lab">是否公开：</label>
+                    <span class="fm-txt">#if($serviceInfo.public == "true")是#end</span>
+                    <span class="fm-txt">#if($serviceInfo.public == "false")否#end</span>
+                </div>
+                 
+            </div> 
+            <!-- 表单结束 -->
+
+</div>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+    xmlns="http://www.springframework.org/schema/beans"
+	xmlns:osgi="http://www.springframework.org/schema/osgi" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:dubbo="http://repo.alibaba-inc.com/schema/dubbo"
+	xsi:schemaLocation="http://repo.alibaba-inc.com/schema/dubbo http://repo.alibaba-inc.com/schema/dubbo/dubbo-component.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/osgi http://www.springframework.org/schema/osgi/spring-osgi.xsd">
+	<dubbo:application 
+		owner="tongpeng.chentp"
+		name="${mizar_dubbo_application_name}" />
+	<dubbo:registry 
+		address="${mizar_dubbo_registry_address}" />
+	<dubbo:monitor 
+		address="${mizar_dubbo_monitor_address}" />
+	<dubbo:protocol 
+		port="${mizar_dubbo_service_server_port}" 
+		threads="${mizar_dubbo_service_min_thread_pool_size}" />
+	<dubbo:provider 
+		timeout="${mizar_dubbo_service_invoke_timeout}"
+		retries="${mizar_dubbo_service_max_retry_times}"
+		weight="${mizar_dubbo_service_server_weight}"
+		delay="-1"
+		version="1.0"
+		filter="dragoon" />
+	<dubbo:consumer 
+		check="false"
+		filter="dragoon" />
+		
+	
+		<dubbo:service id="alipayNotificationHandleService" interface="com.alifi.mizar.service.AlipayNotificationHandleService"
+			version="1.0" ref="alipayNotificationHandleService.local" />
+		<dubbo:service id="b2bService" interface="com.alifi.mizar.service.B2BService"
+			version="1.0" ref="b2bService.local" />
+		<dubbo:service id="gatewayService" interface="com.alifi.mizar.service.GatewayService"
+			version="1.0" ref="gatewayService.local" />
+		
+	<bean id="dubboUtil" class="com.alifi.mizar.util.DubboUtil">
+		<property name="appName" value="${mizar_dubbo_application_name}" />
+		<property name="registryAddress" value="${mizar_dubbo_registry_address}" />
+		<property name="timeout" value="${mizar_dubbo_service_invoke_timeout}" />
+	</bean>
+</beans>

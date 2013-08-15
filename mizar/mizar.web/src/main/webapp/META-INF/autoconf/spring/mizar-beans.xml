@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="cashNotifyLoanHandler" class="com.alifi.mizar.handler.impl.CashNotifyLoanHandler" />
+	<bean id="memCachedManager" class="com.alifi.mizar.manager.util.MemCachedManager" init-method="init">
+		<property name="servers" value="${mizar_memcached_servers}" />
+		<property name="weights" value="${mizar_memcached_weights}" />
+		<property name="failover" value="${mizar_memcached_failover}" />
+		<property name="failback" value="${mizar_memcached_failback}" />
+		<property name="initConn" value="${mizar_memcached_initconn}" />
+		<property name="minConn" value="${mizar_memcached_minconn}" />
+		<property name="maxConn" value="${mizar_memcached_maxconn}" />
+		<property name="maxIdle" value="${mizar_memcached_maxidle}" />
+		<property name="maintSleep" value="${mizar_memcached_maintsleep}" />
+		<property name="nagle" value="${mizar_memcached_nagle}" />
+		<property name="socketTO" value="${mizar_memcached_socketto}" />
+		<property name="socketConnectTO" value="${mizar_memcached_socketconnectto}" />
+	</bean>
+	
+	<bean id="napoliConnector" class="com.alibaba.napoli.client.connector.NapoliConnector" init-method="init" destroy-method="close">
+		<property name="address" value="${mizar_napoli_address}" />
+		<property name="storePath" value="${mizar_napoli_store_path}" />
+		<property name="interval" value="${mizar_napoli_interval}" />
+	</bean>
+	
+	<bean id="sender" class="com.alibaba.napoli.client.async.impl.DefaultAsyncSender" init-method="init" destroy-method="close">
+		<property name="name" value="ALIFI_MIZAR_CASH_NOTIFY_TOPIC" />
+		<property name="connector" ref="napoliConnector" />
+	</bean>
+	
+	<bean id="asyncSender" class="com.alibaba.napoli.client.async.impl.DefaultAsyncSender" init-method="init" destroy-method="close">
+		<property name="name" value="ALIFI_CTU_DATA" />
+		<property name="connector" ref="napoliConnector" />
+	</bean>
+	
+	<bean id="uploadInfoSender" class="com.alibaba.napoli.client.async.impl.DefaultAsyncSender" init-method="init" destroy-method="close">
+		<property name="name" value="${mizar_upload_napoli_queue}" />
+		<property name="connector" ref="napoliConnector" />
+	</bean>
+	
+	<bean id="ossClient" class="com.aliyun.openservices.oss.OSSClient">
+		<constructor-arg type="java.lang.String" value="${mizar_upload_oss_endpoint}" />
+		<constructor-arg type="java.lang.String" value="${mizar_upload_oss_accessKey}" />
+		<constructor-arg type="java.lang.String" value="${mizar_upload_oss_accessSecret}" />
+	</bean>
+</beans>

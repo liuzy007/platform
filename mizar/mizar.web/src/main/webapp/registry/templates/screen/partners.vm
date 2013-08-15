@@ -1,0 +1,61 @@
+#define($nativeHeadCode)
+<script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/mizar-grid.js')" charset="utf-8"></script>
+<script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/search.js')" charset="utf-8"></script>
+#end
+
+<!-- 导航开始 -->
+$control.setTemplate("nav.vm").setParameter("active", "partner")
+<!-- 导航结束 -->
+</div>
+<!-- 页头结束 -->
+
+<div class="bd">
+
+<!-- 面包屑导航开始 -->
+<div class="crumb-nav">
+  <span class="tip">您所在的位置：</span>
+  <span class="active">合作伙伴列表</span>
+</div>
+<!-- 面包屑导航结束 -->
+
+<!-- 操作栏开始 -->
+<div class="handle">            
+  <a href="$registryLink.setTarget('add_partner.vm')">增加合作伙伴 >></a>               
+</div>
+<!-- 操作栏结束 -->
+
+<!-- 表格开始 -->
+<div class="grid grid-highlight">
+<table>
+  <thead>
+	<tr>
+		<th>ID</th>
+		<th>用户名</th>
+		<th>密码</th>
+		<th>描述</th>
+		<th>操作</th>
+	</tr>
+  </thead>
+  
+  <tbody>
+    #foreach ($partner in $partners)
+	  <tr>
+		<td>$partner.id</td>
+		<td>$partner.username</td>
+		<td>$partner.password</td>
+		<td>$partner.description</td>
+		<td>
+			<a href="$registryLink.setTarget('partner_permission.vm').addQueryData('partner_id', $partner.id)">权限</a>
+			<a href="$registryLink.setTarget('deletePartner.do').addQueryData('partnerId', $partner.id)">删除</a>
+		</td>
+	  </tr>
+    #end
+  </tbody>
+</table>
+</div>
+
+##$control.setTemplate("paging.vm").setParameter("url", "$registryLink.setTarget('partners.vm')")
+
+<!-- 表格结束 -->
+
+</div>

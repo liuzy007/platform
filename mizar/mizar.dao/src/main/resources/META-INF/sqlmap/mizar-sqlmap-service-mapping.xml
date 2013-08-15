@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="service">
+    <typeAlias alias="gatewayServiceInfo" type="com.alifi.mizar.common.vo.GatewayServiceInfo" />
+    <!-- object to table mapper -->
+	<resultMap id="GatewayServiceInfo" class="gatewayServiceInfo">
+		<result property="id" column="id" />
+		<result property="serviceName" column="service_name" />
+		<result property="url" column="url" />
+		<result property="invokeInterface" column="invoke_inteface" />
+		<result property="invokeMethod" column="invoke_method" />
+		<result property="version" column="version" />
+		<result property="status" column="status" />
+		<result property="isValidateSignIn" column="is_validate_sign_in" />
+		<result property="isEndorseSignOut" column="is_endorse_sign_out" />
+		<result property="isPublic" column="is_public" />
+	</resultMap>
+	
+	<insert id="insertServiceInfo" parameterClass="GatewayServiceInfo">
+		<selectKey resultClass="int" keyProperty="id" >
+            SELECT SEQ_MIZAR_SERVICE.NEXTVAL AS ID FROM dual
+        </selectKey> 
+		INSERT INTO mizar_service(
+			id,
+			creater,
+			gmt_created,
+			gmt_modified,
+			service_name,
+			url,
+			invoke_inteface,
+			invoke_method,
+			version,
+			status,
+			is_validate_sign_in,
+			is_endorse_sign_out,
+			is_public
+		) VALUES (
+			#id#,
+			#created#,
+			SYSDATE,
+			SYSDATE,
+			#serviceName#,
+			#url#,
+			#invokeInterface#,
+			#invokeMethod#,
+			#version#,
+			#status#,
+			#isValidateSignIn#,
+			#isEndorseSignOut#,
+			#isPublic#
+		)
+    </insert>
+    
+    <select id="getServiceInfoBySeviceName" parameterClass="java.lang.String"
+		resultMap="GatewayServiceInfo">
+		SELECT
+			ms.id,
+			ms.service_name,
+			ms.url,
+			ms.invoke_inteface,
+			ms.invoke_method,
+			ms.version,
+			ms.status,
+			ms.is_validate_sign_in,
+			ms.is_endorse_sign_out,
+			ms.is_public
+		FROM
+			mizar_service ms
+		WHERE 
+			ms.service_name = #serviceName#
+    </select>
+    
+    <select id="getServiceInfoById" parameterClass="java.lang.Integer"
+		resultMap="GatewayServiceInfo">
+		SELECT
+			ms.id,
+			ms.service_name,
+			ms.url,
+			ms.invoke_inteface,
+			ms.invoke_method,
+			ms.version,
+			ms.status,
+			ms.is_validate_sign_in,
+			ms.is_endorse_sign_out,
+			ms.is_public
+		FROM
+			mizar_service ms
+		WHERE 
+			ms.id = #id#
+    </select>
+    
+    <select id="listServiceInfo" resultMap="GatewayServiceInfo">
+    	SELECT
+    		id,
+    		service_name,
+    		url,
+    		invoke_inteface,
+    		invoke_method,
+    		version,
+    		status,
+    		is_validate_sign_in,
+    		is_endorse_sign_out,
+    		is_public
+    	FROM
+    		mizar_service
+    </select>
+    
+     <!--
+    ***************************************************************************
+    * 服务统计
+    ***************************************************************************
+    -->
+    <select id="countServicesByMap" parameterClass="java.util.Map" resultClass="java.lang.Long">
+        <![CDATA[
+            SELECT
+                COUNT(*) AS VALUE
+            FROM
+                mizar_service ms
+        ]]>
+        <isNotEmpty property="serviceName">
+            <![CDATA[
+                WHERE
+                ms.service_name LIKE '%'||#serviceName#||'%'
+            ]]>
+        </isNotEmpty>
+    </select>
+    
+    
+    
+    <!--
+    ***************************************************************************
+    * 服务查询
+    ***************************************************************************
+    -->
+    <select id="getServicesByMap" parameterClass="java.util.Map" resultMap="GatewayServiceInfo">
+        <isNotEmpty property="pageFirstElementIndex">
+            <![CDATA[SELECT * FROM ( SELECT ROW_.*, ROWNUM ROWNUM_ FROM (]]>
+        </isNotEmpty>
+        <isEmpty property="pageFirstElementIndex">
+            <![CDATA[SELECT * FROM (]]>
+        </isEmpty>
+        <![CDATA[
+                    SELECT
+                        ms.id,
+		                ms.service_name,
+		                ms.url,
+		                ms.invoke_inteface,
+		                ms.invoke_method,
+		                ms.version,
+		                ms.status,
+		                ms.is_validate_sign_in,
+		                ms.is_endorse_sign_out,
+		                ms.is_public
+                    FROM
+                        mizar_service ms
+         ]]>
+         <isNotEmpty property="serviceName">
+             <![CDATA[
+                 WHERE
+                 ms.service_name LIKE '%'||#serviceName#||'%'
+             ]]>
+         </isNotEmpty>
+         <isNotEmpty property="pageFirstElementIndex">
+            <![CDATA[) ROW_ WHERE ROWNUM <= #pageLastElementIndex#) WHERE ROWNUM_ >= #pageFirstElementIndex#]]>
+         </isNotEmpty>
+         <isEmpty property="pageFirstElementIndex">
+            <![CDATA[) WHERE ROWNUM <= #pageLastElementIndex#]]>
+         </isEmpty>
+    </select>
+    
+    
+    
+    <!--
+    ***************************************************************************
+    * 服务编辑
+    ***************************************************************************
+    -->
+    <update id="updateServiceById" parameterClass="GatewayServiceInfo">
+	    <![CDATA[
+	        UPDATE mizar_service SET
+	            gmt_modified         = SYSDATE,
+			    service_name         = #serviceName#,
+			    invoke_inteface      = #invokeInterface#,
+			    invoke_method        = #invokeMethod#,
+			    version              = #version#,
+			    status               = #status#,
+			    is_validate_sign_in  = #isValidateSignIn#,
+			    is_endorse_sign_out  = #isEndorseSignOut#,
+			    is_public            = #isPublic#
+	        WHERE
+	            id = #id#
+	    ]]>
+    </update>
+    
+    
+    
+    <!--
+    ***************************************************************************
+    * 服务删除(1/3)
+    ***************************************************************************
+    -->
+    <delete id="deleteServiceById" parameterClass="java.lang.Integer">
+    	DELETE FROM 
+    		mizar_service
+    	WHERE
+    		id=#value#
+    </delete>
+
+
+</sqlMap>

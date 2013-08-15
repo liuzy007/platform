@@ -1,0 +1,64 @@
+#define($nativeHeadCode)
+<script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/mizar-grid.js')" charset="utf-8"></script>
+<script language="javascript" type="text/javascript">
+<!--
+	function changePermission(box) {
+		box.disabled = true;
+		var url = "changePermission.do?service_id=" + box.value + "&partner_id=$partnerId&method=";
+		if (box.checked) {
+			url = url + "add";
+		} else {
+			url = url + "delete";
+		}
+		jQuery.get(url, null, function(data) {
+			box.disabled = false;
+			if (data == "false") {
+				box.selected = !box.selected;
+			}
+		}, "text");
+	}
+-->
+</script>
+#end
+
+<!-- 导航开始 -->
+$control.setTemplate("nav.vm").setParameter("active", "partner")
+<!-- 导航结束 -->
+</div>
+<!-- 页头结束 -->
+
+<div class="bd">
+
+<!-- 面包屑导航开始 -->
+<div class="crumb-nav">
+  <span class="tip">您所在的位置：</span>
+  <span><a href="$registry.setTarget('partners.vm')">合作伙伴列表</a></span>
+  <span class="arrow">>></span>
+  <span class="active">编辑权限($partnerId)</span>
+</div>
+<!-- 面包屑导航结束 -->
+
+<div class="grid grid-highlight">
+<table>
+	<tbody>
+	#foreach ($service in $services)
+		<tr>
+			<td>#checkPermission($service.id)</td>
+			<td>$service.serviceName</td>
+		</tr>
+	#end
+  </tbody>
+</table>
+</div>
+
+#macro (checkPermission $serviceId)
+	<input type="checkbox" name="$serviceId" value="$serviceId" onclick="changePermission(this)"
+	#foreach ($partnerPermission in $partnerPermissions)
+		#if ($partnerPermission.serviceId == $serviceId)
+			checked
+		#end
+	#end
+	/>
+#end
+
+</div>

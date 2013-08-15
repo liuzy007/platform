@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="GB2312"?>
+<configuration>
+	<services>
+		<!-- 装载资源的服务。 -->
+		<service name="ResourceLoaderService"
+			class="com.alibaba.service.resource.DefaultResourceLoaderService">
+			<property name="resource.descriptors">
+				<value>resources.xml</value>
+			</property>
+		</service>
+		<!-- Spring BeanFactory，以IoC的方式生成beans。 -->
+		<service name="BeanFactoryService"
+			class="com.alibaba.service.spring.DefaultBeanFactoryService">
+			<property name="bean.descriptors">
+			    <value>/mizar.dao/spring/data-loader.xml</value>
+				<value>/mizar.dao/spring/data-source.xml</value>
+				<value>/mizar.web/spring/mizar-dao.xml</value>
+				<value>/mizar.web/spring/mizar-beans.xml</value>
+				<value>/mizar.web/spring/mizar-service-local.xml</value>
+			</property>
+		</service>
+	</services>
+</configuration>

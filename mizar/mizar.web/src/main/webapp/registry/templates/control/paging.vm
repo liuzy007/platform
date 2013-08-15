@@ -1,0 +1,147 @@
+#set($parameterKeys         = $rundata.getParameters().keySet())     ## 请求中参数键集合
+
+#if(!$paging)
+    #set($paging            = $rundata.getContext().get('paging'))   ## 分页对象
+#end
+#set($isFirstPage           = $paging.isFirstPage())                 ## 是否为第一页
+#set($isLastPage            = $paging.isLastPage())                  ## 是否为最后一页
+#set($hasPrevPage           = $paging.hasPrevPage())                 ## 有没有前一页
+#set($hasNextPage           = $paging.hasNextPage())                 ## 有没有下一页
+#set($firstPageNumber       = $paging.firstPageNumber)               ## 第一页的页号
+#set($lastPageNumber        = $paging.lastPageNumber)                ## 最后一页的页号
+#set($prevPageNubmer        = $paging.prevPageNubmer)                ## 前一页的页号
+#set($nextPageNumber        = $paging.nextPageNumber)                ## 下一页的页号
+#set($pageFirstElementIndex = $paging.pageFirstElementIndex)         ## 此页第一个元素在整个元素中的编号
+#set($pageLastElementIndex  = $paging.pageLastElementIndex)          ## 此页最后一个元素在整个元素中的编号
+#set($pageSize              = $paging.pageSize)                      ## 每页显示数量
+#set($pageNumber            = $paging.pageNumber)                    ## 查询第几页
+#set($elementCount          = $paging.elementCount)                  ## 所有元素个数
+
+#set($shortcutQuantity      = 5)                                     ## 快捷分页选项个数（大于0的奇数，可以进行定制修改）
+#set($maxShortcutQuantity   = $shortcutQuantity + 4)                 ## 当没有“...”时，最多显示快捷分页选项个数
+#set($sideShortcutNumber    = ($shortcutQuantity - 1) / 2)           ## 选中项边上显示的快捷分页选项个数
+
+#if($simple)
+<div class="pagebar clearfix">
+    <div class="pager">
+        <span class="explain">共${elementCount}条/${lastPageNumber}页，第${pageNumber}页</span>
+        <a class="page-prev#if($isFirstPage) page-prev-disabled#end" href="javascript:void(0);">上一页</a>
+        <a class="page-next#if($isLastPage) page-next-disabled#end" href="javascript:void(0);">下一页</a>
+    </div>
+</div>
+#else
+<div class="pagebar clearfix">
+    <div class="sizer">
+        <span class="explain">每页显示数量</span>
+        <a#if($pageSize == 10)  class="active"#end href="javascript:void(0);">10</a>
+        <a#if($pageSize == 20)  class="active"#end href="javascript:void(0);">20</a>
+        <a#if($pageSize == 50)  class="active"#end href="javascript:void(0);">50</a>
+        <a#if($pageSize == 100) class="active"#end href="javascript:void(0);">100</a>
+    </div>
+    <div class="pager">
+        <span class="explain">共${elementCount}条记录</span>
+        <a class="page-prev#if($isFirstPage) page-prev-disabled#end" href="javascript:void(0);">上一页</a>
+        #if($lastPageNumber > $maxShortcutQuantity)
+            #if($pageNumber <= $shortcutQuantity)
+                #set($startPageNumber = $firstPageNumber)
+                #set($endPageNumber = $shortcutQuantity + 2)
+                #foreach($n in [$startPageNumber..$endPageNumber])
+                    <a#if($pageNumber == $n) class="active"#end href="javascript:void(0);">$n</a>
+                #end
+                <a class="page-break" href="javascript:void(0);">...</a>
+                <a href="javascript:void(0);">$lastPageNumber</a>
+            #elseif($lastPageNumber - $pageNumber < $shortcutQuantity)
+                <a href="javascript:void(0);">$firstPageNumber</a>
+                <a class="page-break" href="javascript:void(0);">...</a>
+                #set($startPageNumber = $lastPageNumber - $shortcutQuantity - 1)
+                #set($endPageNumber = $lastPageNumber)
+                #foreach($n in [$startPageNumber..$endPageNumber])
+                    <a#if($pageNumber == $n) class="active"#end href="javascript:void(0);">$n</a>
+                #end
+            #else
+                <a href="javascript:void(0);">$firstPageNumber</a>
+                <a class="page-break" href="javascript:void(0);">...</a>
+                #set($startPageNumber = $pageNumber - $sideShortcutNumber)
+                #set($endPageNumber = $pageNumber + $sideShortcutNumber)
+                #foreach($n in [$startPageNumber..$endPageNumber])
+                    <a#if($pageNumber == $n) class="active"#end href="javascript:void(0);">$n</a>
+                #end
+                <a class="page-break" href="javascript:void(0);">...</a>
+                <a href="javascript:void(0);">$lastPageNumber</a>
+            #end
+        #else
+            #foreach($n in [1..$lastPageNumber])
+                <a#if($pageNumber == $n) class="active"#end href="javascript:void(0);">$n</a>
+            #end
+        #end
+        <a class="page-next#if($isLastPage) page-next-disabled#end" href="javascript:void(0);">下一页</a>
+    </div>
+</div>
+#end
+
+<script language="javascript" type="text/javascript">
+<!--
+jQuery(function() {
+    // 请求参数
+    var parameters = {};
+    #foreach($key in $parameterKeys)
+        parameters['#escapeJavaScript($key)'] = '#getParameterEscapeJavaScript($key)';
+    #end
+    // 清除参数action、eventSubmit、event_submit（表单处理后跳转到列表页面，如果参数存在，分页时将重复表单提交）
+    for (var key in parameters) {
+        if (key.startsWith('action') || key.startsWith('eventSubmit')
+                || key.startsWith('event_submit') || key.startsWith('_csrf_token')) {
+            delete parameters[key];
+        }
+    }
+    // 更改每页显示数量
+    jQuery('.pagebar .sizer a').not('.active').click(function() {
+        var pageSize = jQuery(this).html();
+        // 提交表单
+        Alib.FormUtil.formSubmit(
+            Alib.apply(parameters, {'pageSize' : pageSize, 'pageNumber' : 1}), {action : '$url'}
+        );
+        return false; // IE下刷新页面
+    });
+    // 翻页
+    jQuery('.pagebar .pager a').not('.page-prev-disabled, .page-break, .page-next-disabled').click(function() {
+        var selectedPageNumber = $pageNumber;
+        var pageNumber = selectedPageNumber;
+        var txt = jQuery(this).html();
+        if (txt == '上一页') {
+            pageNumber = selectedPageNumber - 1;
+        } else if (txt == '下一页') {
+            pageNumber = selectedPageNumber + 1;
+        } else {
+            pageNumber = txt;
+        }
+        // 提交表单
+        Alib.FormUtil.formSubmit(
+            Alib.apply(parameters, {'pageSize' : $pageSize, 'pageNumber' : pageNumber}), {action: '$url'}
+        );
+        return false; // IE下刷新页面
+    });
+    // 排序
+    jQuery('.grid thead a.order').click(function() {
+        var orderBy = jQuery(this).attr('orderby').trim();
+        var dirBy = jQuery(this).find('span').hasClass('asc') ? 'desc' : 'asc';
+        // 提交表单
+        Alib.FormUtil.formSubmit(
+            Alib.apply(parameters, {'order' : orderBy, 'dir' : dirBy, 'pageSize' : $pageSize, 'pageNumber' : 1}), {action : '$url'}
+        );
+        return false; // IE下刷新页面
+    });
+    // 渲染表格排序标志
+    jQuery('.grid thead a.order').each(function() {
+        var orderBy = jQuery(this).attr('orderby').trim();
+        var dirBy = parameters['dir'];
+        if (parameters['order'] == orderBy) {
+            jQuery(this).attr('title', (dirBy == 'asc' ? '升序' : '降序'));
+            jQuery(this).addClass('active');
+            jQuery(this).find('span').addClass(dirBy);
+            return false;
+        }
+    });
+});
+-->
+</script>

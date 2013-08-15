@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- ===================================================================== -->
+    <!-- 以下是 appender 的定义 -->
+    <!-- ===================================================================== -->
+    <appender name="PROJECT-FILE" class="org.apache.log4j.DailyRollingFileAppender">
+        <param name="append" value="true" />
+        <param name="datePattern" value="'.'yyyy-MM-dd" />
+        <param name="encoding" value="${mizar_log_charset}" />
+        <param name="File" value="${mizar_log_path}/mizar.log" />
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%n%r [%p] [%d{yyyy-MM-dd HH:mm:ss,SSS}] - %X{method} %X{requestURIWithQueryString}%n %l - %m%n" />
+        </layout>
+    </appender>
+    
+    <appender name="PROJECT-REMOTE" class="com.alibaba.syslog.appender.SyslogAppender">
+    	<param name="Facility" value="${mizar_syslog_facility}"/>
+	    <param name="SyslogHost" value="${mizar_syslog_host}"/>
+	    <param name="Header" value="true" />
+	    <param name="Charset" value="UTF-8" />
+	    <param name="MaxSize" value="8192" />
+	    <param name="LengthyLog" value="false" />
+	    <layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS}:%p %t %c - %m%n" />
+	    </layout>
+    </appender>
+    
+    <appender name="DRAGOON_LOG" class="com.alibaba.dragoon.patrol.log4j.PatrolLog4jAppender">
+    	<param name="Threshold" value="ERROR"/>
+    </appender>
+
+
+    <!-- ===================================================================== -->
+    <!-- Root logger的定义 -->
+    <!-- ===================================================================== -->
+    <logger name="org.apache">
+        <level value="${mizar_log_jar_level}" />
+    </logger>
+
+    <logger name="org.springframework">
+        <level value="${mizar_log_jar_level}" />
+    </logger>
+
+    <logger name="com.alibaba.citrus.springext.support.context">
+        <level value="${mizar_log_jar_level}" />
+    </logger>
+    
+    <logger name="com.alibaba.dubbo">
+    	<level value="${mizar_log_jar_level}" />
+    </logger>
+
+    <root>
+        <level value="${mizar_log_root_level}" />
+        <appender-ref ref="PROJECT-FILE"/>
+        <appender-ref ref="PROJECT-REMOTE"/>
+        <appender-ref ref="DRAGOON_LOG"/>
+    </root>
+</log4j:configuration>

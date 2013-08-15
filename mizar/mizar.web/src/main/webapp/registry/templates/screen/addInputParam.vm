@@ -1,0 +1,97 @@
+#define($nativeHeadCode)
+<script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/mizar-form.js')" charset="utf-8"></script>
+<script language="javascript" type="text/javascript">
+<!--
+jQuery(function() {
+    var fm = Alib.FormUtil;
+    
+    // 表单验证配置
+    var formCfg = {
+        
+    };
+    // 表单验证事件绑定/默认提示设置/表单提交事件绑定
+    fm.bindEvent(formCfg);
+});
+-->
+</script>
+
+#end
+
+<!-- 导航开始 -->
+$control.setTemplate("nav.vm").setParameter("active", "service")
+<!-- 导航结束 -->
+</div>
+<!-- 页头结束 -->
+
+<div class="bd">
+
+<!-- 面包屑导航开始 -->
+<div class="crumb-nav">
+  <span class="tip">您所在的位置：</span>
+  <span><a href="$registryLink.setTarget('services.vm')">服务列表</a></span>
+  <span class="arrow">>></span>
+  <span>参数列表</span>
+  <span class="arrow">>></span>
+  <span class="active">增加</span>
+</div>
+<!-- 面包屑导航结束 -->
+
+<!-- TAB页开始 -->
+$control.setTemplate("tab.vm").setParameter("tab", "edit").setParameter("active", "inputParam").setParameter("serviceId", $!serviceInfo.id)
+<!-- TAB页结束 -->
+
+<form id="main-form" action="$registryLink.setTarget('addInputParam.vm').addQueryData('serviceId', $!serviceId)" method="post">
+  $csrfToken.hiddenField
+  #set ($group = $form.inputParam.defaultInstance)
+  <input type="hidden" name="action" value="InputParamAction"/>
+  <input type="hidden" name="event_submit_do_add" value="true"/>
+  <input type="hidden" name="$group.serviceId.key" value="$serviceId" />
+
+  #if (!$group.index.valid)
+  <p>$group.index.message</p>
+  #end
+  
+  #if (!$group.paramName.valid)
+  <p>$group.paramName.message</p>
+  #end
+  
+  #if (!$group.paramType.valid)
+  <p>$group.paramType.message</p>
+  #end
+  
+  <div class="fm-wrap">
+    <div class="fm-item">
+      <label class="fm-lab"><span class="fm-required">*</span>$group.index.displayName：</label>
+      <input type="text" id="index" name="$group.index.key" value="$!group.index.value" class="fm-ipt w10" />
+      <div class="fm-tip"></div>
+    </div>
+    
+    <div class="fm-item">
+      <label class="fm-lab"><span class="fm-required">*</span>$group.paramName.displayName：</label>
+      <input type="text" id="paramName" name="$group.paramName.key" value="$!group.paramName.value" class="fm-ipt w10" />
+      <div class="fm-tip"></div>
+    </div>
+    
+    <div class="fm-item">
+      <label class="fm-lab"><span class="fm-required">*</span>$group.paramType.displayName：</label>
+      <input type="text" id="paramType" name="$group.paramType.key" value="$!group.paramType.value" class="fm-ipt w10" />
+      <div class="fm-tip"></div>
+    </div>
+    
+    <div class="fm-item">
+      <label class="fm-lab">$group.nullable.displayName：</label>
+      <input type="radio" id="statusT" name="$group.nullable.key" value="true" class="fm-radio" />
+      <label class="fm-lab-val m2r" for="statusT">是</label>
+      <input type="radio" id="statusF" name="$group.nullable.key" value="false" class="fm-radio" />
+      <label class="fm-lab-val m2r" for="statusF">否</label>
+    </div>
+    
+    <div class="fm-btn-banner">
+      <a href="javascript:void(0);" id="form-submit" class="btn btn-main"><span>提交</span></a>
+    </div>
+    
+  </div>
+   
+</form>
+
+</div>

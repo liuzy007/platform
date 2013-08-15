@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans:beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:services="http://www.alibaba.com/schema/services"
+    xmlns:mapping-rules="http://www.alibaba.com/schema/services/mapping-rules"
+    xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="
+        http://www.alibaba.com/schema/services http://localhost:8080/schema/services.xsd
+        http://www.alibaba.com/schema/services/mapping-rules http://localhost:8080/schema/services-mapping-rules.xsd
+        http://www.springframework.org/schema/beans http://localhost:8080/schema/www.springframework.org/schema/beans/spring-beans.xsd
+    ">
+
+    <!-- 支持${xxx}替换。 -->
+    <services:property-placeholder />
+
+    <!-- 名称查找规则。 -->
+    <services:mapping-rules xmlns="http://www.alibaba.com/schema/services/mapping-rules">
+
+        <!-- External target name => Internal target name -->
+        <extension-rule id="extension.input">
+            <!-- 默认后缀 -->
+            <mapping extension="" to="" />
+
+            <!-- JSP -->
+            <mapping extension="jhtml" to="" />
+            <mapping extension="jsp" to="" />
+            <mapping extension="php" to="" />
+
+            <!-- Velocity -->
+            <mapping extension="htm" to="" />
+            <mapping extension="vhtml" to="" />
+            <mapping extension="vm" to="" />
+        </extension-rule>
+
+        <!-- Internal target name => External target name -->
+        <extension-rule id="extension.output">
+            <!-- 默认后缀 -->
+            <mapping extension="" to="htm" />
+
+            <!-- JSP -->
+            <mapping extension="jhtml" to="jhtml" />
+            <mapping extension="jsp" to="jhtml" />
+            <mapping extension="php" to="jhtml" />
+
+            <!-- Velocity -->
+            <mapping extension="htm" to="htm" />
+            <mapping extension="vhtml" to="htm" />
+            <mapping extension="vm" to="htm" />
+        </extension-rule>
+
+    </services:mapping-rules>
+
+</beans:beans>
