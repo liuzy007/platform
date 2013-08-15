@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+       xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"
+       xmlns:bean="http://www.springframework.org/schema/beans">
+
+    <bean id="gatewayAction" class="com.platform.tddl.web.action.GatewayAction"/>
+
+    <bean id="urlMapping"
+          class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <props>
+                <prop key="gateway.do">gatewayAction</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

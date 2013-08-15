@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: jboss.common:jboss-common:1.2.1.GA">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/jboss/common/jboss-common/1.2.1.GA/jboss-common-1.2.1.GA.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/jboss/common/jboss-common/1.2.1.GA/jboss-common-1.2.1.GA-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/jboss/common/jboss-common/1.2.1.GA/jboss-common-1.2.1.GA-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="dataSourceProxy" class="com.taobao.tddl.client.jdbc.TDataSource"
+		init-method="init">
+                <property name="useLocalConfig" value="true"/>
+		<property name="rwDataSourcePool">
+			<map>
+			  <entry key="dbgroup00" value="DB1:rw,DB1BAK:r"/>
+                <entry key="dbgroup01" value="DB2:rw,DB2BAK:r"/>
+                <entry key="dbgroup02" value="DB3:rw,DB3BAK:r"/>
+                <entry key="dbgroup03" value="DB4:rw,DB4BAK:r"/>
+                <entry key="dbgroup04" value="DB5:rw,DB5BAK:r"/>
+                <entry key="dbgroup05" value="DB6:rw,DB6BAK:r"/>
+                <entry key="dbgroup06" value="DB7:rw,DB7BAK:r"/>
+                <entry key="dbgroup07" value="DB8:rw,DB8BAK:r"/>
+                <entry key="dbgroup08" value="DB9:rw,DB9BAK:r"/>
+                <entry key="dbgroup09" value="DB10:rw,DB10BAK:r"/>
+                <entry key="dbgroup10" value="DB11:rw,DB11BAK:r"/>
+                <entry key="dbgroup11" value="DB12:rw,DB12BAK:r"/>
+                <entry key="dbgroup12" value="DB13:rw,DB13BAK:r"/>
+                <entry key="dbgroup13" value="DB14:rw,DB14BAK:r"/>
+                <entry key="dbgroup14" value="DB15:rw,DB15BAK:r"/>
+                <entry key="dbgroup15" value="DB16:rw,DB16BAK:r"/>
+                <entry key="dbgroup_TAG" value="DBTAG:rw,DBTAGBAK:r"/>
+                <entry key="dbgroup_COMM" value="DBCOMM:rw,DBCOMMBAK:r"/>
+                <entry key="dbgroup_COMMENT" value="DBCOMMENT:rw,DBCOMMENTBAK:r"/>
+			</map>
+		</property>
+		<property name="appRuleFile" value="classpath:tddl-unittest.xml"/>
+	</bean>
+	<!--mock datasource -->
+	<bean id="mockDataSource" abstract="true" class="com.taobao.tddl.common.mockdatasource.MockDataSource"/>
+	<bean id="DB1"  parent="mockDataSource"><property name="name" value="DB1" /><property name="dbIndex" value="dbgroup00"/></bean>
+	<bean id="DB2"  parent="mockDataSource"><property name="name" value="DB2" /><property name="dbIndex" value="dbgroup01"/></bean>
+	<bean id="DB3"  parent="mockDataSource"><property name="name" value="DB3" /><property name="dbIndex" value="dbgroup02"/></bean>
+	<bean id="DB4"  parent="mockDataSource"><property name="name" value="DB4" /><property name="dbIndex" value="dbgroup03"/></bean>
+	<bean id="DB5"  parent="mockDataSource"><property name="name" value="DB5" /><property name="dbIndex" value="dbgroup04"/></bean>
+	<bean id="DB6"  parent="mockDataSource"><property name="name" value="DB6" /><property name="dbIndex" value="dbgroup05"/></bean>
+	<bean id="DB7"  parent="mockDataSource"><property name="name" value="DB7" /><property name="dbIndex" value="dbgroup06"/></bean>
+	<bean id="DB8"  parent="mockDataSource"><property name="name" value="DB8" /><property name="dbIndex" value="dbgroup07"/></bean>
+	<bean id="DB9"  parent="mockDataSource"><property name="name" value="DB9" /><property name="dbIndex" value="dbgroup08"/></bean>
+	<bean id="DB10" parent="mockDataSource"><property name="name" value="DB10"/><property name="dbIndex" value="dbgroup09"/></bean>
+	<bean id="DB11" parent="mockDataSource"><property name="name" value="DB11"/><property name="dbIndex" value="dbgroup10"/></bean>
+	<bean id="DB12" parent="mockDataSource"><property name="name" value="DB12"/><property name="dbIndex" value="dbgroup11"/></bean>
+	<bean id="DB13" parent="mockDataSource"><property name="name" value="DB13"/><property name="dbIndex" value="dbgroup12"/></bean>
+	<bean id="DB14" parent="mockDataSource"><property name="name" value="DB14"/><property name="dbIndex" value="dbgroup13"/></bean>
+	<bean id="DB15" parent="mockDataSource"><property name="name" value="DB15"/><property name="dbIndex" value="dbgroup14"/></bean>
+	<bean id="DB16" parent="mockDataSource"><property name="name" value="DB16"/><property name="dbIndex" value="dbgroup15"/></bean>
+	<bean id="DB1BAK"  parent="mockDataSource"><property name="name" value="DB1BAK" /><property name="dbIndex" value="dbgroup00"/></bean>
+	<bean id="DB2BAK"  parent="mockDataSource"><property name="name" value="DB2BAK" /><property name="dbIndex" value="dbgroup01"/></bean>
+	<bean id="DB3BAK"  parent="mockDataSource"><property name="name" value="DB3BAK" /><property name="dbIndex" value="dbgroup02"/></bean>
+	<bean id="DB4BAK"  parent="mockDataSource"><property name="name" value="DB4BAK" /><property name="dbIndex" value="dbgroup03"/></bean>
+	<bean id="DB5BAK"  parent="mockDataSource"><property name="name" value="DB5BAK" /><property name="dbIndex" value="dbgroup04"/></bean>
+	<bean id="DB6BAK"  parent="mockDataSource"><property name="name" value="DB6BAK" /><property name="dbIndex" value="dbgroup05"/></bean>
+	<bean id="DB7BAK"  parent="mockDataSource"><property name="name" value="DB7BAK" /><property name="dbIndex" value="dbgroup06"/></bean>
+	<bean id="DB8BAK"  parent="mockDataSource"><property name="name" value="DB8BAK" /><property name="dbIndex" value="dbgroup07"/></bean>
+	<bean id="DB9BAK"  parent="mockDataSource"><property name="name" value="DB9BAK" /><property name="dbIndex" value="dbgroup08"/></bean>
+	<bean id="DB10BAK" parent="mockDataSource"><property name="name" value="DB10BAK"/><property name="dbIndex" value="dbgroup09"/></bean>
+	<bean id="DB11BAK" parent="mockDataSource"><property name="name" value="DB11BAK"/><property name="dbIndex" value="dbgroup10"/></bean>
+	<bean id="DB12BAK" parent="mockDataSource"><property name="name" value="DB12BAK"/><property name="dbIndex" value="dbgroup11"/></bean>
+	<bean id="DB13BAK" parent="mockDataSource"><property name="name" value="DB13BAK"/><property name="dbIndex" value="dbgroup12"/></bean>
+	<bean id="DB14BAK" parent="mockDataSource"><property name="name" value="DB14BAK"/><property name="dbIndex" value="dbgroup13"/></bean>
+	<bean id="DB15BAK" parent="mockDataSource"><property name="name" value="DB15BAK"/><property name="dbIndex" value="dbgroup14"/></bean>
+	<bean id="DB16BAK" parent="mockDataSource"><property name="name" value="DB16BAK"/><property name="dbIndex" value="dbgroup15"/></bean>
+	<bean id="DBTAG" parent="mockDataSource"><property name="name" value="DBTAG"/><property name="dbIndex" value="dbgroup_TAG"/></bean>
+	<bean id="DBTAGBAK" parent="mockDataSource"><property name="name" value="DBTAGBAK"/><property name="dbIndex" value="dbgroup_TAG"/></bean>
+	<bean id="DBCOMM" parent="mockDataSource"><property name="name" value="DBCOMM"/><property name="dbIndex" value="dbgroup_COMM"/></bean>
+	<bean id="DBCOMMBAK" parent="mockDataSource"><property name="name" value="DBCOMMBAK"/><property name="dbIndex" value="dbgroup_COMM"/></bean>
+	<bean id="DBCOMMENT" parent="mockDataSource"><property name="name" value="DBCOMMENT"/><property name="dbIndex" value="dbgroup_COMMENT"/></bean>
+	<bean id="DBCOMMENTBAK" parent="mockDataSource"><property name="name" value="DBCOMMENTBAK"/><property name="dbIndex" value="dbgroup_COMMENT"/></bean>
+	
+	<bean id="datasourceIntrospactor" class="com.taobao.tddl.util.dispatchAnalyzer.DatasourceIntrospector">
+		<property name="targetDataSource" ref="dataSourceProxy"/>
+	</bean>
+	
+</beans>

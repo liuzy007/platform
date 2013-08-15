@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.alibaba.external:test.mockito-all:1.8.2">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/com/alibaba/external/test.mockito-all/1.8.2/test.mockito-all-1.8.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/com/alibaba/external/test.mockito-all/1.8.2/test.mockito-all-1.8.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/com/alibaba/external/test.mockito-all/1.8.2/test.mockito-all-1.8.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

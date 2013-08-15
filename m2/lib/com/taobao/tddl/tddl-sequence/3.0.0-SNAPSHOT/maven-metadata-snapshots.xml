@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>com.taobao.tddl</groupId>
+  <artifactId>tddl-sequence</artifactId>
+  <version>3.0.0-SNAPSHOT</version>
+  <versioning>
+    <snapshot>
+      <timestamp>20121130.083855</timestamp>
+      <buildNumber>6</buildNumber>
+    </snapshot>
+    <lastUpdated>20121130181614</lastUpdated>
+  </versioning>
+</metadata>

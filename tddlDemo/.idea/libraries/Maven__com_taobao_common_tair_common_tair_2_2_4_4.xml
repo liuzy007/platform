@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.taobao.common.tair:common-tair:2.2.4.4">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/com/taobao/common/tair/common-tair/2.2.4.4/common-tair-2.2.4.4.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/com/taobao/common/tair/common-tair/2.2.4.4/common-tair-2.2.4.4-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/com/taobao/common/tair/common-tair/2.2.4.4/common-tair-2.2.4.4-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

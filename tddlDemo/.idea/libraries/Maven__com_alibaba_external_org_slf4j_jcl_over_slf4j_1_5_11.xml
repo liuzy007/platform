@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.alibaba.external:org.slf4j.jcl-over-slf4j:1.5.11">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/com/alibaba/external/org.slf4j.jcl-over-slf4j/1.5.11/org.slf4j.jcl-over-slf4j-1.5.11.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/com/alibaba/external/org.slf4j.jcl-over-slf4j/1.5.11/org.slf4j.jcl-over-slf4j-1.5.11-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/com/alibaba/external/org.slf4j.jcl-over-slf4j/1.5.11/org.slf4j.jcl-over-slf4j-1.5.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

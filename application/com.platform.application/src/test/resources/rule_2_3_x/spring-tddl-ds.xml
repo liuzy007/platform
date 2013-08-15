@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+
+	<!-- 实际数据库数据源 -->
+	<bean id="mockDataSource" abstract="true" class="com.taobao.tddl.common.mockdatasource.MockDataSource"/>
+	<bean id="master_db1" parent="mockDataSource"><property name="name" value="master_db1"/><property name="dbIndex" value="master_1"/></bean>
+	<bean id="master_db2" parent="mockDataSource"><property name="name" value="master_db2"/><property name="dbIndex" value="master_2"/></bean>
+	<bean id="master_db3" parent="mockDataSource"><property name="name" value="master_db2"/><property name="dbIndex" value="master_2"/></bean>
+	<bean id="master_db4" parent="mockDataSource"><property name="name" value="master_db2"/><property name="dbIndex" value="master_2"/></bean>
+
+	<!-- 主库供外部使用的数据源 -->
+	<bean id="itemDataSource" class="com.taobao.tddl.client.jdbc.TDataSource" init-method="init">
+		<property name="dataSourcePool">
+			<map>
+				<entry key="master_0" value-ref="master_db1" />
+				<entry key="master_1" value-ref="master_db1" />
+				<entry key="master_2" value-ref="master_db2" />
+				<entry key="master_3" value-ref="master_db1" />
+			</map>
+		</property>
+		<property name="useLocalConfig" value="true" />
+		<property name="appRuleFile" value="classpath:/rule_2_3_x/spring-tddl-apprule.xml" />
+	</bean>
+</beans>

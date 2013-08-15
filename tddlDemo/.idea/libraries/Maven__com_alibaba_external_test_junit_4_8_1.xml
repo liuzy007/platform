@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.alibaba.external:test.junit:4.8.1">
+    <CLASSES>
+      <root url="jar://$M2_REPO$/com/alibaba/external/test.junit/4.8.1/test.junit-4.8.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$M2_REPO$/com/alibaba/external/test.junit/4.8.1/test.junit-4.8.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$M2_REPO$/com/alibaba/external/test.junit/4.8.1/test.junit-4.8.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

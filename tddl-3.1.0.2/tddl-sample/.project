@@ -1,0 +1,22 @@
+<projectDescription>
+  <name>tddl-sample</name>
+  <comment/>
+  <projects>
+    <project>tddl-atom-datasource</project>
+    <project>tddl-cache</project>
+    <project>tddl-client</project>
+    <project>tddl-common</project>
+    <project>tddl-group-datasource</project>
+    <project>tddl-interact</project>
+    <project>tddl-parser</project>
+    <project>tddl-rule</project>
+  </projects>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>
