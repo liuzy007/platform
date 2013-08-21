@@ -2,77 +2,77 @@
 <script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/mizar-form.js')" charset="utf-8"></script>
 #end
 
-<!-- µ¼º½¿ªÊ¼ -->
+<!-- å¯¼èˆªå¼€å§‹ -->
 $control.setTemplate("nav.vm").setParameter("active", "service")
-<!-- µ¼º½½áÊø -->
+<!-- å¯¼èˆªç»“æŸ -->
 </div>
-<!-- Ò³Í·½áÊø -->
+<!-- é¡µå¤´ç»“æŸ -->
 
 <div class="bd">
 
-<!-- Ãæ°üĞ¼µ¼º½¿ªÊ¼ -->
+<!-- é¢åŒ…å±‘å¯¼èˆªå¼€å§‹ -->
 <div class="crumb-nav">
-  <span class="tip">ÄúËùÔÚµÄÎ»ÖÃ£º</span>
-  <span><a href="$registryLink.setTarget('services.vm')">·şÎñÁĞ±í</a></span>
+  <span class="tip">æ‚¨æ‰€åœ¨çš„ä½ç½®ï¼š</span>
+  <span><a href="$registryLink.setTarget('services.vm')">æœåŠ¡åˆ—è¡¨</a></span>
   <span class="arrow">>></span>
-  <span class="active">²é¿´</span>
+  <span class="active">æŸ¥çœ‹</span>
 </div>
-<!-- Ãæ°üĞ¼µ¼º½½áÊø -->
+<!-- é¢åŒ…å±‘å¯¼èˆªç»“æŸ -->
 
-<!-- TABÒ³¿ªÊ¼ -->
+<!-- TABé¡µå¼€å§‹ -->
 $control.setTemplate("tab.vm").setParameter("tab", "view").setParameter("active", "info").setParameter("serviceId", $!serviceInfo.id)
-<!-- TABÒ³½áÊø -->
+<!-- TABé¡µç»“æŸ -->
 
-<!-- ±íµ¥¿ªÊ¼ --> 
+<!-- è¡¨å•å¼€å§‹ --> 
             <div class="fm-wrap">
                 
                 <div class="fm-item">
-                    <label class="fm-lab">·şÎñÃû£º</label>
+                    <label class="fm-lab">æœåŠ¡åï¼š</label>
                     <span class="fm-txt">$!serviceInfo.serviceName</span>
                 </div>
                 
                 <div class="fm-item">
-                    <label class="fm-lab">µ÷ÓÃ½Ó¿ÚÀàĞÍ£º</label>
+                    <label class="fm-lab">è°ƒç”¨æ¥å£ç±»å‹ï¼š</label>
                     <span class="fm-txt">$!serviceInfo.invokeInterface</span>
                 </div>
                 
                 <div class="fm-item">
-                    <label class="fm-lab">µ÷ÓÃ·½·¨£º</label>
+                    <label class="fm-lab">è°ƒç”¨æ–¹æ³•ï¼š</label>
                     <span class="fm-txt">$!serviceInfo.invokeMethod</span>
                 </div>
                 
                 <div class="fm-item">
-                    <label class="fm-lab">µ÷ÓÃ½Ó¿Ú°æ±¾ºÅ£º</label>
+                    <label class="fm-lab">è°ƒç”¨æ¥å£ç‰ˆæœ¬å·ï¼š</label>
                     <span class="fm-txt">$!serviceInfo.version</span>
                 </div>
                 
                 <div class="fm-item">
-                    <label class="fm-lab">·şÎñ×´Ì¬£º</label>
-                    <span class="fm-txt">#if($serviceInfo.status == "O")Õı³£#end</span>
-                    <span class="fm-txt">#if($serviceInfo.status == "N")Î´ÆğÓÃ#end</span>
-                    <span class="fm-txt">#if($serviceInfo.status == "S")ÔİÍ£#end</span>
-                    <span class="fm-txt">#if($serviceInfo.status == "I")¹ıÆÚ#end</span>
+                    <label class="fm-lab">æœåŠ¡çŠ¶æ€ï¼š</label>
+                    <span class="fm-txt">#if($serviceInfo.status == "O")æ­£å¸¸#end</span>
+                    <span class="fm-txt">#if($serviceInfo.status == "N")æœªèµ·ç”¨#end</span>
+                    <span class="fm-txt">#if($serviceInfo.status == "S")æš‚åœ#end</span>
+                    <span class="fm-txt">#if($serviceInfo.status == "I")è¿‡æœŸ#end</span>
                 </div>
                 
                 <div class="fm-item">
-                    <label class="fm-lab">ÊÇ·ñĞèÒªÑéÇ©£º</label>
-                    <span class="fm-txt">#if($serviceInfo.ValidateSignIn == "true")ÊÇ#end</span>
-                    <span class="fm-txt">#if($serviceInfo.ValidateSignIn == "false")·ñ#end</span>
+                    <label class="fm-lab">æ˜¯å¦éœ€è¦éªŒç­¾ï¼š</label>
+                    <span class="fm-txt">#if($serviceInfo.ValidateSignIn == "true")æ˜¯#end</span>
+                    <span class="fm-txt">#if($serviceInfo.ValidateSignIn == "false")å¦#end</span>
                 </div>
                 
                 <div class="fm-item">
-                    <label class="fm-lab">ÊÇ·ñĞèÒª¶Ô·µ»Ø²ÎÊı¼ÓÇ©£º</label>
-                    <span class="fm-txt">#if($serviceInfo.endorseSignOut == "true")ÊÇ#end</span>
-                    <span class="fm-txt">#if($serviceInfo.endorseSignOut == "false")·ñ#end</span>
+                    <label class="fm-lab">æ˜¯å¦éœ€è¦å¯¹è¿”å›å‚æ•°åŠ ç­¾ï¼š</label>
+                    <span class="fm-txt">#if($serviceInfo.endorseSignOut == "true")æ˜¯#end</span>
+                    <span class="fm-txt">#if($serviceInfo.endorseSignOut == "false")å¦#end</span>
                 </div>
                 
                 <div class="fm-item">
-                    <label class="fm-lab">ÊÇ·ñ¹«¿ª£º</label>
-                    <span class="fm-txt">#if($serviceInfo.public == "true")ÊÇ#end</span>
-                    <span class="fm-txt">#if($serviceInfo.public == "false")·ñ#end</span>
+                    <label class="fm-lab">æ˜¯å¦å…¬å¼€ï¼š</label>
+                    <span class="fm-txt">#if($serviceInfo.public == "true")æ˜¯#end</span>
+                    <span class="fm-txt">#if($serviceInfo.public == "false")å¦#end</span>
                 </div>
                  
             </div> 
-            <!-- ±íµ¥½áÊø -->
+            <!-- è¡¨å•ç»“æŸ -->
 
 </div>

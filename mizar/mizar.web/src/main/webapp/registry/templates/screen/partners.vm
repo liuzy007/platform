@@ -3,37 +3,37 @@
 <script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/search.js')" charset="utf-8"></script>
 #end
 
-<!-- µ¼º½¿ªÊ¼ -->
+<!-- å¯¼èˆªå¼€å§‹ -->
 $control.setTemplate("nav.vm").setParameter("active", "partner")
-<!-- µ¼º½½áÊø -->
+<!-- å¯¼èˆªç»“æŸ -->
 </div>
-<!-- Ò³Í·½áÊø -->
+<!-- é¡µå¤´ç»“æŸ -->
 
 <div class="bd">
 
-<!-- Ãæ°üĞ¼µ¼º½¿ªÊ¼ -->
+<!-- é¢åŒ…å±‘å¯¼èˆªå¼€å§‹ -->
 <div class="crumb-nav">
-  <span class="tip">ÄúËùÔÚµÄÎ»ÖÃ£º</span>
-  <span class="active">ºÏ×÷»ï°éÁĞ±í</span>
+  <span class="tip">æ‚¨æ‰€åœ¨çš„ä½ç½®ï¼š</span>
+  <span class="active">åˆä½œä¼™ä¼´åˆ—è¡¨</span>
 </div>
-<!-- Ãæ°üĞ¼µ¼º½½áÊø -->
+<!-- é¢åŒ…å±‘å¯¼èˆªç»“æŸ -->
 
-<!-- ²Ù×÷À¸¿ªÊ¼ -->
+<!-- æ“ä½œæ å¼€å§‹ -->
 <div class="handle">            
-  <a href="$registryLink.setTarget('add_partner.vm')">Ôö¼ÓºÏ×÷»ï°é >></a>               
+  <a href="$registryLink.setTarget('add_partner.vm')">å¢åŠ åˆä½œä¼™ä¼´ >></a>               
 </div>
-<!-- ²Ù×÷À¸½áÊø -->
+<!-- æ“ä½œæ ç»“æŸ -->
 
-<!-- ±í¸ñ¿ªÊ¼ -->
+<!-- è¡¨æ ¼å¼€å§‹ -->
 <div class="grid grid-highlight">
 <table>
   <thead>
 	<tr>
 		<th>ID</th>
-		<th>ÓÃ»§Ãû</th>
-		<th>ÃÜÂë</th>
-		<th>ÃèÊö</th>
-		<th>²Ù×÷</th>
+		<th>ç”¨æˆ·å</th>
+		<th>å¯†ç </th>
+		<th>æè¿°</th>
+		<th>æ“ä½œ</th>
 	</tr>
   </thead>
   
@@ -45,8 +45,8 @@ $control.setTemplate("nav.vm").setParameter("active", "partner")
 		<td>$partner.password</td>
 		<td>$partner.description</td>
 		<td>
-			<a href="$registryLink.setTarget('partner_permission.vm').addQueryData('partner_id', $partner.id)">È¨ÏŞ</a>
-			<a href="$registryLink.setTarget('deletePartner.do').addQueryData('partnerId', $partner.id)">É¾³ı</a>
+			<a href="$registryLink.setTarget('partner_permission.vm').addQueryData('partner_id', $partner.id)">æƒé™</a>
+			<a href="$registryLink.setTarget('deletePartner.do').addQueryData('partnerId', $partner.id)">åˆ é™¤</a>
 		</td>
 	  </tr>
     #end
@@ -56,6 +56,6 @@ $control.setTemplate("nav.vm").setParameter("active", "partner")
 
 ##$control.setTemplate("paging.vm").setParameter("url", "$registryLink.setTarget('partners.vm')")
 
-<!-- ±í¸ñ½áÊø -->
+<!-- è¡¨æ ¼ç»“æŸ -->
 
 </div>

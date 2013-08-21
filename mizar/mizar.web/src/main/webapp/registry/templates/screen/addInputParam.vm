@@ -5,11 +5,11 @@
 jQuery(function() {
     var fm = Alib.FormUtil;
     
-    // ±íµ¥ÑéÖ¤ÅäÖÃ
+    // è¡¨å•éªŒè¯é…ç½®
     var formCfg = {
         
     };
-    // ±íµ¥ÑéÖ¤ÊÂ¼ş°ó¶¨/Ä¬ÈÏÌáÊ¾ÉèÖÃ/±íµ¥Ìá½»ÊÂ¼ş°ó¶¨
+    // è¡¨å•éªŒè¯äº‹ä»¶ç»‘å®š/é»˜è®¤æç¤ºè®¾ç½®/è¡¨å•æäº¤äº‹ä»¶ç»‘å®š
     fm.bindEvent(formCfg);
 });
 -->
@@ -17,28 +17,28 @@ jQuery(function() {
 
 #end
 
-<!-- µ¼º½¿ªÊ¼ -->
+<!-- å¯¼èˆªå¼€å§‹ -->
 $control.setTemplate("nav.vm").setParameter("active", "service")
-<!-- µ¼º½½áÊø -->
+<!-- å¯¼èˆªç»“æŸ -->
 </div>
-<!-- Ò³Í·½áÊø -->
+<!-- é¡µå¤´ç»“æŸ -->
 
 <div class="bd">
 
-<!-- Ãæ°üĞ¼µ¼º½¿ªÊ¼ -->
+<!-- é¢åŒ…å±‘å¯¼èˆªå¼€å§‹ -->
 <div class="crumb-nav">
-  <span class="tip">ÄúËùÔÚµÄÎ»ÖÃ£º</span>
-  <span><a href="$registryLink.setTarget('services.vm')">·şÎñÁĞ±í</a></span>
+  <span class="tip">æ‚¨æ‰€åœ¨çš„ä½ç½®ï¼š</span>
+  <span><a href="$registryLink.setTarget('services.vm')">æœåŠ¡åˆ—è¡¨</a></span>
   <span class="arrow">>></span>
-  <span>²ÎÊıÁĞ±í</span>
+  <span>å‚æ•°åˆ—è¡¨</span>
   <span class="arrow">>></span>
-  <span class="active">Ôö¼Ó</span>
+  <span class="active">å¢åŠ </span>
 </div>
-<!-- Ãæ°üĞ¼µ¼º½½áÊø -->
+<!-- é¢åŒ…å±‘å¯¼èˆªç»“æŸ -->
 
-<!-- TABÒ³¿ªÊ¼ -->
+<!-- TABé¡µå¼€å§‹ -->
 $control.setTemplate("tab.vm").setParameter("tab", "edit").setParameter("active", "inputParam").setParameter("serviceId", $!serviceInfo.id)
-<!-- TABÒ³½áÊø -->
+<!-- TABé¡µç»“æŸ -->
 
 <form id="main-form" action="$registryLink.setTarget('addInputParam.vm').addQueryData('serviceId', $!serviceId)" method="post">
   $csrfToken.hiddenField
@@ -61,33 +61,33 @@ $control.setTemplate("tab.vm").setParameter("tab", "edit").setParameter("active"
   
   <div class="fm-wrap">
     <div class="fm-item">
-      <label class="fm-lab"><span class="fm-required">*</span>$group.index.displayName£º</label>
+      <label class="fm-lab"><span class="fm-required">*</span>$group.index.displayNameï¼š</label>
       <input type="text" id="index" name="$group.index.key" value="$!group.index.value" class="fm-ipt w10" />
       <div class="fm-tip"></div>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab"><span class="fm-required">*</span>$group.paramName.displayName£º</label>
+      <label class="fm-lab"><span class="fm-required">*</span>$group.paramName.displayNameï¼š</label>
       <input type="text" id="paramName" name="$group.paramName.key" value="$!group.paramName.value" class="fm-ipt w10" />
       <div class="fm-tip"></div>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab"><span class="fm-required">*</span>$group.paramType.displayName£º</label>
+      <label class="fm-lab"><span class="fm-required">*</span>$group.paramType.displayNameï¼š</label>
       <input type="text" id="paramType" name="$group.paramType.key" value="$!group.paramType.value" class="fm-ipt w10" />
       <div class="fm-tip"></div>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab">$group.nullable.displayName£º</label>
+      <label class="fm-lab">$group.nullable.displayNameï¼š</label>
       <input type="radio" id="statusT" name="$group.nullable.key" value="true" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusT">ÊÇ</label>
+      <label class="fm-lab-val m2r" for="statusT">æ˜¯</label>
       <input type="radio" id="statusF" name="$group.nullable.key" value="false" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusF">·ñ</label>
+      <label class="fm-lab-val m2r" for="statusF">å¦</label>
     </div>
     
     <div class="fm-btn-banner">
-      <a href="javascript:void(0);" id="form-submit" class="btn btn-main"><span>Ìá½»</span></a>
+      <a href="javascript:void(0);" id="form-submit" class="btn btn-main"><span>æäº¤</span></a>
     </div>
     
   </div>

@@ -5,11 +5,11 @@
 jQuery(function() {
     var fm = Alib.FormUtil;
     
-    // ±íµ¥ÑéÖ¤ÅäÖÃ
+    // è¡¨å•éªŒè¯é…ç½®
     var formCfg = {
         
     };
-    // ±íµ¥ÑéÖ¤ÊÂ¼ş°ó¶¨/Ä¬ÈÏÌáÊ¾ÉèÖÃ/±íµ¥Ìá½»ÊÂ¼ş°ó¶¨
+    // è¡¨å•éªŒè¯äº‹ä»¶ç»‘å®š/é»˜è®¤æç¤ºè®¾ç½®/è¡¨å•æäº¤äº‹ä»¶ç»‘å®š
     fm.bindEvent(formCfg);
 });
 -->
@@ -17,22 +17,22 @@ jQuery(function() {
 
 #end
 
-<!-- µ¼º½¿ªÊ¼ -->
+<!-- å¯¼èˆªå¼€å§‹ -->
 $control.setTemplate("nav.vm").setParameter("active", "partner")
-<!-- µ¼º½½áÊø -->
+<!-- å¯¼èˆªç»“æŸ -->
 </div>
-<!-- Ò³Í·½áÊø -->
+<!-- é¡µå¤´ç»“æŸ -->
 
 <div class="bd">
 
-<!-- Ãæ°üĞ¼µ¼º½¿ªÊ¼ -->
+<!-- é¢åŒ…å±‘å¯¼èˆªå¼€å§‹ -->
 <div class="crumb-nav">
-  <span class="tip">ÄúËùÔÚµÄÎ»ÖÃ£º</span>
-  <span><a href="$registryLink.setTarget('partners.vm')">ºÏ×÷»ï°éÁĞ±í</a></span>
+  <span class="tip">æ‚¨æ‰€åœ¨çš„ä½ç½®ï¼š</span>
+  <span><a href="$registryLink.setTarget('partners.vm')">åˆä½œä¼™ä¼´åˆ—è¡¨</a></span>
   <span class="arrow">>></span>
-  <span class="active">Ôö¼ÓºÏ×÷»ï°é</span>
+  <span class="active">å¢åŠ åˆä½œä¼™ä¼´</span>
 </div>
-<!-- Ãæ°üĞ¼µ¼º½½áÊø -->
+<!-- é¢åŒ…å±‘å¯¼èˆªç»“æŸ -->
 
 <form id="main-form" action="$registryLink.setTarget('addPartner.vm')" method="post">
   $csrfToken.hiddenField
@@ -56,33 +56,33 @@ $control.setTemplate("nav.vm").setParameter("active", "partner")
   
   <div class="fm-wrap">
   	<div class="fm-item">
-      <label class="fm-lab"><span class="fm-required">*</span>$group.username.displayName£º</label>
+      <label class="fm-lab"><span class="fm-required">*</span>$group.username.displayNameï¼š</label>
       <input type="text" id="username" name="$group.username.key" value="$!group.username.value" class="fm-ipt w9" />
       <div class="fm-tip"></div>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab"><span class="fm-required">*</span>$group.password.displayName£º</label>
+      <label class="fm-lab"><span class="fm-required">*</span>$group.password.displayNameï¼š</label>
       <input type="text" id="password" name="$group.password.key" value="$!group.password.value" class="fm-ipt w9" />
       <div class="fm-tip"></div>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab"><span class="fm-required">*</span>$group.description.displayName£º</label>
+      <label class="fm-lab"><span class="fm-required">*</span>$group.description.displayNameï¼š</label>
       <input type="text" id="password" name="$group.description.key" value="$!group.description.value" class="fm-ipt w9" />
       <div class="fm-tip"></div>
     </div>
 
     <div class="fm-item">
-      <label class="fm-lab"><span class="fm-required">*</span>$group.type.displayName£º</label>
-      <input type="radio" id="type" name="$group.type.key" value="0" checked />¼¯ÍÅºÏ×÷
-      <input type="radio" id="type" name="$group.type.key" value="1" />Íâ²¿¿Í»§
+      <label class="fm-lab"><span class="fm-required">*</span>$group.type.displayNameï¼š</label>
+      <input type="radio" id="type" name="$group.type.key" value="0" checked />é›†å›¢åˆä½œ
+      <input type="radio" id="type" name="$group.type.key" value="1" />å¤–éƒ¨å®¢æˆ·
       <div class="fm-tip"></div>
     </div>
   </div>
   
   <div class="fm-btn-banner">
-    <a href="javascript:void(0);" id="form-submit" class="btn btn-main"><span>Ìá½»</span></a>
+    <a href="javascript:void(0);" id="form-submit" class="btn btn-main"><span>æäº¤</span></a>
   </div>
   
 </form>

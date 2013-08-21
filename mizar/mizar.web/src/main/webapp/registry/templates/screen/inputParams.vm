@@ -3,38 +3,38 @@
 <script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/search.js')" charset="utf-8"></script>
 #end
 
-<!-- µ¼º½¿ªÊ¼ -->
+<!-- å¯¼èˆªå¼€å§‹ -->
 $control.setTemplate("nav.vm").setParameter("active", "service")
-<!-- µ¼º½½áÊø -->
+<!-- å¯¼èˆªç»“æŸ -->
 </div>
-<!-- Ò³Í·½áÊø -->
+<!-- é¡µå¤´ç»“æŸ -->
 
 <div class="bd">
 
-<!-- Ãæ°üĞ¼µ¼º½¿ªÊ¼ -->
+<!-- é¢åŒ…å±‘å¯¼èˆªå¼€å§‹ -->
 <div class="crumb-nav">
-  <span class="tip">ÄúËùÔÚµÄÎ»ÖÃ£º</span>
-  <span><a href="$registryLink.setTarget('services.vm')">·şÎñÁĞ±í</a></span>
+  <span class="tip">æ‚¨æ‰€åœ¨çš„ä½ç½®ï¼š</span>
+  <span><a href="$registryLink.setTarget('services.vm')">æœåŠ¡åˆ—è¡¨</a></span>
   <span class="arrow">>></span>
-  <span>²ÎÊıÁĞ±í</span>
+  <span>å‚æ•°åˆ—è¡¨</span>
   <span class="arrow">>></span>
-  <span class="active">²é¿´</span>
+  <span class="active">æŸ¥çœ‹</span>
 </div>
-<!-- Ãæ°üĞ¼µ¼º½½áÊø -->
+<!-- é¢åŒ…å±‘å¯¼èˆªç»“æŸ -->
 
-<!-- TABÒ³¿ªÊ¼ -->
+<!-- TABé¡µå¼€å§‹ -->
 $control.setTemplate("tab.vm").setParameter("tab", "view").setParameter("active", "inputParam").setParameter("serviceId", $!serviceInfo.id)
-<!-- TABÒ³½áÊø -->
+<!-- TABé¡µç»“æŸ -->
 
 <div class="grid grid-highlight">
 <table>
 	<thead>
 	<tr>
-		<th>²ÎÊıË³Ğò</th>
-		<th>²ÎÊıÃû³Æ</th>
-		<th>²ÎÊıÀàĞÍ</th>
-		<th>ÊÇ·ñÔÊĞíÎª¿Õ</th>
-		<th>²Ù×÷</th>
+		<th>å‚æ•°é¡ºåº</th>
+		<th>å‚æ•°åç§°</th>
+		<th>å‚æ•°ç±»å‹</th>
+		<th>æ˜¯å¦å…è®¸ä¸ºç©º</th>
+		<th>æ“ä½œ</th>
 	</tr>
   </thead>
 
@@ -45,7 +45,7 @@ $control.setTemplate("tab.vm").setParameter("tab", "view").setParameter("active"
 		<td>$inputParam.paramName</td>
 		<td>$inputParam.paramType</td>
 		<td>$inputParam.nullable</td>
-		<td><a href="$registryLink.setTarget('delete_input_param.do').addQueryData('id', $inputParam.id).addQueryData('service_id', $serviceId)">É¾³ı</a></td>
+		<td><a href="$registryLink.setTarget('delete_input_param.do').addQueryData('id', $inputParam.id).addQueryData('service_id', $serviceId)">åˆ é™¤</a></td>
 	</tr>
   #end
   </tbody>
@@ -54,5 +54,5 @@ $control.setTemplate("tab.vm").setParameter("tab", "view").setParameter("active"
 </div>
 
 <!--
-<a href="$registryLink.setTarget('add_input_param.vm').addQueryData('service_id', $serviceId)">Ìí¼Ó</a>
+<a href="$registryLink.setTarget('add_input_param.vm').addQueryData('service_id', $serviceId)">æ·»åŠ </a>
 -->

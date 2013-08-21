@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+<!-- 
+    <bean id="circeConnector" class="com.alibaba.circe.client.impl.CirceConnector" init-method="init" destroy-method="close">
+    <property name="serverAddress"> 
+        <value>134.129.126.124</value>
+    </property>
+    </bean>
+
+    <bean name="circeService" class="com.alibaba.circe.client.impl.CirceServiceImpl" init-method="init" destroy-method="close">
+    <property name="circeConnector" ref="circeConnector" />
+    <property name="namespace"> 
+        <value>test</value>
+    </property>
+    <property name="token">
+        <value>test</value>
+    </property>
+    </bean>
+     -->
+
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:test" />
+		<property name="username" value="test" />
+		<property name="password" value="test" />
+		<property name="maxActive" value="20" />
+		<property name="maxIdle" value="120" />
+		<property name="minIdle" value="5" />
+	</bean>
+	<!-- 
+	<bean id="dataSource"
+		class="com.alibaba.alipool.CirceBasicDataSource"
+		destroy-method="close" init-method="init">
+		<property name="circeService" ref="circeService" />
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@134.129.126.124:1521:zygldb" />
+		<property name="username" value="irmods" />
+		<property name="decryptPasswdKeyName" value="decryptPasswdKey" />
+		<property name="accessPasswdKeyName" value="irmods" />
+
+		<property name="initialSize" value="3" />
+        <property name="minIdle" value="3" />
+        <property name="maxIdle" value="6" />
+        <property name="maxActive" value="6" />
+        <property name="maxWait"><value>1000</value></property>
+      
+       	<property name="testOnBorrow"><value>false</value></property>
+       	<property name="testWhileIdle"><value>true</value></property>
+      
+        <property name="timeBetweenEvictionRunsMillis"><value>10000</value></property>
+        <property name="numTestsPerEvictionRun"><value>3</value></property>
+        <property name="minEvictableIdleTimeMillis"><value>300000</value></property>
+	</bean>
+	 -->
+	 
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocations"
+			value="classpath*:/META-INF/mizar-sqlmap-config.xml" />
+	</bean>
+	
+	 
+	<!-- 事物相关配置 -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	<bean id="nameMatchTransactionAttributeSource"
+		class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
+		<property name="properties">
+			<props>
+				<prop key="insert*">PROPAGATION_REQUIRES_NEW</prop>
+                <prop key="add*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="del*">PROPAGATION_REQUIRES_NEW</prop>
+				<prop key="update*">PROPAGATION_REQUIRES_NEW</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Interceptor Instance -->
+	<bean id="transactionInterceptor"
+		class="org.springframework.transaction.interceptor.TransactionInterceptor">
+		<property name="transactionManager">
+			<ref bean="transactionManager" />
+		</property>
+		<property name="transactionAttributeSource">
+			<ref bean="nameMatchTransactionAttributeSource" />
+		</property>
+	</bean>
+
+	<bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames">
+            <list>
+                <value>*Dao</value>
+            </list>
+        </property>
+        <property name="interceptorNames">
+            <list>
+                <value>transactionInterceptor</value>
+            </list>
+        </property>
+	</bean>
+</beans>

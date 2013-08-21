@@ -5,11 +5,11 @@
 jQuery(function() {
     var fm = Alib.FormUtil;
     
-    // ±íµ¥ÑéÖ¤ÅäÖÃ
+    // è¡¨å•éªŒè¯é…ç½®
     var formCfg = {
         
     };
-    // ±íµ¥ÑéÖ¤ÊÂ¼ş°ó¶¨/Ä¬ÈÏÌáÊ¾ÉèÖÃ/±íµ¥Ìá½»ÊÂ¼ş°ó¶¨
+    // è¡¨å•éªŒè¯äº‹ä»¶ç»‘å®š/é»˜è®¤æç¤ºè®¾ç½®/è¡¨å•æäº¤äº‹ä»¶ç»‘å®š
     fm.bindEvent(formCfg);
 });
 -->
@@ -17,23 +17,23 @@ jQuery(function() {
 
 #end
 
-<!-- µ¼º½¿ªÊ¼ -->
+<!-- å¯¼èˆªå¼€å§‹ -->
 $control.setTemplate("nav.vm").setParameter("active", "service")
-<!-- µ¼º½½áÊø -->
+<!-- å¯¼èˆªç»“æŸ -->
 </div>
-<!-- Ò³Í·½áÊø -->
+<!-- é¡µå¤´ç»“æŸ -->
 
 
 <div class="bd">
 
-<!-- Ãæ°üĞ¼µ¼º½¿ªÊ¼ -->
+<!-- é¢åŒ…å±‘å¯¼èˆªå¼€å§‹ -->
 <div class="crumb-nav">
-  <span class="tip">ÄúËùÔÚµÄÎ»ÖÃ£º</span>
-  <span><a href="$registryLink.setTarget('services.vm')">·şÎñÁĞ±í</a></span>
+  <span class="tip">æ‚¨æ‰€åœ¨çš„ä½ç½®ï¼š</span>
+  <span><a href="$registryLink.setTarget('services.vm')">æœåŠ¡åˆ—è¡¨</a></span>
   <span class="arrow">>></span>
-  <span class="active">Ôö¼Ó·şÎñ</span>
+  <span class="active">å¢åŠ æœåŠ¡</span>
 </div>
-<!-- Ãæ°üĞ¼µ¼º½½áÊø -->
+<!-- é¢åŒ…å±‘å¯¼èˆªç»“æŸ -->
 
 <form id="main-form" action="$registryLink.setTarget('addService.vm')" method="post">
   $csrfToken.hiddenField
@@ -42,7 +42,7 @@ $control.setTemplate("nav.vm").setParameter("active", "service")
 
   #set ($group = $form.service.defaultInstance)
 
-  <!-- <p>Ìí¼Ó·şÎñ£º</p> -->
+  <!-- <p>æ·»åŠ æœåŠ¡ï¼š</p> -->
 
   #if (!$group.serviceName.valid)
   <p>$group.serviceName.message</p>
@@ -62,68 +62,68 @@ $control.setTemplate("nav.vm").setParameter("active", "service")
   
   <div class="fm-wrap">
   	<div class="fm-item">
-      <label class="fm-lab"><span class="fm-required">*</span>$group.serviceName.displayName£º</label>
+      <label class="fm-lab"><span class="fm-required">*</span>$group.serviceName.displayNameï¼š</label>
       <input type="text" id="serviceName" name="$group.serviceName.key" value="$!group.serviceName.value" class="fm-ipt w18" />
       <div class="fm-tip"></div>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab"><span class="fm-required">*</span>$group.invokeInterface.displayName£º</label>
+      <label class="fm-lab"><span class="fm-required">*</span>$group.invokeInterface.displayNameï¼š</label>
       <input type="text" id="invokeInterface" name="$group.invokeInterface.key" value="$!group.invokeInterface.value" class="fm-ipt w18" />
       <div class="fm-tip"></div>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab"><span class="fm-required">*</span>$group.invokeMethod.displayName£º</label>
+      <label class="fm-lab"><span class="fm-required">*</span>$group.invokeMethod.displayNameï¼š</label>
       <input type="text" id="invokeMethod" name="$group.invokeMethod.key" value="$!group.invokeMethod.value" class="fm-ipt w18" />
       <div class="fm-tip"></div>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab"><span class="fm-required">*</span>$group.version.displayName£º</label>
+      <label class="fm-lab"><span class="fm-required">*</span>$group.version.displayNameï¼š</label>
       <input type="text" id="version" name="$group.version.key" value="$!group.version.value" class="fm-ipt w18" />
       <div class="fm-tip"></div>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab">$group.status.displayName£º</label>
+      <label class="fm-lab">$group.status.displayNameï¼š</label>
       <input type="radio" id="statusO" name="$group.status.key" value="O" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusO">Õı³£</label>
+      <label class="fm-lab-val m2r" for="statusO">æ­£å¸¸</label>
       <input type="radio" id="statusN" name="$group.status.key" value="N" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusN">Î´ÆôÓÃ</label>
+      <label class="fm-lab-val m2r" for="statusN">æœªå¯ç”¨</label>
       <input type="radio" id="statusS" name="$group.status.key" value="S" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusS">ÔİÍ£</label>
+      <label class="fm-lab-val m2r" for="statusS">æš‚åœ</label>
       <input type="radio" id="statusI" name="$group.status.key" value="I" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusI">¹ıÆÚ</label>
+      <label class="fm-lab-val m2r" for="statusI">è¿‡æœŸ</label>
       <div class="fm-tip"></div>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab">$group.validateSignIn.displayName£º</label>
+      <label class="fm-lab">$group.validateSignIn.displayNameï¼š</label>
       <input type="radio" id="statusT" name="$group.validateSignIn.key" value="true" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusT">ÊÇ</label>
+      <label class="fm-lab-val m2r" for="statusT">æ˜¯</label>
       <input type="radio" id="statusF" name="$group.validateSignIn.key" value="false" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusF">·ñ</label>
+      <label class="fm-lab-val m2r" for="statusF">å¦</label>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab">$group.endorseSignOut.displayName£º</label>
+      <label class="fm-lab">$group.endorseSignOut.displayNameï¼š</label>
       <input type="radio" id="statusTT" name="$group.endorseSignOut.key" value="true" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusTT">ÊÇ</label>
+      <label class="fm-lab-val m2r" for="statusTT">æ˜¯</label>
       <input type="radio" id="statusFF" name="$group.endorseSignOut.key" value="false" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusFF">·ñ</label>
+      <label class="fm-lab-val m2r" for="statusFF">å¦</label>
     </div>
     
     <div class="fm-item">
-      <label class="fm-lab">$group.public.displayName£º</label>
+      <label class="fm-lab">$group.public.displayNameï¼š</label>
       <input type="radio" id="statusTTT" name="$group.public.key" value="true" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusTTT">ÊÇ</label>
+      <label class="fm-lab-val m2r" for="statusTTT">æ˜¯</label>
       <input type="radio" id="statusFFF" name="$group.public.key" value="false" class="fm-radio" />
-      <label class="fm-lab-val m2r" for="statusFFF">·ñ</label>
+      <label class="fm-lab-val m2r" for="statusFFF">å¦</label>
     </div>
     
     <div class="fm-btn-banner">
-      <a href="javascript:void(0);" id="form-submit" class="btn btn-main"><span>Ìá½»</span></a>
+      <a href="javascript:void(0);" id="form-submit" class="btn btn-main"><span>æäº¤</span></a>
     </div>
     
   </div>

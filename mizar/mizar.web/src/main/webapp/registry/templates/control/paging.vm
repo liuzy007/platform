@@ -1,46 +1,46 @@
-#set($parameterKeys         = $rundata.getParameters().keySet())     ## ÇëÇóÖĞ²ÎÊı¼ü¼¯ºÏ
+#set($parameterKeys         = $rundata.getParameters().keySet())     ## è¯·æ±‚ä¸­å‚æ•°é”®é›†åˆ
 
 #if(!$paging)
-    #set($paging            = $rundata.getContext().get('paging'))   ## ·ÖÒ³¶ÔÏó
+    #set($paging            = $rundata.getContext().get('paging'))   ## åˆ†é¡µå¯¹è±¡
 #end
-#set($isFirstPage           = $paging.isFirstPage())                 ## ÊÇ·ñÎªµÚÒ»Ò³
-#set($isLastPage            = $paging.isLastPage())                  ## ÊÇ·ñÎª×îºóÒ»Ò³
-#set($hasPrevPage           = $paging.hasPrevPage())                 ## ÓĞÃ»ÓĞÇ°Ò»Ò³
-#set($hasNextPage           = $paging.hasNextPage())                 ## ÓĞÃ»ÓĞÏÂÒ»Ò³
-#set($firstPageNumber       = $paging.firstPageNumber)               ## µÚÒ»Ò³µÄÒ³ºÅ
-#set($lastPageNumber        = $paging.lastPageNumber)                ## ×îºóÒ»Ò³µÄÒ³ºÅ
-#set($prevPageNubmer        = $paging.prevPageNubmer)                ## Ç°Ò»Ò³µÄÒ³ºÅ
-#set($nextPageNumber        = $paging.nextPageNumber)                ## ÏÂÒ»Ò³µÄÒ³ºÅ
-#set($pageFirstElementIndex = $paging.pageFirstElementIndex)         ## ´ËÒ³µÚÒ»¸öÔªËØÔÚÕû¸öÔªËØÖĞµÄ±àºÅ
-#set($pageLastElementIndex  = $paging.pageLastElementIndex)          ## ´ËÒ³×îºóÒ»¸öÔªËØÔÚÕû¸öÔªËØÖĞµÄ±àºÅ
-#set($pageSize              = $paging.pageSize)                      ## Ã¿Ò³ÏÔÊ¾ÊıÁ¿
-#set($pageNumber            = $paging.pageNumber)                    ## ²éÑ¯µÚ¼¸Ò³
-#set($elementCount          = $paging.elementCount)                  ## ËùÓĞÔªËØ¸öÊı
+#set($isFirstPage           = $paging.isFirstPage())                 ## æ˜¯å¦ä¸ºç¬¬ä¸€é¡µ
+#set($isLastPage            = $paging.isLastPage())                  ## æ˜¯å¦ä¸ºæœ€åä¸€é¡µ
+#set($hasPrevPage           = $paging.hasPrevPage())                 ## æœ‰æ²¡æœ‰å‰ä¸€é¡µ
+#set($hasNextPage           = $paging.hasNextPage())                 ## æœ‰æ²¡æœ‰ä¸‹ä¸€é¡µ
+#set($firstPageNumber       = $paging.firstPageNumber)               ## ç¬¬ä¸€é¡µçš„é¡µå·
+#set($lastPageNumber        = $paging.lastPageNumber)                ## æœ€åä¸€é¡µçš„é¡µå·
+#set($prevPageNubmer        = $paging.prevPageNubmer)                ## å‰ä¸€é¡µçš„é¡µå·
+#set($nextPageNumber        = $paging.nextPageNumber)                ## ä¸‹ä¸€é¡µçš„é¡µå·
+#set($pageFirstElementIndex = $paging.pageFirstElementIndex)         ## æ­¤é¡µç¬¬ä¸€ä¸ªå…ƒç´ åœ¨æ•´ä¸ªå…ƒç´ ä¸­çš„ç¼–å·
+#set($pageLastElementIndex  = $paging.pageLastElementIndex)          ## æ­¤é¡µæœ€åä¸€ä¸ªå…ƒç´ åœ¨æ•´ä¸ªå…ƒç´ ä¸­çš„ç¼–å·
+#set($pageSize              = $paging.pageSize)                      ## æ¯é¡µæ˜¾ç¤ºæ•°é‡
+#set($pageNumber            = $paging.pageNumber)                    ## æŸ¥è¯¢ç¬¬å‡ é¡µ
+#set($elementCount          = $paging.elementCount)                  ## æ‰€æœ‰å…ƒç´ ä¸ªæ•°
 
-#set($shortcutQuantity      = 5)                                     ## ¿ì½İ·ÖÒ³Ñ¡Ïî¸öÊı£¨´óÓÚ0µÄÆæÊı£¬¿ÉÒÔ½øĞĞ¶¨ÖÆĞŞ¸Ä£©
-#set($maxShortcutQuantity   = $shortcutQuantity + 4)                 ## µ±Ã»ÓĞ¡°...¡±Ê±£¬×î¶àÏÔÊ¾¿ì½İ·ÖÒ³Ñ¡Ïî¸öÊı
-#set($sideShortcutNumber    = ($shortcutQuantity - 1) / 2)           ## Ñ¡ÖĞÏî±ßÉÏÏÔÊ¾µÄ¿ì½İ·ÖÒ³Ñ¡Ïî¸öÊı
+#set($shortcutQuantity      = 5)                                     ## å¿«æ·åˆ†é¡µé€‰é¡¹ä¸ªæ•°ï¼ˆå¤§äº0çš„å¥‡æ•°ï¼Œå¯ä»¥è¿›è¡Œå®šåˆ¶ä¿®æ”¹ï¼‰
+#set($maxShortcutQuantity   = $shortcutQuantity + 4)                 ## å½“æ²¡æœ‰â€œ...â€æ—¶ï¼Œæœ€å¤šæ˜¾ç¤ºå¿«æ·åˆ†é¡µé€‰é¡¹ä¸ªæ•°
+#set($sideShortcutNumber    = ($shortcutQuantity - 1) / 2)           ## é€‰ä¸­é¡¹è¾¹ä¸Šæ˜¾ç¤ºçš„å¿«æ·åˆ†é¡µé€‰é¡¹ä¸ªæ•°
 
 #if($simple)
 <div class="pagebar clearfix">
     <div class="pager">
-        <span class="explain">¹²${elementCount}Ìõ/${lastPageNumber}Ò³£¬µÚ${pageNumber}Ò³</span>
-        <a class="page-prev#if($isFirstPage) page-prev-disabled#end" href="javascript:void(0);">ÉÏÒ»Ò³</a>
-        <a class="page-next#if($isLastPage) page-next-disabled#end" href="javascript:void(0);">ÏÂÒ»Ò³</a>
+        <span class="explain">å…±${elementCount}æ¡/${lastPageNumber}é¡µï¼Œç¬¬${pageNumber}é¡µ</span>
+        <a class="page-prev#if($isFirstPage) page-prev-disabled#end" href="javascript:void(0);">ä¸Šä¸€é¡µ</a>
+        <a class="page-next#if($isLastPage) page-next-disabled#end" href="javascript:void(0);">ä¸‹ä¸€é¡µ</a>
     </div>
 </div>
 #else
 <div class="pagebar clearfix">
     <div class="sizer">
-        <span class="explain">Ã¿Ò³ÏÔÊ¾ÊıÁ¿</span>
+        <span class="explain">æ¯é¡µæ˜¾ç¤ºæ•°é‡</span>
         <a#if($pageSize == 10)  class="active"#end href="javascript:void(0);">10</a>
         <a#if($pageSize == 20)  class="active"#end href="javascript:void(0);">20</a>
         <a#if($pageSize == 50)  class="active"#end href="javascript:void(0);">50</a>
         <a#if($pageSize == 100) class="active"#end href="javascript:void(0);">100</a>
     </div>
     <div class="pager">
-        <span class="explain">¹²${elementCount}Ìõ¼ÇÂ¼</span>
-        <a class="page-prev#if($isFirstPage) page-prev-disabled#end" href="javascript:void(0);">ÉÏÒ»Ò³</a>
+        <span class="explain">å…±${elementCount}æ¡è®°å½•</span>
+        <a class="page-prev#if($isFirstPage) page-prev-disabled#end" href="javascript:void(0);">ä¸Šä¸€é¡µ</a>
         #if($lastPageNumber > $maxShortcutQuantity)
             #if($pageNumber <= $shortcutQuantity)
                 #set($startPageNumber = $firstPageNumber)
@@ -74,7 +74,7 @@
                 <a#if($pageNumber == $n) class="active"#end href="javascript:void(0);">$n</a>
             #end
         #end
-        <a class="page-next#if($isLastPage) page-next-disabled#end" href="javascript:void(0);">ÏÂÒ»Ò³</a>
+        <a class="page-next#if($isLastPage) page-next-disabled#end" href="javascript:void(0);">ä¸‹ä¸€é¡µ</a>
     </div>
 </div>
 #end
@@ -82,61 +82,61 @@
 <script language="javascript" type="text/javascript">
 <!--
 jQuery(function() {
-    // ÇëÇó²ÎÊı
+    // è¯·æ±‚å‚æ•°
     var parameters = {};
     #foreach($key in $parameterKeys)
         parameters['#escapeJavaScript($key)'] = '#getParameterEscapeJavaScript($key)';
     #end
-    // Çå³ı²ÎÊıaction¡¢eventSubmit¡¢event_submit£¨±íµ¥´¦ÀíºóÌø×ªµ½ÁĞ±íÒ³Ãæ£¬Èç¹û²ÎÊı´æÔÚ£¬·ÖÒ³Ê±½«ÖØ¸´±íµ¥Ìá½»£©
+    // æ¸…é™¤å‚æ•°actionã€eventSubmitã€event_submitï¼ˆè¡¨å•å¤„ç†åè·³è½¬åˆ°åˆ—è¡¨é¡µé¢ï¼Œå¦‚æœå‚æ•°å­˜åœ¨ï¼Œåˆ†é¡µæ—¶å°†é‡å¤è¡¨å•æäº¤ï¼‰
     for (var key in parameters) {
         if (key.startsWith('action') || key.startsWith('eventSubmit')
                 || key.startsWith('event_submit') || key.startsWith('_csrf_token')) {
             delete parameters[key];
         }
     }
-    // ¸ü¸ÄÃ¿Ò³ÏÔÊ¾ÊıÁ¿
+    // æ›´æ”¹æ¯é¡µæ˜¾ç¤ºæ•°é‡
     jQuery('.pagebar .sizer a').not('.active').click(function() {
         var pageSize = jQuery(this).html();
-        // Ìá½»±íµ¥
+        // æäº¤è¡¨å•
         Alib.FormUtil.formSubmit(
             Alib.apply(parameters, {'pageSize' : pageSize, 'pageNumber' : 1}), {action : '$url'}
         );
-        return false; // IEÏÂË¢ĞÂÒ³Ãæ
+        return false; // IEä¸‹åˆ·æ–°é¡µé¢
     });
-    // ·­Ò³
+    // ç¿»é¡µ
     jQuery('.pagebar .pager a').not('.page-prev-disabled, .page-break, .page-next-disabled').click(function() {
         var selectedPageNumber = $pageNumber;
         var pageNumber = selectedPageNumber;
         var txt = jQuery(this).html();
-        if (txt == 'ÉÏÒ»Ò³') {
+        if (txt == 'ä¸Šä¸€é¡µ') {
             pageNumber = selectedPageNumber - 1;
-        } else if (txt == 'ÏÂÒ»Ò³') {
+        } else if (txt == 'ä¸‹ä¸€é¡µ') {
             pageNumber = selectedPageNumber + 1;
         } else {
             pageNumber = txt;
         }
-        // Ìá½»±íµ¥
+        // æäº¤è¡¨å•
         Alib.FormUtil.formSubmit(
             Alib.apply(parameters, {'pageSize' : $pageSize, 'pageNumber' : pageNumber}), {action: '$url'}
         );
-        return false; // IEÏÂË¢ĞÂÒ³Ãæ
+        return false; // IEä¸‹åˆ·æ–°é¡µé¢
     });
-    // ÅÅĞò
+    // æ’åº
     jQuery('.grid thead a.order').click(function() {
         var orderBy = jQuery(this).attr('orderby').trim();
         var dirBy = jQuery(this).find('span').hasClass('asc') ? 'desc' : 'asc';
-        // Ìá½»±íµ¥
+        // æäº¤è¡¨å•
         Alib.FormUtil.formSubmit(
             Alib.apply(parameters, {'order' : orderBy, 'dir' : dirBy, 'pageSize' : $pageSize, 'pageNumber' : 1}), {action : '$url'}
         );
-        return false; // IEÏÂË¢ĞÂÒ³Ãæ
+        return false; // IEä¸‹åˆ·æ–°é¡µé¢
     });
-    // äÖÈ¾±í¸ñÅÅĞò±êÖ¾
+    // æ¸²æŸ“è¡¨æ ¼æ’åºæ ‡å¿—
     jQuery('.grid thead a.order').each(function() {
         var orderBy = jQuery(this).attr('orderby').trim();
         var dirBy = parameters['dir'];
         if (parameters['order'] == orderBy) {
-            jQuery(this).attr('title', (dirBy == 'asc' ? 'ÉıĞò' : '½µĞò'));
+            jQuery(this).attr('title', (dirBy == 'asc' ? 'å‡åº' : 'é™åº'));
             jQuery(this).addClass('active');
             jQuery(this).find('span').addClass(dirBy);
             return false;

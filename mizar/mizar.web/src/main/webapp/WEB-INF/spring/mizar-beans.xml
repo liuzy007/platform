@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans default-autowire="byName"
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<bean id="cashNotifyLoanHandler" class="com.alifi.mizar.handler.impl.CashNotifyLoanHandler" />
+	<bean id="memCachedManager" class="com.alifi.mizar.manager.util.MemCachedManager" init-method="init">
+		<property name="servers" value="127.0.0.1:11211" />
+		<property name="weights" value="1" />
+		<property name="failover" value="true" />
+		<property name="failback" value="true" />
+		<property name="initConn" value="5" />
+		<property name="minConn" value="5" />
+		<property name="maxConn" value="250" />
+		<property name="maxIdle" value="21600000" />
+		<property name="maintSleep" value="30" />
+		<property name="nagle" value="false" />
+		<property name="socketTO" value="3000" />
+		<property name="socketConnectTO" value="0" />
+	</bean>
+	
+	<bean id="napoliConnector" class="com.alibaba.napoli.client.connector.NapoliConnector" init-method="init" destroy-method="close">
+		<property name="address" value="127.0.0.1" />
+		<property name="storePath" value="d:\" />
+		<property name="interval" value="120000" />
+	</bean>
+	
+	<bean id="sender" class="com.alibaba.napoli.client.async.impl.DefaultAsyncSender" init-method="init" destroy-method="close">
+		<property name="name" value="ALIFI_MIZAR_CASH_NOTIFY_TOPIC" />
+		<property name="connector" ref="napoliConnector" />
+	</bean>
+	
+	<bean id="asyncSender" class="com.alibaba.napoli.client.async.impl.DefaultAsyncSender" init-method="init" destroy-method="close">
+		<property name="name" value="ALIFI_CTU_DATA" />
+		<property name="connector" ref="napoliConnector" />
+	</bean>
+	
+	<bean id="uploadInfoSender" class="com.alibaba.napoli.client.async.impl.DefaultAsyncSender" init-method="init" destroy-method="close">
+		<property name="name" value="ADMINPORTAL_MIZAR_EPIBOLY_DATA_FILE" />
+		<property name="connector" ref="napoliConnector" />
+	</bean>
+	
+	<bean id="ossClient" class="com.aliyun.openservices.oss.OSSClient">
+		<constructor-arg type="java.lang.String" value="http://oss-internal.aliyuncs.com" />
+		<constructor-arg type="java.lang.String" value="test" />
+		<constructor-arg type="java.lang.String" value="test" />
+	</bean>
+</beans>

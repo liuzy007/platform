@@ -98,7 +98,8 @@
     <services:pull xmlns="http://www.alibaba.com/schema/services/pull/factories">
         <page-tool />
     </services:pull>
-    
+    <!-- 
     <services:reload-config/>
+    -->
 
 </beans:beans>

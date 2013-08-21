@@ -3,54 +3,54 @@
 <script language="javascript" type="text/javascript" src="$homeLink.setTarget('resources/search.js')" charset="utf-8"></script>
 #end
 
-<!-- µ¼º½¿ªÊ¼ -->
+<!-- å¯¼èˆªå¼€å§‹ -->
 $control.setTemplate("nav.vm").setParameter("active", "service")
-<!-- µ¼º½½áÊø -->
+<!-- å¯¼èˆªç»“æŸ -->
 </div>
-<!-- Ò³Í·½áÊø -->
+<!-- é¡µå¤´ç»“æŸ -->
 
 <div class="bd">
 
-<!-- Ãæ°üĞ¼µ¼º½¿ªÊ¼ -->
+<!-- é¢åŒ…å±‘å¯¼èˆªå¼€å§‹ -->
 <div class="crumb-nav">
-  <span class="tip">ÄúËùÔÚµÄÎ»ÖÃ£º</span>
-  <span class="active">·şÎñÁĞ±í</span>
+  <span class="tip">æ‚¨æ‰€åœ¨çš„ä½ç½®ï¼š</span>
+  <span class="active">æœåŠ¡åˆ—è¡¨</span>
 </div>
-<!-- Ãæ°üĞ¼µ¼º½½áÊø -->
+<!-- é¢åŒ…å±‘å¯¼èˆªç»“æŸ -->
 
-<!-- ²éÑ¯Ìõ¼ş¿ªÊ¼ -->
+<!-- æŸ¥è¯¢æ¡ä»¶å¼€å§‹ -->
 <div class="query clearfix">
   <form id="query-form" action="$registryLink.setTarget('services.vm').addQueryData($csrfToken.key, $csrfToken)" method="get">
     <input type="hidden" id="pageSize" name="pageSize" value="#getParameter('pageSize')" />
-    <label class="query-lab ml">·şÎñÃû(Çø·Ö´óĞ¡Ğ´)</label>
+    <label class="query-lab ml">æœåŠ¡å(åŒºåˆ†å¤§å°å†™)</label>
     <input type="text" id="serviceName" name="serviceName" value="#getParameter('serviceName')" class="query-ipt w6"/>
-    <a href="javascript:void(0);" id="btn-query" class="btn btn-query"><span>²éÑ¯</span></a>
+    <a href="javascript:void(0);" id="btn-query" class="btn btn-query"><span>æŸ¥è¯¢</span></a>
   </form>
 </div>
-<!-- ²éÑ¯Ìõ¼ş½áÊø -->
+<!-- æŸ¥è¯¢æ¡ä»¶ç»“æŸ -->
 
-<!-- ²Ù×÷À¸¿ªÊ¼ -->
+<!-- æ“ä½œæ å¼€å§‹ -->
 <div class="handle">            
-  <a href="$registryLink.setTarget('add_service.vm')">Ôö¼Ó·şÎñ >></a>               
+  <a href="$registryLink.setTarget('add_service.vm')">å¢åŠ æœåŠ¡ >></a>               
 </div>
-<!-- ²Ù×÷À¸½áÊø -->
+<!-- æ“ä½œæ ç»“æŸ -->
 
-<!-- ±í¸ñ¿ªÊ¼ -->
+<!-- è¡¨æ ¼å¼€å§‹ -->
 <div class="grid grid-highlight">
 
 <table>
 
 	<thead>
 	  <tr>
-		  <th>·şÎñÃû</th>
-		  <th>µ÷ÓÃ½Ó¿Ú</th>
-		  <th>µ÷ÓÃ·½·¨</td>
-		  <th>µ÷ÓÃ°æ±¾</th>
-		  <th>×´Ì¬</th>
-		  <th>ÊÇ·ñĞèÒªÑéÇ©</th>
-		  <th>ÊÇ·ñĞèÒª¼ÓÇ©</th>
-		  <th>ÊÇ·ñ¿ª·Å</th>
-		  <th>²Ù×÷</th>
+		  <th>æœåŠ¡å</th>
+		  <th>è°ƒç”¨æ¥å£</th>
+		  <th>è°ƒç”¨æ–¹æ³•</td>
+		  <th>è°ƒç”¨ç‰ˆæœ¬</th>
+		  <th>çŠ¶æ€</th>
+		  <th>æ˜¯å¦éœ€è¦éªŒç­¾</th>
+		  <th>æ˜¯å¦éœ€è¦åŠ ç­¾</th>
+		  <th>æ˜¯å¦å¼€æ”¾</th>
+		  <th>æ“ä½œ</th>
 	  </tr>
 	</thead>
   
@@ -65,7 +65,7 @@ $control.setTemplate("nav.vm").setParameter("active", "service")
 		  <td>$service.validateSignIn</td>
 		  <td>$service.endorseSignOut</td>
 		  <td>$service.public</td>
-		  <td><a href="deleteService.do?serviceId=$service.id">É¾³ı</a></td>
+		  <td><a href="deleteService.do?serviceId=$service.id">åˆ é™¤</a></td>
 	  </tr>
     #end
   </tbody>
@@ -74,6 +74,6 @@ $control.setTemplate("nav.vm").setParameter("active", "service")
 
 </div>
 $control.setTemplate("paging.vm").setParameter("url", "$registryLink.setTarget('services.vm')")
-<!-- ±í¸ñ½áÊø -->
+<!-- è¡¨æ ¼ç»“æŸ -->
 
 </div>

@@ -1,10 +1,10 @@
            <div class="nav">
                <ul>
                    <li#if($active == 'service') class="active"#end>
-                       <a href="$registryLink.setTarget('services.vm')">服务列表</a>
+                       <a href="$registryLink.setTarget('services.vm')">鏈嶅姟鍒楄〃</a>
                    </li>
                    <li#if($active == 'partner') class="active"#end>
-                       <a href="$registryLink.setTarget('partners.vm')">合作伙伴列表</a>
+                       <a href="$registryLink.setTarget('partners.vm')">鍚堜綔浼欎即鍒楄〃</a>
                    </li>
                </ul>
            </div>
