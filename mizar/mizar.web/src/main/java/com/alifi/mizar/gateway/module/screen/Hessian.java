@@ -24,7 +24,7 @@ public class Hessian {
 	
 	private final static Log logger = LogFactory.getLog(Hessian.class);
 
-	@Resource(name="asyncSender")
+//	@Resource(name="asyncSender")
 	private AsyncSender asyncSender;
 	
     public void execute(HttpServletRequest request, HttpServletResponse response) throws IOException, FileUploadException {

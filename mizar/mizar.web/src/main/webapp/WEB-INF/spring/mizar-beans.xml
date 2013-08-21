@@ -24,7 +24,7 @@
 		<property name="storePath" value="d:\" />
 		<property name="interval" value="120000" />
 	</bean>
-	
+	<!-- 
 	<bean id="sender" class="com.alibaba.napoli.client.async.impl.DefaultAsyncSender" init-method="init" destroy-method="close">
 		<property name="name" value="ALIFI_MIZAR_CASH_NOTIFY_TOPIC" />
 		<property name="connector" ref="napoliConnector" />
@@ -45,4 +45,5 @@
 		<constructor-arg type="java.lang.String" value="test" />
 		<constructor-arg type="java.lang.String" value="test" />
 	</bean>
+	 -->
 </beans>

@@ -42,10 +42,10 @@ public class Gateway {
 	@Resource(name="gatewayService.local")
 	private GatewayService gatewayService;
 	
-	@Resource(name="uploadService.local")
+//	@Resource(name="uploadService.local")
 	private UploadService uploadService;
 	
-	@Resource(name="uploadInfoSender")
+//	@Resource(name="uploadInfoSender")
 	private AsyncSender uploadInfoSender;
 
     public void execute(@Param(name="format", defaultValue="json") String format,

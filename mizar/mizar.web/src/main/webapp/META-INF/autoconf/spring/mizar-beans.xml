@@ -18,7 +18,7 @@
 		<property name="socketTO" value="${mizar_memcached_socketto}" />
 		<property name="socketConnectTO" value="${mizar_memcached_socketconnectto}" />
 	</bean>
-	
+	<!-- 
 	<bean id="napoliConnector" class="com.alibaba.napoli.client.connector.NapoliConnector" init-method="init" destroy-method="close">
 		<property name="address" value="${mizar_napoli_address}" />
 		<property name="storePath" value="${mizar_napoli_store_path}" />
@@ -45,4 +45,5 @@
 		<constructor-arg type="java.lang.String" value="${mizar_upload_oss_accessKey}" />
 		<constructor-arg type="java.lang.String" value="${mizar_upload_oss_accessSecret}" />
 	</bean>
+	 -->
 </beans>
