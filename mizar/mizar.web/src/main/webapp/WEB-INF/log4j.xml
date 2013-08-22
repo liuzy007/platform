@@ -16,7 +16,7 @@
     
     <appender name="PROJECT-REMOTE" class="com.alibaba.syslog.appender.SyslogAppender">
     	<param name="Facility" value="${mizar_syslog_facility}"/>
-	    <param name="SyslogHost" value="${mizar_syslog_host}"/>
+	    <param name="SyslogHost" value="127.0.0.1"/>
 	    <param name="Header" value="true" />
 	    <param name="Charset" value="UTF-8" />
 	    <param name="MaxSize" value="8192" />

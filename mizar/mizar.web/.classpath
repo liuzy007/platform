@@ -30,9 +30,6 @@
 	<classpathentry kind="lib" path="/library/lib/dragoon-common-2.7.0.jar"/>
 	<classpathentry kind="lib" path="/library/lib/jetty-6.0.2.jar"/>
 	<classpathentry kind="lib" path="/library/lib/jetty-util-6.0.2.jar"/>
-	<classpathentry kind="lib" path="/library/lib/slf4j-log4j12-1.4.3.jar"/>
-	<classpathentry kind="lib" path="/library/lib/slf4j-api-1.4.3.jar"/>
-	<classpathentry kind="lib" path="/library/lib/log4j-1.2.14.jar"/>
 	<classpathentry kind="lib" path="/library/lib/dom4j-1.6.1.jar"/>
 	<classpathentry kind="lib" path="/library/lib/sourceforge.cglib-nodep-2.1_3.jar"/>
 	<classpathentry kind="lib" path="/library/lib/misc.javassist-3.9.0.GA.jar"/>
@@ -48,5 +45,12 @@
 	<classpathentry kind="lib" path="/library/lib/sourceforge.freemarker-2.3.15.jar"/>
 	<classpathentry kind="lib" path="/library/lib/jakarta.commons.jexl-1.1.jar"/>
 	<classpathentry kind="lib" path="/library/lib/druid-0.2.7.jar"/>
+	<classpathentry kind="lib" path="/library/lib/syslog-appender-1.0.1.jar"/>
+	<classpathentry kind="lib" path="/library/lib/log4j-1.2.15.jar"/>
+	<classpathentry kind="lib" path="/library/lib/org.slf4j.slf4j-api-1.5.11.jar"/>
+	<classpathentry kind="lib" path="/library/lib/org.slf4j.slf4j-log4j12-1.5.11.jar"/>
+	<classpathentry kind="lib" path="/library/lib/webx3.extension.reload-2.0.0.jar"/>
+	<classpathentry kind="lib" path="/library/lib/ojdbc14-10.2.0.3.0.jar"/>
+	<classpathentry kind="lib" path="/library/lib/jakarta.ecs-1.4.2.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

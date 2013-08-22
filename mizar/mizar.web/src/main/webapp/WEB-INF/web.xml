@@ -10,20 +10,22 @@
 		<param-value>mizar</param-value>
 	</context-param>
 
-    <!-- 初始化日志系统 
+    <!-- 初始化日志系统
     <listener>
         <listener-class>com.alibaba.citrus.logconfig.LogConfiguratorListener</listener-class>
     </listener>
-	-->
+      -->
+	
     <!-- 装载/WEB-INF/webx.xml, /WEB-INF/webx-*.xml -->
     <listener>
         <listener-class>com.alibaba.citrus.webx.context.WebxContextLoaderListener</listener-class>
     </listener>
 	
-	<!-- dragoon监控listener -->
+	<!-- dragoon监控listener 
 	<listener>
 		<listener-class>com.alibaba.dragoon.client.DragoonClientServletContextListener</listener-class>
 	</listener>
+	-->
 	<listener>
 		<listener-class>com.alibaba.dragoon.patrol.web.PatrolServletContextListener</listener-class>
 	</listener>

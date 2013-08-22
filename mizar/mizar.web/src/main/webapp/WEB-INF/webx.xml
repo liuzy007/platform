@@ -45,7 +45,9 @@
     <services:webx-configuration>
         <!-- 默认将productionMode设为true，建议在jetty插件中设置-DproductionMode=false。 -->
         <services:productionMode>${productionMode:true}</services:productionMode>
+        
         <services:components defaultComponent="gateway" />
+         
     </services:webx-configuration>
 
     <!-- 设置request/response/session。 -->
@@ -98,8 +100,8 @@
     <services:pull xmlns="http://www.alibaba.com/schema/services/pull/factories">
         <page-tool />
     </services:pull>
-    <!-- 
+    
     <services:reload-config/>
-    -->
+    
 
 </beans:beans>
