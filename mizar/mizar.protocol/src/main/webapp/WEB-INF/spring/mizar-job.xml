@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 
+	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	
+	<bean id="monitorWebService" class="com.pktech.oal.job.MonitorWebService">
+		<property name="serviceDao" ref="serviceDao" />
+	</bean>
+    
+	<bean id="executeMonitorQuartzTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="executeMonitorQuartzJob" />
+		<property name="cronExpression" value="0/15 * * * * ?" />
+	</bean>
+
+	<bean id="executeMonitorQuartzJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="monitorWebService" />
+		<property name="targetMethod" value="monitor" />
+		<property name="concurrent" value="false" />
+	</bean>
+
+	<bean class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="triggers">
+			<list>
+				<ref bean="executeMonitorQuartzTrigger" />
+			</list>
+		</property>
+	</bean>
+	
+</beans>

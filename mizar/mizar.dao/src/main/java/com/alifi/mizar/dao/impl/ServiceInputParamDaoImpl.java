@@ -27,5 +27,9 @@ public class ServiceInputParamDaoImpl extends BaseDaoImpl implements ServiceInpu
 	public GatewayInParam getById(int id) {
 		return (GatewayInParam) get("serviceInputParam.getInputParamById", id);
 	}
+
+    public List<GatewayInParam> list() {
+        return getList("serviceInputParam.list", null);
+    }
     
 }

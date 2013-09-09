@@ -1,56 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry excluding="**/*.java" including="**/*" kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" output="target/classes" path="src/main/java"/>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java"/>
-	<classpathentry excluding="**/*.java" including="**/*" kind="src" output="target/test-classes" path="src/test/resources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mizar.biz"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mizar.common"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mizar.dao"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mizar.service"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mizar.service.impl"/>
-	<classpathentry kind="lib" path="/library/lib/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/commons-logging-1.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.commons.beanutils-1.7.0.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.commons.chain-1.2.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.commons.codec-1.3.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.commons.fileupload-1.2.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.commons.httpclient-3.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.commons.lang-2.4.jar"/>
-	<classpathentry kind="lib" path="/library/lib/fastjson-1.1.18.jar"/>
-	<classpathentry kind="lib" path="/library/lib/spring-2.5.6.jar"/>
-	<classpathentry kind="lib" path="/library/lib/sourceforge.spring.modules.webmvc-2.5.6.jar"/>
-	<classpathentry kind="lib" path="/library/lib/hessian-repack-1.0.0.jar"/>
-	<classpathentry kind="lib" path="/library/lib/java.j2ee-1.4.jar" sourcepath="D:/tool/repository/m2/javax/servlet/servlet-api/2.3/servlet-api-2.3-sources.jar"/>
-	<classpathentry kind="lib" path="/mizar/lib/napoli.client-1.4.12.jar"/>
-	<classpathentry kind="lib" path="/library/lib/napoli.domain-1.4.7.jar"/>
-	<classpathentry kind="lib" path="/mizar/lib/caucho.hessian-3.2.0.jar"/>
-	<classpathentry kind="lib" path="/library/lib/webx3.core-3.0.2.jar"/>
-	<classpathentry kind="lib" path="/library/lib/dragoon-common-2.7.0.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jetty-6.0.2.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jetty-util-6.0.2.jar"/>
-	<classpathentry kind="lib" path="/library/lib/dom4j-1.6.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/sourceforge.cglib-nodep-2.1_3.jar"/>
-	<classpathentry kind="lib" path="/library/lib/misc.javassist-3.9.0.GA.jar"/>
-	<classpathentry kind="lib" path="/library/lib/circe.client-2.0.4.jar"/>
-	<classpathentry kind="lib" path="/library/lib/circe.common-2.0.4.jar"/>
-	<classpathentry kind="lib" path="/library/lib/sourceforge.ibatis-2.3.4.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jboss.jboss-netty-3.2.5.Final.jar"/>
-	<classpathentry kind="lib" path="/library/lib/xml.xstream-1.3.jar"/>
-	<classpathentry kind="lib" path="/library/lib/oracle.berkeleydb-3.2.76-patch.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.commons.io-2.0.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.velocity-1.6.4.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.commons.collections-3.2.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/sourceforge.freemarker-2.3.15.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.commons.jexl-1.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/druid-0.2.7.jar"/>
-	<classpathentry kind="lib" path="/library/lib/syslog-appender-1.0.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/log4j-1.2.15.jar"/>
-	<classpathentry kind="lib" path="/library/lib/org.slf4j.slf4j-api-1.5.11.jar"/>
-	<classpathentry kind="lib" path="/library/lib/org.slf4j.slf4j-log4j12-1.5.11.jar"/>
-	<classpathentry kind="lib" path="/library/lib/webx3.extension.reload-2.0.0.jar"/>
-	<classpathentry kind="lib" path="/library/lib/ojdbc14-10.2.0.3.0.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.ecs-1.4.2.jar"/>
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

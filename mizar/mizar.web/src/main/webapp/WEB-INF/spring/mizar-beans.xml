@@ -5,7 +5,7 @@
 
 	<bean id="cashNotifyLoanHandler" class="com.alifi.mizar.handler.impl.CashNotifyLoanHandler" />
 	<bean id="memCachedManager" class="com.alifi.mizar.manager.util.MemCachedManager" init-method="init">
-		<property name="servers" value="127.0.0.1:11211" />
+		<property name="servers" value="${memcache.servers}" />
 		<property name="weights" value="1" />
 		<property name="failover" value="true" />
 		<property name="failback" value="true" />

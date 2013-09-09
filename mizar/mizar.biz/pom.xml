@@ -1,64 +1,88 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <artifactId>mizar</artifactId>
-    <groupId>com.alifi.app</groupId>
-    <version>2.3.1-SNAPSHOT</version>
-  </parent>
-  <artifactId>mizar.biz</artifactId>
-  <version>${parent.version}</version>
-  <packaging>jar</packaging>
-  <name>Mizar Business Stuffs</name>
-  <description>Mizar Business Stuffs</description>
-  
-  <dependencies>    
-    <dependency>
-  	  <groupId>com.alifi.app</groupId>
-  	  <artifactId>mizar.common</artifactId>
-  	  <version>${project.version}</version>
-  	</dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>mizar</artifactId>
+		<groupId>com.alifi.app</groupId>
+		<version>2.3.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>mizar.biz</artifactId>
+	<version>${parent.version}</version>
+	<packaging>jar</packaging>
+	<name>Mizar Business Stuffs</name>
+	<description>Mizar Business Stuffs</description>
 
-  	<dependency>
-  	  <groupId>com.alifi.app</groupId>
-  	  <artifactId>mizar.dao</artifactId>
-  	  <version>${project.version}</version>
-  	</dependency>
-	
-    <dependency>
-      <groupId>com.alibaba.external</groupId>
-      <artifactId>whalin.memcached</artifactId>
-     </dependency> 
+	<dependencies>
+		<dependency>
+			<groupId>com.alifi.app</groupId>
+			<artifactId>mizar.common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
-    <dependency>
-      <groupId>com.alibaba.external</groupId>
-      <artifactId>jakarta.commons.chain</artifactId>
-    </dependency>
+		<dependency>
+			<groupId>com.alifi.app</groupId>
+			<artifactId>mizar.dao</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 
-    <dependency>
-      <groupId>com.alifi.shared</groupId>
-      <artifactId>galaxy.biz.model</artifactId>
-    </dependency>
+		<dependency>
+			<groupId>com.whalin</groupId>
+			<artifactId>memcached</artifactId>
+		</dependency>
 
-    <!-- Dubbo Related -->
-    <dependency>
-      <groupId>com.alibaba.platform.shared</groupId>
-      <artifactId>dubbo.all</artifactId>
-    </dependency>
+		<dependency>
+			<groupId>commons-chain</groupId>
+			<artifactId>commons-chain</artifactId>
+		</dependency>
 
-    <dependency>
-      <groupId>com.alifi.shared</groupId>
-      <artifactId>signature.service</artifactId>
-    </dependency>
+		<dependency>
+			<groupId>com.alifi.shared</groupId>
+			<artifactId>galaxy.biz.model</artifactId>
+		</dependency>
 
-    <dependency>
-      <groupId>org.apache.directory.studio</groupId>
-      <artifactId>org.apache.commons.codec</artifactId>
-    </dependency>
+		<!-- Dubbo Related -->
+		<dependency>
+			<groupId>com.alibaba.platform.shared</groupId>
+			<artifactId>dubbo.all</artifactId>
+		</dependency>
 
-    <dependency>
-      <groupId>apache-beanutils</groupId>
-      <artifactId>commons-beanutils</artifactId>
-    </dependency>
-  </dependencies>    
-	
+		<dependency>
+			<groupId>com.alifi.shared</groupId>
+			<artifactId>signature.service</artifactId>
+		</dependency>
+
+		<!-- <dependency> -->
+		<!-- <groupId>org.apache.directory.studio</groupId> -->
+		<!-- <artifactId>org.apache.commons.codec</artifactId> -->
+		<!-- </dependency> -->
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>dubbo-rpc</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba.common</groupId>
+			<artifactId>lang</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+		</dependency>
+
+	</dependencies>
+
 </project>

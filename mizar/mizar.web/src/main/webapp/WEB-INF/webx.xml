@@ -40,6 +40,7 @@
 	<beans:import resource="spring/mizar-dao.xml" /> 
 	<beans:import resource="spring/mizar-biz.xml" />  
 	<beans:import resource="spring/mizar-chain.xml" />
+	<beans:import resource="spring/applicationContext-properties.xml" />
 
     <!-- 综合设置。 -->
     <services:webx-configuration>

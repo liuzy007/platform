@@ -20,13 +20,13 @@
 		</dependency>
 
 		<dependency>
-            <groupId>com.alibaba.external</groupId>
-            <artifactId>sourceforge.spring</artifactId>
+            <groupId>org.springframework</groupId>
+			<artifactId>spring</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>com.alibaba.external</groupId>
-            <artifactId>org.slf4j.jcl-over-slf4j</artifactId>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
         </dependency>
 	</dependencies>
 

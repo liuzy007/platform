@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
 	<name>mizar.service.impl-2.3.1-SNAPSHOT</name>
-	<comment>Mizar Service Implement Stuffs</comment>
+	<comment></comment>
 	<projects>
 		<project>mizar.biz-2.3.1-SNAPSHOT</project>
 		<project>mizar.common-2.3.1-SNAPSHOT</project>
@@ -14,8 +14,14 @@
 			<arguments>
 			</arguments>
 		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
 	</buildSpec>
 	<natures>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
 </projectDescription>

@@ -40,8 +40,20 @@ $control.setTemplate("tab.vm").setParameter("tab", "edit").setParameter("active"
 #set ($group = $form.service.defaultInstance)
 $group.mapTo($serviceInfo)
 
-  #if (!$group.serviceName.valid)
-  <p>$group.serviceName.message</p>
+  #if (!$group.description.valid)
+  <p>$group.description.message</p>
+  #end
+  
+   #if (!$group.webserviceInterface.valid)
+  <p>$group.webserviceInterface.message</p>
+  #end
+  
+   #if (!$group.webserviceMethod.valid)
+  <p>$group.webserviceMethod.message</p>
+  #end
+  
+  #if (!$group.url.valid)
+  <p>$group.url.message</p>
   #end
 
   #if (!$group.invokeInterface.valid)
@@ -64,11 +76,31 @@ $group.mapTo($serviceInfo)
   <input type="hidden" id="id" name="$group.id.key" value="$group.id.value" />
   <div class="fm-wrap">
     
-  <div class="fm-item">
-    <label class="fm-lab"><span class="fm-required">*</span>$group.serviceName.displayName：</label>
-    <input type="text" id="serviceName" name="$group.serviceName.key" value="$!group.serviceName.value" class="fm-ipt w18" />
-    <div class="fm-tip"></div>
-  </div>
+   <div class="fm-item">
+      <label class="fm-lab"><span class="fm-required">*</span>$group.description.displayName：</label>
+      <input type="text" id="description" name="$group.description.key" value="$!group.description.value" class="fm-ipt w18" />
+      <div class="fm-tip"></div>
+    </div>
+    
+    <div class="fm-item">
+      <label class="fm-lab"><span class="fm-required">*</span>$group.webserviceInterface.displayName：</label>
+      <input type="text" id="webserviceInterface" name="$group.webserviceInterface.key" value="$!group.webserviceInterface.value" class="fm-ipt w18" />
+      <div class="fm-tip"></div>
+    </div>
+    
+    
+    <div class="fm-item">
+      <label class="fm-lab"><span class="fm-required">*</span>$group.webserviceMethod.displayName：</label>
+      <input type="text" id="webserviceMethod" name="$group.webserviceMethod.key" value="$!group.webserviceMethod.value" class="fm-ipt w18" />
+      <div class="fm-tip"></div>
+    </div>
+    
+    
+    <div class="fm-item">
+      <label class="fm-lab"><span class="fm-required">*</span>$group.url.displayName：</label>
+      <input type="text" id="url" name="$group.url.key" value="$!group.url.value" class="fm-ipt w18" />
+      <div class="fm-tip"></div>
+    </div>
   
   <div class="fm-item">
     <label class="fm-lab"><span class="fm-required">*</span>$group.invokeInterface.displayName：</label>

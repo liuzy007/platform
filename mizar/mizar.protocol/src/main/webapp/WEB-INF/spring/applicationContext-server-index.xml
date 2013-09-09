@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- properties -->
+	<import resource="applicationContext-properties.xml" />
+	
+	<import resource="mizar-beans.xml" />
+	<import resource="mizar-biz.xml" />
+
+	<!-- scriptengine -->
+	<import resource="mizar-cache.xml" />
+
+	<!-- cache -->
+	<import resource="mizar-cxf-webservice.xml" />
+	<import resource="mizar-dao.xml" />
+
+	<!-- datasource -->
+	<import resource="mizar-datasource.xml" />
+	<import resource="mizar-job.xml" />
+
+</beans>

@@ -1,4 +1,5 @@
-﻿create table MIZAR_PARTNER(
+
+create table MIZAR_PARTNER(
   ID number,
   GMT_CREATED date, 
   GMT_MODIFIED date, 
@@ -36,20 +37,24 @@ create table  MIZAR_SRV_INPUT_PARAM (
 create sequence SEQ_MIZAR_SRV_INPUT_PARAM start with 1;
 
 
-create table mizar_service(
-      id number,
-			creater varchar2(255), 
-			gmt_created date, 
-			gmt_modified date,
-			service_name varchar2(255),
-			url varchar2(255),
-			invoke_inteface varchar2(255),
-			invoke_method varchar2(255),
-			version varchar2(255),
-			status varchar2(255),
-			is_validate_sign_in number,
-			is_endorse_sign_out number,
-			is_public number
+create table MIZAR_SERVICE
+(
+  ID                  NUMBER,
+  CREATER             VARCHAR2(255),
+  GMT_CREATED         DATE,
+  GMT_MODIFIED        DATE,
+  SERVICE_NAME        VARCHAR2(255),
+  URL                 VARCHAR2(255),
+  INVOKE_INTEFACE     VARCHAR2(255),
+  INVOKE_METHOD       VARCHAR2(255),
+  VERSION             VARCHAR2(255),
+  STATUS              VARCHAR2(255),
+  IS_VALIDATE_SIGN_IN NUMBER,
+  IS_ENDORSE_SIGN_OUT NUMBER,
+  IS_PUBLIC           NUMBER,
+  DESCRIPTION         VARCHAR2(512),
+  WEBSERVICEINTERFACE VARCHAR2(512),
+  WEBSERVICEMETHOD    VARCHAR2(512)
 );
 create sequence SEQ_mizar_service start with 1;
 

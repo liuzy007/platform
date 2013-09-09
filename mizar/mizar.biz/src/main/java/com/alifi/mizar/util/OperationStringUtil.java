@@ -25,7 +25,7 @@ public class OperationStringUtil {
     
     private static final Log	logger = LogFactory.getLog(OperationStringUtil.class);
     private static final String INPUT_CHARSET = "_input_charset";
-    private static final String DEFAULT_CHARSET = "GBK";
+    private static final String DEFAULT_CHARSET = "UTF-8";
 
 	/**
 	 * 解析queryString

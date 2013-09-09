@@ -1,32 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry excluding="**/*.java" including="**/*" kind="src" path="src/main/resources"/>
+	<classpathentry kind="src" output="target/classes" path="src/main/java"/>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources"/>
 	<classpathentry kind="src" output="target/test-classes" path="src/test/java"/>
-	<classpathentry excluding="**/*.java" including="**/*" kind="src" output="target/test-classes" path="src/test/resources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mizar.biz"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mizar.common"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mizar.dao"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/mizar.service"/>
-	<classpathentry kind="lib" path="/library/lib/commons-logging-1.1.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/galaxy.biz.model-1.0.2.jar"/>
-	<classpathentry kind="lib" path="/library/lib/galaxy.common.paging-1.1.0.jar"/>
-	<classpathentry kind="lib" path="/library/lib/galaxy.common.result-2.0.0.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jakarta.commons.chain-1.2.jar"/>
-	<classpathentry kind="lib" path="/library/lib/alipool-0.1.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/aliyun-openservices-1.0.10.jar"/>
-	<classpathentry kind="lib" path="/library/lib/signature.service-1.2.7-20130614.083421-1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/agds.scout.service-2.0.0.jar"/>
-	<classpathentry kind="lib" path="/library/lib/napoli.client-1.4.12.jar"/>
-	<classpathentry kind="lib" path="/library/lib/napoli.domain-1.4.7.jar"/>
-	<classpathentry kind="lib" path="/mizar/lib/apache.geronimo.j2ee-management-1.0.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/apache.geronimo.j2ee-management-1.0.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/jms-1.1.jar"/>
-	<classpathentry kind="lib" path="/library/lib/lang-1.0.jar"/>
-	<classpathentry kind="lib" path="/library/lib/junit-4.4.jar"/>
-	<classpathentry kind="lib" path="/library/lib/commons-lang-2.3.jar"/>
-	<classpathentry kind="lib" path="/library/lib/commons-codec-1.6.jar"/>
-	<classpathentry kind="lib" path="/library/lib/mockito-all-1.9.5.jar"/>
+	<classpathentry excluding="**" kind="src" output="target/test-classes" path="src/test/resources"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.m2e.MAVEN2_CLASSPATH_CONTAINER"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

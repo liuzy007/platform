@@ -7,6 +7,8 @@ import com.alifi.mizar.common.vo.GatewayInParam;
 
 public interface ServiceInputParamDao {
 
+    List<GatewayInParam> list();
+    
 	List<GatewayInParam> listByServiceId(int serviceId);
 	
 	int add(GatewayInParam inputParam);

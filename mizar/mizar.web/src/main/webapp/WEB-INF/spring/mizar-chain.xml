@@ -21,7 +21,8 @@ http://www.springframework.org/schema/util/spring-util-2.5.xsd">
 			</util:list>
 		</constructor-arg>
 	</bean>
- 	
+	
+	
  	<bean name="checkNecessaryParamsCommand" class="com.alifi.mizar.chain.CheckNecessaryParamsCommand">
 		<property name="necessaryParams">
 			<list>

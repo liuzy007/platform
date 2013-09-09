@@ -10,6 +10,23 @@
 		<param-value>mizar</param-value>
 	</context-param>
 
+	<filter>
+		<filter-name>encodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+	
+	<filter-mapping>
+		<filter-name>encodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
     <!-- 初始化日志系统
     <listener>
         <listener-class>com.alibaba.citrus.logconfig.LogConfiguratorListener</listener-class>
@@ -20,6 +37,7 @@
     <listener>
         <listener-class>com.alibaba.citrus.webx.context.WebxContextLoaderListener</listener-class>
     </listener>
+    
 	
 	<!-- dragoon监控listener 
 	<listener>
@@ -30,6 +48,7 @@
 		<listener-class>com.alibaba.dragoon.patrol.web.PatrolServletContextListener</listener-class>
 	</listener>
 
+	
     <filter>
         <filter-name>mdc</filter-name>
         <filter-class>com.alibaba.citrus.webx.servlet.SetLoggingContextFilter</filter-class>

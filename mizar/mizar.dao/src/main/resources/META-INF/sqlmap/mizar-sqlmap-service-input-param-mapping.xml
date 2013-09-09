@@ -60,6 +60,22 @@
 		ASC
     </select>
     
+    <select id="listParam" resultMap="GatewayInParam">
+		SELECT
+			msip.id,
+			msip.service_id,
+			msip.param_name,
+			msip.param_type,
+			msip.param_index,
+			msip.is_nullable
+		FROM 
+			mizar_srv_input_param msip
+		ORDER BY 
+			param_index 
+		ASC
+    </select>
+    
+    
     <delete id="deleteInputParamById" parameterClass="java.lang.Integer">
     	DELETE FROM 
     		mizar_srv_input_param

@@ -5,7 +5,7 @@
     <!--  以下是appender的定义                                                 -->
     <!-- ===================================================================== -->
     <appender name="PROJECT-DEBUG" class="org.apache.log4j.ConsoleAppender">
-        <param name="encoding" value="GBK"/>
+        <param name="encoding" value="UTF-8"/>
         <layout class="org.apache.log4j.PatternLayout">
             <param name="ConversionPattern" value="%5p %c{2} - %m%n"/>
         </layout>

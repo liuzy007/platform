@@ -43,6 +43,7 @@ $control.setTemplate("nav.vm").setParameter("active", "service")
 	<thead>
 	  <tr>
 		  <th>服务名</th>
+		  <th>描述</th>
 		  <th>调用接口</th>
 		  <th>调用方法</td>
 		  <th>调用版本</th>
@@ -58,6 +59,7 @@ $control.setTemplate("nav.vm").setParameter("active", "service")
     #foreach ($service in $paging.getPageElements())
 	  <tr dataid="$!service.id">
 		  <td><a href="servicesInfo.htm?service_id=$service.id">$service.serviceName</a></td>
+		  <td>$service.description</td>
 		  <td>$service.invokeInterface</td>
 		  <td>$service.invokeMethod</td>
 		  <td>$service.version</td>

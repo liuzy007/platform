@@ -32,7 +32,27 @@ $control.setTemplate("tab.vm").setParameter("tab", "view").setParameter("active"
                 </div>
                 
                 <div class="fm-item">
-                    <label class="fm-lab">调用接口类型：</label>
+                    <label class="fm-lab">描述：</label>
+                    <span class="fm-txt">$!serviceInfo.description</span>
+                </div>
+                
+                <div class="fm-item">
+                    <label class="fm-lab">SOAP服务接口：</label>
+                    <span class="fm-txt">$!serviceInfo.webserviceInterface</span>
+                </div>
+                
+                <div class="fm-item">
+                    <label class="fm-lab">SOAP服务方法：</label>
+                    <span class="fm-txt">$!serviceInfo.webserviceMethod</span>
+                </div>
+                
+                <div class="fm-item">
+                    <label class="fm-lab">SOAP转发连接：</label>
+                    <span class="fm-txt">$!serviceInfo.url</span>
+                </div>
+                
+                <div class="fm-item">
+                    <label class="fm-lab">内部调用接口：</label>
                     <span class="fm-txt">$!serviceInfo.invokeInterface</span>
                 </div>
                 

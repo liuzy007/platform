@@ -76,14 +76,14 @@
 	</group>
 
     <script>
-        <generate template="spring/mizar-dubbo.xml" destfile="WEB-INF/spring/mizar-dubbo.xml" charset="GBK" />
-        <generate template="spring/mizar-dubbo-reference.xml" destfile="WEB-INF/spring/mizar-dubbo-reference.xml" charset="GBK" />  
-        <generate template="spring/mizar-datasource.xml" destfile="WEB-INF/spring/mizar-datasource.xml" charset="GBK" />
-        <generate template="spring/mizar-beans.xml" destfile="WEB-INF/spring/mizar-beans.xml" charset="GBK"/>
-        <generate template="spring/mizar-dao.xml" destfile="WEB-INF/spring/mizar-dao.xml" charset="GBK"/>
-        <generate template="spring/mizar-biz.xml" destfile="WEB-INF/spring/mizar-biz.xml" charset="GBK"/>
-        <generate template="spring/mizar-service-local.xml" destfile="WEB-INF/spring/mizar-service-local.xml" charset="GBK"/> 
-        <generate template="spring/mizar-chain.xml" destfile="WEB-INF/spring/mizar-chain.xml" charset="GBK"/> 
+        <generate template="spring/mizar-dubbo.xml" destfile="WEB-INF/spring/mizar-dubbo.xml" charset="UTF-8" />
+        <generate template="spring/mizar-dubbo-reference.xml" destfile="WEB-INF/spring/mizar-dubbo-reference.xml" charset="UTF-8" />  
+        <generate template="spring/mizar-datasource.xml" destfile="WEB-INF/spring/mizar-datasource.xml" charset="UTF-8" />
+        <generate template="spring/mizar-beans.xml" destfile="WEB-INF/spring/mizar-beans.xml" charset="UTF-8"/>
+        <generate template="spring/mizar-dao.xml" destfile="WEB-INF/spring/mizar-dao.xml" charset="UTF-8"/>
+        <generate template="spring/mizar-biz.xml" destfile="WEB-INF/spring/mizar-biz.xml" charset="UTF-8"/>
+        <generate template="spring/mizar-service-local.xml" destfile="WEB-INF/spring/mizar-service-local.xml" charset="UTF-8"/> 
+        <generate template="spring/mizar-chain.xml" destfile="WEB-INF/spring/mizar-chain.xml" charset="UTF-8"/> 
         
         <generate template="log4j.dtd" destfile="WEB-INF/log4j.dtd" charset="UTF-8" /> 
         <generate template="log4j.xml" destfile="WEB-INF/log4j.xml" charset="UTF-8" />

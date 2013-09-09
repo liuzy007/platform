@@ -8,7 +8,9 @@
 		class="com.alifi.mizar.service.impl.AlipayNotificationHandleServiceImpl">
 		<property name="handlers">
 			<map>
+				<!-- 
 				<entry key="cash_notify_loan" value-ref="cashNotifyLoanHandler" />
+				 -->
 			</map>
 		</property>
 	</bean>
@@ -17,6 +19,6 @@
 	<bean id="gatewayUtil" class="com.alifi.mizar.util.GatewayUtil" />
 	<bean id="gatewayService.local" class="com.alifi.mizar.service.impl.GatewayServiceImpl" />
 	<bean id="uploadService.local" class="com.alifi.mizar.service.impl.UploadServiceImpl">
-		<property name="bucketName" value="${mizar_upload_oss_bucket}" />
+		<property name="bucketName" value="test" />
 	</bean>
 </beans>

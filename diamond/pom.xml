@@ -362,15 +362,15 @@
 
 	<distributionManagement>
         <repository>
-             <id>taocodeReleases</id>
-			 <name>taocode nexus</name>
-             <url>http://mvnrepo.code.taobao.org/nexus/content/repositories/releases/</url> 
-        </repository>
-        <snapshotRepository>
-              <id>taocodeSnapshots</id>
-			  <name>taocode nexus</name>
-              <url>http://mvnrepo.code.taobao.org/nexus/content/repositories/snapshots/</url>
-         </snapshotRepository>
+			<id>nexus releases</id>
+			<name>nexus releases</name>
+			<url>http://192.168.0.86:8081/nexus/content/repositories/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>nexus snapshots</id>
+			<name>nexus snapshots</name>
+			<url>http://192.168.0.86:8081/nexus/content/repositories/snapshots/</url>
+		</snapshotRepository>
 	</distributionManagement>
 
 </project>
