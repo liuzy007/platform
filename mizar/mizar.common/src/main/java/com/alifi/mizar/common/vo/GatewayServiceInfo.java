@@ -47,6 +47,8 @@ public class GatewayServiceInfo implements Serializable {
 
     private String webserviceMethod;
 
+    private String returnType = "String";
+
     /**
      * 版本号使用无符号整数标记，从1开始，每次加1
      */
@@ -236,6 +238,14 @@ public class GatewayServiceInfo implements Serializable {
 
     public void setWebserviceMethod(String webserviceMethod) {
         this.webserviceMethod = webserviceMethod;
+    }
+
+    public String getReturnType() {
+        return returnType;
+    }
+
+    public void setReturnType(String returnType) {
+        this.returnType = returnType;
     }
 
 }

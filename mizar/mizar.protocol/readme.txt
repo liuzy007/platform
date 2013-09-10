@@ -1,0 +1,1 @@
+在mizar根目录下，执行mvn clean package -Dmaven.test.skip

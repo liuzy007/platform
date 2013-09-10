@@ -5,6 +5,7 @@
 	
 	<bean id="monitorWebService" class="com.pktech.oal.job.MonitorWebService">
 		<property name="serviceDao" ref="serviceDao" />
+		<property name="serviceInputParamDao" ref="serviceInputParamDao" />
 	</bean>
     
 	<bean id="executeMonitorQuartzTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
