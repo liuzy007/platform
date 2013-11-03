@@ -10,7 +10,7 @@
     
 	<bean id="executeMonitorQuartzTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
 		<property name="jobDetail" ref="executeMonitorQuartzJob" />
-		<property name="cronExpression" value="0/15 * * * * ?" />
+		<property name="cronExpression" value="0/30 * * * * ?" />
 	</bean>
 
 	<bean id="executeMonitorQuartzJob" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">

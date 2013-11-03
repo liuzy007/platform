@@ -3,7 +3,8 @@
 	xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
 
-	<bean id="memCachedManager" class="com.alifi.mizar.manager.util.MemCachedManager" init-method="init">
+<!-- 
+	<bean id="memCachedManager_re" class="com.alifi.mizar.manager.util.MemCachedManager" init-method="init">
 		<property name="servers" value="${memcache.servers}" />
 		<property name="weights" value="1" />
 		<property name="failover" value="true" />
@@ -16,6 +17,13 @@
 		<property name="nagle" value="false" />
 		<property name="socketTO" value="3000" />
 		<property name="socketConnectTO" value="0" />
+	</bean>
+ -->
+	
+	<bean id="memCachedManager" class="com.alifi.mizar.manager.util.MapCache" init-method="init" destroy-method="destroy">
+		<property name="cacher">
+			<bean class="java.util.concurrent.ConcurrentHashMap" />
+		</property>
 	</bean>
 	
 	
