@@ -243,5 +243,9 @@
 			<artifactId>logkit</artifactId>
 			<version>1.0.1</version>
 		</dependency>
+		<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>jms</artifactId>
+		</dependency>
 	</dependencies>
 </project>
