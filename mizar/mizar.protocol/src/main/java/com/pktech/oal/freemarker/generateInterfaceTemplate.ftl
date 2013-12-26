@@ -13,7 +13,7 @@ public interface ${interfaceName} {
 		public <#if method.returnType ??> ${method.returnType} <#else> void </#if> ${method.name}(
 		<#if method.parameters ??>
 		<#list method.parameters as parameter>
-			${parameter.type} ${parameter.name} <#if parameter_has_next>,</#if>
+			@WebParam(name = "${parameter.name}") ${parameter.type} ${parameter.name} <#if parameter_has_next>,</#if>
 		</#list>
 		</#if>
 		);
