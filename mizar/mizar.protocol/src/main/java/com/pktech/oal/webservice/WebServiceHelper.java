@@ -1,6 +1,7 @@
 package com.pktech.oal.webservice;
 
 import org.apache.cxf.frontend.ServerFactoryBean;
+import org.apache.cxf.jaxws.JaxWsServerFactoryBean;
 import org.springframework.aop.framework.ProxyFactory;
 
 import com.pktech.oal.intercept.WebServiceIntercept;
@@ -14,8 +15,8 @@ public class WebServiceHelper {
         webServiceIntercept.setUrl(url);
         factory.addAdvice(webServiceIntercept);
         Object proxyObject = factory.getProxy();
-
-        ServerFactoryBean svrFactory = new ServerFactoryBean();
+        
+        ServerFactoryBean svrFactory = new JaxWsServerFactoryBean();
         svrFactory.setServiceClass(interfaceClass);
         svrFactory.setAddress("/" + interfaceClass.getSimpleName());
         svrFactory.setServiceBean(proxyObject);
